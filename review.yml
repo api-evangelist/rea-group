@@ -1,0 +1,84 @@
+aid: rea-group
+name: REA Group
+review:
+  question: Does REA Group expose a public, self-serve API, or is its developer surface partner-gated?
+  answer: partner-gated
+  date: '2026-07-20'
+  reviewer: API Evangelist
+  openapiHarvested: false
+  openapiScopeNote: |
+    REA Group's public API documentation is delivered through PropTrack's
+    developer portal (developer.proptrack.com.au), which is rendered by
+    Stoplight. The portal is publicly readable, but no OpenAPI/Swagger
+    document is publicly downloadable - the Stoplight project export is
+    gated (numeric project id 18203562583 is rejected by the public
+    Stoplight export API), and the rendered pages do not inline the spec.
+    No OpenAPI was harvested because none is publicly available; none was
+    fabricated.
+findings:
+  summary: |
+    REA Group Limited (ASX:REA) does not offer a public, self-serve API.
+    Its single public developer surface is the PropTrack developer portal
+    at developer.proptrack.com.au, which documents a suite of property data
+    APIs - Properties, Address (match/suggest), Valuations (AVM), Listings
+    (details/history/search-by-radius, plus sold transactions), and a Market
+    API (sale/rent/best-value insights and economic reports). The
+    documentation is readable without login, but the data endpoints are
+    partner-gated: the API base host https://data.proptrack.com/api/v2
+    returns HTTP 403 Access Denied without credentials, and authentication
+    is handled via REA Group's OAuth identity service
+    (api.id.realestate.com.au / auth-api.proptrack.com). Access requires a
+    commercial agreement; prospective users are directed to "speak to a
+    specialist" or request a trial. There is no separate public developer
+    portal for realestate.com.au (developer.realestate.com.au does not
+    resolve), realcommercial.com.au, or REA India (Housing.com / PropTiger).
+    A real REA Group engineering GitHub organization exists
+    (github.com/realestate-com-au) but publishes infrastructure tooling,
+    not consumer API SDKs.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://data.proptrack.com/api/v2
+      documented: true
+      note: Publicly documented on the PropTrack developer portal; endpoints return 403 Access Denied without partner credentials.
+    - protocol: OAuth
+      scheme: https
+      note: Authentication via REA Group identity (api.id.realestate.com.au/auth/authorize) and auth-api.proptrack.com. Not a data transport; access is gated behind a commercial partner agreement.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No streaming/WebSocket surface is documented.
+  accessModel: partner-gated
+  selfServeSignup: false
+  publicDocs: true
+  apiProductsDocumented:
+    - PropTrack Properties API (property data, property reports)
+    - PropTrack Address API (address match, address suggest, structured address match - coming soon)
+    - PropTrack Valuations API (Automated Valuation Model / AVM, valuations)
+    - PropTrack Listings API (listing details, listing history, listings search by point and radius, sold transactions search)
+    - PropTrack Market API (sale insights, rent insights, best value insights, economic reports)
+sources:
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+    note: PropTrack developer portal home (Stoplight-hosted). Publicly readable API documentation.
+  - url: https://www.proptrack.com.au/products/property-data-and-insights/apis/
+    type: Documentation
+    note: PropTrack Data & APIs marketing page enumerating the API product families and directing prospects to "speak to a specialist" or trial the APIs.
+  - url: https://data.proptrack.com/api/v2/
+    type: APIBaseURL
+    note: Confirmed live API base host; returns HTTP 403 Access Denied without partner credentials.
+  - url: https://github.com/realestate-com-au
+    type: GitHubOrganization
+    note: Real REA Group / realestate.com.au engineering GitHub org (73 repos); infrastructure tooling, not API SDKs.
+  - url: https://www.rea-group.com/
+    type: Website
+    note: REA Group corporate site describing brands - realestate.com.au, realcommercial.com.au, PropTrack, Mortgage Choice, REA India.
+actions:
+  openapiHarvested: false
+  reason: |
+    No publicly downloadable OpenAPI/Swagger document is available for REA
+    Group or PropTrack; the Stoplight-rendered docs do not expose the spec
+    and the project export is gated. Real product APIs are listed in
+    apis.yml with human documentation URLs and the verified partner-gated
+    base URL (https://data.proptrack.com/api/v2). No spec was fabricated.

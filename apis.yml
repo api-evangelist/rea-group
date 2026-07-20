@@ -1,0 +1,137 @@
+aid: rea-group
+url: https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/apis.yml
+name: REA Group
+kind: company
+description: REA Group Limited is an ASX-listed (ASX:REA) digital real estate advertising
+  business headquartered in Melbourne, Australia and majority-owned by News Corp. It
+  operates realestate.com.au and realcommercial.com.au, the property data and analytics
+  brand PropTrack, the Mortgage Choice broking network, and REA India (Housing.com,
+  PropTiger, and Makaan). REA Group's public developer surface is delivered through
+  PropTrack, whose developer portal documents a suite of property data APIs - address
+  matching, automated valuations (AVM), property and listing data, sold transactions,
+  and suburb-level market insights - sourced from Australia's largest real estate
+  portal. The APIs are documented publicly but are partner-gated; access requires a
+  commercial agreement, and the data endpoints are authenticated via REA Group's
+  OAuth identity service rather than being self-serve.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Real Estate
+- Property Data
+- Valuations
+- Market Insights
+- Listings
+- PropTech
+- Australia
+created: '2026-07-20'
+modified: '2026-07-20'
+specificationVersion: '0.19'
+apis:
+- aid: rea-group:proptrack-properties-api
+  name: PropTrack Properties API
+  tags:
+  - Property Data
+  - Property Reports
+  - Real Estate
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/property-data-apis/properties
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: https://developer.proptrack.com.au/docs/property-data-apis/properties
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  description: Retrieves data on a specific property - attributes, history, and property
+    reports - drawn from PropTrack's property dataset behind realestate.com.au. Access
+    is partner-gated and authenticated via REA Group OAuth.
+- aid: rea-group:proptrack-address-api
+  name: PropTrack Address API
+  tags:
+  - Address
+  - Geocoding
+  - Matching
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/property-data-apis/address
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: https://developer.proptrack.com.au/docs/property-data-apis/address
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  description: Address match and address suggest endpoints that resolve free-text or
+    partial addresses to canonical Australian property records, with structured address
+    match noted as coming soon. Partner-gated.
+- aid: rea-group:proptrack-valuations-api
+  name: PropTrack Valuations API (AVM)
+  tags:
+  - Valuations
+  - AVM
+  - Automated Valuation Model
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/apis/home
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  description: PropTrack's Automated Valuation Model (AVM) and valuation endpoints
+    return estimated property values and confidence ranges used across banking, broking,
+    and valuation workflows. Access is partner-gated and commercially licensed.
+- aid: rea-group:proptrack-listings-api
+  name: PropTrack Listings API
+  tags:
+  - Listings
+  - Search
+  - Real Estate
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/apis/branches/main/listings
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: https://developer.proptrack.com.au/docs/apis/branches/main/listings
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  description: Listing details, listing history, and listings search by point and
+    radius, plus sold transactions search by point and radius, exposing for-sale and
+    sold listing data from realestate.com.au. Partner-gated.
+- aid: rea-group:proptrack-market-api
+  name: PropTrack Market API
+  tags:
+  - Market Insights
+  - Analytics
+  - Suburb Trends
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/property-data-apis/market
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: https://developer.proptrack.com.au/docs/property-data-apis/market
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  description: Suburb-level market statistics including sale insights, rent insights,
+    best value insights, and economic reports for researching property market trends
+    across Australia. Partner-gated.
+common:
+- type: Website
+  url: https://www.rea-group.com/
+- type: Documentation
+  url: https://developer.proptrack.com.au/docs/apis/home
+- type: DeveloperPortal
+  url: https://developer.proptrack.com.au/
+- type: GitHubOrganization
+  url: https://github.com/realestate-com-au
+- type: LinkedIn
+  url: https://www.linkedin.com/company/rea-group/
+- type: X
+  url: https://twitter.com/REA_Group
+- type: YouTube
+  url: https://www.youtube.com/channel/UCfLcFXAN3pjad2aCzUNhUaA
+- type: Blog
+  url: https://www.rea-group.com/about-us/news-and-insights/
+- type: Support
+  url: https://www.proptrack.com.au/contact-us/
+- type: PrivacyPolicy
+  url: https://www.rea-group.com/privacy/
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
