@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/authentication
+docs: https://developer.proptrack.com.au/docs/apis/authentication
+summary:
+  types: [oauth2]
+  api_key_in: []
+  oauth2_flows: [clientCredentials]
+  notes: >-
+    PropTrack (REA Group) APIs are protected by OAuth 2.0 (the auth docs page is
+    titled "OAuth 2.0 | PropTrack APIs"). Access is partner-gated: a client is
+    issued credentials under a commercial agreement and exchanges them with the
+    REA Group OAuth identity service for a bearer access token used against
+    data.proptrack.com. The specific token endpoint URL and scope list are not
+    published on the public developer surface (partner onboarding material).
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: null
+    note: token endpoint issued to partners during onboarding; not public
+  sources: [https://developer.proptrack.com.au/docs/apis/authentication]

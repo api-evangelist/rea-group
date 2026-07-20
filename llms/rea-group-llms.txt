@@ -1,0 +1,33 @@
+# REA Group / PropTrack Property Data APIs
+
+> REA Group Limited (ASX:REA) is a Melbourne-based digital real estate advertising business (operator of realestate.com.au and realcommercial.com.au) majority-owned by News Corp. Its public developer surface is delivered through PropTrack, whose portal documents a suite of Australian property data APIs — address matching, automated valuations (AVM), property and listing data, sold transactions, and suburb-level market insights. The APIs are documented publicly but are partner-gated: access requires a commercial agreement and is authenticated via OAuth 2.0 against the REA Group identity service.
+
+## APIs
+
+- [PropTrack Properties API](https://developer.proptrack.com.au/docs/property-data-apis/properties): Property attributes, sale/listing history, and property reports for a specific property. Base: https://data.proptrack.com/api/v2
+- [PropTrack Address API](https://developer.proptrack.com.au/docs/property-data-apis/address): Address match and address suggest resolving free-text/partial addresses to canonical Australian property records (structured address match coming soon).
+- [PropTrack Valuations API (AVM)](https://developer.proptrack.com.au/docs/apis/home): Automated Valuation Model estimates and confidence ranges for banking, broking, and valuation workflows.
+- [PropTrack Listings API](https://developer.proptrack.com.au/docs/apis/branches/main/listings): Listing details, listing history, listings search by point and radius, and sold-transactions search by point and radius.
+- [PropTrack Market API](https://developer.proptrack.com.au/docs/property-data-apis/market): Suburb-level market statistics — sale insights, rent insights, best-value insights, supply & demand, and economic reports.
+
+## Authentication
+
+- [OAuth 2.0](https://developer.proptrack.com.au/docs/apis/authentication): Partner-gated. Credentials issued under a commercial agreement; exchange for a bearer access token used against data.proptrack.com. See authentication/rea-group-authentication.yml.
+
+## Docs
+
+- [Developer Portal](https://developer.proptrack.com.au/)
+- [API Documentation Home](https://developer.proptrack.com.au/docs/apis/home)
+- [Property Data APIs (marketing)](https://www.proptrack.com.au/property-data/property-data-apis/)
+
+## Security
+
+- [security.txt](https://www.rea-group.com/.well-known/security.txt)
+- [Security / vulnerability disclosure policy](https://www.rea-group.com/security)
+- [Responsible disclosure hall of fame](https://www.rea-group.com/about-us/news-and-insights/blog/responsible-vulnerability-disclosure-program-hall-of-fame/)
+
+## Company
+
+- [REA Group](https://www.rea-group.com/)
+- [Blog / News & Insights](https://www.rea-group.com/about-us/news-and-insights/)
+- [GitHub (realestate.com.au)](https://github.com/realestate-com-au)

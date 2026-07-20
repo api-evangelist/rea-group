@@ -1,0 +1,36 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of REA Group / PropTrack hosts
+notes: >-
+  The PropTrack API host (data.proptrack.com) sits behind a WAF and returns 403
+  for all /.well-known/ paths; the developer portal (developer.proptrack.com.au)
+  returns 404. A valid RFC 9116 security.txt is published at the REA Group and
+  PropTrack corporate domains (saved verbatim as rea-group-security.txt).
+hosts:
+- host: https://www.rea-group.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: rea-group-security.txt
+- host: https://www.proptrack.com.au
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: rea-group-security.txt
+    notes: identical policy/contact; served UTF-16 (same content as rea-group-security.txt)
+- host: https://developer.proptrack.com.au
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://data.proptrack.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+  - path: /.well-known/openid-configuration
+    status: 403
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+  - path: /.well-known/api-catalog
+    status: 403

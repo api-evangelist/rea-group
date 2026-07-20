@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/home
+authentication:
+  style: oauth2-bearer
+  detail: >-
+    OAuth 2.0 access token presented as a bearer token; credentials issued to
+    partners under a commercial agreement. See authentication/rea-group-authentication.yml
+versioning:
+  style: uri-path
+  current: v2
+  detail: endpoints served under https://data.proptrack.com/api/v2
+pagination:
+  style: unknown
+  detail: >-
+    Several search endpoints (listings, sold transactions) accept point + radius
+    geospatial parameters; the public docs do not document a cursor/offset
+    pagination contract.
+idempotency:
+  supported: false
+  detail: no idempotency-key header or idempotency contract documented publicly
+error_envelope:
+  style: unknown
+  detail: no public OpenAPI/error reference to confirm the error envelope shape
+rate_limiting:
+  signaled: unknown
+  detail: no rate-limit headers or quota policy documented on the public surface
+cross_links:
+  authentication: authentication/rea-group-authentication.yml
+  lifecycle: lifecycle/rea-group-lifecycle.yml
+  security: security/rea-group-domain-security.yml

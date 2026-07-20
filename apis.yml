@@ -23,7 +23,7 @@ tags:
 - PropTech
 - Australia
 created: '2026-07-20'
-modified: '2026-07-20'
+modified: '2026-07-20T12:00:00Z'
 specificationVersion: '0.19'
 apis:
 - aid: rea-group:proptrack-properties-api
@@ -128,10 +128,32 @@ common:
   url: https://www.youtube.com/channel/UCfLcFXAN3pjad2aCzUNhUaA
 - type: Blog
   url: https://www.rea-group.com/about-us/news-and-insights/
+- type: APIReference
+  url: https://developer.proptrack.com.au/docs/apis/home
 - type: Support
   url: https://www.proptrack.com.au/contact-us/
 - type: PrivacyPolicy
   url: https://www.rea-group.com/privacy/
+- type: Authentication
+  url: authentication/rea-group-authentication.yml
+- type: Conventions
+  url: conventions/rea-group-conventions.yml
+- type: Conformance
+  url: conformance/rea-group-conformance.yml
+- type: Lifecycle
+  url: lifecycle/rea-group-lifecycle.yml
+- type: WellKnown
+  url: well-known/rea-group-well-known.yml
+- type: SecurityTxt
+  url: well-known/rea-group-security.txt
+- type: DomainSecurity
+  url: security/rea-group-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/rea-group-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.rea-group.com/security
+- type: LLMsTxt
+  url: llms/rea-group-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

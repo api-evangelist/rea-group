@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/home
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://developer.proptrack.com.au/docs/apis/home
+  evidence: production base URL is https://data.proptrack.com/api/v2
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: no public deprecation policy or RFC 8594 Sunset/Deprecation header documentation found
+sla:
+  url: null
+  uptime_target: null
+  note: access is under a commercial/partner agreement; no public SLA page
+status_page: null
+deprecated_operations: []

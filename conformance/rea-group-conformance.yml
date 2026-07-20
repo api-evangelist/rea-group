@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/authentication
+standards:
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Developer docs publish an "OAuth 2.0" authentication page; access tokens are
+    issued by the REA Group OAuth identity service and presented as bearer tokens.
+- id: oidc
+  conforms: false
+  evidence: no OpenID Connect discovery document exposed on public hosts
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no public OpenAPI to confirm application/problem+json error envelope
+- id: rest-json
+  conforms: true
+  evidence: >-
+    JSON REST endpoints under https://data.proptrack.com/api/v2 with URI-path
+    versioning (v2).
