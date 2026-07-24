@@ -12,18 +12,40 @@ description: REA Group Limited is an ASX-listed (ASX:REA) digital real estate ad
   and suburb-level market insights - sourced from Australia's largest real estate
   portal. The APIs are documented publicly but are partner-gated; access requires a
   commercial agreement, and the data endpoints are authenticated via REA Group's
-  OAuth identity service rather than being self-serve.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  OAuth identity service rather than being self-serve. Alongside PropTrack, REA Group
+  runs the realestate.com.au Partner Portal (partner.realestate.com.au), the
+  integration surface for real estate agencies and their CRM / software providers to
+  publish for-sale and for-rent listings onto realestate.com.au and realcommercial.com.au
+  and to receive buyer and renter enquiries. Listing distribution uses REAXML, REA's
+  long-standing industry-standard XML property feed (schema published at
+  reaxml.realestate.com.au), which the majority of Australian agency CRMs implement,
+  with partner onboarding, API credentials (Client ID + secret) and enquiry delivery
+  managed through the partner portal.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rea-group.png
 tags:
 - Real Estate
 - Property Data
 - Valuations
 - Market Insights
 - Listings
+- REAXML
+- Partner Portal
 - PropTech
 - Australia
 created: '2026-07-20'
-modified: '2026-07-20T12:00:00Z'
+modified: '2026-07-24T14:00:00Z'
 specificationVersion: '0.19'
 apis:
 - aid: rea-group:proptrack-properties-api
@@ -111,6 +133,49 @@ apis:
   description: Suburb-level market statistics including sale insights, rent insights,
     best value insights, and economic reports for researching property market trends
     across Australia. Partner-gated.
+- aid: rea-group:realestate-listing-feed-reaxml
+  name: realestate.com.au Listing Feed (REAXML)
+  tags:
+  - Listings
+  - Feed
+  - REAXML
+  - Real Estate
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://partner.realestate.com.au/
+  baseURL: https://reaxml.realestate.com.au
+  properties:
+  - url: https://partner.realestate.com.au/
+    type: DeveloperPortal
+  - url: https://reaxml.realestate.com.au/propertyList.dtd
+    type: Schema
+  description: REA Group's REAXML listing feed - the long-standing industry-standard
+    XML property schema used by Australian agency CRMs to publish residential and
+    commercial for-sale and for-rent listings onto realestate.com.au and
+    realcommercial.com.au. Registered data/interconnect providers upload listing
+    payloads (create/update/withdraw/sold) validated against the published propertyList
+    DTD. Access is gated through the realestate.com.au Partner Portal and requires an
+    approved uploader agreement with API credentials (Client ID + secret).
+- aid: rea-group:realestate-partner-portal
+  name: realestate.com.au Partner Portal
+  tags:
+  - Partner
+  - Onboarding
+  - Enquiries
+  - Real Estate
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://partner.realestate.com.au/
+  baseURL: https://partner.realestate.com.au
+  properties:
+  - url: https://partner.realestate.com.au/
+    type: DeveloperPortal
+  description: The realestate.com.au Partner Portal is REA Group's integration surface
+    for agencies and their software / CRM providers - covering partner onboarding, API
+    credential management (Client ID + API secret key issued in the REA Portal), listing
+    distribution configuration, and delivery of buyer and renter enquiries and leads
+    back to partner systems. Authenticated via REA Group's OAuth identity service;
+    access is partner-gated and requires an approved commercial agreement.
 common:
 - type: Website
   url: https://www.rea-group.com/
@@ -118,6 +183,10 @@ common:
   url: https://developer.proptrack.com.au/docs/apis/home
 - type: DeveloperPortal
   url: https://developer.proptrack.com.au/
+- type: PartnerPortal
+  url: https://partner.realestate.com.au/
+- type: Schema
+  url: https://reaxml.realestate.com.au/propertyList.dtd
 - type: GitHubOrganization
   url: https://github.com/realestate-com-au
 - type: LinkedIn
@@ -134,6 +203,8 @@ common:
   url: https://www.proptrack.com.au/contact-us/
 - type: PrivacyPolicy
   url: https://www.rea-group.com/privacy/
+- type: TermsOfService
+  url: https://www.proptrack.com.au/terms/
 - type: Authentication
   url: authentication/rea-group-authentication.yml
 - type: Conventions
@@ -157,3 +228,8 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-07-24'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
