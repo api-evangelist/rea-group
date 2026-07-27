@@ -1,0 +1,368 @@
+generated: '2026-07-27'
+method: generated
+source: openapi/rea-group-address-openapi.yml, openapi/rea-group-coming-soon-openapi.yml, openapi/rea-group-disclaimers-openapi.yml,
+  openapi/rea-group-listings-openapi.yml, openapi/rea-group-market-openapi.yml, openapi/rea-group-oauth-openapi.yml,
+  openapi/rea-group-properties-openapi.yml, openapi/rea-group-reports-openapi.yml, openapi/rea-group-transactions-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 32
+  by_action_class:
+    connected: 27
+    acting: 5
+  by_consequence:
+    read: 27
+    write: 5
+  human_in_the_loop_required: 0
+operations:
+- path: /api/v2/address/match
+  method: get
+  operationId: address.match
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/address/suggest
+  method: get
+  operationId: address.suggest
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/{propertyId}/nearby-education-facilities
+  method: get
+  operationId: get-api-v2-properties-propertyId-nearby-education-facilities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/disclaimers
+  method: get
+  operationId: get-api-v1-disclaimers
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/listings/{listingId}
+  method: get
+  operationId: listings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/listings/search/point-and-radius
+  method: get
+  operationId: listings-point-and-radius-search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/listings/search/suburb-and-postcode
+  method: get
+  operationId: get-api-v2-listings-search-suburb-and-postcode
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/market/auctions
+  method: get
+  operationId: get-api-v2-market-auctions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/market/rent/historic/{metric}
+  method: get
+  operationId: market.rent-history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/market/sale/historic/{metric}
+  method: get
+  operationId: market.sale-history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/market/supply-and-demand/{metric}
+  method: get
+  operationId: market.supply-and-demand
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/market/demographics
+  method: get
+  operationId: /api/v2/market/demographics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oauth2/token
+  method: post
+  operationId: auth-token
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/properties/{propertyId}/summary
+  method: get
+  operationId: get-v2-summary
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/{propertyId}/attributes
+  method: get
+  operationId: properties-attributes
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/{propertyId}/listings
+  method: get
+  operationId: listings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/{propertyId}/planning
+  method: get
+  operationId: get-api-v2-properties-planning
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/{propertyId}/tenureType
+  method: get
+  operationId: get-api-v2-properties-tenure
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/{propertyId}/transactions
+  method: get
+  operationId: transactions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/properties/valuations/sale
+  method: post
+  operationId: v1-properties-valuation-sale
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
+  method: get
+  operationId: avm-propertyId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
+  method: get
+  operationId: avm-propertyId-enquiry
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/properties/valuations/sale ~ requestType=plus
+  method: post
+  operationId: v1-properties-valuation-sale-plus
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
+  method: get
+  operationId: avm-propertyId-plus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/properties/valuations/sale ~ Pro
+  method: post
+  operationId: v1-properties-valuation-sale-pro
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
+  method: get
+  operationId: avm-propertyId-pro
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/summaries/search
+  method: get
+  operationId: get-api-v2-properties-summaries-search
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/properties/geopoints/search
+  method: get
+  operationId: get-api-v2-properties-geopoints-pins
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/reports/valuations/{valuationId}/pdf
+  method: get
+  operationId: reports-valuations-pdf
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v1/reports/property
+  method: post
+  operationId: reports-property-report
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /api/v2/transactions/search/point-and-radius
+  method: get
+  operationId: get-transactions-propertyId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /api/v2/transactions/search/suburb-and-postcode
+  method: get
+  operationId: get-transactions-propertyId-suburb
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

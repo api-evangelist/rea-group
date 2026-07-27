@@ -1,0 +1,72 @@
+generated: '2026-07-27'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/api-trials
+pricing_model: contract
+public_pricing: false
+detail: >-
+  PropTrack publishes no rate card. Access to every endpoint is arranged
+  commercially through an Account Manager, and both trial and paid access are
+  provisioned per agreement. What IS published is the structure of the trial and
+  the mechanics of the quota, captured below.
+plans:
+- name: Trial
+  slug: trial
+  type: trial
+  public_price: null
+  detail: >-
+    Time-boxed and quota-boxed evaluation access to any subset of endpoints agreed
+    with an Account Manager. The trial ends when either the quota is exhausted or
+    the expiry date is reached, whichever comes first.
+  limits:
+    quota: per-endpoint request allocation set commercially
+    quota_counts_failures: true
+    expiry: fixed date set by the Account Manager
+    rate_limit: same per-endpoint rolling-window limits as paid access
+  data_restrictions:
+  - scope: Victoria
+    object: Transactions
+    endpoints: [Properties/Summary, Properties/Transactions, Transactions/Point & Radius Search]
+    restricted: Transactions sourced from the Victorian Valuer-General are withheld
+    available: Recent agent-advised transactions
+  - scope: Victoria
+    object: Transactions
+    endpoints: [Market/Sale History]
+    restricted: No data served for this endpoint
+    available: none
+  - scope: Victoria
+    object: Attributes
+    endpoints: [Properties/Summary, Properties/Attributes]
+    restricted: >-
+      Bedroom, Land Area and Property Type coverage reduced; Land Use
+      Classification withheld
+    available: All other attributes
+  data_restrictions_note: >-
+    Response schemas are unchanged by these restrictions, and properties outside
+    Victoria are unaffected. Some data sources require explicit approval of the
+    partner's use case before full access is granted.
+  terms: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  signup: https://www.proptrack.com.au/contact-us
+- name: Paid
+  slug: paid
+  type: commercial
+  public_price: null
+  detail: >-
+    Ongoing commercial access. The documentation states that "various paid plans"
+    exist and directs prospects to Sales for pricing, available features and
+    support options; no plan names, tiers or prices are published.
+  signup: https://www.proptrack.com.au/contact-us
+onboarding:
+  self_serve: false
+  steps:
+  - Contact Sales to arrange trial access to the endpoints required
+  - Account Manager issues api_key and api_secret plus quota and expiry
+  - Accept the PropTrack Trial & Evaluation License Terms
+  - Exchange credentials at /oauth2/token for a JWT bearer token
+  - Transition to a paid agreement through Sales
+gaps:
+- No published price, tier list or plan comparison
+- No self-serve signup or instant API key
+cross_links:
+  rate_limits: rate-limits/rea-group-rate-limits.yml
+  authentication: authentication/rea-group-authentication.yml
+  sandbox: sandbox/rea-group-sandbox.yml

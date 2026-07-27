@@ -1,0 +1,112 @@
+generated: '2026-07-27'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/rate-limits
+enforcement:
+  model: rolling-window
+  window_seconds: 1
+  scope: per-endpoint
+  detail: >-
+    A sliding one-second window per endpoint. On each request, expired requests
+    from the previous interval are evicted and the count updated; the window
+    resets continuously rather than on a fixed boundary.
+  headers_exposed: false
+  headers_note: >-
+    No RateLimit or X-RateLimit response headers are documented. A client cannot
+    observe remaining budget - the only signal is the 429 after the limit is hit.
+violation:
+  http_status: 429
+  error_code: 9011
+  body: >-
+    {"errors":[{"code":9011,"description":"Rate limit has been exceeded - Please
+    try again shortly"}]}
+quota:
+  model: per-endpoint request allocation
+  applies_to: trial and paid agreements
+  http_status: 429
+  error_code: 9011
+  body: >-
+    {"errors":[{"code":9011,"description":"Quota limit has been reached - Please
+    contact our customer support team at support@proptrack.com for further
+    information"}]}
+  detail: >-
+    Distinct from the per-second rate limit: a total request allocation per
+    endpoint set commercially. Both successful and failed requests count toward
+    it. Rate-limit and quota exhaustion share HTTP 429 and error code 9011 and are
+    distinguishable only by the description text.
+  docs: https://developer.proptrack.com.au/docs/apis/api-trials
+rate_limits:
+- endpoint: Address/Match
+  operation: openapi/rea-group-address-openapi.yml#address.match
+  limit_count: 50
+  limit_period: second
+- endpoint: Address/Suggest
+  operation: openapi/rea-group-address-openapi.yml#address.suggest
+  limit_count: 50
+  limit_period: second
+- endpoint: Listings/{listingId}
+  operation: openapi/rea-group-listings-openapi.yml#listings
+  limit_count: 50
+  limit_period: second
+- endpoint: Listings/search/point-and-radius
+  operation: openapi/rea-group-listings-openapi.yml#listings-point-and-radius-search
+  limit_count: 50
+  limit_period: second
+- endpoint: Market/Rent History
+  operation: openapi/rea-group-market-openapi.yml#market.rent-history
+  limit_count: 50
+  limit_period: second
+- endpoint: Market/Sale History
+  operation: openapi/rea-group-market-openapi.yml#market.sale-history
+  limit_count: 50
+  limit_period: second
+- endpoint: Market/Supply & Demand
+  operation: openapi/rea-group-market-openapi.yml#market.supply-and-demand
+  limit_count: 50
+  limit_period: second
+- endpoint: Market/Auction Results
+  operation: openapi/rea-group-market-openapi.yml#get-api-v2-market-auctions
+  limit_count: 50
+  limit_period: second
+- endpoint: Properties/Listings
+  operation: openapi/rea-group-properties-openapi.yml#listings
+  limit_count: 50
+  limit_period: second
+- endpoint: Properties/Transactions
+  operation: openapi/rea-group-properties-openapi.yml#transactions
+  limit_count: 50
+  limit_period: second
+- endpoint: Properties/Attributes
+  operation: openapi/rea-group-properties-openapi.yml#properties-attributes
+  limit_count: 50
+  limit_period: second
+- endpoint: Properties/Valuations/Sale
+  operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale
+  limit_count: 25
+  limit_period: second
+- endpoint: Properties/{propertyId}/Valuations/Sale
+  operation: openapi/rea-group-properties-openapi.yml#avm-propertyId
+  limit_count: 25
+  limit_period: second
+- endpoint: Reports/AVM/PDF
+  operation: openapi/rea-group-reports-openapi.yml#reports-valuations-pdf
+  limit_count: 25
+  limit_period: second
+- endpoint: Reports/Property
+  operation: openapi/rea-group-reports-openapi.yml#reports-property-report
+  limit_count: 25
+  limit_period: second
+- endpoint: Transactions/Search/Point & Radius
+  operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId
+  limit_count: 50
+  limit_period: second
+tiers:
+  read_endpoints: 50 requests per second
+  valuation_and_report_endpoints: 25 requests per second
+  note: >-
+    The published table covers 16 of the 32 operations. Endpoints not listed
+    (suburb-and-postcode searches, demographics, planning, tenure type, summary,
+    property search, disclaimers) have no published limit.
+cross_links:
+  errors: errors/rea-group-error-codes.yml
+  conventions: conventions/rea-group-conventions.yml
+  plans: plans/rea-group-plans.yml

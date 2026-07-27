@@ -1,24 +1,63 @@
-# REA Group / PropTrack Property Data APIs
+# REA Group / PropTrack
 
-> REA Group Limited (ASX:REA) is a Melbourne-based digital real estate advertising business (operator of realestate.com.au and realcommercial.com.au) majority-owned by News Corp. Its public developer surface is delivered through PropTrack, whose portal documents a suite of Australian property data APIs — address matching, automated valuations (AVM), property and listing data, sold transactions, and suburb-level market insights. The APIs are documented publicly but are partner-gated: access requires a commercial agreement and is authenticated via OAuth 2.0 against the REA Group identity service.
+> REA Group Limited (ASX:REA) operates realestate.com.au, realcommercial.com.au and
+> the property data brand PropTrack. Its public API surface is the PropTrack
+> Property Data APIs — nine OpenAPI 3.1 services, 32 operations, covering address
+> matching, property attributes and history, listings, sold transactions, automated
+> valuations (AVM), PDF reports and suburb-level market analytics for Australia.
+> Access is partner-gated (OAuth 2.0 client credentials under a commercial
+> agreement), but every service publishes a live, unauthenticated mock server.
+
+## Getting started
+
+- [Developer portal](https://developer.proptrack.com.au/): PropTrack API documentation home
+- [How to authenticate](https://developer.proptrack.com.au/docs/apis/how-to-authenticate): OAuth 2.0 client credentials, Basic-authenticated token request, 1-hour JWT
+- [API guide](https://developer.proptrack.com.au/docs/apis/guide): the full API reference
+- [API trials](https://developer.proptrack.com.au/docs/apis/api-trials): quota, expiry and trial data restrictions
+- [Terms of use](https://developer.proptrack.com.au/docs/apis/terms-of-use): PropTrack Trial & Evaluation License Terms
+- [Contact sales](https://www.proptrack.com.au/contact-us): the only route to credentials — there is no self-serve signup
 
 ## APIs
 
-- [PropTrack Properties API](https://developer.proptrack.com.au/docs/property-data-apis/properties): Property attributes, sale/listing history, and property reports for a specific property. Base: https://data.proptrack.com/api/v2
-- [PropTrack Address API](https://developer.proptrack.com.au/docs/property-data-apis/address): Address match and address suggest resolving free-text/partial addresses to canonical Australian property records (structured address match coming soon).
-- [PropTrack Valuations API (AVM)](https://developer.proptrack.com.au/docs/apis/home): Automated Valuation Model estimates and confidence ranges for banking, broking, and valuation workflows.
-- [PropTrack Listings API](https://developer.proptrack.com.au/docs/apis/branches/main/listings): Listing details, listing history, listings search by point and radius, and sold-transactions search by point and radius.
-- [PropTrack Market API](https://developer.proptrack.com.au/docs/property-data-apis/market): Suburb-level market statistics — sale insights, rent insights, best-value insights, supply & demand, and economic reports.
+- [OAuth 2.0 Token API](https://developer.proptrack.com.au/docs/apis/how-to-authenticate): POST /oauth2/token, client credentials to JWT bearer
+- [Address API](https://developer.proptrack.com.au/docs/apis/address): match and suggest — resolve free-text addresses to propertyId
+- [Properties API](https://developer.proptrack.com.au/docs/apis/properties): summary, attributes, listings, transactions, planning, tenure, search, and the AVM valuation surface
+- [Listings API](https://developer.proptrack.com.au/docs/apis/listings): listing by id, point-and-radius and suburb-and-postcode search
+- [Transactions API](https://developer.proptrack.com.au/docs/apis/transactions): sold transaction search by geography
+- [Market API](https://developer.proptrack.com.au/docs/apis/market): sale and rent history, supply and demand, auctions, demographics
+- [Reports API](https://developer.proptrack.com.au/docs/apis/reports): AVM PDF report and property report
+- [Disclaimers API](https://developer.proptrack.com.au/docs/apis/disclaimersbranding): the attribution text PropTrack requires alongside its data
+- [Upcoming APIs](https://developer.proptrack.com.au/docs/apis/coming-soon): nearby education facilities, documented ahead of release
 
-## Authentication
+## Specs
 
-- [OAuth 2.0](https://developer.proptrack.com.au/docs/apis/authentication): Partner-gated. Credentials issued under a commercial agreement; exchange for a bearer access token used against data.proptrack.com. See authentication/rea-group-authentication.yml.
+- [OAuth OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-oauth-openapi.yml): OpenAPI 3.1.0, 1 operation
+- [Address OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-address-openapi.yml): OpenAPI 3.1.0, 2 operations
+- [Properties OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-properties-openapi.yml): OpenAPI 3.1.0, 15 operations
+- [Listings OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-listings-openapi.yml): OpenAPI 3.1.0, 3 operations
+- [Transactions OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-transactions-openapi.yml): OpenAPI 3.1.0, 2 operations
+- [Market OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-market-openapi.yml): OpenAPI 3.1.0, 5 operations
+- [Reports OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-reports-openapi.yml): OpenAPI 3.1.0, 2 operations
+- [Disclaimers OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-disclaimers-openapi.yml): OpenAPI 3.1.0, 1 operation
+- [Coming Soon OpenAPI](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/openapi/rea-group-coming-soon-openapi.yml): OpenAPI 3.1.0, 1 operation
+- [REAXML propertyList DTD](https://reaxml.realestate.com.au/propertyList.dtd): REA Group's XML listing-feed schema, the de facto Australian standard
 
-## Docs
+## Operating rules
 
-- [Developer Portal](https://developer.proptrack.com.au/)
-- [API Documentation Home](https://developer.proptrack.com.au/docs/apis/home)
-- [Property Data APIs (marketing)](https://www.proptrack.com.au/property-data/property-data-apis/)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/authentication/rea-group-authentication.yml): OAuth 2.0 client credentials, tokenUrl https://data.proptrack.com/oauth2/token, 3600s JWT
+- [API conventions](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/conventions/rea-group-conventions.yml): cursor pagination, error envelope, X-Transaction-Id tracing, no idempotency
+- [Error codes](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/errors/rea-group-error-codes.yml): 18 codes — 7xxx validation, 9xxx platform
+- [Rate limits](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/rate-limits/rea-group-rate-limits.yml): 50 rps reads, 25 rps valuations and reports, rolling one-second window
+- [Plans](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/plans/rea-group-plans.yml): trial quota and expiry, Victoria data restrictions, contract pricing
+- [Sandbox](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/sandbox/rea-group-sandbox.yml): nine live unauthenticated Stoplight mock servers
+- [Data model](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/data-model/rea-group-data-model.yml): the address → propertyId → listings/transactions/valuations spine
+- [Examples](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/examples/rea-group-examples.yml): 189 named response examples indexed per operation
+
+## For agents
+
+- [Agent skills](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/skills/_index.yml): three packaged flows — resolve an address, order a valuation, search listings and market
+- [Agentic access](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/agentic-access/rea-group-agentic-access.yml): recommended x-agentic-access contracts for all 32 operations
+- [MCP candidate](https://raw.githubusercontent.com/api-evangelist/rea-group/refs/heads/main/mcp/rea-group-mcp.yml): candidate tool surface derived from the OpenAPI. PropTrack publishes no MCP server.
 
 ## Security
 
@@ -26,8 +65,10 @@
 - [Security / vulnerability disclosure policy](https://www.rea-group.com/security)
 - [Responsible disclosure hall of fame](https://www.rea-group.com/about-us/news-and-insights/blog/responsible-vulnerability-disclosure-program-hall-of-fame/)
 
-## Company
+## Optional
 
-- [REA Group](https://www.rea-group.com/)
-- [Blog / News & Insights](https://www.rea-group.com/about-us/news-and-insights/)
+- [REA Group corporate](https://www.rea-group.com/): ASX:REA investor and corporate site
+- [realestate.com.au Partner Portal](https://partner.realestate.com.au/): agency and CRM listing distribution, REAXML upload, enquiry delivery
+- [PropTrack](https://www.proptrack.com.au/): the property data and analytics brand behind the APIs
 - [GitHub (realestate.com.au)](https://github.com/realestate-com-au)
+- [Support](https://www.proptrack.com.au/support/contact-support/): quote the X-Transaction-Id response header when raising an issue

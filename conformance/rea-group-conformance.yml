@@ -1,20 +1,86 @@
-generated: '2026-07-20'
-method: searched
-source: https://developer.proptrack.com.au/docs/apis/authentication
+generated: '2026-07-27'
+method: derived
+source: openapi/ + https://developer.proptrack.com.au/docs/apis/
 standards:
-- id: oauth2
+- id: openapi-3.1
   conforms: true
   evidence: >-
-    Developer docs publish an "OAuth 2.0" authentication page; access tokens are
-    issued by the REA Group OAuth identity service and presented as bearer tokens.
+    All nine published service documents declare openapi: 3.1.0 and are exported
+    from the provider's own Stoplight workspace.
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: >-
+    RFC 6749 client credentials grant. POST https://data.proptrack.com/oauth2/token
+    with grant_type=client_credentials and client_secret_basic authentication,
+    returning access_token / token_type / expires_in.
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: >-
+    JWT access token presented as "Authorization: Bearer <token>" on every data
+    endpoint, with a 3600 second TTL.
 - id: oidc
   conforms: false
-  evidence: no OpenID Connect discovery document exposed on public hosts
+  evidence: >-
+    No OpenID Connect discovery document on data.proptrack.com or
+    developer.proptrack.com.au. Machine-to-machine only; no user identity flow.
 - id: rfc9457-problem-details
   conforms: false
-  evidence: no public OpenAPI to confirm application/problem+json error envelope
+  evidence: >-
+    Errors are a proprietary application/json errors[] array with integer codes,
+    not application/problem+json. See errors/rea-group-error-codes.yml.
+- id: rfc6585-429
+  conforms: true
+  evidence: >-
+    HTTP 429 returned on rate-limit and quota exhaustion with error code 9011.
+- id: rfc9110-rate-limit-headers
+  conforms: false
+  evidence: >-
+    No RateLimit or X-RateLimit response headers documented; limits are published
+    as prose only.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: no Sunset or Deprecation header support and no deprecation policy published
 - id: rest-json
   conforms: true
   evidence: >-
-    JSON REST endpoints under https://data.proptrack.com/api/v2 with URI-path
-    versioning (v2).
+    Resource-oriented JSON over HTTPS with URI-path versioning (v1 and v2 served
+    concurrently from https://data.proptrack.com).
+- id: cursor-pagination
+  conforms: true
+  evidence: >-
+    Opaque bidirectional cursors (afterPageCursor / beforePageCursor) with pageSize
+    defaulting to 25 and capped at 200. See conventions/rea-group-conventions.yml.
+- id: reso-web-api
+  conforms: false
+  evidence: >-
+    PropTrack is not an MLS data source and does not implement the RESO Web API or
+    the RESO Data Dictionary. Australia has no MLS and no NAR-equivalent mandate;
+    REA Group's own REAXML DTD is the de facto national listing-distribution
+    schema instead. This is the defining structural difference between the
+    Australian and US real estate data markets.
+- id: reaxml
+  conforms: true
+  evidence: >-
+    REA Group publishes the REAXML propertyList DTD at
+    https://reaxml.realestate.com.au/propertyList.dtd, the schema the majority of
+    Australian agency CRMs implement to publish listings. It is a separate surface
+    from the PropTrack REST APIs - XML feed upload through the Partner Portal, not
+    a JSON API.
+  note: >-
+    This is the standard REA Group authors rather than one it adopts, which is the
+    honest reading of its position in the market.
+- id: iso-8601
+  conforms: true
+  evidence: date and dateTime fields across listings, transactions and market history
+compliance_program:
+  published: false
+  note: >-
+    No trust centre, SOC 2 / ISO 27001 attestation page, or compliance programme is
+    published on proptrack.com.au or rea-group.com. Because no certification is
+    published, no Compliance pointer is emitted - per the pipeline contract a
+    derive-only conformance file does not earn one.
+cross_links:
+  authentication: authentication/rea-group-authentication.yml
+  conventions: conventions/rea-group-conventions.yml
+  errors: errors/rea-group-error-codes.yml
+  lifecycle: lifecycle/rea-group-lifecycle.yml

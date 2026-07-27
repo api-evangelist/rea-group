@@ -1,0 +1,604 @@
+generated: '2026-07-27'
+method: derived
+source: openapi/ (response examples published in the PropTrack OpenAPI documents)
+description: Named request/response examples the provider ships inside its OpenAPI, indexed per operation
+  so they are discoverable without opening a 590KB spec.
+operations:
+- spec: openapi/rea-group-address-openapi.yml
+  path: /api/v2/address/match
+  method: GET
+  operationId: address.match
+  summary: /api/v2/address/match
+  example_count: 1
+  examples:
+  - status: '200'
+    name: Example 1
+- spec: openapi/rea-group-address-openapi.yml
+  path: /api/v2/address/suggest
+  method: GET
+  operationId: address.suggest
+  summary: /api/v2/address/suggest
+  example_count: 3
+  examples:
+  - status: '200'
+    name: Example with 5 results
+  - status: '200'
+    name: Non-Unit Property with 3 Results
+  - status: '200'
+    name: No Suggestions Found
+- spec: openapi/rea-group-coming-soon-openapi.yml
+  path: /api/v2/properties/{propertyId}/nearby-education-facilities
+  method: GET
+  operationId: get-api-v2-properties-propertyId-nearby-education-facilities
+  summary: /api/v2/properties/{propertyId}/nearby-education-facilities
+  example_count: 1
+  examples:
+  - status: '200'
+    name: Example 1
+- spec: openapi/rea-group-disclaimers-openapi.yml
+  path: /api/v1/disclaimers
+  method: GET
+  operationId: get-api-v1-disclaimers
+  summary: /api/v1/disclaimers
+  example_count: 5
+  examples:
+  - status: '200'
+    name: VG - One state HTML
+  - status: '200'
+    name: VG - All states HTML
+  - status: '200'
+    name: Service Agent and Vic VG
+  - status: '200'
+    name: VG - One state Plaintext
+  - status: '200'
+    name: Archistar Disclaimer
+- spec: openapi/rea-group-listings-openapi.yml
+  path: /api/v2/listings/{listingId}
+  method: GET
+  operationId: listings
+  summary: /api/v2/listings/{listingId}
+  example_count: 8
+  examples:
+  - status: '200'
+    name: Sale Listing Currently on the Market
+  - status: '200'
+    name: Sold at Auction
+  - status: '200'
+    name: Rent Listing Currently on the Market
+  - status: '200'
+    name: Leased Rent Listing
+  - status: '200'
+    name: Listing with Agent/Agency Details
+  - status: '400'
+    name: Sample
+  - status: '401'
+    name: Sample
+  - status: '404'
+    name: Sample
+- spec: openapi/rea-group-listings-openapi.yml
+  path: /api/v2/listings/search/point-and-radius
+  method: GET
+  operationId: listings-point-and-radius-search
+  summary: /api/v2/listings/search/point-and-radius
+  example_count: 16
+  examples:
+  - status: '200'
+    name: Rent Listing Currently on the Market
+  - status: '200'
+    name: Sale Listing Currently on the Market
+  - status: '400'
+    name: '7004'
+  - status: '400'
+    name: '7005'
+  - status: '400'
+    name: '7007'
+  - status: '400'
+    name: '7008'
+  - status: '400'
+    name: '7010'
+  - status: '400'
+    name: '7011'
+  - status: '400'
+    name: '7014'
+  - status: '400'
+    name: '7015'
+  - status: '401'
+    name: '9012'
+  - status: '401'
+    name: '9016'
+  - status: '403'
+    name: '9003'
+  - status: '404'
+    name: '7002'
+  - status: '429'
+    name: 9011 Rate Limite
+  - status: '429'
+    name: 9011 Quota Limit
+- spec: openapi/rea-group-listings-openapi.yml
+  path: /api/v2/listings/search/suburb-and-postcode
+  method: GET
+  operationId: get-api-v2-listings-search-suburb-and-postcode
+  summary: /api/v2/listings/search/suburb-and-postcode
+  example_count: 16
+  examples:
+  - status: '200'
+    name: Rent Listing Currently on the Market
+  - status: '200'
+    name: Sale Listing Currently on the Market
+  - status: '400'
+    name: '7004'
+  - status: '400'
+    name: '7005'
+  - status: '400'
+    name: '7007'
+  - status: '400'
+    name: '7008'
+  - status: '400'
+    name: '7010'
+  - status: '400'
+    name: '7011'
+  - status: '400'
+    name: '7014'
+  - status: '400'
+    name: '7015'
+  - status: '401'
+    name: '9012'
+  - status: '401'
+    name: '9016'
+  - status: '403'
+    name: '9003'
+  - status: '404'
+    name: '7002'
+  - status: '429'
+    name: 9011 Rate Limite
+  - status: '429'
+    name: 9011 Quota Limit
+- spec: openapi/rea-group-market-openapi.yml
+  path: /api/v2/market/auctions
+  method: GET
+  operationId: get-api-v2-market-auctions
+  summary: /api/v2/market/auctions
+  example_count: 15
+  examples:
+  - status: '200'
+    name: Two Weeks of Auction Results
+  - status: '400'
+    name: 7004 - Required Parameter Missing
+  - status: '400'
+    name: 7005 - Invalid Value Entry
+  - status: '400'
+    name: 7007 - Non-Allowed Value in Enum Field
+  - status: '400'
+    name: 7008 - Incorrect Field Type
+  - status: '400'
+    name: 7010 - Incorrect Format
+  - status: '400'
+    name: 7011 - Above/Below Limit
+  - status: '400'
+    name: 7014 - Invalid Date Range
+  - status: '400'
+    name: 7015 - Conflicting Date Range
+  - status: '401'
+    name: 9012 - Invalid Auth Token
+  - status: '401'
+    name: 9016 - Expired Auth Token
+  - status: '403'
+    name: 9003 - Access Denied
+  - status: '404'
+    name: 7002 - Unknown Identifier
+  - status: '429'
+    name: 9011- Rate Limit Exceeded
+  - status: '429'
+    name: 9011 - Quota Limit Exceeded
+- spec: openapi/rea-group-market-openapi.yml
+  path: /api/v2/market/rent/historic/{metric}
+  method: GET
+  operationId: market.rent-history
+  summary: /api/v2/market/rent/historic/{metric}
+  example_count: 12
+  examples:
+  - status: '200'
+    name: Median Days on Site (yearly)
+  - status: '200'
+    name: Rental Transaction Volume (Monthly)
+  - status: '200'
+    name: Rental Transaction Volume (Yearly)
+  - status: '200'
+    name: Median Rental Yield
+  - status: '200'
+    name: Median Rental Price (Monthly)
+  - status: '200'
+    name: Median Rental Price (Yearly)
+  - status: '200'
+    name: No Market Data Available
+  - status: '200'
+    name: Median Days on Site (monthly)
+  - status: '400'
+    name: 7004 - Required Parameter Missing
+  - status: '401'
+    name: 9012 - Authentication Error
+  - status: '404'
+    name: 7002 - No Data Found
+  - status: '429'
+    name: 9011 - Rate Limit Exceeded
+- spec: openapi/rea-group-market-openapi.yml
+  path: /api/v2/market/sale/historic/{metric}
+  method: GET
+  operationId: market.sale-history
+  summary: /api/v2/market/sale/historic/{metric}
+  example_count: 9
+  examples:
+  - status: '200'
+    name: Median Days on Site
+  - status: '200'
+    name: Sale Transaction Volume (Monthly)
+  - status: '200'
+    name: Sale Transaction Volume (Yearly)
+  - status: '200'
+    name: Median Sale Price (Monthly)
+  - status: '200'
+    name: Median Sale Price (Yearly)
+  - status: '400'
+    name: 7004 - Required Parameter Missing
+  - status: '401'
+    name: 9012 - Authentication Error
+  - status: '404'
+    name: 7002 - No Data Found
+  - status: '429'
+    name: 9011 - Rate Limit Exceeded
+- spec: openapi/rea-group-market-openapi.yml
+  path: /api/v2/market/supply-and-demand/{metric}
+  method: GET
+  operationId: market.supply-and-demand
+  summary: /api/v2/market/supply-and-demand/{metric}
+  example_count: 6
+  examples:
+  - status: '200'
+    name: Potential Buyers - (Monthly)
+  - status: '200'
+    name: Potential Renters (Weekly)
+  - status: '400'
+    name: 7004 - Required Parameter Missing
+  - status: '401'
+    name: 9012 - Authentication Error
+  - status: '404'
+    name: 7002 - No Data Found
+  - status: '429'
+    name: 9011 - Rate Limit Exceeded
+- spec: openapi/rea-group-market-openapi.yml
+  path: /api/v2/market/demographics
+  method: GET
+  operationId: /api/v2/market/demographics
+  summary: /api/v2/market/demographics
+  example_count: 14
+  examples:
+  - status: '200'
+    name: Example 1
+  - status: '400'
+    name: 7004 - Required Parameter Missing
+  - status: '400'
+    name: 7007 - Non-Allowed Value in Enum Field
+  - status: '400'
+    name: 7008 - Incorrect Field Type
+  - status: '400'
+    name: 7010 - Incorrect Format
+  - status: '400'
+    name: 7011 - Above/Below Limit
+  - status: '400'
+    name: 7014 - Invalid Date Range
+  - status: '400'
+    name: 7015 - Conflicting Date Range
+  - status: '401'
+    name: 9012 - Invalid Auth Token
+  - status: '401'
+    name: 9016 - Expired Auth Token
+  - status: '403'
+    name: 9003 - Access Denied
+  - status: '404'
+    name: 7002 - Unknown Identifier
+  - status: '429'
+    name: 9011- Rate Limit Exceeded
+  - status: '429'
+    name: 9011 - Quota Limit Exceeded
+- spec: openapi/rea-group-oauth-openapi.yml
+  path: /oauth2/token
+  method: POST
+  operationId: auth-token
+  summary: /oauth2/token
+  example_count: 1
+  examples:
+  - status: request
+    name: Sample Request
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/{propertyId}/summary
+  method: GET
+  operationId: get-v2-summary
+  summary: /api/v2/properties/{propertyId}/summary
+  example_count: 6
+  examples:
+  - status: '200'
+    name: Recently Sold - no active listing, agency advised price
+  - status: '200'
+    name: Mulitple Active Listings
+  - status: '200'
+    name: Recently Sold plus active listing
+  - status: '200'
+    name: Recently Sold no active listing, VG Advised
+  - status: '200'
+    name: no recent sale, active sale listing
+  - status: '200'
+    name: Off Market, no recent sale
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/{propertyId}/listings
+  method: GET
+  operationId: listings
+  summary: /api/v2/properties/{propertyId}/listings
+  example_count: 10
+  examples:
+  - status: '200'
+    name: Sale Listing Currently on the Market
+  - status: '200'
+    name: Sold at Auction Listing
+  - status: '200'
+    name: Leased Rental Listing
+  - status: '200'
+    name: Rent Listing Currently on the Market
+  - status: '200'
+    name: Property with Multiple Listings
+  - status: '200'
+    name: No listings data available for the property
+  - status: '200'
+    name: Listings with Agent/Agency details
+  - status: '400'
+    name: Sample
+  - status: '401'
+    name: Sample
+  - status: '404'
+    name: Sample
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/{propertyId}/planning
+  method: GET
+  operationId: get-api-v2-properties-planning
+  summary: /properties/{propertyId}/planning
+  example_count: 1
+  examples:
+  - status: '200'
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/{propertyId}/tenureType
+  method: GET
+  operationId: get-api-v2-properties-tenure
+  summary: /api/v2/properties/{propertyId}/tenureType
+  example_count: 2
+  examples:
+  - status: '200'
+    name: Single tenure type
+  - status: '200'
+    name: Tenure History
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/{propertyId}/transactions
+  method: GET
+  operationId: transactions
+  summary: /api/v2/properties/{propertyId}/transactions
+  example_count: 5
+  examples:
+  - status: '200'
+    name: Property with 4 transactions
+  - status: '200'
+    name: sourceCategory=vg
+  - status: '200'
+    name: sourceCategory=agency
+  - status: '200'
+    name: latestTransactionOnly=true
+  - status: '200'
+    name: Property with no transaction events
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/valuations/sale
+  method: POST
+  operationId: v1-properties-valuation-sale
+  summary: /api/v1/properties/valuations/sale ~ Enquiry or Origination
+  example_count: 10
+  examples:
+  - status: '200'
+    name: Enquiry Response
+  - status: '200'
+    name: Origination response
+  - status: '401'
+    name: Example
+  - status: '403'
+    name: Example 403
+  - status: '404'
+    name: Example 1
+  - status: request
+    name: Enquiry example with fullAddress
+  - status: request
+    name: Enquiry example with address
+  - status: request
+    name: Origination example with fullAddress
+  - status: request
+    name: Origination example with address
+  - status: request
+    name: Origination example with full request payload
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
+  method: GET
+  operationId: avm-propertyId
+  summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
+  example_count: 6
+  examples:
+  - status: '200'
+    name: Enquiry Response
+  - status: '200'
+    name: 'Origination: response'
+  - status: '401'
+    name: Example
+  - status: '403'
+    name: Example 403
+  - status: '404'
+    name: Example 1
+  - status: '429'
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
+  method: GET
+  operationId: avm-propertyId-enquiry
+  summary: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
+  example_count: 8
+  examples:
+  - status: '200'
+    name: Enquiry Response
+  - status: '400'
+    name: 400 Sample
+  - status: '401'
+    name: 401 Sample
+  - status: '403'
+    name: 403 Sample
+  - status: '404'
+    name: 404 Sample
+  - status: '429'
+    name: 429 Sample
+  - status: '500'
+    name: 500 Sample
+  - status: '504'
+    name: 504 Sample
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/valuations/sale ~ requestType=plus
+  method: POST
+  operationId: v1-properties-valuation-sale-plus
+  summary: /api/v1/properties/valuations/sale ~ Plus
+  example_count: 5
+  examples:
+  - status: '200'
+    name: AVM Plus Example
+  - status: '401'
+    name: Example
+  - status: '403'
+    name: Example 403
+  - status: '404'
+    name: Example 1
+  - status: request
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
+  method: GET
+  operationId: avm-propertyId-plus
+  summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
+  example_count: 5
+  examples:
+  - status: '200'
+    name: AVM Plus Example
+  - status: '401'
+    name: Example
+  - status: '403'
+    name: Example 403
+  - status: '404'
+    name: Example 1
+  - status: '429'
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/valuations/sale ~ Pro
+  method: POST
+  operationId: v1-properties-valuation-sale-pro
+  summary: /api/v1/properties/valuations/sale ~ Pro
+  example_count: 5
+  examples:
+  - status: '200'
+    name: AVM Pro Example
+  - status: '401'
+    name: Example
+  - status: '403'
+    name: Example 403
+  - status: '404'
+    name: Example 1
+  - status: request
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
+  method: GET
+  operationId: avm-propertyId-pro
+  summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
+  example_count: 5
+  examples:
+  - status: '200'
+    name: AVM Pro Example
+  - status: '401'
+    name: Example
+  - status: '403'
+    name: Example 403
+  - status: '404'
+    name: Example 1
+  - status: '429'
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/summaries/search
+  method: GET
+  operationId: get-api-v2-properties-summaries-search
+  summary: /api/v2/properties/summaries/search
+  example_count: 1
+  examples:
+  - status: '200'
+    name: Example 1
+- spec: openapi/rea-group-properties-openapi.yml
+  path: /api/v2/properties/geopoints/search
+  method: GET
+  operationId: get-api-v2-properties-geopoints-pins
+  summary: /api/v2/properties/geopoints/search
+  example_count: 1
+  examples:
+  - status: '200'
+    name: Example 1
+- spec: openapi/rea-group-reports-openapi.yml
+  path: /api/v1/reports/valuations/{valuationId}/pdf
+  method: GET
+  operationId: reports-valuations-pdf
+  summary: /api/v1/reports/valuations/{valuationId}/pdf
+  example_count: 4
+  examples:
+  - status: '401'
+    name: Invalid Token
+  - status: '401'
+    name: Expired Token
+  - status: '403'
+    name: Example 1
+  - status: '429'
+    name: Example 1
+- spec: openapi/rea-group-reports-openapi.yml
+  path: /api/v1/reports/property
+  method: POST
+  operationId: reports-property-report
+  summary: /api/v1/reports/property
+  example_count: 1
+  examples:
+  - status: '400'
+    name: Response Example
+- spec: openapi/rea-group-transactions-openapi.yml
+  path: /api/v2/transactions/search/point-and-radius
+  method: GET
+  operationId: get-transactions-propertyId
+  summary: /api/v2/transactions/search/point-and-radius
+  example_count: 4
+  examples:
+  - status: '200'
+    name: Search with 5 Transactions
+  - status: '200'
+    name: Transaction with Suppressed saleValue
+  - status: '200'
+    name: No Transactions Available
+  - status: '400'
+    name: Example 1
+- spec: openapi/rea-group-transactions-openapi.yml
+  path: /api/v2/transactions/search/suburb-and-postcode
+  method: GET
+  operationId: get-transactions-propertyId-suburb
+  summary: /api/v2/transactions/search/suburb-and-postcode
+  example_count: 3
+  examples:
+  - status: '200'
+    name: No Transactions Available
+  - status: '200'
+    name: Example 1
+  - status: '400'
+    name: Example 1
+summary:
+  operations_with_examples: 31
+  examples_total: 189

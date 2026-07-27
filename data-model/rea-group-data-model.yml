@@ -1,0 +1,273 @@
+generated: '2026-07-27'
+method: derived
+source: openapi/ (response schemas across all nine PropTrack OpenAPI documents)
+description: Entity graph derived from the response schemas. The published specs declare no components.schemas
+  - every object is inlined per operation - so entities here are reconstructed from repeated inline
+  object shapes and the id fields that link them.
+primary_keys:
+- field: propertyId
+  entity: Property
+  detail: PropTrack canonical property identifier, integer. The join key across almost the whole
+    surface.
+- field: gpid
+  entity: Property
+  detail: Global property identifier returned by address match alongside propertyId.
+- field: listingId
+  entity: Listing
+  detail: realestate.com.au listing identifier.
+- field: valuationId
+  entity: Valuation
+  detail: Identifier for an ordered AVM valuation, used to retrieve the PDF report.
+entities:
+- name: address
+  fields:
+  - fullAddress
+  - location
+  - lotNumber
+  - postCode
+  - postcode
+  - state
+  - streetName
+  - streetNumber
+  - streetType
+  - suburb
+  - unitNumber
+  field_count: 11
+  appears_in_operations:
+  - address.match
+  - address.suggest
+  - get-api-v2-listings-search-suburb-and-postcode
+  - get-api-v2-properties-geopoints-pins
+  - get-api-v2-properties-summaries-search
+  - get-transactions-propertyId
+  - get-transactions-propertyId-suburb
+  - get-v2-summary
+  - listings
+  - listings-point-and-radius-search
+  - v1-properties-valuation-sale
+  - v1-properties-valuation-sale-plus
+- name: attributes
+  fields:
+  - bathrooms
+  - bedrooms
+  - carSpaces
+  - features
+  - floorArea
+  - landArea
+  - landUse
+  - livingArea
+  - propertySubType
+  - propertyType
+  - roofType
+  - wallType
+  - yearBuilt
+  field_count: 13
+  appears_in_operations:
+  - get-api-v2-listings-search-suburb-and-postcode
+  - get-api-v2-properties-summaries-search
+  - get-transactions-propertyId
+  - get-transactions-propertyId-suburb
+  - get-v2-summary
+  - listings
+  - listings-point-and-radius-search
+  - properties-attributes
+- name: listings
+  fields:
+  - address
+  - agencies
+  - agents
+  - attachments
+  - attributes
+  - auctionDate
+  - auctionDateTime
+  - auctionResult
+  - auctionTime
+  - daysOnSite
+  - description
+  - distance
+  - energyEfficiencyRating
+  - firstSeenDate
+  - images
+  - leaseDate
+  - listingId
+  - listingPrice
+  - listingType
+  - priceDescription
+  - propertyId
+  - saleDate
+  - saleValue
+  - saleValueSuppressed
+  - source
+  - status
+  - videoUrl
+  field_count: 27
+  appears_in_operations:
+  - get-api-v2-listings-search-suburb-and-postcode
+  - listings
+  - listings-point-and-radius-search
+- name: activeListings
+  fields:
+  - listingId
+  - listingType
+  - priceDescription
+  field_count: 3
+  appears_in_operations:
+  - get-api-v2-properties-summaries-search
+  - get-v2-summary
+- name: recentSale
+  fields:
+  - listingId
+  - saleValue
+  - saleValueSuppressed
+  - sourceCategory
+  - transactionDate
+  field_count: 5
+  appears_in_operations:
+  - get-api-v2-properties-summaries-search
+  - get-v2-summary
+- name: parcels
+  fields:
+  - lotNumber
+  - planNumber
+  field_count: 2
+  appears_in_operations:
+  - get-api-v2-properties-summaries-search
+  - get-v2-summary
+- name: educationFacilities
+  fields:
+  - facilityName
+  - inCatchment
+  - sector
+  - straightLineDistance
+  - type
+  - yearRange
+  field_count: 6
+  appears_in_operations:
+  - get-api-v2-properties-propertyId-nearby-education-facilities
+- name: demographicMarketMetrics
+  fields:
+  - ' householdIncome'
+  - age
+  - householdSize
+  - householdType
+  - population
+  - tenure
+  field_count: 6
+  appears_in_operations:
+  - /api/v2/market/demographics
+- name: dateRanges
+  fields:
+  - endDate
+  - metricValues
+  - startDate
+  field_count: 3
+  appears_in_operations:
+  - get-api-v2-market-auctions
+  - market.rent-history
+  - market.sale-history
+  - market.supply-and-demand
+- name: pageInfo
+  fields:
+  - hasNextPage
+  - hasPreviousPage
+  - pageEndCursor
+  - pageStartCursor
+  field_count: 4
+  appears_in_operations:
+  - get-api-v2-listings-search-suburb-and-postcode
+  - get-api-v2-properties-geopoints-pins
+  - get-api-v2-properties-summaries-search
+  - get-transactions-propertyId
+  - get-transactions-propertyId-suburb
+  - listings-point-and-radius-search
+- name: agents
+  fields:
+  - agentId
+  - name
+  field_count: 2
+  appears_in_operations:
+  - listings
+- name: transactions
+  fields:
+  - contractDate
+  - listingDetails
+  - property
+  - saleValue
+  - saleValueSuppressed
+  - sourceCategory
+  - transactionDate
+  - transferDate
+  - transferType
+  field_count: 9
+  appears_in_operations:
+  - get-transactions-propertyId
+  - get-transactions-propertyId-suburb
+  - transactions
+- name: landUse
+  fields:
+  - classifications
+  field_count: 1
+  appears_in_operations:
+  - get-transactions-propertyId
+  - get-transactions-propertyId-suburb
+  - properties-attributes
+- name: zoning
+  fields:
+  - isPrimary
+  - lgaName
+  - lgaPlanningUrl
+  - permittedUse
+  - permittedUseWithControls
+  - prohibitedUse
+  - sourceDate
+  - zoneCode
+  - zoneLabel1
+  - zoneLabel2
+  field_count: 10
+  appears_in_operations:
+  - get-api-v2-properties-planning
+relationships:
+- from: Property
+  to: Listing
+  type: has_many
+  via: propertyId
+  evidence: GET /api/v2/properties/{propertyId}/listings returns current and historic listings for
+    a property
+- from: Property
+  to: Transaction
+  type: has_many
+  via: propertyId
+  evidence: GET /api/v2/properties/{propertyId}/transactions returns sold transactions for a property
+- from: Property
+  to: Valuation
+  type: has_many
+  via: propertyId
+  evidence: GET /api/v1/properties/{propertyId}/valuations/sale orders a valuation for a property
+- from: Valuation
+  to: Report
+  type: has_one
+  via: valuationId
+  evidence: GET /api/v1/reports/valuations/{valuationId}/pdf renders an ordered valuation as a PDF
+- from: Address
+  to: Property
+  type: resolves_to
+  via: propertyId
+  evidence: GET /api/v2/address/match resolves a free-text address to propertyId and gpid
+- from: Property
+  to: Parcel
+  type: has_many
+  via: parcels
+  evidence: property summary carries a parcels array
+- from: Suburb
+  to: MarketMetric
+  type: has_many
+  via: state+postcode+suburb
+  evidence: market endpoints are keyed by searchType plus state/postcode/suburb rather than by propertyId
+notes:
+- 'The address-match -> propertyId -> {listings, transactions, attributes, valuations} chain is the
+  spine of the API: almost every workflow starts by resolving a free-text address to a propertyId.'
+- The Market surface is the one branch NOT keyed by propertyId - it is keyed by geography (state,
+  postcode, suburb) and returns aggregate metrics, so it does not join to the property graph directly.
+- Because the specs inline every schema, the same logical entity (for example address) is redefined
+  in each operation and the definitions are not guaranteed identical. Reuse via components.schemas
+  would make the model authoritative rather than reconstructed.

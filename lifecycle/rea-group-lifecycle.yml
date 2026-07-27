@@ -1,18 +1,51 @@
-generated: '2026-07-20'
+generated: '2026-07-27'
 method: searched
 source: https://developer.proptrack.com.au/docs/apis/home
 versioning:
   scheme: uri-path
   current: v2
-  docs: https://developer.proptrack.com.au/docs/apis/home
-  evidence: production base URL is https://data.proptrack.com/api/v2
+  docs: https://developer.proptrack.com.au/docs/apis/guide
+  evidence: >-
+    Two major versions are served concurrently from https://data.proptrack.com -
+    /api/v2 for the property-data surface (address, listings, market, properties,
+    transactions) and /api/v1 for valuations, reports and disclaimers. The OAuth
+    token endpoint is unversioned at /oauth2/token.
+  concurrent_versions: [v1, v2]
 deprecation:
   policy_url: null
   sunset_header: null
-  note: no public deprecation policy or RFC 8594 Sunset/Deprecation header documentation found
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header support, and no
+    published migration guidance for the v1 endpoints that sit alongside v2. One
+    in-spec deprecation exists (the error envelope's level field) but it is a
+    field-level marker in the schemas, not a lifecycle policy.
 sla:
   url: null
   uptime_target: null
-  note: access is under a commercial/partner agreement; no public SLA page
+  note: >-
+    The rate-limiting documentation states limits exist "to ensure that we are
+    able to adhere to our Service Level Agreements (SLAs)", confirming SLAs are
+    contractual, but no SLA document or uptime target is published - it sits
+    inside the commercial agreement.
 status_page: null
+status_page_note: >-
+  No status page found. status.proptrack.com and status.proptrack.com.au do not
+  resolve; proptrack.statuspage.io returns Atlassian's generic marketing page, not
+  a PropTrack tenant. Checked 2026-07-27.
+roadmap:
+  url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  note: >-
+    A "Coming Soon" page and a corresponding Upcoming APIs service in the
+    documentation act as a lightweight forward-looking roadmap. The Schools
+    endpoint (/api/v2/properties/{propertyId}/nearby-education-facilities) is
+    published there as a documented but not-yet-released operation, and the
+    Address API notes structured address match as coming soon.
+changelog:
+  url: null
+  note: no dated changelog or release-notes surface published
 deprecated_operations: []
+forward_looking_operations:
+- openapi/rea-group-coming-soon-openapi.yml#get-api-v2-properties-propertyId-nearby-education-facilities
+cross_links:
+  conventions: conventions/rea-group-conventions.yml
+  openapi: openapi/

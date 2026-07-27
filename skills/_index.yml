@@ -1,0 +1,30 @@
+generated: '2026-07-27'
+method: generated
+source: openapi/ + https://developer.proptrack.com.au/docs/apis/
+note: >-
+  Packaged operating instructions for the PropTrack (REA Group) APIs, grounded in
+  operationIds verified against the published OpenAPI documents. Each skill folds
+  in the cross-cutting rules captured in conventions/, errors/, rate-limits/ and
+  plans/ so an agent gets auth, pagination, retry and quota behaviour with the
+  happy path rather than after failing.
+skills:
+- file: rea-group-resolve-address-to-property.md
+  name: Resolve an Australian address to a PropTrack property profile
+  api: openapi/rea-group-properties-openapi.yml
+  operations: [address.match, address.suggest, get-v2-summary, properties-attributes,
+    listings, transactions, get-api-v2-properties-planning, get-api-v2-properties-tenure,
+    get-api-v1-disclaimers]
+- file: rea-group-order-avm-valuation.md
+  name: Order a PropTrack AVM valuation and retrieve the report
+  api: openapi/rea-group-properties-openapi.yml
+  operations: [auth-token, v1-properties-valuation-sale, avm-propertyId, avm-propertyId-enquiry,
+    v1-properties-valuation-sale-plus, avm-propertyId-plus, v1-properties-valuation-sale-pro,
+    avm-propertyId-pro, reports-valuations-pdf, reports-property-report]
+- file: rea-group-search-listings-and-market.md
+  name: Search PropTrack listings, sold transactions and suburb market trends
+  api: openapi/rea-group-listings-openapi.yml
+  operations: [listings-point-and-radius-search, get-api-v2-listings-search-suburb-and-postcode,
+    listings, get-transactions-propertyId, get-transactions-propertyId-suburb,
+    get-api-v2-properties-summaries-search, get-api-v2-properties-geopoints-pins,
+    market.sale-history, market.rent-history, market.supply-and-demand,
+    get-api-v2-market-auctions, /api/v2/market/demographics]

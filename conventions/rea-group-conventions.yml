@@ -1,31 +1,117 @@
-generated: '2026-07-20'
+generated: '2026-07-27'
 method: searched
-source: https://developer.proptrack.com.au/docs/apis/home
+source: https://developer.proptrack.com.au/docs/apis/guide
+sources:
+- https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+- https://developer.proptrack.com.au/docs/apis/pagination
+- https://developer.proptrack.com.au/docs/apis/rate-limits
+- https://developer.proptrack.com.au/docs/apis/error-handling
+- https://developer.proptrack.com.au/docs/apis/api-trials
 authentication:
   style: oauth2-bearer
   detail: >-
-    OAuth 2.0 access token presented as a bearer token; credentials issued to
-    partners under a commercial agreement. See authentication/rea-group-authentication.yml
+    OAuth 2.0 client credentials. api_key:api_secret Base64-encoded as HTTP Basic
+    on POST https://data.proptrack.com/oauth2/token, returning a JWT bearer token
+    with a 3600 second TTL, presented as "Authorization: Bearer <token>" on every
+    call. See authentication/rea-group-authentication.yml
 versioning:
   style: uri-path
   current: v2
-  detail: endpoints served under https://data.proptrack.com/api/v2
-pagination:
-  style: unknown
   detail: >-
-    Several search endpoints (listings, sold transactions) accept point + radius
-    geospatial parameters; the public docs do not document a cursor/offset
-    pagination contract.
+    Two versions are live concurrently. The property-data surface (address,
+    listings, market, properties, transactions) is served under /api/v2; the
+    valuation, report and disclaimer surface is served under /api/v1. The OAuth
+    token endpoint is unversioned at /oauth2/token.
+  versions_in_use:
+    v2: [address, listings, market, properties, transactions]
+    v1: [valuations, reports, disclaimers]
+pagination:
+  style: cursor
+  applies_to: search endpoints returning collections
+  request_parameters:
+  - name: pageSize
+    type: integer
+    default: 25
+    maximum: 200
+    description: Maximum number of results returned per page
+  - name: afterPageCursor
+    type: string
+    description: >-
+      Page starting position, one record after the given cursor. Mutually
+      exclusive with beforePageCursor.
+  - name: beforePageCursor
+    type: string
+    description: >-
+      Page starting position, one record before the given cursor. Mutually
+      exclusive with afterPageCursor.
+  response_fields:
+  - name: numberOfResults
+    description: >-
+      Total results matching the search criteria across all pages, not the count
+      of the current page.
+  detail: >-
+    Opaque bidirectional cursors. Passing both afterPageCursor and
+    beforePageCursor in one request is a documented conflict (error 7015).
+  docs: https://developer.proptrack.com.au/docs/apis/pagination
 idempotency:
   supported: false
-  detail: no idempotency-key header or idempotency contract documented publicly
+  detail: >-
+    No idempotency-key header, parameter or retry contract is documented, and none
+    appears in the published OpenAPI. The surface is overwhelmingly read-only (29
+    of 32 operations are GET); the three POST operations (two AVM valuation orders
+    and the property report order) are billable side-effecting calls with no
+    documented safe-retry mechanism. No Idempotency pointer is emitted for this
+    provider - see review.yml.
+request_tracing:
+  header: X-Transaction-Id
+  direction: response
+  detail: >-
+    Every response carries an X-Transaction-Id header. The support process asks
+    partners to quote this value when raising an issue.
+  example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+  docs: https://developer.proptrack.com.au/docs/apis/api-trials
 error_envelope:
-  style: unknown
-  detail: no public OpenAPI/error reference to confirm the error envelope shape
+  style: proprietary-array
+  media_type: application/json
+  shape: >-
+    {"errors": [{"code": <integer>, "level": "CRITICAL", "description": "<text>",
+    "parameters": {<field>: "<rule>"}}]}
+  fields:
+    code: integer error code from the published registry (7xxx validation, 9xxx platform)
+    level: >-
+      Severity. Only CRITICAL is defined and the field is marked deprecated in the
+      published schemas; when level is CRITICAL no successful response is returned.
+    description: human-readable overview of the error
+    parameters: map of offending parameter to the rule it violated
+  rfc9457: false
+  detail: >-
+    Not RFC 9457 problem+json. A proprietary errors[] array is returned as
+    application/json against standard HTTP status codes.
+  catalog: errors/rea-group-error-codes.yml
 rate_limiting:
-  signaled: unknown
-  detail: no rate-limit headers or quota policy documented on the public surface
+  signaled: false
+  headers: []
+  detail: >-
+    Per-endpoint limits are published as documentation (50 rps for most read
+    endpoints, 25 rps for valuation and report endpoints) and enforced on a rolling
+    one-second window, but no RateLimit / X-RateLimit response headers are
+    documented, so a client cannot observe remaining budget - only the 429 with
+    error code 9011 after the fact.
+  catalog: rate-limits/rea-group-rate-limits.yml
+content_negotiation:
+  request: application/x-www-form-urlencoded (token endpoint), query parameters (data endpoints)
+  response: application/json; application/pdf for the AVM report download
+disclaimers:
+  required: true
+  detail: >-
+    PropTrack requires attribution and disclaimer text to be displayed alongside
+    data rendered from the APIs. The Disclaimers API (/api/v1/disclaimers) serves
+    the current required text and branding rules programmatically.
+  operation: openapi/rea-group-disclaimers-openapi.yml#get-api-v1-disclaimers
+  docs: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
 cross_links:
   authentication: authentication/rea-group-authentication.yml
+  errors: errors/rea-group-error-codes.yml
+  rate_limits: rate-limits/rea-group-rate-limits.yml
   lifecycle: lifecycle/rea-group-lifecycle.yml
   security: security/rea-group-domain-security.yml

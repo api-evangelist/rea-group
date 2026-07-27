@@ -1,0 +1,177 @@
+generated: '2026-07-27'
+method: derived
+status: candidate
+source: openapi/ (32 operations across nine PropTrack OpenAPI documents)
+note: PropTrack publishes no MCP server. This is a CANDIDATE tool surface derived one-tool-per-operation
+  from the provider OpenAPI, so the API is representable to agents; it is not a provider claim and
+  nothing is hosted. Input schemas are inherited from each backing operation parameters/requestBody.
+server:
+  name: proptrack
+  transport: null
+  url: null
+  published: false
+auth:
+  model: oauth2-client-credentials
+  token_url: https://data.proptrack.com/oauth2/token
+  note: Any MCP deployment must broker the partner credential; PropTrack issues no per-user tokens.
+tools:
+- name: address_address_match
+  description: /api/v2/address/match
+  source_operation: openapi/rea-group-address-openapi.yml#address.match
+  method: GET
+  path: /api/v2/address/match
+- name: address_address_suggest
+  description: /api/v2/address/suggest
+  source_operation: openapi/rea-group-address-openapi.yml#address.suggest
+  method: GET
+  path: /api/v2/address/suggest
+- name: coming_soon_get_api_v2_properties_propertyid_nearby_educatio
+  description: /api/v2/properties/{propertyId}/nearby-education-facilities
+  source_operation: openapi/rea-group-coming-soon-openapi.yml#get-api-v2-properties-propertyId-nearby-education-facilities
+  method: GET
+  path: /api/v2/properties/{propertyId}/nearby-education-facilities
+- name: disclaimers_get_api_v1_disclaimers
+  description: /api/v1/disclaimers
+  source_operation: openapi/rea-group-disclaimers-openapi.yml#get-api-v1-disclaimers
+  method: GET
+  path: /api/v1/disclaimers
+- name: listings_listings
+  description: /api/v2/listings/{listingId}
+  source_operation: openapi/rea-group-listings-openapi.yml#listings
+  method: GET
+  path: /api/v2/listings/{listingId}
+- name: listings_listings_point_and_radius_search
+  description: /api/v2/listings/search/point-and-radius
+  source_operation: openapi/rea-group-listings-openapi.yml#listings-point-and-radius-search
+  method: GET
+  path: /api/v2/listings/search/point-and-radius
+- name: listings_get_api_v2_listings_search_suburb_and_postcode
+  description: /api/v2/listings/search/suburb-and-postcode
+  source_operation: openapi/rea-group-listings-openapi.yml#get-api-v2-listings-search-suburb-and-postcode
+  method: GET
+  path: /api/v2/listings/search/suburb-and-postcode
+- name: market_get_api_v2_market_auctions
+  description: /api/v2/market/auctions
+  source_operation: openapi/rea-group-market-openapi.yml#get-api-v2-market-auctions
+  method: GET
+  path: /api/v2/market/auctions
+- name: market_market_rent_history
+  description: /api/v2/market/rent/historic/{metric}
+  source_operation: openapi/rea-group-market-openapi.yml#market.rent-history
+  method: GET
+  path: /api/v2/market/rent/historic/{metric}
+- name: market_market_sale_history
+  description: /api/v2/market/sale/historic/{metric}
+  source_operation: openapi/rea-group-market-openapi.yml#market.sale-history
+  method: GET
+  path: /api/v2/market/sale/historic/{metric}
+- name: market_market_supply_and_demand
+  description: /api/v2/market/supply-and-demand/{metric}
+  source_operation: openapi/rea-group-market-openapi.yml#market.supply-and-demand
+  method: GET
+  path: /api/v2/market/supply-and-demand/{metric}
+- name: market_api_v2_market_demographics
+  description: /api/v2/market/demographics
+  source_operation: openapi/rea-group-market-openapi.yml#/api/v2/market/demographics
+  method: GET
+  path: /api/v2/market/demographics
+- name: oauth_auth_token
+  description: /oauth2/token
+  source_operation: openapi/rea-group-oauth-openapi.yml#auth-token
+  method: POST
+  path: /oauth2/token
+- name: properties_get_v2_summary
+  description: /api/v2/properties/{propertyId}/summary
+  source_operation: openapi/rea-group-properties-openapi.yml#get-v2-summary
+  method: GET
+  path: /api/v2/properties/{propertyId}/summary
+- name: properties_properties_attributes
+  description: /api/v2/properties/{propertyId}/attributes
+  source_operation: openapi/rea-group-properties-openapi.yml#properties-attributes
+  method: GET
+  path: /api/v2/properties/{propertyId}/attributes
+- name: properties_listings
+  description: /api/v2/properties/{propertyId}/listings
+  source_operation: openapi/rea-group-properties-openapi.yml#listings
+  method: GET
+  path: /api/v2/properties/{propertyId}/listings
+- name: properties_get_api_v2_properties_planning
+  description: /properties/{propertyId}/planning
+  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-planning
+  method: GET
+  path: /api/v2/properties/{propertyId}/planning
+- name: properties_get_api_v2_properties_tenure
+  description: /api/v2/properties/{propertyId}/tenureType
+  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-tenure
+  method: GET
+  path: /api/v2/properties/{propertyId}/tenureType
+- name: properties_transactions
+  description: /api/v2/properties/{propertyId}/transactions
+  source_operation: openapi/rea-group-properties-openapi.yml#transactions
+  method: GET
+  path: /api/v2/properties/{propertyId}/transactions
+- name: properties_v1_properties_valuation_sale
+  description: /api/v1/properties/valuations/sale ~ Enquiry or Origination
+  source_operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale
+  method: POST
+  path: /api/v1/properties/valuations/sale
+- name: properties_avm_propertyid
+  description: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
+  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId
+  method: GET
+  path: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
+- name: properties_avm_propertyid_enquiry
+  description: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
+  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId-enquiry
+  method: GET
+  path: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
+- name: properties_v1_properties_valuation_sale_plus
+  description: /api/v1/properties/valuations/sale ~ Plus
+  source_operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale-plus
+  method: POST
+  path: /api/v1/properties/valuations/sale ~ requestType=plus
+- name: properties_avm_propertyid_plus
+  description: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
+  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId-plus
+  method: GET
+  path: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
+- name: properties_v1_properties_valuation_sale_pro
+  description: /api/v1/properties/valuations/sale ~ Pro
+  source_operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale-pro
+  method: POST
+  path: /api/v1/properties/valuations/sale ~ Pro
+- name: properties_avm_propertyid_pro
+  description: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
+  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId-pro
+  method: GET
+  path: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
+- name: properties_get_api_v2_properties_summaries_search
+  description: /api/v2/properties/summaries/search
+  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-summaries-search
+  method: GET
+  path: /api/v2/properties/summaries/search
+- name: properties_get_api_v2_properties_geopoints_pins
+  description: /api/v2/properties/geopoints/search
+  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-geopoints-pins
+  method: GET
+  path: /api/v2/properties/geopoints/search
+- name: reports_reports_valuations_pdf
+  description: /api/v1/reports/valuations/{valuationId}/pdf
+  source_operation: openapi/rea-group-reports-openapi.yml#reports-valuations-pdf
+  method: GET
+  path: /api/v1/reports/valuations/{valuationId}/pdf
+- name: reports_reports_property_report
+  description: /api/v1/reports/property
+  source_operation: openapi/rea-group-reports-openapi.yml#reports-property-report
+  method: POST
+  path: /api/v1/reports/property
+- name: transactions_get_transactions_propertyid
+  description: /api/v2/transactions/search/point-and-radius
+  source_operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId
+  method: GET
+  path: /api/v2/transactions/search/point-and-radius
+- name: transactions_get_transactions_propertyid_suburb
+  description: /api/v2/transactions/search/suburb-and-postcode
+  source_operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId-suburb
+  method: GET
+  path: /api/v2/transactions/search/suburb-and-postcode

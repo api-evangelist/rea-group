@@ -2,83 +2,255 @@ aid: rea-group
 name: REA Group
 review:
   question: Does REA Group expose a public, self-serve API, or is its developer surface partner-gated?
-  answer: partner-gated
-  date: '2026-07-20'
+  answer: partner-gated, but fully specified and publicly mockable
+  date: '2026-07-27'
+  supersedes: '2026-07-20'
   reviewer: API Evangelist
-  openapiHarvested: false
-  openapiScopeNote: |
-    REA Group's public API documentation is delivered through PropTrack's
-    developer portal (developer.proptrack.com.au), which is rendered by
-    Stoplight. The portal is publicly readable, but no OpenAPI/Swagger
-    document is publicly downloadable - the Stoplight project export is
-    gated (numeric project id 18203562583 is rejected by the public
-    Stoplight export API), and the rendered pages do not inline the spec.
-    No OpenAPI was harvested because none is publicly available; none was
-    fabricated.
+  openapiHarvested: true
+  openapiCount: 9
+  operationCount: 32
+corrections:
+- date: '2026-07-27'
+  field: review.openapiHarvested
+  was: false
+  now: true
+  detail: |
+    The 2026-07-20 review concluded that "no OpenAPI/Swagger document is publicly
+    downloadable" and that "the Stoplight project export is gated". Both were
+    wrong. The earlier pass tried the numeric id 18203562583 scraped from the
+    rendered page - that is an Optimizely account id, not the Stoplight project -
+    and gave up when the export API rejected it.
+
+    The real Stoplight project id is base64 (cHJqOjE5MTUyMA = "prj:191520"), in a
+    workspace whose own settings declare allowPublicProjects: true. It was
+    recoverable by capturing the docs SPA's own XHR calls with a headless browser
+    net-log. From there the public, unauthenticated table-of-contents and node
+    export endpoints returned nine complete OpenAPI 3.1.0 documents totalling
+    2.5MB, covering 32 operations with 189 named response examples.
+
+    Lesson, and the same one Harmonic.ai taught: an identifier scraped from
+    rendered HTML is not necessarily the identifier the application uses. When a
+    docs site is a client-rendered SPA, capture what it actually fetches before
+    concluding a spec does not exist.
 findings:
   summary: |
-    REA Group Limited (ASX:REA) does not offer a public, self-serve API.
-    Its single public developer surface is the PropTrack developer portal
-    at developer.proptrack.com.au, which documents a suite of property data
-    APIs - Properties, Address (match/suggest), Valuations (AVM), Listings
-    (details/history/search-by-radius, plus sold transactions), and a Market
-    API (sale/rent/best-value insights and economic reports). The
-    documentation is readable without login, but the data endpoints are
-    partner-gated: the API base host https://data.proptrack.com/api/v2
-    returns HTTP 403 Access Denied without credentials, and authentication
-    is handled via REA Group's OAuth identity service
-    (api.id.realestate.com.au / auth-api.proptrack.com). Access requires a
-    commercial agreement; prospective users are directed to "speak to a
-    specialist" or request a trial. There is no separate public developer
-    portal for realestate.com.au (developer.realestate.com.au does not
-    resolve), realcommercial.com.au, or REA India (Housing.com / PropTiger).
-    A real REA Group engineering GitHub organization exists
-    (github.com/realestate-com-au) but publishes infrastructure tooling,
-    not consumer API SDKs.
+    REA Group Limited (ASX:REA) does not offer a self-serve API, but it does
+    publish a genuinely well-specified one. The PropTrack developer portal at
+    developer.proptrack.com.au is a public Stoplight workspace carrying nine
+    OpenAPI 3.1.0 service documents - OAuth, Address, Properties, Listings,
+    Transactions, Market, Reports, Disclaimers and a Coming Soon service - and
+    thirteen documentation articles covering authentication, error handling,
+    pagination, rate limiting, trials, the rules engine and terms of use.
+
+    The contract quality is above the catalogue norm: all 32 operations carry
+    operationIds and summaries, 31 of 32 are tagged, every operation documents
+    its 4xx/5xx responses, and 31 of 32 ship named response examples - 189 in
+    total. Every service also exposes a live Stoplight Prism mock server that
+    needs no authentication and serves the documented examples including the real
+    error envelopes, which for a partner-gated API is a genuinely unusual and
+    valuable thing to publish.
+
+    The gating is real: data.proptrack.com returns 403 without credentials, and
+    credentials are issued by an Account Manager under a commercial agreement.
+    But the contract, the error registry, the rate limits, the pagination model
+    and the trial terms are all public, so an integrator can build and test
+    against the mocks before signing anything.
+
+    There is no separate public developer portal for realestate.com.au,
+    realcommercial.com.au, or REA India. The realestate.com.au partner surface is
+    REAXML - REA Group's own XML listing-feed DTD, which is the de facto
+    Australian listing-distribution standard and the structural substitute for
+    the RESO Web API that does not exist in this market.
+  strengths:
+  - Nine OpenAPI 3.1.0 documents, provider-authored, publicly exportable
+  - 189 named response examples across 31 of 32 operations
+  - Complete 4xx/5xx response coverage on every operation
+  - A published, numbered error-code registry (18 codes) with per-endpoint applicability
+  - Per-endpoint rate limits published as concrete numbers, not vague guidance
+  - A documented cursor pagination contract with defaults and maxima
+  - Nine live unauthenticated mock servers - the contract is testable pre-sales
+  - A documented trial programme with honest disclosure of its data restrictions
+  - X-Transaction-Id request tracing wired into the support process
+  gaps:
+  - id: no-security-schemes
+    severity: high
+    detail: >-
+      Not one of the nine documents declares components.securitySchemes, even
+      though every data operation requires an OAuth 2.0 client-credentials bearer
+      token that the portal documents in prose. Generated clients read the specs
+      as unauthenticated. Captured in overlays/rea-group-security-overlay.yaml.
+  - id: invalid-path-templates
+    severity: high
+    detail: >-
+      Six path keys in the Properties document are not valid OpenAPI path
+      templates - they embed query strings and prose, e.g.
+      "/api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or
+      requestType=origination" and "/api/v1/properties/valuations/sale ~ Pro".
+      requestType should be an enum query parameter on a single path. Strict
+      parsers reject these and codegen produces broken clients.
+  - id: no-idempotency
+    severity: high
+    detail: >-
+      The three POST operations are billable, side-effecting valuation and report
+      orders, and they document 504 Gateway Timeout. With no idempotency key and
+      no de-duplication contract, a client that retries a timeout cannot know
+      whether it just paid for a second valuation. This is the sharpest edge in
+      the surface.
+  - id: no-components-reuse
+    severity: medium
+    detail: >-
+      components.schemas is empty in all nine documents; every schema is inlined
+      per operation, inflating the Properties document to 591KB and redefining
+      the same logical entities repeatedly with no guarantee of consistency.
+  - id: duplicate-operation-ids
+    severity: medium
+    detail: >-
+      operationId "listings" is used in both the Listings and Properties
+      documents, and "transactions" collides similarly. Each file is individually
+      valid, but merging the nine services into one client - which is how the
+      surface is actually consumed - produces collisions.
+  - id: empty-info-version
+    severity: medium
+    detail: >-
+      info.version is an empty string in all nine documents. Consumers cannot pin
+      or diff a version; the only version signal is the v1/v2 URI path.
+  - id: no-rate-limit-headers
+    severity: medium
+    detail: >-
+      Per-endpoint limits are published as prose but no RateLimit or X-RateLimit
+      response headers are emitted, so a client cannot observe remaining budget -
+      it discovers exhaustion only via a 429. Rate-limit and quota exhaustion
+      share HTTP 429 and error code 9011, distinguishable only by description text.
+  - id: no-status-page
+    severity: medium
+    detail: >-
+      Verified absent, not merely unfound. status.proptrack.com and
+      status.proptrack.com.au do not resolve; proptrack.statuspage.io returns
+      Atlassian's generic marketing page, not a PropTrack tenant.
+  - id: no-deprecation-policy
+    severity: medium
+    detail: >-
+      v1 and v2 are served concurrently with no published deprecation policy, no
+      Sunset/Deprecation header support and no migration guidance.
+  - id: no-changelog
+    severity: low
+    detail: No dated changelog or release notes. The Coming Soon page is the only forward signal.
+  - id: no-sdks
+    severity: low
+    detail: >-
+      No first-party client libraries. Checked npm and PyPI - nothing published
+      under proptrack or rea-group.
+  - id: no-mcp-server
+    severity: low
+    detail: >-
+      No MCP server, no llms.txt on the docs host, no agent-facing surface of any
+      kind. mcp/rea-group-mcp.yml is our derived candidate, not a provider claim.
   transports:
-    - protocol: REST
-      scheme: https
-      baseURL: https://data.proptrack.com/api/v2
-      documented: true
-      note: Publicly documented on the PropTrack developer portal; endpoints return 403 Access Denied without partner credentials.
-    - protocol: OAuth
-      scheme: https
-      note: Authentication via REA Group identity (api.id.realestate.com.au/auth/authorize) and auth-api.proptrack.com. Not a data transport; access is gated behind a commercial partner agreement.
-      documented: true
-    - protocol: WebSocket
-      scheme: wss
-      documented: false
-      note: No streaming/WebSocket surface is documented.
+  - protocol: REST
+    scheme: https
+    baseURL: https://data.proptrack.com
+    documented: true
+    specified: true
+    note: >-
+      Nine OpenAPI 3.1.0 documents harvested. v2 for property data, v1 for
+      valuations, reports and disclaimers. Returns 403 without partner credentials.
+  - protocol: OAuth
+    scheme: https
+    baseURL: https://data.proptrack.com/oauth2/token
+    documented: true
+    specified: true
+    note: >-
+      OAuth 2.0 client credentials, client_secret_basic, returning a JWT bearer
+      token with a 3600 second TTL. Specified in its own OpenAPI document.
+  - protocol: XML feed
+    scheme: https
+    baseURL: https://reaxml.realestate.com.au
+    documented: true
+    specified: true
+    note: >-
+      REAXML propertyList DTD - REA Group's listing-distribution schema, uploaded
+      through the realestate.com.au Partner Portal. Separate surface from the
+      PropTrack REST APIs.
+  - protocol: WebSocket
+    scheme: wss
+    documented: false
+    note: No streaming, webhook, event or AsyncAPI surface of any kind is documented.
   accessModel: partner-gated
   selfServeSignup: false
   publicDocs: true
+  publicMocks: true
   apiProductsDocumented:
-    - PropTrack Properties API (property data, property reports)
-    - PropTrack Address API (address match, address suggest, structured address match - coming soon)
-    - PropTrack Valuations API (Automated Valuation Model / AVM, valuations)
-    - PropTrack Listings API (listing details, listing history, listings search by point and radius, sold transactions search)
-    - PropTrack Market API (sale insights, rent insights, best value insights, economic reports)
+  - PropTrack OAuth 2.0 Token API (1 operation)
+  - PropTrack Address API (2 operations - match, suggest)
+  - PropTrack Properties API (15 operations - summary, attributes, listings, planning, tenure, transactions, search, and the full AVM surface)
+  - PropTrack Listings API (3 operations - by id, point and radius, suburb and postcode)
+  - PropTrack Transactions API (2 operations - point and radius, suburb and postcode)
+  - PropTrack Market API (5 operations - sale history, rent history, supply and demand, auctions, demographics)
+  - PropTrack Reports API (2 operations - AVM PDF, property report)
+  - PropTrack Disclaimers API (1 operation)
+  - PropTrack Upcoming APIs (1 operation - nearby education facilities, not yet released)
+  - realestate.com.au REAXML listing feed (XML DTD, Partner Portal)
 sources:
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-    note: PropTrack developer portal home (Stoplight-hosted). Publicly readable API documentation.
-  - url: https://www.proptrack.com.au/products/property-data-and-insights/apis/
-    type: Documentation
-    note: PropTrack Data & APIs marketing page enumerating the API product families and directing prospects to "speak to a specialist" or trial the APIs.
-  - url: https://data.proptrack.com/api/v2/
-    type: APIBaseURL
-    note: Confirmed live API base host; returns HTTP 403 Access Denied without partner credentials.
-  - url: https://github.com/realestate-com-au
-    type: GitHubOrganization
-    note: Real REA Group / realestate.com.au engineering GitHub org (73 repos); infrastructure tooling, not API SDKs.
-  - url: https://www.rea-group.com/
-    type: Website
-    note: REA Group corporate site describing brands - realestate.com.au, realcommercial.com.au, PropTrack, Mortgage Choice, REA India.
+- url: https://developer.proptrack.com.au/docs/apis/home
+  type: DeveloperPortal
+  note: PropTrack developer portal, Stoplight workspace "proptrack", project "apis" (cHJqOjE5MTUyMA).
+- url: https://stoplight.io/api/v1/projects/cHJqOjE5MTUyMA/table-of-contents?branch=main
+  type: APIReference
+  note: Public, unauthenticated Stoplight table of contents - the index the nine specs were exported from.
+- url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  type: Authentication
+  note: OAuth 2.0 client credentials, Basic-authenticated token request, 3600s JWT.
+- url: https://developer.proptrack.com.au/docs/apis/error-handling
+  type: ErrorCatalog
+  note: 18 numbered error codes with per-endpoint applicability and sample envelopes.
+- url: https://developer.proptrack.com.au/docs/apis/rate-limits
+  type: RateLimits
+  note: Per-endpoint limits, 50 rps reads and 25 rps valuations/reports, rolling one-second window.
+- url: https://developer.proptrack.com.au/docs/apis/pagination
+  type: Pagination
+  note: Cursor pagination - pageSize default 25 max 200, afterPageCursor / beforePageCursor.
+- url: https://developer.proptrack.com.au/docs/apis/api-trials
+  type: Plans
+  note: Trial quota and expiry model plus honest disclosure of Victoria data restrictions.
+- url: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  type: TermsOfService
+  note: PropTrack Trial & Evaluation License Terms.
+- url: https://stoplight.io/mocks/proptrack/apis/67669715
+  type: Sandbox
+  note: One of nine live unauthenticated mock servers; verified returning documented error envelopes 2026-07-27.
+- url: https://data.proptrack.com/
+  type: APIBaseURL
+  note: Live API base host; returns HTTP 403 Access Denied without partner credentials.
+- url: https://reaxml.realestate.com.au/propertyList.dtd
+  type: Schema
+  note: REAXML listing-feed DTD, the de facto Australian listing-distribution standard.
+- url: https://github.com/realestate-com-au
+  type: GitHubOrganization
+  note: REA Group engineering GitHub org; infrastructure tooling, not API SDKs.
+- url: https://www.rea-group.com/
+  type: Website
+  note: REA Group corporate site - realestate.com.au, realcommercial.com.au, PropTrack, Mortgage Choice, REA India.
 actions:
-  openapiHarvested: false
+  openapiHarvested: true
+  method: searched
   reason: |
-    No publicly downloadable OpenAPI/Swagger document is available for REA
-    Group or PropTrack; the Stoplight-rendered docs do not expose the spec
-    and the project export is gated. Real product APIs are listed in
-    apis.yml with human documentation URLs and the verified partner-gated
-    base URL (https://data.proptrack.com/api/v2). No spec was fabricated.
+    Nine provider-authored OpenAPI 3.1.0 documents were exported verbatim from
+    PropTrack's own public Stoplight workspace. Nothing was fabricated. Our
+    additions - the security scheme, contact block and cross-artifact extensions
+    - live in overlays/rea-group-security-overlay.yaml and never mutate the
+    harvested documents.
+  pointersNotEmitted:
+  - type: MCPServer
+    reason: PropTrack publishes no MCP server; mcp/ is a derived candidate only.
+  - type: Idempotency
+    reason: No idempotency key, header or safe-retry contract exists.
+  - type: Compliance
+    reason: No trust centre, SOC 2 or ISO 27001 attestation published.
+  - type: StatusPage
+    reason: Verified absent.
+  - type: Deprecation
+    reason: No deprecation policy published.
+  - type: SDKs
+    reason: No first-party client libraries on npm or PyPI.
+  - type: OAuthScopes
+    reason: Client-credentials OAuth with no published scope surface.

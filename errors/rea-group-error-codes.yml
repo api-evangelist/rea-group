@@ -1,0 +1,277 @@
+generated: '2026-07-27'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/error-handling
+format: proprietary
+envelope:
+  media_type: application/json
+  shape: '{"errors": [{"code": <integer>, "level": "CRITICAL", "description": "<text>", "parameters":
+    {}}]}'
+  notes: Not RFC 9457. The level field is documented as deprecated; when present and CRITICAL, no
+    successful response is returned.
+http_status_codes:
+- status: 200
+  description: Success
+- status: 400
+  description: Bad Request
+- status: 401
+  description: Unauthorised
+- status: 403
+  description: Forbidden
+- status: 404
+  description: Not Found
+- status: 405
+  description: Method Not Allowed
+- status: 429
+  description: Rate Limit Exceeded
+- status: 500
+  description: Internal Server Error
+- status: 504
+  description: Gateway Timeout
+code_classes:
+- prefix: 7xxx
+  class: validation
+  description: Request/parameter validation and data-match failures
+- prefix: 9xxx
+  class: platform
+  description: Authentication, authorisation, quota, rate limit and internal errors
+error_codes:
+- code: 7001
+  class: validation
+  level: null
+  description: The value does not match a record within our system
+- code: 7002
+  class: validation
+  level: CRITICAL
+  description: Address cannot be matched, the address entered does not match a single property within
+    our system - Please consider revising the address query parameter
+- code: 7004
+  class: validation
+  level: CRITICAL
+  description: Required parameter is missing - Please ensure that all required parameters are included
+    in the request
+- code: 7005
+  class: validation
+  level: null
+  description: Invalid value entry - Please ensure that all values entered are valid
+- code: 7006
+  class: validation
+  level: CRITICAL
+  description: Invalid characters have been included - Please only include allowed characters
+- code: 7007
+  class: validation
+  level: null
+  description: A non-allowed value has been included into an enum field - Please ensure that the
+    value entered is an allowed option
+- code: 7008
+  class: validation
+  level: CRITICAL
+  description: An incorrect field type has been included - Please ensure that all values are using
+    the correct field type
+- code: 7009
+  class: validation
+  level: CRITICAL
+  description: Additional values have been included in a non-array field - Please ensure that only
+    one value has been included
+- code: 7010
+  class: validation
+  level: CRITICAL
+  description: An incorrect format has been included - Please ensure that the correct formatting
+    has been used for all parameters
+- code: 7011
+  class: validation
+  level: CRITICAL
+  description: A value above/below the allowed limit has been included - Please ensure that a valid
+    value has been entered
+- code: 7013
+  class: validation
+  level: CRITICAL
+  description: An invalid/non-allowed field has been added as a parameter - Please remove this field
+    and resubmit your request
+- code: 7014
+  class: validation
+  level: null
+  description: An invalid date range has been included - Please ensure that the start and end dates
+    are valid
+- code: 7015
+  class: validation
+  level: null
+  description: Query contains conflicting criteria - Please ensure that all parameters are compatible
+- code: 9000
+  class: platform
+  level: null
+  description: An internal server error has occurred and the requested data cannot be returned at
+    this time
+- code: 9003
+  class: platform
+  level: null
+  description: Access denied - Please contact our customer support team at support@proptrack.com
+    for access to this endpoint
+- code: 9011
+  class: platform
+  level: CRITICAL
+  description: Rate limit has been exceeded - Please try again shortly
+- code: 9012
+  class: platform
+  level: CRITICAL
+  description: Authentication token validation has failed - Please ensure that a valid token authentication
+    request has been completed before trying again
+- code: 9016
+  class: platform
+  level: CRITICAL
+  description: Authentication token has expired - Please ensure that a valid token authentication
+    request has been completed before trying again
+endpoint_applicability:
+- endpoint: Address/Match
+  codes:
+  - 7002
+  - 7004
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Address/Suggest
+  codes:
+  - 7004
+  - 7006
+  - 7008
+  - 7011
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: AVM/Sale
+  codes:
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Listings/{listingId}
+  codes:
+  - 7002
+  - 7006
+  - 7010
+  - 7011
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Listings/Points & Radius Search
+  codes:
+  - 7002
+  - 7004
+  - 7005
+  - 7007
+  - 7008
+  - 7010
+  - 7011
+  - 7014
+  - 7015
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Listings/Suburb & Postcode Search
+  codes:
+  - 7002
+  - 7004
+  - 7005
+  - 7007
+  - 7008
+  - 7010
+  - 7011
+  - 7014
+  - 7015
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Market/Rent History
+  codes:
+  - 7002
+  - 7004
+  - 7005
+  - 7007
+  - 7008
+  - 7009
+  - 7010
+  - 7011
+  - 7014
+  - 7015
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Market/Sale History
+  codes:
+  - 7002
+  - 7004
+  - 7005
+  - 7007
+  - 7008
+  - 7009
+  - 7010
+  - 7011
+  - 7014
+  - 7015
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Market/Supply & Demand
+  codes:
+  - 7002
+  - 7004
+  - 7005
+  - 7007
+  - 7008
+  - 7009
+  - 7010
+  - 7011
+  - 7014
+  - 7015
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Properties/Listings
+  codes:
+  - 7002
+  - 7004
+  - 7006
+  - 7007
+  - 7008
+  - 7011
+  - 7013
+  - 7015
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Properties/Transactions
+  codes:
+  - 7002
+  - 7004
+  - 7007
+  - 7008
+  - 7011
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+- endpoint: Reports/Property
+  codes:
+  - 7001
+  - 7002
+  - 7004
+  - 7005
+  - 7008
+  - 7010
+  - 9000
+  - 9003
+  - 9011
+  - 9012
+  - 9016
+cross_links:
+  conventions: conventions/rea-group-conventions.yml
+  rate_limits: rate-limits/rea-group-rate-limits.yml
+  authentication: authentication/rea-group-authentication.yml

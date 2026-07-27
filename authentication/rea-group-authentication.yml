@@ -1,23 +1,69 @@
-generated: '2026-07-20'
+generated: '2026-07-27'
 method: searched
-source: https://developer.proptrack.com.au/docs/apis/authentication
-docs: https://developer.proptrack.com.au/docs/apis/authentication
+source: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+docs: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
 summary:
   types: [oauth2]
   api_key_in: []
   oauth2_flows: [clientCredentials]
+  token_type: Bearer
+  token_format: JWT
+  token_ttl_seconds: 3600
   notes: >-
-    PropTrack (REA Group) APIs are protected by OAuth 2.0 (the auth docs page is
-    titled "OAuth 2.0 | PropTrack APIs"). Access is partner-gated: a client is
-    issued credentials under a commercial agreement and exchanges them with the
-    REA Group OAuth identity service for a bearer access token used against
-    data.proptrack.com. The specific token endpoint URL and scope list are not
-    published on the public developer surface (partner onboarding material).
+    PropTrack (REA Group) APIs are protected by OAuth 2.0 client credentials.
+    Partners are issued an api_key and api_secret under a commercial agreement,
+    Base64-encode them as an HTTP Basic credential on the token request, and
+    exchange them at https://data.proptrack.com/oauth2/token for a JWT access
+    token with a one hour TTL. The token is then presented as a Bearer token on
+    every subsequent call to data.proptrack.com. Credentials as form parameters
+    are explicitly NOT supported - the Authorization header is the only accepted
+    channel. Credential issuance is partner-gated; there is no self-serve signup.
 schemes:
-- name: OAuth2
+- name: OAuth2ClientCredentials
   type: oauth2
   flows:
   - flow: clientCredentials
-    tokenUrl: null
-    note: token endpoint issued to partners during onboarding; not public
-  sources: [https://developer.proptrack.com.au/docs/apis/authentication]
+    tokenUrl: https://data.proptrack.com/oauth2/token
+    scopes: {}
+    note: >-
+      No scope surface is published. The issued JWT carries a scope claim but the
+      developer documentation does not enumerate scope values, so scopes/ is not
+      emitted for this provider.
+  client_authentication: client_secret_basic
+  sources:
+  - https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - openapi/rea-group-oauth-openapi.yml
+- name: BearerToken
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  applies_to: all data.proptrack.com API operations
+  sources:
+  - https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+token_request:
+  method: POST
+  url: https://data.proptrack.com/oauth2/token
+  operation: openapi/rea-group-oauth-openapi.yml#auth-token
+  headers:
+    Content-Type: application/x-www-form-urlencoded
+    Authorization: Basic base64(api_key:api_secret)
+  body:
+    grant_type: client_credentials
+  response_fields: [access_token, token_type, expires_in]
+errors:
+  token_validation_failed: 9012
+  token_expired: 9016
+  access_denied: 9003
+  note: >-
+    A 403 Access Denied returned as an HTML body (rather than the JSON error
+    envelope) indicates an IP-level block, not a credential failure - the docs
+    direct these to support@proptrack.com.
+gaps:
+- >-
+  The published OpenAPI documents declare no components.securitySchemes, so the
+  OAuth 2.0 model documented in prose is not machine-readable from the specs.
+  Captured here and in overlays/rea-group-security-overlay.yaml.
+cross_links:
+  conventions: conventions/rea-group-conventions.yml
+  errors: errors/rea-group-error-codes.yml
+  openapi: openapi/rea-group-oauth-openapi.yml

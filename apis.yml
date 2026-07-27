@@ -7,64 +7,88 @@ description: REA Group Limited is an ASX-listed (ASX:REA) digital real estate ad
   operates realestate.com.au and realcommercial.com.au, the property data and analytics
   brand PropTrack, the Mortgage Choice broking network, and REA India (Housing.com,
   PropTiger, and Makaan). REA Group's public developer surface is delivered through
-  PropTrack, whose developer portal documents a suite of property data APIs - address
-  matching, automated valuations (AVM), property and listing data, sold transactions,
-  and suburb-level market insights - sourced from Australia's largest real estate
-  portal. The APIs are documented publicly but are partner-gated; access requires a
-  commercial agreement, and the data endpoints are authenticated via REA Group's
-  OAuth identity service rather than being self-serve. Alongside PropTrack, REA Group
-  runs the realestate.com.au Partner Portal (partner.realestate.com.au), the
-  integration surface for real estate agencies and their CRM / software providers to
-  publish for-sale and for-rent listings onto realestate.com.au and realcommercial.com.au
-  and to receive buyer and renter enquiries. Listing distribution uses REAXML, REA's
-  long-standing industry-standard XML property feed (schema published at
-  reaxml.realestate.com.au), which the majority of Australian agency CRMs implement,
-  with partner onboarding, API credentials (Client ID + secret) and enquiry delivery
-  managed through the partner portal.
+  PropTrack, whose developer portal publishes nine OpenAPI 3.1 documents covering 32
+  operations - OAuth token issuance, address matching and suggestion, property summary,
+  attributes, planning, tenure, listings and transactions, automated valuations (AVM
+  Sale, Rent, Plus and Pro), PDF valuation and property reports, suburb-level market
+  history, supply and demand, auction results and demographics, plus a Disclaimers API
+  that serves the attribution text PropTrack contractually requires alongside its data.
+  Every service also publishes a live, unauthenticated Stoplight mock server, so the
+  contract can be exercised before a commercial agreement is signed. The APIs are
+  documented publicly but are partner-gated - access requires a commercial agreement
+  arranged through an Account Manager, and calls are authenticated with OAuth 2.0
+  client credentials exchanged for a one-hour JWT bearer token at data.proptrack.com.
+  Alongside PropTrack, REA Group runs the realestate.com.au Partner Portal
+  (partner.realestate.com.au), the integration surface for real estate agencies and
+  their CRM / software providers to publish for-sale and for-rent listings onto
+  realestate.com.au and realcommercial.com.au and to receive buyer and renter
+  enquiries. Listing distribution uses REAXML, REA's long-standing industry-standard
+  XML property feed (schema published at reaxml.realestate.com.au), which the majority
+  of Australian agency CRMs implement, with partner onboarding, API credentials
+  (Client ID + secret) and enquiry delivery managed through the partner portal.
 accessModel:
-  pricing: unknown
-  onboarding: self-serve
-  trial: false
-  try_now: false
+  pricing: contract
+  onboarding: partner-gated
+  trial: true
+  try_now: true
   public: false
-  label: Self-serve signup
-  confidence: medium
+  label: Partner-gated, commercial agreement required; public mock servers
+  confidence: high
   source:
-  - authentication
-  generated: '2026-07-22'
-  method: derived
+  - https://developer.proptrack.com.au/docs/apis/api-trials
+  - https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - plans/rea-group-plans.yml
+  - sandbox/rea-group-sandbox.yml
+  generated: '2026-07-27'
+  method: searched
+  note: >-
+    Corrects the earlier derived value of "self-serve". There is no self-serve
+    signup: credentials are issued by an Account Manager under a commercial
+    agreement. try_now is true because every service publishes an unauthenticated
+    Stoplight mock server, and trial is true because a quota- and expiry-bounded
+    trial programme is documented.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rea-group.png
 tags:
 - Real Estate
 - Property Data
 - Valuations
+- AVM
 - Market Insights
 - Listings
+- Transactions
+- Address Matching
+- Geospatial
 - REAXML
 - Partner Portal
 - PropTech
 - Australia
 created: '2026-07-20'
-modified: '2026-07-24T14:00:00Z'
+modified: '2026-07-27T12:00:00Z'
 specificationVersion: '0.19'
 apis:
-- aid: rea-group:proptrack-properties-api
-  name: PropTrack Properties API
+- aid: rea-group:proptrack-oauth-api
+  name: PropTrack OAuth 2.0 Token API
   tags:
-  - Property Data
-  - Property Reports
-  - Real Estate
+  - Authentication
+  - OAuth
+  - Security
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/property-data-apis/properties
-  baseURL: https://data.proptrack.com/api/v2
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
   properties:
-  - url: https://developer.proptrack.com.au/docs/property-data-apis/properties
+  - url: openapi/rea-group-oauth-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
     type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  description: Retrieves data on a specific property - attributes, history, and property
-    reports - drawn from PropTrack's property dataset behind realestate.com.au. Access
-    is partner-gated and authenticated via REA Group OAuth.
+  - url: https://developer.proptrack.com.au/docs/apis/authentication
+    type: APIReference
+  - url: https://stoplight.io/mocks/proptrack/apis/70243931
+    type: Sandbox
+  description: >-
+    The OAuth 2.0 client credentials token service. POST /oauth2/token with the
+    partner api_key and api_secret Base64-encoded as HTTP Basic returns a JWT
+    access token with a 3600 second TTL, presented as a Bearer token on every
+    other PropTrack operation. Credentials in form parameters are not supported.
 - aid: rea-group:proptrack-address-api
   name: PropTrack Address API
   tags:
@@ -72,67 +96,184 @@ apis:
   - Geocoding
   - Matching
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/property-data-apis/address
+  humanURL: https://developer.proptrack.com.au/docs/apis/address
   baseURL: https://data.proptrack.com/api/v2
   properties:
-  - url: https://developer.proptrack.com.au/docs/property-data-apis/address
+  - url: openapi/rea-group-address-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/address
     type: Documentation
   - url: https://developer.proptrack.com.au/docs/apis/home
     type: DeveloperPortal
-  description: Address match and address suggest endpoints that resolve free-text or
-    partial addresses to canonical Australian property records, with structured address
-    match noted as coming soon. Partner-gated.
-- aid: rea-group:proptrack-valuations-api
-  name: PropTrack Valuations API (AVM)
+  - url: https://stoplight.io/mocks/proptrack/apis/67669714
+    type: Sandbox
+  description: >-
+    Address match and address suggest. Resolves free-text or partial Australian
+    addresses to a canonical propertyId and gpid with a matchScore - the entry
+    point for almost every PropTrack workflow. Structured component-wise address
+    match is documented as coming soon.
+- aid: rea-group:proptrack-properties-api
+  name: PropTrack Properties API
   tags:
+  - Property Data
   - Valuations
   - AVM
-  - Automated Valuation Model
+  - Real Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/home
-  baseURL: https://data.proptrack.com/api/v2
+  humanURL: https://developer.proptrack.com.au/docs/apis/properties
+  baseURL: https://data.proptrack.com
   properties:
-  - url: https://developer.proptrack.com.au/docs/apis/home
+  - url: openapi/rea-group-properties-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/properties
     type: Documentation
   - url: https://developer.proptrack.com.au/docs/apis/home
     type: DeveloperPortal
-  description: PropTrack's Automated Valuation Model (AVM) and valuation endpoints
-    return estimated property values and confidence ranges used across banking, broking,
-    and valuation workflows. Access is partner-gated and commercially licensed.
+  - url: https://stoplight.io/mocks/proptrack/apis/67669715
+    type: Sandbox
+  description: >-
+    The largest PropTrack service - 15 operations spanning property summary,
+    attributes, listings, planning and zoning, tenure type, transactions and
+    property search (summaries and map geopoints) under /api/v2, plus the whole
+    Automated Valuation Model surface under /api/v1: sale and rent valuations by
+    address string or propertyId, each as an enquiry or origination request, and
+    the AVM Plus (sale + rent) and AVM Pro (sale + rent + environmental hazards)
+    combined products. The valuation operations are billable, side-effecting
+    orders with no idempotency contract.
 - aid: rea-group:proptrack-listings-api
   name: PropTrack Listings API
   tags:
   - Listings
   - Search
+  - Geospatial
   - Real Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/branches/main/listings
+  humanURL: https://developer.proptrack.com.au/docs/apis/listings
   baseURL: https://data.proptrack.com/api/v2
   properties:
-  - url: https://developer.proptrack.com.au/docs/apis/branches/main/listings
+  - url: openapi/rea-group-listings-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/listings
     type: Documentation
   - url: https://developer.proptrack.com.au/docs/apis/home
     type: DeveloperPortal
-  description: Listing details, listing history, and listings search by point and
-    radius, plus sold transactions search by point and radius, exposing for-sale and
-    sold listing data from realestate.com.au. Partner-gated.
+  - url: https://stoplight.io/mocks/proptrack/apis/160758630
+    type: Sandbox
+  description: >-
+    Listing detail by listingId plus two cursor-paginated search shapes - point
+    and radius, and suburb and postcode - exposing for-sale and for-rent listing
+    data from realestate.com.au and realcommercial.com.au.
+- aid: rea-group:proptrack-transactions-api
+  name: PropTrack Transactions API
+  tags:
+  - Transactions
+  - Sold Data
+  - Search
+  - Geospatial
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/apis/transactions
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: openapi/rea-group-transactions-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/transactions
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  - url: https://stoplight.io/mocks/proptrack/apis/205281044
+    type: Sandbox
+  description: >-
+    Sold transaction search by point and radius and by suburb and postcode,
+    cursor-paginated. On trial agreements, transactions sourced from the Victorian
+    Valuer-General are withheld while agent-advised transactions remain available.
 - aid: rea-group:proptrack-market-api
   name: PropTrack Market API
   tags:
   - Market Insights
   - Analytics
   - Suburb Trends
+  - Demographics
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/property-data-apis/market
+  humanURL: https://developer.proptrack.com.au/docs/apis/market
   baseURL: https://data.proptrack.com/api/v2
   properties:
-  - url: https://developer.proptrack.com.au/docs/property-data-apis/market
+  - url: openapi/rea-group-market-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/market
     type: Documentation
   - url: https://developer.proptrack.com.au/docs/apis/home
     type: DeveloperPortal
-  description: Suburb-level market statistics including sale insights, rent insights,
-    best value insights, and economic reports for researching property market trends
-    across Australia. Partner-gated.
+  - url: https://stoplight.io/mocks/proptrack/apis/99896681
+    type: Sandbox
+  description: >-
+    Suburb-level market statistics - sale price history, rent history, supply and
+    demand, auction results and demographics. Keyed by geography (searchType plus
+    state, postcode or suburb) rather than by propertyId, so it is the one branch
+    of the surface that does not join to the property graph.
+- aid: rea-group:proptrack-reports-api
+  name: PropTrack Reports API
+  tags:
+  - Reports
+  - Valuations
+  - PDF
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/apis/reports
+  baseURL: https://data.proptrack.com/api/v1
+  properties:
+  - url: openapi/rea-group-reports-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/reports
+    type: Documentation
+  - url: https://developer.proptrack.com.au/docs/apis/home
+    type: DeveloperPortal
+  - url: https://stoplight.io/mocks/proptrack/apis/181515791
+    type: Sandbox
+  description: >-
+    Renders an ordered AVM valuation as a PDF by valuationId, and orders a
+    standalone property report. Rate limited to 25 requests per second and the
+    only operations besides AVM that document a 504 Gateway Timeout.
+- aid: rea-group:proptrack-disclaimers-api
+  name: PropTrack Disclaimers API
+  tags:
+  - Disclaimers
+  - Attribution
+  - Branding
+  - Compliance
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  baseURL: https://data.proptrack.com/api/v1
+  properties:
+  - url: openapi/rea-group-disclaimers-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+    type: Documentation
+  - url: https://stoplight.io/mocks/proptrack/apis/723134185
+    type: Sandbox
+  description: >-
+    Serves the attribution and disclaimer text PropTrack contractually requires be
+    displayed wherever its data is rendered, plus the associated branding rules.
+    Fetching it rather than hardcoding is the documented expectation, since the
+    required wording changes.
+- aid: rea-group:proptrack-upcoming-api
+  name: PropTrack Upcoming APIs (Schools)
+  tags:
+  - Education
+  - Schools
+  - Roadmap
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.proptrack.com.au/docs/apis/coming-soon
+  baseURL: https://data.proptrack.com/api/v2
+  properties:
+  - url: openapi/rea-group-coming-soon-openapi.yml
+    type: OpenAPI
+  - url: https://developer.proptrack.com.au/docs/apis/coming-soon
+    type: Documentation
+  - url: https://stoplight.io/mocks/proptrack/apis/639882521
+    type: Sandbox
+  description: >-
+    Documented but not yet released. A nearby-education-facilities endpoint keyed
+    by propertyId, published ahead of availability on the Coming Soon page - the
+    closest thing PropTrack publishes to a roadmap.
 - aid: rea-group:realestate-listing-feed-reaxml
   name: realestate.com.au Listing Feed (REAXML)
   tags:
@@ -183,6 +324,10 @@ common:
   url: https://developer.proptrack.com.au/docs/apis/home
 - type: DeveloperPortal
   url: https://developer.proptrack.com.au/
+- type: APIReference
+  url: https://developer.proptrack.com.au/docs/apis/guide
+- type: GettingStarted
+  url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
 - type: PartnerPortal
   url: https://partner.realestate.com.au/
 - type: Schema
@@ -197,22 +342,46 @@ common:
   url: https://www.youtube.com/channel/UCfLcFXAN3pjad2aCzUNhUaA
 - type: Blog
   url: https://www.rea-group.com/about-us/news-and-insights/
-- type: APIReference
-  url: https://developer.proptrack.com.au/docs/apis/home
 - type: Support
-  url: https://www.proptrack.com.au/contact-us/
+  url: https://www.proptrack.com.au/support/contact-support/
+- type: FAQ
+  url: https://developer.proptrack.com.au/docs/apis/faqs
+- type: SignUp
+  url: https://www.proptrack.com.au/contact-us
 - type: PrivacyPolicy
   url: https://www.rea-group.com/privacy/
 - type: TermsOfService
-  url: https://www.proptrack.com.au/terms/
+  url: https://developer.proptrack.com.au/docs/apis/terms-of-use
 - type: Authentication
   url: authentication/rea-group-authentication.yml
 - type: Conventions
   url: conventions/rea-group-conventions.yml
+- type: Pagination
+  url: https://developer.proptrack.com.au/docs/apis/pagination
+- type: RateLimits
+  url: rate-limits/rea-group-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/rea-group-error-codes.yml
+- type: Examples
+  url: examples/rea-group-examples.yml
+- type: DataModel
+  url: data-model/rea-group-data-model.yml
+- type: Sandbox
+  url: sandbox/rea-group-sandbox.yml
+- type: Plans
+  url: plans/rea-group-plans.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/rea-group-agentic-access.yml
+- type: Overlay
+  url: overlays/rea-group-security-overlay.yaml
 - type: Conformance
   url: conformance/rea-group-conformance.yml
 - type: Lifecycle
   url: lifecycle/rea-group-lifecycle.yml
+- type: Roadmap
+  url: https://developer.proptrack.com.au/docs/apis/coming-soon
 - type: WellKnown
   url: well-known/rea-group-well-known.yml
 - type: SecurityTxt
@@ -229,7 +398,44 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 x-enrichment:
-  date: '2026-07-24'
-  status: minimal
-  artifacts_added: 1
-  pass: local-v1
+  date: '2026-07-27'
+  status: enriched
+  pass: local-v2
+  method: >-
+    Contract discovery against the PropTrack Stoplight workspace recovered nine
+    provider-published OpenAPI 3.1.0 documents (32 operations, 189 named examples)
+    plus thirteen documentation articles, which grounded a full artifact rebuild.
+  artifacts_added:
+  - openapi/ (9 documents, searched)
+  - errors/rea-group-error-codes.yml (18 codes, searched)
+  - rate-limits/rea-group-rate-limits.yml (16 endpoint limits, searched)
+  - plans/rea-group-plans.yml (searched)
+  - sandbox/rea-group-sandbox.yml (9 live mock servers, searched + verified)
+  - examples/rea-group-examples.yml (derived)
+  - data-model/rea-group-data-model.yml (derived)
+  - mcp/rea-group-mcp.yml (derived candidate, not published by provider)
+  - skills/ (3 skills + index, generated)
+  - agentic-access/rea-group-agentic-access.yml (generated)
+  - overlays/rea-group-security-overlay.yaml (generated)
+  artifacts_upgraded:
+  - authentication/ (unknown token URL -> full OAuth client-credentials profile)
+  - conventions/ (4 unknowns -> cursor pagination, error envelope, tracing header)
+  - lifecycle/ (added concurrent v1/v2, roadmap, verified no status page)
+  - conformance/ (4 standards -> 13, incl. RESO non-conformance rationale)
+  not_emitted:
+  - >-
+    MCPServer pointer - PropTrack publishes no MCP server. The mcp/ artifact is a
+    derived candidate surface only; claiming the pointer would assert a server
+    that does not exist.
+  - >-
+    Idempotency pointer - no idempotency key, header or safe-retry contract is
+    documented, and the three billable POST operations have none.
+  - >-
+    Compliance pointer - no trust centre, SOC 2 or ISO 27001 attestation is
+    published.
+  - >-
+    StatusPage / Deprecation pointers - verified absent, not merely unfound.
+  - >-
+    Packages / SDKs pointers - no first-party client libraries on npm or PyPI.
+  - >-
+    OAuthScopes - OAuth 2.0 is client-credentials with no published scope surface.

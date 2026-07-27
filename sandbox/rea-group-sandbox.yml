@@ -1,0 +1,82 @@
+generated: '2026-07-27'
+method: searched
+source: https://developer.proptrack.com.au/docs/apis/properties
+verified: '2026-07-27'
+type: hosted-mock
+detail: >-
+  PropTrack publishes a Stoplight Prism mock server alongside every documented
+  API service, advertised as "Mock Server" in the API Base URL panel on each
+  service's docs page. The mocks are live, require NO authentication and no
+  partner agreement, and serve the response examples defined in the published
+  OpenAPI - including the documented error envelopes with real error codes. For a
+  partner-gated API this is the only way to exercise the contract before a
+  commercial agreement is signed, and it makes the response shapes testable by
+  anyone.
+authentication_required: false
+separation:
+  model: separate-host
+  live: https://data.proptrack.com
+  mock: https://stoplight.io/mocks/proptrack/apis/{serviceId}
+  detail: >-
+    Mock and live are entirely different hosts with different credentials
+    requirements; there is no test/live key-prefix scheme. Each documented service
+    has its own mock id and a mock only resolves routes belonging to that service.
+mock_servers:
+- service: Authentication (OAuth 2.0)
+  url: https://stoplight.io/mocks/proptrack/apis/70243931
+  spec: openapi/rea-group-oauth-openapi.yml
+- service: Address API
+  url: https://stoplight.io/mocks/proptrack/apis/67669714
+  spec: openapi/rea-group-address-openapi.yml
+- service: Disclaimers API
+  url: https://stoplight.io/mocks/proptrack/apis/723134185
+  spec: openapi/rea-group-disclaimers-openapi.yml
+- service: Listings API
+  url: https://stoplight.io/mocks/proptrack/apis/160758630
+  spec: openapi/rea-group-listings-openapi.yml
+- service: Market API
+  url: https://stoplight.io/mocks/proptrack/apis/99896681
+  spec: openapi/rea-group-market-openapi.yml
+- service: Properties API
+  url: https://stoplight.io/mocks/proptrack/apis/67669715
+  spec: openapi/rea-group-properties-openapi.yml
+- service: Reports API
+  url: https://stoplight.io/mocks/proptrack/apis/181515791
+  spec: openapi/rea-group-reports-openapi.yml
+- service: Transactions API
+  url: https://stoplight.io/mocks/proptrack/apis/205281044
+  spec: openapi/rea-group-transactions-openapi.yml
+- service: Coming Soon (Schools)
+  url: https://stoplight.io/mocks/proptrack/apis/639882521
+  spec: openapi/rea-group-coming-soon-openapi.yml
+verified_calls:
+- request: GET https://stoplight.io/mocks/proptrack/apis/67669715/api/v2/properties/123456/summary
+  status: 400
+  returned: documented error envelope, code 7004, parameters.propertyId
+- request: GET https://stoplight.io/mocks/proptrack/apis/67669714/api/v2/address/match?q=1+Test+St
+  status: 400
+  returned: documented error envelope, code 7004, level CRITICAL, parameters.q
+- request: GET https://stoplight.io/mocks/proptrack/apis/99896681/api/v2/market/auctions
+  status: 400
+  returned: documented error envelope, code 7004, parameters.searchType/state/postcode
+usage_notes:
+- >-
+  Prism honours the standard Stoplight mock controls - send Prefer: example=<name>
+  or Prefer: code=<status> to select a specific documented example or status code.
+- >-
+  A route belonging to another service returns a Prism UNPROCESSABLE_ENTITY
+  "Route not resolved" body rather than a PropTrack error envelope; use the mock
+  id that matches the service.
+- >-
+  Mock responses are the spec's examples, not live property data. They exercise
+  shape and error semantics only.
+test_data:
+  magic_values: []
+  note: >-
+    No magic test identifiers, test property ids or fixture accounts are
+    published. Trial access against the live host is instead constrained by quota,
+    expiry and the Victoria data restrictions recorded in plans/rea-group-plans.yml.
+cross_links:
+  plans: plans/rea-group-plans.yml
+  errors: errors/rea-group-error-codes.yml
+  authentication: authentication/rea-group-authentication.yml
