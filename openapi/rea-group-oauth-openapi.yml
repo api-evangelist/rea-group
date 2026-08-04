@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  version: ''
+  version: "1.0"
   title: OAuth 2.0
   description: "### Authentication\n\n- **[OAuth 2.0](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)\
     \ POST /oauth2/token**</br>The token service is responsible in generating and validating the token\

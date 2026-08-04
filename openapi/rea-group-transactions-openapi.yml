@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  version: ''
+  version: "1.0"
   title: Transactions
   description: "- **[Transactions/Point & Radius Search](https://developer.proptrack.com.au/docs/apis/transactions/operations/get-a-api-v-2-transaction-search-point-and-radius):\
     \ GET /api/v2/transactions/search/point-and-radius**</br>Retrieves a list of sold transactions within\

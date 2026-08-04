@@ -1,6 +1,6 @@
 openapi: 3.1.0
 info:
-  version: ''
+  version: "1.0"
   title: Properties API
   description: "<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap;\
     \ margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n   \
