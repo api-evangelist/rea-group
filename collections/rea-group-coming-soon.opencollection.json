@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coming Soon",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/{propertyId}/nearby-education-facilities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/nearby-education-facilities",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a property. Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "Retrieves details of education facilities near a property.\r\nThe response includes an array of education facilities, which includes all 'zoned' schools and up 5 additional nearby schools for primary and secondary school types."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2914 @@
+{
+  "item": [
+    {
+      "id": "0ace8b5a-624a-4a67-b1e2-545ae9b65a5e",
+      "name": "Listing by listingId",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e8285d7-649f-4cc9-9486-7ee7ace76865",
+          "name": "/api/v2/listings/{listingId}",
+          "request": {
+            "name": "/api/v2/listings/{listingId}",
+            "description": {
+              "content": "Retrieves current and historic listings based on the `listingId`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "listings",
+                ":listingId"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "listingId",
+                  "description": "(Required) Unique identifier for a listing"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fcf283fc-ff53-42d3-b6f1-b3c3862abed9",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listingId\": \"7654321\",\n  \"propertyId\": 1234567,\n  \"attributes\": {\n    \"bedrooms\": 4,\n    \"bathrooms\": 2,\n    \"carSpaces\": 2,\n    \"floorArea\": 260,\n    \"landArea\": 600,\n    \"propertyType\": \"house\",\n    \"propertySubType\": \"house\",\n    \"yearBuilt\": 1998,\n    \"features\": [\n      \"airConditioning\"\n    ]\n  },\n  \"auctionDateTime\": \"2023-02-19T12:00:00+10:00\",\n  \"auctionDate\": \"2023-02-19\",\n  \"auctionTime\": \"01:00:00 pm\",\n  \"description\": \"This stunning apartment is located in the heart of Baulkham Hills\",\n  \"firstSeenDate\": \"2022-12-23\",\n  \"listingType\": \"sale\",\n  \"status\": \"current\",\n  \"source\": \"REA\",\n  \"videoUrl\": \"https://www.youtube.com/embed/j4clLwXYYXA\",\n  \"images\": [\n    {\n      \"id\": \"e200f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg\",\n      \"extension\": \"jpg\",\n      \"type\": \"image\",\n      \"orderIndex\": 0,\n      \"date\": \"2022-12-23\",\n      \"sha\": \"d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4\"\n    },\n    {\n      \"id\": \"d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg\",\n      \"extension\": \"jpg\",\n      \"type\": \"image\",\n      \"orderIndex\": 1,\n      \"date\": \"2022-12-23\",\n      \"sha\": \"d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4\"\n    },\n    {\n      \"id\": \"d300f1a395373a8622bb0fa1b2ec64542951d5d363defc75d18a479b06d800c4.jpg\",\n      \"extension\": \"jpg\",\n      \"type\": \"image\",\n      \"orderIndex\": 2,\n      \"date\": \"2022-12-23\",\n      \"sha\": \"d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4\"\n    }\n  ],\n  \"attachments\": [\n    {\n      \"url\": \"https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf\",\n      \"type\": \"statement_of_information\",\n      \"date\": \"2022-12-23\"\n    }\n  ],\n  \"energyEfficiencyRating\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b91b93a-346b-420f-a974-74bd6d858e7a",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingslistingid) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7006,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Invalid characters have been included - Please only include allowed characters\",\n      \"parameters\": {\n        \"listingType\": \"must only include alphabetical characters\",\n        \"status\": \"must only include alphabetical characters\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c7b2e0a8-567e-4af3-b600-1a7be6964482",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingslistingid) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af388510-19eb-4ec4-b628-336fcc35b28f",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingslistingid) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d174151d-7e68-4a72-873f-717884ccace9",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingslistingid) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44f7e338-11fb-4f1d-b1bb-bc64c2b78590",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingslistingid) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"CRITICAL\"\n    },\n    {\n      \"code\": 9011,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"CRITICAL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aa294d58-6b37-45da-9ac9-126509aa0b1f",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingslistingid) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    ":listingId"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "listingId",
+                      "description": "(Required) Unique identifier for a listing"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a0a814f2-d6ac-49a9-abd3-b2c5c1c33b86",
+      "name": "Point & Radius Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c2389d5-05bc-49c5-9b96-bc0e0dec6325",
+          "name": "/api/v2/listings/search/point-and-radius",
+          "request": {
+            "name": "/api/v2/listings/search/point-and-radius",
+            "description": {
+              "content": "Retrieves current and historic listings within a given radius of a target point",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "listings",
+                "search",
+                "point-and-radius"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "listingTypes",
+                  "value": "<string>",
+                  "description": "(Required) Select the type of listings returned</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "pointType",
+                  "value": "<string>",
+                  "description": "(Required) Defines the identifier used as a target point"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathroomsMax",
+                  "value": "<integer>",
+                  "description": "Maximum number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathroomsMin",
+                  "value": "<integer>",
+                  "description": "Minimum number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedroomsMax",
+                  "value": "<integer>",
+                  "description": "Maximum number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedroomsMin",
+                  "value": "<integer>",
+                  "description": "Minimum number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "carSpacesMax",
+                  "value": "<integer>",
+                  "description": "Maximum number of car spaces"
+                },
+                {
+                  "disabled": false,
+                  "key": "carSpacesMin",
+                  "value": "<integer>",
+                  "description": "Minimum number of car spaces"
+                },
+                {
+                  "disabled": false,
+                  "key": "landAreaMax",
+                  "value": "<integer>",
+                  "description": "Maximum size of land space area (measured in m2)"
+                },
+                {
+                  "disabled": false,
+                  "key": "landAreaMin",
+                  "value": "<integer>",
+                  "description": "Minimum size of land space area (measured in m2)"
+                },
+                {
+                  "disabled": false,
+                  "key": "priceMax",
+                  "value": "<integer>",
+                  "description": "Maximum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased`, `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+                },
+                {
+                  "disabled": false,
+                  "key": "priceMin",
+                  "value": "<integer>",
+                  "description": "Minimum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased` `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+                },
+                {
+                  "disabled": false,
+                  "key": "propertyTypes",
+                  "value": "<string>",
+                  "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Choose the status of the listings returned</br>Note: Values are comma separated</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Start of date range to be queried. Defaulted to 6 months prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "End of date range to be queried. Will default to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "25",
+                  "description": "The maximum number of listings results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "2000",
+                  "description": "Radius from the target location to search within (measured in metres)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "distanceAsc",
+                  "description": "Defines the sorting attribute and order in which the results will be returned</br>Note: sortBy date logic is set based on the status of the listing</br> - If `status` equals `sold` then the result is sorted by the `saleDate`  </br> - If `status` equals `leased` then the result is sorted by the `leaseDate`</br> - If `status` equals `current`, `notSold` or `notLeased` then the result is sorted by the `firstSeenDate`  "
+                },
+                {
+                  "disabled": false,
+                  "key": "propertyId",
+                  "value": "<integer>",
+                  "description": "Unique property identifier used as a target point</br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)</br>Note: If `pointType` equals `propertyId`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "latitude",
+                  "value": "<number>",
+                  "description": "Latitude used as a target point</br>Note: If `pointType` equals `latLong`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "longitude",
+                  "value": "<number>",
+                  "description": "Longitude used as a target point</br>Note: If `pointType` equals `latLong`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "afterPageCursor",
+                  "value": "<string>",
+                  "description": "The page starting position as one listing after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "beforePageCursor",
+                  "value": "<string>",
+                  "description": "The page starting position as one listing prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ec0ef663-b66d-4a9a-90e8-77a289ee813d",
+              "name": "<!-- theme: success -->\r\n\r\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listings\": [\n    {\n      \"distance\": 88,\n      \"listingId\": \"438163928\",\n      \"propertyId\": 890374,\n      \"listingType\": \"rent\",\n      \"address\": {\n        \"fullAddress\": \"18 Junction Street, Woollahra, NSW 2025\",\n        \"location\": {\n          \"longitude\": 151.25029,\n          \"latitude\": -33.89027\n        }\n      },\n      \"attributes\": {\n        \"propertyType\": \"house\",\n        \"bedrooms\": 2,\n        \"bathrooms\": 1,\n        \"carSpaces\": 1,\n        \"propertySubType\": \"house\",\n        \"features\": [\n          \"petFriendly\",\n          \"airConditioning\"\n        ]\n      },\n      \"source\": \"REA\",\n      \"status\": \"current\",\n      \"description\": \"This freestanding Edwardian home is an exquisite residence of chic contemporary style and superior quality finishes. Westfield, cafes and city trains are a stroll away.<br/><br/>FEATURING;<br/><br/>* Timeless charm of architecture seamlessly blended with contemporary elegance<br/>* Filled with an abundance of natural light.<br/>* Sun-drenched deck, a perfect setting for entertaining guests.<br/>* Caesarstone kitchen, complete with a premium gas stove.<br/>* Two double bedrooms with custom built-ins, <br/>* Ducted A/C throughout the house.<br/>* Designer bathroom, boasting a freestanding bath and a second toilet<br/>* Heated stone floors, high ceilings, and a spacious loft retreat.<br/>* Rear lane access parking <br/>* Explore the neighborhood on foot, with easy access to bus and train stations, schools, charming cafes, eateries, and shops.<br/><br/>THE - WOOLLAHRA<br/><br/>Everything about Woollahra exudes elegance. From the heritage-listed homes with manicured gardens that sit within the shade of overarching trees, to the alluring high-end boutique shopping along Queen Street. Once in, locals tend to stay, and who can blame them when they have incredible dining, old fashioned English-style pubs, Oxford Street and Centennial Park all on their doorstep. (Source- Sitchu)<br/><br/>TO – APPLY<br/><br/>https://t-app.com.au/mcgrathdb<br/>\",\n      \"firstSeenDate\": \"2023-11-29\",\n      \"listingPrice\": 2095,\n      \"priceDescription\": \"$2,095 per week\",\n      \"images\": [\n        {\n          \"id\": \"300e166634cc27add8556a47dee72dc8b35d82f441d80f61754d36731a695984.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 0,\n          \"sha\": \"300e166634cc27add8556a47dee72dc8b35d82f441d80f61754d36731a695984\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"6b0352aea1a8598b27f5d2b766ccad61eca1487416f2d96b33b339f0ff42a566.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 1,\n          \"sha\": \"6b0352aea1a8598b27f5d2b766ccad61eca1487416f2d96b33b339f0ff42a566\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"7b964daf8745aad898e21af2c4358847605806587194a632b854a21d3f61c020.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 2,\n          \"sha\": \"7b964daf8745aad898e21af2c4358847605806587194a632b854a21d3f61c020\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"e840c4f6d6c6a461289262cd0ac395bd1cc0eacc09144363c3b2d118c62eb03c.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 3,\n          \"sha\": \"e840c4f6d6c6a461289262cd0ac395bd1cc0eacc09144363c3b2d118c62eb03c\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"44ac55901f123e11f4a34bdb8307620bcbc0bed4fba48f83b4553e3a097e5087.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 4,\n          \"sha\": \"44ac55901f123e11f4a34bdb8307620bcbc0bed4fba48f83b4553e3a097e5087\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"79f8308afe59333bd5033e86cf8329e527b707dcf47f4523b2bd32d0c7d05efb.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 5,\n          \"sha\": \"79f8308afe59333bd5033e86cf8329e527b707dcf47f4523b2bd32d0c7d05efb\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"71b17805407e068566fd4a3647277fe2ba40a46cd2707a60efdae0145e732e48.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 6,\n          \"sha\": \"71b17805407e068566fd4a3647277fe2ba40a46cd2707a60efdae0145e732e48\",\n          \"type\": \"image\"\n        }\n      ],\n      \"leaseDate\": null,\n      \"energyEfficiencyRating\": 2\n    },\n    {\n      \"distance\": 93,\n      \"listingId\": \"438022960\",\n      \"propertyId\": 890379,\n      \"listingType\": \"rent\",\n      \"address\": {\n        \"fullAddress\": \"24 Junction St, Bondi Junction, NSW 2022\",\n        \"location\": {\n          \"longitude\": 151.25027,\n          \"latitude\": -33.890106\n        }\n      },\n      \"attributes\": {\n        \"propertyType\": \"house\",\n        \"bedrooms\": 4,\n        \"bathrooms\": 2,\n        \"carSpaces\": 2,\n        \"propertySubType\": \"house\",\n        \"features\": [\n          \"balcony\",\n          \"deck\",\n          \"courtyard\",\n          \"outdoorEnt\",\n          \"fullyFenced\",\n          \"floorboards\",\n          \"broadband\",\n          \"builtInRobes\",\n          \"payTV\",\n          \"dishwasher\",\n          \"waterTank\",\n          \"airConditioning\",\n          \"intercom\"\n        ]\n      },\n      \"source\": \"REA\",\n      \"status\": \"current\",\n      \"description\": \"Boasting a prized position nearby Westfield's buzzing retail and dining hub, this freestanding Federation residence provides an idyllic lifestyle haven brimming with character, charm and flexibility.<br/><br/>There is a neat and tidy kitchen, Miele gas cooktop, oven and Bosch dishwasher, while interiors spill out to a superb north facing sun washed deck and a level backyard.<br/><br/>- Free-flowing layout featuring zoned living & dining areas<br/>- North facing sun washed deck ideal for entertaining<br/>- Neat and tidy kitchen, Miele gas cooktop, dishwasher<br/>- Well-sized bedrooms, two appointed with built-in robes<br/>- Upper-level bedroom enjoys access to sunlit balcony<br/>- Elevated district and leafy outlooks, attic-storage space<br/>- Two bright and airy bathrooms, internal laundry, storage<br/>- High ceilings, polished timber floors, fireplace fixtures<br/>- Stroll to Westfield's buzzing retail hub, Bondi Junction Station<br/>- Moments to Centennial Park, Woollahra village, Bondi Beach<br/>- Car parking space from February.<br/><br/>Please contact Agent for inspection: helen Xu 0433839888<br/>\",\n      \"firstSeenDate\": \"2023-11-12\",\n      \"listingPrice\": 2000,\n      \"priceDescription\": \"$2,000 per week\",\n      \"images\": [\n        {\n          \"id\": \"013aa25da32902daa645dec6aa6f1b8ca6a3f61b7c9f8d6101878b03c41c0937.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 0,\n          \"sha\": \"013aa25da32902daa645dec6aa6f1b8ca6a3f61b7c9f8d6101878b03c41c0937\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"002f0ada4cc8d2d36e527c17a29e1775c3b43136c23a97e8c84bb9c1b2dbc00b.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 1,\n          \"sha\": \"002f0ada4cc8d2d36e527c17a29e1775c3b43136c23a97e8c84bb9c1b2dbc00b\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"dfcb58098c99d64bf9fcfd9733f8c068b338e47c79d4011e015d606b015f95bc.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 2,\n          \"sha\": \"dfcb58098c99d64bf9fcfd9733f8c068b338e47c79d4011e015d606b015f95bc\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"07ce64ddc2afdc72a6248aa98d9a8ec96389d08c83a5f247296911c93e361cde.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 3,\n          \"sha\": \"07ce64ddc2afdc72a6248aa98d9a8ec96389d08c83a5f247296911c93e361cde\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"35ee19e9426a983cedddf6cb8e9a271a5b110d077b9e0a1356d2ec8ce4f5c072.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 4,\n          \"sha\": \"35ee19e9426a983cedddf6cb8e9a271a5b110d077b9e0a1356d2ec8ce4f5c072\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"f1726ee45895cdca2fdc9a137bd72adbeb22532044ff8dc6daa798c92ce23702.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 5,\n          \"sha\": \"f1726ee45895cdca2fdc9a137bd72adbeb22532044ff8dc6daa798c92ce23702\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"8296d2d9e18ca89d86622bc6813b0baf1d858a13710831cb8aaeb840a838c480.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 6,\n          \"sha\": \"8296d2d9e18ca89d86622bc6813b0baf1d858a13710831cb8aaeb840a838c480\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"54b5a2a8d3f7c7f4dea4a230be7980a18cb22158607e3d7feed44cd6898f2537.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 7,\n          \"sha\": \"54b5a2a8d3f7c7f4dea4a230be7980a18cb22158607e3d7feed44cd6898f2537\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"1d99a510a3da2da1fad5cdb6d36e71ea0e8dbda6fca42f2dd40f95d469bf88a2.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 8,\n          \"sha\": \"1d99a510a3da2da1fad5cdb6d36e71ea0e8dbda6fca42f2dd40f95d469bf88a2\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"e7821d249789343a459289379decddeec41c643df7270ba7d963bd2a6b12a558.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 9,\n          \"sha\": \"e7821d249789343a459289379decddeec41c643df7270ba7d963bd2a6b12a558\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"1d60959661b3a6be2149847c6a7be33116c5c9380adeaedf6bdf78e9a2b5aa90.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 10,\n          \"sha\": \"1d60959661b3a6be2149847c6a7be33116c5c9380adeaedf6bdf78e9a2b5aa90\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"30790eac1641fc8e796fcd8a3fbb8fe5dc02e0527355275b561a55d4d323b34d.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 0,\n          \"sha\": \"30790eac1641fc8e796fcd8a3fbb8fe5dc02e0527355275b561a55d4d323b34d\",\n          \"type\": \"floorplan\"\n        }\n      ],\n      \"leaseDate\": null,\n      \"energyEfficiencyRating\": 2\n    }\n  ],\n  \"pageInfo\": {\n    \"pageStartCursor\": \"MA==\",\n    \"pageEndCursor\": \"MQ==\",\n    \"hasPreviousPage\": false,\n    \"hasNextPage\": true\n  },\n  \"numberOfResults\": 274\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad29ff2c-ee59-4aa8-ac5d-9d8cb2bf9a43",
+              "name": "<!-- theme: danger -->\r\n\r\n> #### Bad Request (400)\r\n\r\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"listingTypes\": \"is a required parameter\",\n        \"pointType\": \"is a required parameter\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "678c61ad-3b30-4ab3-80c5-21d9ab64840e",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b5882c05-8a8b-48bc-ba50-614b535e2aaf",
+              "name": "<!-- theme: danger -->\r\n\r\n> #### Forbidden (403)\r\n\r\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b7419c7-38b6-4641-b4e9-37fa777660fd",
+              "name": "<!-- theme: danger -->\r\n\r\n> #### Not Found (404)\r\n\r\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"description\": \"Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct\",\n      \"parameters\": {\n        \"propertyId\": \"cannot be found\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38985d07-4d22-4e0a-8f41-2c278e017813",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83205841-147d-4411-a550-cd704084a640",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "point-and-radius"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pointType",
+                      "value": "propertyId"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "distanceAsc"
+                    },
+                    {
+                      "key": "propertyId",
+                      "value": "123456789"
+                    },
+                    {
+                      "key": "latitude",
+                      "value": "-34.05438"
+                    },
+                    {
+                      "key": "longitude",
+                      "value": "151.6941"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7edfaa11-aa60-4a0d-9aab-b29d0e5c701b",
+      "name": "Suburb & Postcode Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "50c2117f-0fbc-4987-b7e8-044bfb43fcaa",
+          "name": "/api/v2/listings/search/suburb-and-postcode",
+          "request": {
+            "name": "/api/v2/listings/search/suburb-and-postcode",
+            "description": {
+              "content": "Retrieves current and historic listings within a given suburb. <br>\r\nThe suburb search area is identified by a combination of state, suburb name, and up to 3 postcodes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "listings",
+                "search",
+                "suburb-and-postcode"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "listingTypes",
+                  "value": "<string>",
+                  "description": "(Required) Select the type of listings returned</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathroomsMax",
+                  "value": "<integer>",
+                  "description": "Maximum number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bathroomsMin",
+                  "value": "<integer>",
+                  "description": "Minimum number of bathrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedroomsMax",
+                  "value": "<integer>",
+                  "description": "Maximum number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "bedroomsMin",
+                  "value": "<integer>",
+                  "description": "Minimum number of bedrooms"
+                },
+                {
+                  "disabled": false,
+                  "key": "carSpacesMax",
+                  "value": "<integer>",
+                  "description": "Maximum number of car spaces"
+                },
+                {
+                  "disabled": false,
+                  "key": "carSpacesMin",
+                  "value": "<integer>",
+                  "description": "Minimum number of car spaces"
+                },
+                {
+                  "disabled": false,
+                  "key": "landAreaMax",
+                  "value": "<integer>",
+                  "description": "Maximum size of land space area (measured in m2)"
+                },
+                {
+                  "disabled": false,
+                  "key": "landAreaMin",
+                  "value": "<integer>",
+                  "description": "Minimum size of land space area (measured in m2)"
+                },
+                {
+                  "disabled": false,
+                  "key": "priceMax",
+                  "value": "<integer>",
+                  "description": "Maximum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased`, `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+                },
+                {
+                  "disabled": false,
+                  "key": "priceMin",
+                  "value": "<integer>",
+                  "description": "Minimum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased` `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+                },
+                {
+                  "disabled": false,
+                  "key": "propertyTypes",
+                  "value": "<string>",
+                  "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Choose the status of the listings returned</br>Note: Values are comma separated</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Start of date range to be queried. Defaulted to 6 months prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "End of date range to be queried. Will default to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "25",
+                  "description": "The maximum number of listings results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "dateDesc",
+                  "description": "Defines the sorting attribute and order in which the results will be returned</br>Note: sortBy date logic is set based on the status of the listing</br> - If `status` equals `sold` then the result is sorted by the `saleDate`  </br> - If `status` equals `leased` then the result is sorted by the `leaseDate`</br> - If `status` equals `current`, `notSold` or `notLeased` then the result is sorted by the `firstSeenDate`  "
+                },
+                {
+                  "disabled": false,
+                  "key": "afterPageCursor",
+                  "value": "<string>",
+                  "description": "The page starting position as one listing after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "beforePageCursor",
+                  "value": "<string>",
+                  "description": "The page starting position as one listing prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+                },
+                {
+                  "disabled": false,
+                  "key": "postcodes",
+                  "value": "<string>",
+                  "description": "(Required) List of up to 3 postcodes for the listing search area, as a comma-separated list. <br>The postcodes must be associated with the supplied suburb."
+                },
+                {
+                  "disabled": false,
+                  "key": "suburb",
+                  "value": "<string>",
+                  "description": "(Required) The name of the suburb to search"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) The name of the state that the suburb is in"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "608d42ec-b726-43b7-bdfa-5b8d2e369124",
+              "name": "<!-- theme: success -->\r\n\r\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"listings\": [\n    {\n      \"listingId\": \"438163928\",\n      \"propertyId\": 890374,\n      \"listingType\": \"rent\",\n      \"address\": {\n        \"fullAddress\": \"18 Junction Street, Woollahra, NSW 2025\",\n        \"location\": {\n          \"longitude\": 151.25029,\n          \"latitude\": -33.89027\n        }\n      },\n      \"attributes\": {\n        \"propertyType\": \"house\",\n        \"bedrooms\": 2,\n        \"bathrooms\": 1,\n        \"carSpaces\": 1,\n        \"propertySubType\": \"house\",\n        \"features\": [\n          \"petFriendly\",\n          \"airConditioning\"\n        ]\n      },\n      \"source\": \"REA\",\n      \"status\": \"current\",\n      \"description\": \"This freestanding Edwardian home is an exquisite residence of chic contemporary style and superior quality finishes. Westfield, cafes and city trains are a stroll away.<br/><br/>FEATURING;<br/><br/>* Timeless charm of architecture seamlessly blended with contemporary elegance<br/>* Filled with an abundance of natural light.<br/>* Sun-drenched deck, a perfect setting for entertaining guests.<br/>* Caesarstone kitchen, complete with a premium gas stove.<br/>* Two double bedrooms with custom built-ins, <br/>* Ducted A/C throughout the house.<br/>* Designer bathroom, boasting a freestanding bath and a second toilet<br/>* Heated stone floors, high ceilings, and a spacious loft retreat.<br/>* Rear lane access parking <br/>* Explore the neighborhood on foot, with easy access to bus and train stations, schools, charming cafes, eateries, and shops.<br/><br/>THE - WOOLLAHRA<br/><br/>Everything about Woollahra exudes elegance. From the heritage-listed homes with manicured gardens that sit within the shade of overarching trees, to the alluring high-end boutique shopping along Queen Street. Once in, locals tend to stay, and who can blame them when they have incredible dining, old fashioned English-style pubs, Oxford Street and Centennial Park all on their doorstep. (Source- Sitchu)<br/><br/>TO – APPLY<br/><br/>https://t-app.com.au/mcgrathdb<br/>\",\n      \"firstSeenDate\": \"2023-11-29\",\n      \"listingPrice\": 2095,\n      \"priceDescription\": \"$2,095 per week\",\n      \"images\": [\n        {\n          \"id\": \"300e166634cc27add8556a47dee72dc8b35d82f441d80f61754d36731a695984.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 0,\n          \"sha\": \"300e166634cc27add8556a47dee72dc8b35d82f441d80f61754d36731a695984\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"6b0352aea1a8598b27f5d2b766ccad61eca1487416f2d96b33b339f0ff42a566.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 1,\n          \"sha\": \"6b0352aea1a8598b27f5d2b766ccad61eca1487416f2d96b33b339f0ff42a566\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"7b964daf8745aad898e21af2c4358847605806587194a632b854a21d3f61c020.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 2,\n          \"sha\": \"7b964daf8745aad898e21af2c4358847605806587194a632b854a21d3f61c020\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"e840c4f6d6c6a461289262cd0ac395bd1cc0eacc09144363c3b2d118c62eb03c.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 3,\n          \"sha\": \"e840c4f6d6c6a461289262cd0ac395bd1cc0eacc09144363c3b2d118c62eb03c\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"44ac55901f123e11f4a34bdb8307620bcbc0bed4fba48f83b4553e3a097e5087.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 4,\n          \"sha\": \"44ac55901f123e11f4a34bdb8307620bcbc0bed4fba48f83b4553e3a097e5087\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"79f8308afe59333bd5033e86cf8329e527b707dcf47f4523b2bd32d0c7d05efb.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 5,\n          \"sha\": \"79f8308afe59333bd5033e86cf8329e527b707dcf47f4523b2bd32d0c7d05efb\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"71b17805407e068566fd4a3647277fe2ba40a46cd2707a60efdae0145e732e48.jpg\",\n          \"date\": \"2023-11-29\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 6,\n          \"sha\": \"71b17805407e068566fd4a3647277fe2ba40a46cd2707a60efdae0145e732e48\",\n          \"type\": \"image\"\n        }\n      ],\n      \"leaseDate\": null,\n      \"energyEfficiencyRating\": 2\n    },\n    {\n      \"listingId\": \"438022960\",\n      \"propertyId\": 890379,\n      \"listingType\": \"rent\",\n      \"address\": {\n        \"fullAddress\": \"24 Junction St, Bondi Junction, NSW 2022\",\n        \"location\": {\n          \"longitude\": 151.25027,\n          \"latitude\": -33.890106\n        }\n      },\n      \"attributes\": {\n        \"propertyType\": \"house\",\n        \"bedrooms\": 4,\n        \"bathrooms\": 2,\n        \"carSpaces\": 2,\n        \"propertySubType\": \"house\",\n        \"features\": [\n          \"balcony\",\n          \"deck\",\n          \"courtyard\",\n          \"outdoorEnt\",\n          \"fullyFenced\",\n          \"floorboards\",\n          \"broadband\",\n          \"builtInRobes\",\n          \"payTV\",\n          \"dishwasher\",\n          \"waterTank\",\n          \"airConditioning\",\n          \"intercom\"\n        ]\n      },\n      \"source\": \"REA\",\n      \"status\": \"current\",\n      \"description\": \"Boasting a prized position nearby Westfield's buzzing retail and dining hub, this freestanding Federation residence provides an idyllic lifestyle haven brimming with character, charm and flexibility.<br/><br/>There is a neat and tidy kitchen, Miele gas cooktop, oven and Bosch dishwasher, while interiors spill out to a superb north facing sun washed deck and a level backyard.<br/><br/>- Free-flowing layout featuring zoned living & dining areas<br/>- North facing sun washed deck ideal for entertaining<br/>- Neat and tidy kitchen, Miele gas cooktop, dishwasher<br/>- Well-sized bedrooms, two appointed with built-in robes<br/>- Upper-level bedroom enjoys access to sunlit balcony<br/>- Elevated district and leafy outlooks, attic-storage space<br/>- Two bright and airy bathrooms, internal laundry, storage<br/>- High ceilings, polished timber floors, fireplace fixtures<br/>- Stroll to Westfield's buzzing retail hub, Bondi Junction Station<br/>- Moments to Centennial Park, Woollahra village, Bondi Beach<br/>- Car parking space from February.<br/><br/>Please contact Agent for inspection: helen Xu 0433839888<br/>\",\n      \"firstSeenDate\": \"2023-11-12\",\n      \"listingPrice\": 2000,\n      \"priceDescription\": \"$2,000 per week\",\n      \"images\": [\n        {\n          \"id\": \"013aa25da32902daa645dec6aa6f1b8ca6a3f61b7c9f8d6101878b03c41c0937.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 0,\n          \"sha\": \"013aa25da32902daa645dec6aa6f1b8ca6a3f61b7c9f8d6101878b03c41c0937\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"002f0ada4cc8d2d36e527c17a29e1775c3b43136c23a97e8c84bb9c1b2dbc00b.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 1,\n          \"sha\": \"002f0ada4cc8d2d36e527c17a29e1775c3b43136c23a97e8c84bb9c1b2dbc00b\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"dfcb58098c99d64bf9fcfd9733f8c068b338e47c79d4011e015d606b015f95bc.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 2,\n          \"sha\": \"dfcb58098c99d64bf9fcfd9733f8c068b338e47c79d4011e015d606b015f95bc\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"07ce64ddc2afdc72a6248aa98d9a8ec96389d08c83a5f247296911c93e361cde.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 3,\n          \"sha\": \"07ce64ddc2afdc72a6248aa98d9a8ec96389d08c83a5f247296911c93e361cde\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"35ee19e9426a983cedddf6cb8e9a271a5b110d077b9e0a1356d2ec8ce4f5c072.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 4,\n          \"sha\": \"35ee19e9426a983cedddf6cb8e9a271a5b110d077b9e0a1356d2ec8ce4f5c072\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"f1726ee45895cdca2fdc9a137bd72adbeb22532044ff8dc6daa798c92ce23702.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 5,\n          \"sha\": \"f1726ee45895cdca2fdc9a137bd72adbeb22532044ff8dc6daa798c92ce23702\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"8296d2d9e18ca89d86622bc6813b0baf1d858a13710831cb8aaeb840a838c480.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 6,\n          \"sha\": \"8296d2d9e18ca89d86622bc6813b0baf1d858a13710831cb8aaeb840a838c480\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"54b5a2a8d3f7c7f4dea4a230be7980a18cb22158607e3d7feed44cd6898f2537.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 7,\n          \"sha\": \"54b5a2a8d3f7c7f4dea4a230be7980a18cb22158607e3d7feed44cd6898f2537\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"1d99a510a3da2da1fad5cdb6d36e71ea0e8dbda6fca42f2dd40f95d469bf88a2.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 8,\n          \"sha\": \"1d99a510a3da2da1fad5cdb6d36e71ea0e8dbda6fca42f2dd40f95d469bf88a2\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"e7821d249789343a459289379decddeec41c643df7270ba7d963bd2a6b12a558.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 9,\n          \"sha\": \"e7821d249789343a459289379decddeec41c643df7270ba7d963bd2a6b12a558\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"1d60959661b3a6be2149847c6a7be33116c5c9380adeaedf6bdf78e9a2b5aa90.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 10,\n          \"sha\": \"1d60959661b3a6be2149847c6a7be33116c5c9380adeaedf6bdf78e9a2b5aa90\",\n          \"type\": \"image\"\n        },\n        {\n          \"id\": \"30790eac1641fc8e796fcd8a3fbb8fe5dc02e0527355275b561a55d4d323b34d.jpg\",\n          \"date\": \"2023-11-12\",\n          \"extension\": \"jpg\",\n          \"orderIndex\": 0,\n          \"sha\": \"30790eac1641fc8e796fcd8a3fbb8fe5dc02e0527355275b561a55d4d323b34d\",\n          \"type\": \"floorplan\"\n        }\n      ],\n      \"leaseDate\": null,\n      \"energyEfficiencyRating\": 2\n    }\n  ],\n  \"pageInfo\": {\n    \"pageStartCursor\": \"MA==\",\n    \"pageEndCursor\": \"MQ==\",\n    \"hasPreviousPage\": false,\n    \"hasNextPage\": true\n  },\n  \"numberOfResults\": 274\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3860f580-8d19-4cc1-81bf-6f2a9e3eb6ab",
+              "name": "<!-- theme: danger -->\r\n\r\n> #### Bad Request (400)\r\n\r\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"listingTypes\": \"is a required parameter\",\n        \"pointType\": \"is a required parameter\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08118e77-e4f4-4e9f-a322-ad7e180872be",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "94302a1e-c7ca-48f3-b63b-a4434cc1fa81",
+              "name": "<!-- theme: danger -->\r\n\r\n> #### Forbidden (403)\r\n\r\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c97b04da-8af5-40d2-9c1d-8fbc19fc3b2c",
+              "name": "<!-- theme: danger -->\r\n\r\n> #### Not Found (404)\r\n\r\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"description\": \"Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct\",\n      \"parameters\": {\n        \"propertyId\": \"cannot be found\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d190fcc-2306-44c4-8251-3378d75923c8",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "52c1aa2c-cc36-4cfe-825e-8329112a675d",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "listings",
+                    "search",
+                    "suburb-and-postcode"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "listingTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bathroomsMax",
+                      "value": "3"
+                    },
+                    {
+                      "key": "bathroomsMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "bedroomsMax",
+                      "value": "4"
+                    },
+                    {
+                      "key": "bedroomsMin",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMax",
+                      "value": "2"
+                    },
+                    {
+                      "key": "carSpacesMin",
+                      "value": "1"
+                    },
+                    {
+                      "key": "landAreaMax",
+                      "value": "650"
+                    },
+                    {
+                      "key": "landAreaMin",
+                      "value": "500"
+                    },
+                    {
+                      "key": "priceMax",
+                      "value": "1500000"
+                    },
+                    {
+                      "key": "priceMin",
+                      "value": "1200000"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-11-04"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-05-04"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "100"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "dateDesc"
+                    },
+                    {
+                      "key": "afterPageCursor",
+                      "value": "MAo="
+                    },
+                    {
+                      "key": "beforePageCursor",
+                      "value": "MzAwMAo="
+                    },
+                    {
+                      "key": "postcodes",
+                      "value": "3121"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Richmond"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.proptrack.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3b152282-2df0-47a2-b136-3e3a5ceb5a7d",
+    "name": "Listings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "- **[Listings/{listingId}](https://developer.proptrack.com.au/docs/apis/listings%2Foperations%2Fget-a-api-v-2-listing): GET /api/v2/listings/{listingId}**</br>Retrieves current and historic listings for a given listing</br>\n- **[Listings/Point & Radius Search](https://developer.proptrack.com.au/docs/apis/listings%2Foperations%2Fget-a-api-v-2-listing-search-point-and-radius): GET /api/v2/listings/search/point-and-radius**</br>Retrieves current and historic listings within a given radius of a target point\n- **[Listings/Suburb & Postcode Search](https://developer.proptrack.com.au/docs/apis/listings%2Foperations%2Fget-a-api-v-2-listing-search-suburb-and-postcode): GET /api/v2/listings/search/point-and-radius**</br>Retrieves current and historic listings for a specified suburb name and postcode\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\nContact Support:\n Name: PropTrack\n Email: https://www.proptrack.com.au/contact-us",
+      "type": "text/plain"
+    }
+  }
+}

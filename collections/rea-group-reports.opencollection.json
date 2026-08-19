@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reports",
+    "version": "v1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "AVM Report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v1/reports/valuations/{valuationId}/pdf",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v1/reports/valuations/:valuationId/pdf",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "valuationId",
+                "value": "",
+                "type": "path",
+                "description": "Unique valuation identifier, generated from an AVM response"
+              }
+            ]
+          },
+          "docs": "Generates a valuation report, based on a previous AVM request for '**origination**' requests for the `SALE` / `RENT` / `AVM Plus` / `AVM Pro` Requests.\n\n    Note: **Enquiry** PDF requests are not supportive.\n    Endpoint /api/v1/reports/valuations/sale/{valuationId}/pdf was **`deprecated`** in March 2025. \n    "
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Property Report",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v1/reports/property",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://data.proptrack.com/api/v1/reports/property",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generates a property report for a given property."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

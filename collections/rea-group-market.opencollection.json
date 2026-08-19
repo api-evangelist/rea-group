@@ -1,0 +1,361 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Market",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auction Results",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/market/auctions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/market/auctions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "searchType",
+                "value": "",
+                "type": "query",
+                "description": "Defines the identifier used</br>Refer to [Search Type Values](https://developer.proptrack.com.au/docs/apis/guide#valid-market-search-types)"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Suburb name</br>Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia</br>Note: If `searchType` equals `suburb` or `state`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Four digit postcode</br>Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "gccsaCode",
+                "value": "",
+                "type": "query",
+                "description": "Greater Capital City Statistical Area (GCCSA) code</br>Note: If `searchType` equals `gccsa`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 4 weeks prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Format `YYYY-MM-DD`"
+              }
+            ]
+          },
+          "docs": "Retrieves auction result statistics for a given state, suburb or greater capital city statistical area."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Rent History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/market/rent/historic/{metric}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/market/rent/historic/:metric",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyTypes",
+                "value": "",
+                "type": "query",
+                "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+              },
+              {
+                "name": "frequency",
+                "value": "",
+                "type": "query",
+                "description": "Reporting frequency</br>`monthly` frequency is applicable for `rental-transaction-volume`, `median-days-on-market` and `median-rental-price` metrics only"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Four digit postcode"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Suburb name"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Applicable for `rental-transaction-volume` and `median-rental-price` metrics only</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Applicable for `rental-transaction-volume` and `median-rental-price` metrics only</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "path",
+                "description": "Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+              }
+            ]
+          },
+          "docs": "Retrieves historic rental transaction statistics for a given suburb."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sale History",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/market/sale/historic/{metric}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/market/sale/historic/:metric",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyTypes",
+                "value": "",
+                "type": "query",
+                "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+              },
+              {
+                "name": "frequency",
+                "value": "",
+                "type": "query",
+                "description": "Reporting frequency</br>Returns the monthly or yearly calculated metrics"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Four digit postcode"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Suburb name"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Applicable for `sale-transaction-volume` and `median-sale-price` metrics only</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Applicable for `sale-transaction-volume` and `median-sale-price` metrics only</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "path",
+                "description": "Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+              }
+            ]
+          },
+          "docs": "Retrieves historic sale transaction statistics for a given suburb.\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `vg`,`serviceAgent`\r\n\r\nPlease refer to [Disclaimers and Branding](https:"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Supply & Demand",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/market/supply-and-demand/{metric}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/market/supply-and-demand/:metric",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Four digit postcode"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Suburb name"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "propertyTypes",
+                "value": "",
+                "type": "query",
+                "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+              },
+              {
+                "name": "frequency",
+                "value": "",
+                "type": "query",
+                "description": "Reporting frequency"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "path",
+                "description": "Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+              }
+            ]
+          },
+          "docs": "Retrieves property supply and consumer demand statistics for a given suburb."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Demographics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/market/demographics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/market/demographics",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Suburb name <br> Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Four digit postcode <br>  Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "gccsaCode",
+                "value": "",
+                "type": "query",
+                "description": "Greater Capital City Statistical Area (GCCSA) code. <br>  Note: If `searchType` equals `gccsa`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "searchType",
+                "value": "",
+                "type": "query",
+                "description": "Defines the identifier used <br>  Refer to [Search Type Values](https://developer.proptrack.com.au/docs/apis/guide#valid-market-search-types)."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia</br>Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+              }
+            ]
+          },
+          "docs": "Retrieves Demographic statistics for a given suburb or greater capital city statistical area\r\n<br> Note: This endpoint will bring in 'latest' census data\r\n#### Data Attribution Notice:\r\nThis endpoint contains data licensed from the Commonwealth of Australia under the Creative Commons Attribution International (CC BY 4.0) License. Appropriate attribution should be given when displaying this data.\r\n\r\nDisclaimer Types:`abs`\r\n\r\nPlease refer to [Disclaimers and Branding](https://developer.proptrack.c"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,3366 @@
+{
+  "item": [
+    {
+      "id": "d88bd4e6-801b-4c08-a3d8-6f75ce1c0d8b",
+      "name": "Auction Results",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c78e35e3-3428-48d8-a9c9-b2c5592bbc66",
+          "name": "/api/v2/market/auctions",
+          "request": {
+            "name": "/api/v2/market/auctions",
+            "description": {
+              "content": "Retrieves auction result statistics for a given state, suburb or greater capital city statistical area.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "market",
+                "auctions"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "searchType",
+                  "value": "<string>",
+                  "description": "(Required) Defines the identifier used</br>Refer to [Search Type Values](https://developer.proptrack.com.au/docs/apis/guide#valid-market-search-types)"
+                },
+                {
+                  "disabled": false,
+                  "key": "suburb",
+                  "value": "<string>",
+                  "description": "Suburb name</br>Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "State or territory within Australia</br>Note: If `searchType` equals `suburb` or `state`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode",
+                  "value": "<number>",
+                  "description": "Four digit postcode</br>Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gccsaCode",
+                  "value": "<string>",
+                  "description": "Greater Capital City Statistical Area (GCCSA) code</br>Note: If `searchType` equals `gccsa`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "Start of date range to be queried. Defaulted to 4 weeks prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Format `YYYY-MM-DD`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1e44e3b-c64e-404e-bd63-174607b0e277",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"dateRanges\": [\n    {\n      \"startDate\": \"2023-10-02\",\n      \"endDate\": \"2023-10-08\",\n      \"metricValues\": {\n        \"clearanceRate\": {\n          \"value\": 63.7344,\n          \"changePercentage\": 10.13,\n          \"observations\": 1205\n        },\n        \"countScheduled\": {\n          \"value\": 62,\n          \"changePercentage\": 313.33\n        },\n        \"countSold\": {\n          \"value\": 523,\n          \"changePercentage\": 462.37\n        },\n        \"countSoldPrior\": {\n          \"value\": 205,\n          \"changePercentage\": 632.14\n        },\n        \"countSoldAfter\": {\n          \"value\": 40,\n          \"changePercentage\": 166.67\n        },\n        \"countPassedIn\": {\n          \"value\": 303,\n          \"changePercentage\": 396.72\n        },\n        \"countWithdrawn\": {\n          \"value\": 134,\n          \"changePercentage\": 252.63\n        }\n      }\n    },\n    {\n      \"startDate\": \"2023-10-09\",\n      \"endDate\": \"2023-10-15\",\n      \"metricValues\": {\n        \"clearanceRate\": {\n          \"value\": 60.3704,\n          \"changePercentage\": -5.28,\n          \"observations\": 1080\n        },\n        \"countScheduled\": {\n          \"value\": 51,\n          \"changePercentage\": -17.74\n        },\n        \"countSold\": {\n          \"value\": 479,\n          \"changePercentage\": -8.41\n        },\n        \"countSoldPrior\": {\n          \"value\": 149,\n          \"changePercentage\": -27.32\n        },\n        \"countSoldAfter\": {\n          \"value\": 24,\n          \"changePercentage\": -40\n        },\n        \"countPassedIn\": {\n          \"value\": 299,\n          \"changePercentage\": -1.32\n        },\n        \"countWithdrawn\": {\n          \"value\": 129,\n          \"changePercentage\": -3.73\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a0b9723-0917-4da9-a895-1619f767b084",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"searchType\": \"is a required parameter\",\n        \"state\": \"is a required parameter when searching by state or suburb\",\n        \"postcode\": \"is a required parameter when searching by suburb\",\n        \"suburb\": \"is a required parameter when searching by suburb\",\n        \"gccsaCode\": \"is a required parameter when searching by gccsa\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cecd8508-f630-4762-9772-136c27e14969",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdada9af-9f8b-45cd-8a0f-fa71243a4cc3",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8a69ab93-fbaf-4d94-b4e5-da967d3eb27c",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"description\": \"Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct\",\n      \"parameters\": {\n        \"suburb\": \"cannot be found\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec822c28-815b-45a8-b6de-2dc64401eaaa",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d196077-1803-4d07-88ad-345199b967d4",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "auctions"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "state",
+                      "value": "vic"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2023-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b558d958-9078-462c-9626-b34632841ba6",
+      "name": "Rent History",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f862c0aa-d852-4f50-addc-31605b7b5647",
+          "name": "/api/v2/market/rent/historic/{metric}",
+          "request": {
+            "name": "/api/v2/market/rent/historic/{metric}",
+            "description": {
+              "content": "Retrieves historic rental transaction statistics for a given suburb.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "market",
+                "rent",
+                "historic",
+                ":metric"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "propertyTypes",
+                  "value": "<array>",
+                  "description": "(Required) The type of properties that will be queried against</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "frequency",
+                  "value": "yearly",
+                  "description": "Reporting frequency</br>`monthly` frequency is applicable for `rental-transaction-volume`, `median-days-on-market` and `median-rental-price` metrics only"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) State or territory within Australia"
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode",
+                  "value": "<integer>",
+                  "description": "(Required) Four digit postcode"
+                },
+                {
+                  "disabled": false,
+                  "key": "suburb",
+                  "value": "<string>",
+                  "description": "(Required) Suburb name"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Applicable for `rental-transaction-volume` and `median-rental-price` metrics only</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Applicable for `rental-transaction-volume` and `median-rental-price` metrics only</br>Format `YYYY-MM-DD`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metric",
+                  "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e1fc9a2a-5058-429e-97cd-6944269552db",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"propertyType\": \"house\",\n    \"dateRanges\": [\n      {\n        \"startDate\": \"2020-01-01\",\n        \"endDate\": \"2020-12-31\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"1\",\n            \"value\": 13\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"value\": 21\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"value\": 25\n          },\n          {\n            \"bedrooms\": \"4\",\n            \"value\": 20\n          },\n          {\n            \"bedrooms\": \"combined\",\n            \"value\": 22\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "146b1230-6551-4820-bc43-14fd9b0ad1d7",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"propertyTypes\": \"is a required parameter\",\n        \"state\": \"is a required parameter\",\n        \"postcode\": \"is a required parameter\",\n        \"suburb\": \"is a required parameter\",\n        \"metric\": \"is a required parameter\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aeb33f7a-21d4-41ee-8be4-b3194877d402",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "671fb41c-b202-4d30-87f5-e1fb7d720337",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf3df545-28d0-4d75-8e3d-ea974bf944f6",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Unknown identifier, the included address does not match a record within our system - Please ensure that the state, suburb and postcode are correct\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "eca0b236-ddf9-4227-b6cb-ca00633f4530",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ff913a55-ade2-4186-8cfa-d9af2c166c5a",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "rent",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "16184810-169b-480b-82f8-41548673fef0",
+      "name": "Sale History",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f31c7de-5cfe-4348-b70a-d9d51558243d",
+          "name": "/api/v2/market/sale/historic/{metric}",
+          "request": {
+            "name": "/api/v2/market/sale/historic/{metric}",
+            "description": {
+              "content": "Retrieves historic sale transaction statistics for a given suburb.\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `vg`,`serviceAgent`\r\n\r\nPlease refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.\r\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "market",
+                "sale",
+                "historic",
+                ":metric"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "propertyTypes",
+                  "value": "<array>",
+                  "description": "(Required) The type of properties that will be queried against</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "frequency",
+                  "value": "yearly",
+                  "description": "Reporting frequency</br>Returns the monthly or yearly calculated metrics"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) State or territory within Australia"
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode",
+                  "value": "<integer>",
+                  "description": "(Required) Four digit postcode"
+                },
+                {
+                  "disabled": false,
+                  "key": "suburb",
+                  "value": "<string>",
+                  "description": "(Required) Suburb name"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Applicable for `sale-transaction-volume` and `median-sale-price` metrics only</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Applicable for `sale-transaction-volume` and `median-sale-price` metrics only</br>Format `YYYY-MM-DD`"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metric",
+                  "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "298ca0ac-6a2f-482e-bac3-a83404976408",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"propertyType\": \"house\",\n    \"dateRanges\": [\n      {\n        \"startDate\": \"2021-09-01\",\n        \"endDate\": \"2022-08-31\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"1\",\n            \"value\": 10\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"value\": 11\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"value\": 18\n          },\n          {\n            \"bedrooms\": \"4\",\n            \"value\": 24\n          },\n          {\n            \"bedrooms\": \"5+\",\n            \"value\": 14\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"propertyType\": \"unit\",\n    \"dateRanges\": [\n      {\n        \"startDate\": \"2021-09-01\",\n        \"endDate\": \"2022-08-31\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"1\",\n            \"value\": 14\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"value\": 14\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"value\": 16\n          },\n          {\n            \"bedrooms\": \"4+\",\n            \"value\": 16\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df823c18-7c7a-4c01-a14c-d75334561231",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsale-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"propertyTypes\": \"is a required parameter\",\n        \"state\": \"is a required parameter\",\n        \"postcode\": \"is a required parameter\",\n        \"suburb\": \"is a required parameter\",\n        \"metric\": \"is a required parameter\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8c772b3-0b1e-4357-8056-b4aad11d534b",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsale-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ae2e4802-dbdb-4f2e-a424-f250c60d7d57",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsale-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24ead466-df18-4544-8942-48fff7d3842a",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsale-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Unknown identifier, the included address does not match a record within our system - Please ensure that the state, suburb and postcode are correct\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a1a1aa49-cd4f-430b-9689-9cd8f390617a",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsale-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f646b506-26de-43ef-a87c-2642f5f1ab8d",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsale-history) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "sale",
+                    "historic",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "yearly"
+                    },
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-07-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7568ca2b-8e2d-4313-becb-bdbf7d0de085",
+      "name": "Supply & Demand",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "19a02a6e-9d8f-4ec1-956b-194180ae2c0d",
+          "name": "/api/v2/market/supply-and-demand/{metric}",
+          "request": {
+            "name": "/api/v2/market/supply-and-demand/{metric}",
+            "description": {
+              "content": "Retrieves property supply and consumer demand statistics for a given suburb.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "market",
+                "supply-and-demand",
+                ":metric"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "(Required) State or territory within Australia"
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode",
+                  "value": "<integer>",
+                  "description": "(Required) Four digit postcode"
+                },
+                {
+                  "disabled": false,
+                  "key": "suburb",
+                  "value": "<string>",
+                  "description": "(Required) Suburb name"
+                },
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<date>",
+                  "description": "Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<date>",
+                  "description": "End of date range to be queried. Defaulted to today's date if left empty</br>Format `YYYY-MM-DD`"
+                },
+                {
+                  "disabled": false,
+                  "key": "propertyTypes",
+                  "value": "<array>",
+                  "description": "(Required) The type of properties that will be queried against</br>Note: Values are comma separated"
+                },
+                {
+                  "disabled": false,
+                  "key": "frequency",
+                  "value": "monthly",
+                  "description": "Reporting frequency"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "metric",
+                  "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b81aae8-2926-4685-859b-2b255158cc03",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"propertyType\": \"house\",\n    \"dateRanges\": [\n      {\n        \"startDate\": \"2022-09-01\",\n        \"endDate\": \"2022-09-30\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"1\",\n            \"supply\": 22,\n            \"demand\": 921,\n            \"supplyChangePercentage\": 24.1379310344,\n            \"demandChangePercentage\": 2.12539851222\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"supply\": 28,\n            \"demand\": 1044,\n            \"supplyChangePercentage\": 19.175,\n            \"demandChangePercentage\": 1.77753654\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"4\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"5+\",\n            \"supply\": 19,\n            \"demand\": 883,\n            \"supplyChangePercentage\": 19.175,\n            \"demandChangePercentage\": 1.77753654\n          }\n        ]\n      },\n      {\n        \"startDate\": \"2022-08-01\",\n        \"endDate\": \"2022-08-31\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"1\",\n            \"supply\": 22,\n            \"demand\": 1002,\n            \"supplyChangePercentage\": 0,\n            \"demandChangePercentage\": 8.794788273615636\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"4\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"5+\",\n            \"supply\": 13,\n            \"demand\": 998,\n            \"supplyChangePercentage\": -31.57894736842105,\n            \"demandChangePercentage\": 13.023782559456398\n          }\n        ]\n      }\n    ]\n  },\n  {\n    \"propertyType\": \"unit\",\n    \"dateRanges\": [\n      {\n        \"startDate\": \"2022-09-01\",\n        \"endDate\": \"2022-09-30\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"0\",\n            \"supply\": 22,\n            \"demand\": 921,\n            \"supplyChangePercentage\": 24.1379310344,\n            \"demandChangePercentage\": 2.12539851222\n          },\n          {\n            \"bedrooms\": \"1\",\n            \"supply\": 28,\n            \"demand\": 1044,\n            \"supplyChangePercentage\": 19.175,\n            \"demandChangePercentage\": 1.77753654\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"4+\",\n            \"supply\": 19,\n            \"demand\": 883,\n            \"supplyChangePercentage\": 19.175,\n            \"demandChangePercentage\": 1.77753654\n          }\n        ]\n      },\n      {\n        \"startDate\": \"2022-08-01\",\n        \"endDate\": \"2022-08-31\",\n        \"metricValues\": [\n          {\n            \"bedrooms\": \"0\",\n            \"supply\": 22,\n            \"demand\": 1002,\n            \"supplyChangePercentage\": 0,\n            \"demandChangePercentage\": 8.794788273615636\n          },\n          {\n            \"bedrooms\": \"1\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"2\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"3\",\n            \"supply\": 29,\n            \"demand\": 1143,\n            \"supplyChangePercentage\": 3.571428571428571,\n            \"demandChangePercentage\": 9.482758620689655\n          },\n          {\n            \"bedrooms\": \"4+\",\n            \"supply\": 13,\n            \"demand\": 998,\n            \"supplyChangePercentage\": -31.57894736842105,\n            \"demandChangePercentage\": 13.023782559456398\n          }\n        ]\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6910a9a-edb6-4c94-ba76-d7451629993f",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsupply--demand) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"propertyTypes\": \"is a required parameter\",\n        \"state\": \"is a required parameter\",\n        \"postcode\": \"is a required parameter\",\n        \"suburb\": \"is a required parameter\",\n        \"metric\": \"is a required parameter\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca3e2594-41c6-4402-9b53-99bed877d73f",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsupply--demand) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44c39d68-a9f3-4c0b-b675-dc00eae35969",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsupply--demand) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5acf603d-2b6e-48eb-9dc4-5b3f3c346ef2",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsupply--demand) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Unknown identifier, the included address does not match a record within our system - Please ensure that the state, suburb and postcode are correct\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "859199a3-a813-4321-85b7-fb0f00c5da5e",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsupply--demand) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a2471b6c-64a9-4dd7-9dcf-051595cd1ad0",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketsupply--demand) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "supply-and-demand",
+                    ":metric"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "nsw"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "suburb",
+                      "value": "Sydney"
+                    },
+                    {
+                      "key": "startDate",
+                      "value": "2022-08-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2022-09-30"
+                    },
+                    {
+                      "key": "propertyTypes",
+                      "value": "<array>"
+                    },
+                    {
+                      "key": "frequency",
+                      "value": "monthly"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "metric",
+                      "description": "(Required) Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e99c8069-a84b-4063-a813-b99982c449c4",
+      "name": "Demographics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "255e5216-0485-4a13-808e-ef319a0d8f39",
+          "name": "/api/v2/market/demographics",
+          "request": {
+            "name": "/api/v2/market/demographics",
+            "description": {
+              "content": "Retrieves Demographic statistics for a given suburb or greater capital city statistical area\r\n<br> Note: This endpoint will bring in 'latest' census data\r\n#### Data Attribution Notice:\r\nThis endpoint contains data licensed from the Commonwealth of Australia under the Creative Commons Attribution International (CC BY 4.0) License. Appropriate attribution should be given when displaying this data.\r\n\r\nDisclaimer Types:`abs`\r\n\r\nPlease refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.\r\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "market",
+                "demographics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "suburb",
+                  "value": "<string>",
+                  "description": "Suburb name <br> Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "postcode",
+                  "value": "<string>",
+                  "description": "Four digit postcode <br>  Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "gccsaCode",
+                  "value": "<string>",
+                  "description": "Greater Capital City Statistical Area (GCCSA) code. <br>  Note: If `searchType` equals `gccsa`, then this field is <span style=\"color:#F47853\">required</span>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchType",
+                  "value": "<string>",
+                  "description": "(Required) Defines the identifier used <br>  Refer to [Search Type Values](https://developer.proptrack.com.au/docs/apis/guide#valid-market-search-types)."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "State or territory within Australia</br>Note: If `searchType` equals `suburb`, then this field is <span style=\"color:#F47853\">required</span>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "656a9a0a-b1f0-441c-8880-e73177ca3d18",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"demographicMarketMetrics\": {\n    \"age\": {\n      \"ageMedian\": 45,\n      \"ageDetails\": [\n        {\n          \"ageGroup\": \"under15\",\n          \"percentage\": 33.33\n        }\n      ]\n    },\n    \" householdIncome\": {\n      \"medianWeeklyHouseholdIncome\": 45000\n    },\n    \"householdSize\": {\n      \"meanHouseholdSize\": 2.52\n    },\n    \"householdType\": {\n      \"householdGroup\": [\n        {\n          \"householdType\": \"family\",\n          \"percentage\": 2.5\n        }\n      ]\n    },\n    \"population\": {\n      \"totalPopulation\": 25422788\n    },\n    \"tenure\": {\n      \"tenureTypeGroup\": [\n        {\n          \"tenureType\": \"notStated\",\n          \"percentage\": -3.402823669209385e+38\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fda0e314-11b1-41ae-a4bc-b16877d33a10",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"parameters\": {\n        \"searchType\": \"is a required parameter\",\n        \"state\": \"is a required parameter when searching by state or suburb\",\n        \"postcode\": \"is a required parameter when searching by suburb\",\n        \"suburb\": \"is a required parameter when searching by suburb\",\n        \"gccsaCode\": \"is a required parameter when searching by gccsa\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6c326c7-1596-4d12-98a2-f0c9959d023b",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c03c322d-96c6-470f-b2a1-dc63e98f691a",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c21a5329-e9d1-41bd-bf51-59a5209df0f7",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"description\": \"Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct\",\n      \"parameters\": {\n        \"suburb\": \"cannot be found\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "24d74ad0-a8c9-45ff-ae17-9bb4be81901f",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d380531b-1abd-4816-a3fa-f7646ef48b92",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "market",
+                    "demographics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "suburb",
+                      "value": "Berwick"
+                    },
+                    {
+                      "key": "postcode",
+                      "value": "3806"
+                    },
+                    {
+                      "key": "gccsaCode",
+                      "value": "2GMEL"
+                    },
+                    {
+                      "key": "searchType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "string"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.proptrack.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "13c8d7a3-ed1b-439b-be6b-d3ef8d8d4b9c",
+    "name": "Market",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "- **[Market/Auctions](https://developer.proptrack.com.au/docs/apis/market%2Foperations%2Flist-api-v-2-market-auctions): GET /api/v2/market/auctions**</br>Retrieves auction result statistics for a given state, suburb or greater capital city statistical area\n- **[Market/Rent History](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-rent-historic): GET /api/v2/market/rent/historic/{metric}**</br>Retrieves historic rental transaction statistics for a given suburb\n- **[Market/Sale History](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-sale-historic): GET /api/v2/market/sale/historic/{metric}**</br>Retrieves historic sale transaction statistics for a given suburb </br>\n- **[Market/Supply & Demand](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-supply-and-demand): GET /api/v2/market/supply-and-demand/{metric}**</br>Retrieves property supply and consumer demand statistics for a given suburb</br>\n- **[Market/Demographics](https://developer.proptrack.com.au/docs/apis/branches/main/market/operations/list-api-v-2-market-demographics): GET /api/v2/market/demographics**</br>Retrieves Demographic statistics for a given suburb or greater capital city statistical area</br></br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\nContact Support:\n Name: PropTrack\n Email: https://www.proptrack.com.au/contact-us",
+      "type": "text/plain"
+    }
+  }
+}

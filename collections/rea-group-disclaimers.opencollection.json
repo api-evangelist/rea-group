@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Disclaimers API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Disclaimers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v1/disclaimers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v1/disclaimers",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "disclaimerTypes",
+                "value": "",
+                "type": "query",
+                "description": "Request for one or more disclaimer types, as a comma-separated list.<br>This will filter the response to show only the specified disclaimerType(s)"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "<i>Case insensitive</i><br>Only applicable for disclaimerType = `vg`<br>If omitted, all state VG disclaimers will be returned as an array<br>If the requested disclaimerType is not `vg` this field will be ignored."
+              },
+              {
+                "name": "asAtDate",
+                "value": "",
+                "type": "query",
+                "description": "The as-at date enables a requester to retrieve the disclaimer version that was valid at a specific point in time.<br> This is useful where your implementation is sensitive to text changes, such as a printed PDF, as disclaimer texts are updated from time-to-time.<br> If as-at date is omitted from the request, the response will provide the current disclaimer version.<br>"
+              },
+              {
+                "name": "textFormat",
+                "value": "",
+                "type": "query",
+                "description": "Providing an optional text format will enable the requester to control the formatting of the disclaimerContent field on the response.<br>HTML or Plaintext formatting is supported"
+              }
+            ]
+          },
+          "docs": "Endpoint for retrieving data source disclaimer texts. \r\nThese texts are required to be displayed in user experiences and printed reports when utilising PropTrack data - refer to the [Disclaimers](https://developer.proptrack.com.au/docs/apis/disclaimers) page for an implementation guide.\r\n\r\nDevelopers have a choice in the text format to be retrieved - either HTML or Plaintext. Plaintext format utilises \\n to indicate a new line. HTML uses minimal markup, to allow integration into your UI as requi"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

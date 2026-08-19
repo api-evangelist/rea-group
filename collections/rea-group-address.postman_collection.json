@@ -1,0 +1,891 @@
+{
+  "item": [
+    {
+      "id": "2a80bf9d-061f-469c-805e-e097774c7bf0",
+      "name": "Match",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "780d047b-afc1-44a1-9428-82deb3322ca1",
+          "name": "/api/v2/address/match",
+          "request": {
+            "name": "/api/v2/address/match",
+            "description": {
+              "content": "Matches to a corresponding record on PropTrack's master address file based on a given address string.\r\n<p>\r\n\r\nRefer to the [API Guide](https://developer.proptrack.com.au/docs/apis/guide#address-matching) for best practices for input address formatting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "address",
+                "match"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Address on which to search"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e96b675-2922-4ef3-8995-93f400ced357",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)\n",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"propertyId\": \"123456\",\n  \"gpid\": \"GANSW1234\",\n  \"matchScore\": \"EXCELLENT\",\n  \"address\": {\n    \"fullAddress\": \"LOT 1,UNIT 1,2-6 LOUISA ROAD,BIRCHGROVE NSW 2041\",\n    \"lotNumber\": \"1\",\n    \"unitNumber\": \"1\",\n    \"streetNumber\": \"2-6\",\n    \"streetName\": \"LOUISA\",\n    \"streetType\": \"ROAD\",\n    \"suburb\": \"BIRCHGROVE\",\n    \"state\": \"NSW\",\n    \"postcode\": \"2041\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cfc527f2-5891-4208-9ddb-27dea22590bb",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addressmatch) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters are included in the request\",\n      \"level\": \"CRITICAL\",\n      \"parameters\": {\n        \"q\": \"The address parameter must be present in the request\"\n      }\n    },\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters are included in the request\",\n      \"level\": \"CRITICAL\",\n      \"parameters\": {\n        \"q\": \"The address parameter must be present in the request\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0c0c4a3c-ff78-466c-bd47-ab6c9942cc35",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addressmatch) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": \"CRITICAL\"\n    },\n    {\n      \"code\": 9012,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": \"CRITICAL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad8f5959-e773-481f-8243-ea781a2aa92e",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addressmatch) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44258e9a-9d39-4e38-9ad6-90ff44ca8a09",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addressmatch) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7002,\n      \"description\": \"Address cannot be matched, the address entered does not match a record within our system - Please consider revising the address query parameter\",\n      \"level\": \"CRITICAL\"\n    },\n    {\n      \"code\": 7002,\n      \"description\": \"Address cannot be matched, the address entered does not match a record within our system - Please consider revising the address query parameter\",\n      \"level\": \"CRITICAL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "029d5665-a7a8-4c3c-8930-d70b067d72a6",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addressmatch) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"CRITICAL\"\n    },\n    {\n      \"code\": 9011,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"CRITICAL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7fd9c9e-a6e7-4574-81aa-a03bcc625184",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addressmatch) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "match"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "123A Smith Street Sydney NSW 2000"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d849d118-3d0b-4635-a01c-f7d883fec0c0",
+      "name": "Suggest",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f59b2fbc-f0d6-4ce4-b617-67c4ba7bc6f3",
+          "name": "/api/v2/address/suggest",
+          "request": {
+            "name": "/api/v2/address/suggest",
+            "description": {
+              "content": "Suggests a list of addresses based on a given address string.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v2",
+                "address",
+                "suggest"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) Address on which to search</br>Refer to [minimum required input](https://developer.proptrack.com.au/docs/apis/faqs#what-is-the-minimum-required-input)"
+                },
+                {
+                  "disabled": false,
+                  "key": "numberOfResults",
+                  "value": "25",
+                  "description": "Defines the maximum number of results that are returned as suggested addresses"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dec7f9f7-6b0f-4a6b-ac2c-b42139cbaa1d",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "suggest"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "1/67 Louisa Rd"
+                    },
+                    {
+                      "key": "numberOfResults",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"propertyId\": \"1026185\",\n    \"address\": {\n      \"fullAddress\": \"1/67 Louisa Rd, Birchgrove, NSW 2041\",\n      \"unitNumber\": \"UNIT 1\",\n      \"streetNumber\": \"67\",\n      \"streetName\": \"LOUISA\",\n      \"streetType\": \"RD\",\n      \"suburb\": \"BIRCHGROVE\",\n      \"postcode\": 2041,\n      \"state\": \"NSW\"\n    }\n  },\n  {\n    \"propertyId\": \"1026131\",\n    \"address\": {\n      \"fullAddress\": \"1/2-6 Louisa Rd, Birchgrove, NSW 2041\",\n      \"unitNumber\": \"UNIT 1\",\n      \"streetNumber\": \"2-6\",\n      \"streetName\": \"LOUISA\",\n      \"streetType\": \"RD\",\n      \"suburb\": \"BIRCHGROVE\",\n      \"postcode\": 2041,\n      \"state\": \"NSW\"\n    }\n  },\n  {\n    \"propertyId\": \"1026183\",\n    \"address\": {\n      \"fullAddress\": \"1/66 Louisa Rd, Birchgrove, NSW 2041\",\n      \"unitNumber\": \"UNIT 1\",\n      \"streetNumber\": \"66\",\n      \"streetName\": \"LOUISA\",\n      \"streetType\": \"RD\",\n      \"suburb\": \"BIRCHGROVE\",\n      \"postcode\": 2041,\n      \"state\": \"NSW\"\n    }\n  },\n  {\n    \"propertyId\": \"1026203\",\n    \"address\": {\n      \"fullAddress\": \"1/68 Louisa Rd, Birchgrove, NSW 2041\",\n      \"unitNumber\": \"UNIT 1\",\n      \"streetNumber\": \"68\",\n      \"streetName\": \"LOUISA\",\n      \"streetType\": \"RD\",\n      \"suburb\": \"BIRCHGROVE\",\n      \"postcode\": 2041,\n      \"state\": \"NSW\"\n    }\n  },\n  {\n    \"propertyId\": \"2443521\",\n    \"address\": {\n      \"fullAddress\": \"1/97 Louisa Rd, Birchgrove, NSW 2041\",\n      \"unitNumber\": \"UNIT 1\",\n      \"streetNumber\": \"97\",\n      \"streetName\": \"LOUISA\",\n      \"streetType\": \"RD\",\n      \"suburb\": \"BIRCHGROVE\",\n      \"postcode\": 2041,\n      \"state\": \"NSW\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "766eb610-98ef-4458-8566-41f9004a8d24",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "suggest"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "1/67 Louisa Rd"
+                    },
+                    {
+                      "key": "numberOfResults",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"level\": \"CRITICAL\",\n      \"parameters\": {\n        \"q\": \"q is a required parameter\",\n        \"numberOfResults\": \"numberOfResults must not exceed a value of 25\"\n      }\n    },\n    {\n      \"code\": 7004,\n      \"description\": \"Required parameter is missing - Please ensure that all required parameters have been included\",\n      \"level\": \"CRITICAL\",\n      \"parameters\": {\n        \"q\": \"q is a required parameter\",\n        \"numberOfResults\": \"numberOfResults must not exceed a value of 25\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cbe9610-b1ee-4531-9574-9d32bf311d16",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "suggest"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "1/67 Louisa Rd"
+                    },
+                    {
+                      "key": "numberOfResults",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": \"CRITICAL\"\n    },\n    {\n      \"code\": 9012,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": \"CRITICAL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1600610-be42-4b46-9b44-f94a021abfcf",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "suggest"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "1/67 Louisa Rd"
+                    },
+                    {
+                      "key": "numberOfResults",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0812c952-c12d-468a-a1dd-a463671e6ed4",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "suggest"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "1/67 Louisa Rd"
+                    },
+                    {
+                      "key": "numberOfResults",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"CRITICAL\"\n    },\n    {\n      \"code\": 9011,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"CRITICAL\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17340a09-d52f-4aa1-8081-465e2b2efeb6",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v2",
+                    "address",
+                    "suggest"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "1/67 Louisa Rd"
+                    },
+                    {
+                      "key": "numberOfResults",
+                      "value": "25"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.proptrack.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "814fb48d-b520-4db8-87d2-033aa4733748",
+    "name": "Address API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "- **[Address/Match](https://developer.proptrack.com.au/docs/apis/address/operations/get-a-api-v-2-address-match): GET /api/v2/address/match**</br>Matches to a corresponding record on PropTrack's master address file based on a given address string</br>\n- **[Address/Suggest](https://developer.proptrack.com.au/docs/apis/address/operations/get-a-api-v-2-address-suggest): GET /api/v2/address/suggest**</br>Suggests a list of addresses based on a given address string</br>\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\nContact Support:\n Name: PropTrack\n Email: https://www.proptrack.com.au/contact-us",
+      "type": "text/plain"
+    }
+  }
+}

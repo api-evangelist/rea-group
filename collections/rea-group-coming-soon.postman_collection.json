@@ -1,0 +1,476 @@
+{
+  "item": [
+    {
+      "id": "0d817516-0f86-48be-b158-6ba0039e8dcf",
+      "name": "Schools",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "61a0d999-fe2c-4561-af57-3c2864e088df",
+          "name": "/api/v2/properties/{propertyId}/nearby-education-facilities",
+          "request": {
+            "name": "/api/v2/properties/{propertyId}/nearby-education-facilities",
+            "description": {
+              "content": "Retrieves details of education facilities near a property.\r\nThe response includes an array of education facilities, which includes all 'zoned' schools and up 5 additional nearby schools for primary and secondary school types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "properties",
+                ":propertyId",
+                "nearby-education-facilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "propertyId",
+                  "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "640f0d5f-4d25-414d-9bae-b20ca2ee195c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"propertyId\": 101,\n  \"educationFacilities\": [\n    {\n      \"facilityName\": \"Sample Primary School 1\",\n      \"straightLineDistance\": 850.25,\n      \"inCatchment\": true,\n      \"sector\": \"government\",\n      \"type\": \"primary\",\n      \"yearRange\": \"Prep-6\"\n    },\n    {\n      \"facilityName\": \"Sample Primary School 2\",\n      \"straightLineDistance\": 1800.35,\n      \"inCatchment\": true,\n      \"sector\": \"government\",\n      \"type\": \"primary\",\n      \"yearRange\": \"Prep-6\"\n    },\n    {\n      \"facilityName\": \"Sample Secondary School 1\",\n      \"straightLineDistance\": 1850.25,\n      \"inCatchment\": true,\n      \"sector\": \"government\",\n      \"type\": \"secondary\",\n      \"yearRange\": \"7-12\"\n    },\n    {\n      \"facilityName\": \"Sample Secondary School 2\",\n      \"straightLineDistance\": 2800.35,\n      \"inCatchment\": true,\n      \"sector\": \"government\",\n      \"type\": \"combined\",\n      \"yearRange\": \"Prep-12\"\n    },\n    {\n      \"facilityName\": \"Sample Primary School 3\",\n      \"straightLineDistance\": 750.5,\n      \"inCatchment\": false,\n      \"sector\": \"catholic\",\n      \"type\": \"primary\",\n      \"yearRange\": \"Prep-6\"\n    },\n    {\n      \"facilityName\": \"Sample Secondary School 3\",\n      \"straightLineDistance\": 1750.5,\n      \"inCatchment\": false,\n      \"sector\": \"catholic\",\n      \"type\": \"secondary\",\n      \"yearRange\": \"7-12\"\n    },\n    {\n      \"facilityName\": \"Sample Primary School 4\",\n      \"straightLineDistance\": 1800,\n      \"inCatchment\": false,\n      \"sector\": \"independent\",\n      \"type\": \"primary\",\n      \"yearRange\": \"Prep-6\"\n    },\n    {\n      \"facilityName\": \"Sample Primary School 5\",\n      \"straightLineDistance\": 4205.5,\n      \"inCatchment\": false,\n      \"sector\": \"government\",\n      \"type\": \"primary\",\n      \"yearRange\": \"Prep-6\"\n    },\n    {\n      \"facilityName\": \"Sample Secondary School 4\",\n      \"straightLineDistance\": 4700,\n      \"inCatchment\": false,\n      \"sector\": \"independent\",\n      \"type\": \"secondary\",\n      \"yearRange\": \"7-10\"\n    },\n    {\n      \"facilityName\": \"Sample Secondary School 5\",\n      \"straightLineDistance\": 4755.5,\n      \"inCatchment\": false,\n      \"sector\": \"government\",\n      \"type\": \"primary\",\n      \"yearRange\": \"Prep-6\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "207e5f3c-1af8-4210-bd21-be5c7b322fdb",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7011,\n      \"description\": \"An incorrect field type has been entered - Please ensure that all values are using the correct field type\",\n      \"parameters\": {\n        \"propertyId\": \"must be an integer\"\n      }\n    },\n    {\n      \"code\": 7004,\n      \"description\": \"An incorrect field type has been entered - Please ensure that all values are using the correct field type\",\n      \"parameters\": {\n        \"propertyId\": \"must be an integer\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79e1f4fa-bc25-40a5-b8d4-4cd34c13919e",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9016,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": {}\n    },\n    {\n      \"code\": 9012,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2be7451d-9e74-4b22-838e-353bcaec929c",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "62e4d11b-5c46-4ff2-9769-9b2e8e97ab3c",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"string\",\n      \"parameters\": {\n        \"propertyId\": \"cannot be found\"\n      }\n    },\n    {\n      \"code\": {},\n      \"description\": \"string\",\n      \"parameters\": {\n        \"propertyId\": \"cannot be found\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecfb297d-19a8-4cfe-b3ba-24cae64cf5b4",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": {}\n    },\n    {\n      \"code\": {},\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c5b58dc5-ac29-4269-9422-f1ee9a98bdd9",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "properties",
+                    ":propertyId",
+                    "nearby-education-facilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "propertyId",
+                      "description": "(Required) Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.proptrack.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8b0fd243-80c6-445f-a841-2e11c7bc4271",
+    "name": "Coming Soon",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "PropTrack's upcoming API Endpoints will be published here during development. <BR><br><strong>Note:</strong> Documented schemas for these API's are not final, and are subject to change.",
+      "type": "text/plain"
+    }
+  }
+}

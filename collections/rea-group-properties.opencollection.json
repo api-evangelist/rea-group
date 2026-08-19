@@ -1,0 +1,775 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Properties API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Summary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/{propertyId}/summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/summary",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "This service retrieves a summary view of the provided `propertyId`. <br>\r\n<p>The summary contains a single photo, the current market status, key attributes, any recent sale transaction details, and current listing activity.</p>\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when dis"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Attributes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/{propertyId}/attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/attributes",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "Retrieves comprehensive and up to date property attributes and features for a given property.\r\n\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `vg`,`geoscape`,`serviceAgent`\r\n\r\nPlease re"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Listings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/{propertyId}/listings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/listings",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "latestListingOnly",
+                "value": "",
+                "type": "query",
+                "description": "Return the single most recent listing "
+              },
+              {
+                "name": "numberOfResults",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of listings returned"
+              },
+              {
+                "name": "listingType",
+                "value": "",
+                "type": "query",
+                "description": "Select the type of listings returned"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Choose the status of the listings returned</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)"
+              },
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a property</br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "Retrieves current and historic listings for a given property."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Planning",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/properties/{propertyId}/planning",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/planning",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query",
+                "description": "Unique identifier for a property<br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "Endpoint for retrieving planning information for a specific property.<br>\r\nThis includes:\r\n* Property Zoning\r\n* Permitted Use\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `archistar`,`"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Tenure Type",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/{propertyId}/tenureType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/tenureType",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "8282053",
+                "type": "path",
+                "description": "Unique identifier for a property<br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "This endpoint provides property tenure type history, indicating if the property is owner or renter occupied, over time.\r\nThe Tenure Type value is an inferred value based on information available to PropTrack at a given point in time and is subject to change in response to new data\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to in"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Transactions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/{propertyId}/transactions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/:propertyId/transactions",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "latestTransactionOnly",
+                "value": "",
+                "type": "query",
+                "description": "Return the single most recent transaction"
+              },
+              {
+                "name": "sourceCategory",
+                "value": "",
+                "type": "query",
+                "description": "Filter the transaction source"
+              },
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a property</br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              }
+            ]
+          },
+          "docs": "Retrieves sold transactions for a given property.\r\n\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `vg`,`serviceAgent`\r\n\r\nPlease refer to [Disclaimers and Branding](https://developer.pro"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "AVM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v1/properties/valuations/sale ~ Enquiry or Origination",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://data.proptrack.com/api/v1/properties/valuations/sale",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<span style=\"color:#0078BD;\">**AVM Sale - by address:**</span> Get a property price estimate from PropTrack’s Sale Automated Valuation Model (AVM) using the property address. \n\nThe service returns the most up-to-date value estimate, just provide the <span style=\"color:#0078BD;\">fullAddress OR address</span>, only provide either not both in the same request.\n\nThis operation supports two <span style=\"color:#0078BD;\">requestType</span> options within the request body based estimates. Each type uses"
+        },
+        {
+          "info": {
+            "name": "/api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v1/properties/:propertyId/valuations/sale?requestType=enquiry or requestType=origination",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "requestType",
+                "value": "",
+                "type": "query",
+                "description": "the requestType is mandatory for all new customers from Sept 2025, existing customers can continue without sending, please contact PropTrack support to discuss options to upgrade. Note: for 'plus' see the AVM Plus endpoint: https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus    - <p style=\"color:#0078BD\"><b>Enquiry:</p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=enquiry</span></span> </b>will service your basic AVM needs by providing all fields you will find our PropTrackpowered experiences  - <p style=\"color:#0078BD\"><b>Origination:</p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=origination</span></span> </b>offers a more detailed view of what goes into the price estimate including attributes, comparable properties and other details"
+              }
+            ]
+          },
+          "docs": "<span style=\"color:#0078BD;\">**AVM Sale - by propertyId:**</span>Get a property price estimate from PropTrack’s Sale Automated Valuation Model (AVM) using a propertyId. \n\nThe service returns the most up-to-date value estimate for the specified <span style=\"color:#0078BD;\">propertyId</span>.\n\nThis operation supports two <span style=\"color:#0078BD;\">requestType</span> options for <span style=\"color:#0078BD;\">propertyId</span> based estimates. Each type uses its own parameters, and customers can be"
+        },
+        {
+          "info": {
+            "name": "/api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v1/properties/:propertyId/valuations/rent?requestType=enquiry or requestType=origination",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path",
+                "description": "Property Id from address match/suggest"
+              },
+              {
+                "name": "requestType",
+                "value": "",
+                "type": "query",
+                "description": "the rental AVM request type. Note: origination coming soon"
+              }
+            ]
+          },
+          "docs": "<span style=\"color:#0078BD;\">**AVM Rental - by propertyId:**</span>Get a Rental estimate from Proptrack’s Rental Automated Valuation Model (AVM).\n\nJust provide the  <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: lite-bold;\">propertyId</span> to get the most up-to-date rental estimate.\n\nWe offer two distinct <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: lite-bold;\">requestType</span>, for the <span style=\"background-color: #f5f5f5; padding: 0.2em; font"
+        },
+        {
+          "info": {
+            "name": "/api/v1/properties/valuations/sale ~ Plus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://data.proptrack.com/api/v1/properties/valuations/sale ~ requestType=plus",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<span style=\"color:#0078BD;\">**AVM Plus - by address:**</span> delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales and rental insights into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**fullAddress or address**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n\n- <p styl"
+        },
+        {
+          "info": {
+            "name": "/api/v1/properties/{propertyId}/valuations/sale?requestType=plus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v1/properties/:propertyId/valuations/sale?requestType=plus",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "requestType",
+                "value": "",
+                "type": "query",
+                "description": "**Mandatory:** Specifies the valuation request type, the <span style=\"color:#0078BD;\">**plus**</span> requestType is mandatory for all AVM Plus requests. </br> **Note:** If the requestType included is a 'enquiry' or 'origination' then these are treated as a AVM Sale request and not a AVM Plus request"
+              },
+              {
+                "name": "effectiveDate",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Effective date of the requested valuation estimate</br>Refer to [Effective Date](https://developer.proptrack.com.au/docs/apis/guide#effective-date)</br>Format `YYYY-MM-DD` <br>"
+              },
+              {
+                "name": "customerReference",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Client-defined reference key for tracking or reconciliation purposes. Maximum length: 50 characters</br>Refer to [Customer Reference](https://developer.proptrack.com.au/docs/apis/guide#customerreference)<br>"
+              },
+              {
+                "name": "bedrooms",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Number of bedrooms used to refine the valuation estimate."
+              },
+              {
+                "name": "bathrooms",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Number of bathrooms used to refine the valuation estimate."
+              },
+              {
+                "name": "carSpaces",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Number of car spaces used to refine the valuation estimate."
+              },
+              {
+                "name": "propertyType",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Classification of the type of property type<br>"
+              }
+            ]
+          },
+          "docs": " <span style=\"color:#0078BD;\">**AVM Plus - by propertyId:**</span>  delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales and rental insights into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**propertyId**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n- <p style=\"color"
+        },
+        {
+          "info": {
+            "name": "/api/v1/properties/valuations/sale ~ Pro",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://data.proptrack.com/api/v1/properties/valuations/sale ~ Pro",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "<span style=\"color:#0078BD;\">**AVM Pro - by address:**</span> delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales, rental and environmental hazards insights into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**fullAddress or address**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business w"
+        },
+        {
+          "info": {
+            "name": "/api/v1/properties/{propertyId}/valuations/sale?requestType=pro",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v1/properties/:propertyId/valuations/sale?requestType=pro",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "requestType",
+                "value": "",
+                "type": "query",
+                "description": "**Mandatory:** Specifies the valuation request type, the <span style=\"color:#0078BD;\">**pro**</span> requestType is mandatory for all AVM Pro requests. </br> **Note:** If the requestType included is a 'enquiry' or 'origination' then these are treated as a AVM Sale request and not a AVM Pro request"
+              },
+              {
+                "name": "effectiveDate",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Effective date of the requested valuation estimate</br>Refer to [Effective Date](https://developer.proptrack.com.au/docs/apis/guide#effective-date)</br>Format `YYYY-MM-DD` <br>"
+              },
+              {
+                "name": "customerReference",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Client-defined reference key for tracking or reconciliation purposes. Maximum length: 50 characters</br>Refer to [Customer Reference](https://developer.proptrack.com.au/docs/apis/guide#customerreference)<br>"
+              },
+              {
+                "name": "bedrooms",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Number of bedrooms used to refine the valuation estimate."
+              },
+              {
+                "name": "bathrooms",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Number of bathrooms used to refine the valuation estimate."
+              },
+              {
+                "name": "carSpaces",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Number of car spaces used to refine the valuation estimate."
+              },
+              {
+                "name": "propertyType",
+                "value": "",
+                "type": "query",
+                "description": "**Optional:** Classification of the type of property type<br>"
+              }
+            ]
+          },
+          "docs": " <span style=\"color:#0078BD;\">**AVM Pro - by propertyId:**</span>  delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales, rental and environmental hazards into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**propertyId**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n- <p"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/properties/summaries/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/summaries/search",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bedroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bedrooms"
+              },
+              {
+                "name": "bedroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bedrooms"
+              },
+              {
+                "name": "bathroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bathrooms"
+              },
+              {
+                "name": "bathroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bathrooms"
+              },
+              {
+                "name": "carSpacesMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of car spaces"
+              },
+              {
+                "name": "carSpacesMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of car spaces"
+              },
+              {
+                "name": "landAreaMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum size of land space area (measured in m2)"
+              },
+              {
+                "name": "landAreaMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum size of land space area (measured in m2)"
+              },
+              {
+                "name": "livingAreaMin",
+                "value": "300",
+                "type": "query",
+                "description": "Minimum size of living area (measured in m2)"
+              },
+              {
+                "name": "livingAreaMax",
+                "value": "850",
+                "type": "query",
+                "description": "Maximum size of living area (measured in m2)"
+              },
+              {
+                "name": "propertyType",
+                "value": "",
+                "type": "query",
+                "description": "Classification of the type of property"
+              },
+              {
+                "name": "afterPageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "beforePageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "boundingBox",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box for map-based filtering. Must provide exactly 4 numbers.<br>Provided as comma separated values in the format `minLat`,`minLong`,`maxLat`,`maxLong`<br>Note: If `suburb`, `postcode` and `state` are not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Name of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Postcode of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia<br>Note: If `boundingBox` is not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              }
+            ]
+          },
+          "docs": "Residential Properties search by suburb and postcode and/or bounding box, which returns paged property summaries (max 25 per page)<br>\r\nThis endpoint is ideal for property research, where the results are to be displayed in a list.\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when "
+        },
+        {
+          "info": {
+            "name": "/api/v2/properties/geopoints/search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/properties/geopoints/search",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "bedroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bedrooms"
+              },
+              {
+                "name": "bedroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bedrooms"
+              },
+              {
+                "name": "bathroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bathrooms"
+              },
+              {
+                "name": "bathroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bathrooms"
+              },
+              {
+                "name": "carSpacesMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of car spaces"
+              },
+              {
+                "name": "carSpacesMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of car spaces"
+              },
+              {
+                "name": "landAreaMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum size of land space area (measured in m2)"
+              },
+              {
+                "name": "landAreaMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum size of land space area (measured in m2)"
+              },
+              {
+                "name": "livingAreaMin",
+                "value": "300",
+                "type": "query",
+                "description": "Minimum size of living area (measured in m2)"
+              },
+              {
+                "name": "livingAreaMax",
+                "value": "850",
+                "type": "query",
+                "description": "Maximum size of living area (measured in m2)"
+              },
+              {
+                "name": "propertyType",
+                "value": "",
+                "type": "query",
+                "description": "Classification of the type of property"
+              },
+              {
+                "name": "afterPageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "beforePageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "boundingBox",
+                "value": "",
+                "type": "query",
+                "description": "Bounding box for map-based filtering.<br>Provided as comma separated values in the format `minLat`,`minLong`,`maxLat`,`maxLong`. Must provide exactly 4 numbers.<br>Note: If `suburb`, `postcode` and `state` are not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Name of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Postcode of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia<br>Note: If `boundingBox` is not supplied, then this field is <span style=\"color:#F47853\">required</span>"
+              }
+            ]
+          },
+          "docs": "Residential Properties search by suburb and postcode and/or bounding box, which returns lat/longs for each matching propertyI. (max 200 per page)<br>\r\nThis endpoint is ideal for property research, where the results are to be displayed as pins on a map.\r\n\r\nAdditional property information for individual properties can be retrieved from other PropTrack APIs utilising the provided propertyId.\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  a"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

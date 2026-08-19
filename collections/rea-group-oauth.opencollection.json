@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OAuth 2.0",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/oauth2/token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://data.proptrack.com/oauth2/token",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "form-urlencoded",
+          "data": [
+            {
+              "name": "grant_type",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "docs": "The token service, using OAuth 2.0, is responsible for generating and validating an authentication token.\n \nPrior to making an API request, a token needs to be generated using your assigned credentials. The token is required prior to making any API call.\n\nRefer to [How To Authenticate](https://developer.proptrack.com.au/docs/apis/how-to-authenticate) for further information."
+    }
+  ],
+  "bundled": true
+}

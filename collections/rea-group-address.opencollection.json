@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Address API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Match",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/address/match",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/address/match",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Address on which to search"
+              }
+            ]
+          },
+          "docs": "Matches to a corresponding record on PropTrack's master address file based on a given address string.\r\n<p>\r\n\r\nRefer to the [API Guide](https://developer.proptrack.com.au/docs/apis/guide#address-matching) for best practices for input address formatting."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Suggest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/address/suggest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/address/suggest",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Address on which to search</br>Refer to [minimum required input](https://developer.proptrack.com.au/docs/apis/faqs#what-is-the-minimum-required-input)"
+              },
+              {
+                "name": "numberOfResults",
+                "value": "",
+                "type": "query",
+                "description": "Defines the maximum number of results that are returned as suggested addresses"
+              }
+            ]
+          },
+          "docs": "Suggests a list of addresses based on a given address string."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

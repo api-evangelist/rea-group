@@ -1,0 +1,540 @@
+{
+  "item": [
+    {
+      "id": "5a641903-cc36-49a0-b677-e45bccf9cc6c",
+      "name": "Disclaimers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7e27e8a-53f8-48f5-b9da-913414a0a631",
+          "name": "/api/v1/disclaimers",
+          "request": {
+            "name": "/api/v1/disclaimers",
+            "description": {
+              "content": "Endpoint for retrieving data source disclaimer texts. \r\nThese texts are required to be displayed in user experiences and printed reports when utilising PropTrack data - refer to the [Disclaimers](https://developer.proptrack.com.au/docs/apis/disclaimers) page for an implementation guide.\r\n\r\nDevelopers have a choice in the text format to be retrieved - either HTML or Plaintext. Plaintext format utilises \\n to indicate a new line. HTML uses minimal markup, to allow integration into your UI as required.\r\n\r\n\r\n> Some disclaimers, such as the Service Agent statement, require dynamic insertion of information such as your company name and ABN. <br>This will be indicated by square brackets in the text content.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "disclaimers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "disclaimerTypes",
+                  "value": "<string>",
+                  "description": "(Required) Request for one or more disclaimer types, as a comma-separated list.<br>This will filter the response to show only the specified disclaimerType(s)"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "<i>Case insensitive</i><br>Only applicable for disclaimerType = `vg`<br>If omitted, all state VG disclaimers will be returned as an array<br>If the requested disclaimerType is not `vg` this field will be ignored."
+                },
+                {
+                  "disabled": false,
+                  "key": "asAtDate",
+                  "value": "<date>",
+                  "description": "The as-at date enables a requester to retrieve the disclaimer version that was valid at a specific point in time.<br> This is useful where your implementation is sensitive to text changes, such as a printed PDF, as disclaimer texts are updated from time-to-time.<br> If as-at date is omitted from the request, the response will provide the current disclaimer version.<br>"
+                },
+                {
+                  "disabled": false,
+                  "key": "textFormat",
+                  "value": "html",
+                  "description": "Providing an optional text format will enable the requester to control the formatting of the disclaimerContent field on the response.<br>HTML or Plaintext formatting is supported"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c3a0fe2-a838-4fa6-a97c-3b931f7ada2b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"disclaimerType\": \"vg\",\n    \"disclaimerContent\": \"<p>The Territory Data is the property of the Australian Capital Territory.  No part of it may in any form or by any means (electronic, mechanical, micro copying, photocopying, recording or otherwise) be reproduced, stored in a retrieval system or transmitted without prior written permission.  Enquiries should be directed to: <a href=\\\"mailto:acepdcustomerservices@act.gov.au\\\">acepdcustomerservices@act.gov.au</a></p> <p>Director, Customer Coordination, Access Canberra, ACT Government, GPO Box 158 CANBERRA ACT 2601.</p>\",\n    \"effectiveStartDate\": \"2000-01-01\",\n    \"effectiveEndDate\": null,\n    \"state\": \"ACT\",\n    \"brandingImage\": null\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7dc61913-ed46-43bd-9377-0acfb26c7499",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 4050.3098459125854,\n      \"description\": \"An incorrect field type has been entered - Please ensure that all values are using the correct field type\",\n      \"parameters\": {\n        \"propertyId\": \"must be an integer\"\n      }\n    },\n    {\n      \"code\": 6911.832372117968,\n      \"description\": \"An incorrect field type has been entered - Please ensure that all values are using the correct field type\",\n      \"parameters\": {\n        \"propertyId\": \"must be an integer\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1993e0f7-598e-4717-a497-6a4ca1170aca",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 3251.9916205615527,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": \"string\"\n    },\n    {\n      \"code\": 2325.3096666227257,\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\",\n      \"level\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e4e06fa6-ab11-41eb-88d5-cbed18b8aabd",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 1531.139590084727,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": 3765.702538990443,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de493364-d4c5-49a2-af1f-caa7dd4c4d44",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 5544.449822700754,\n      \"description\": \"string\",\n      \"parameters\": {\n        \"propertyId\": \"cannot be found\"\n      }\n    },\n    {\n      \"code\": 649.0357746652898,\n      \"description\": \"string\",\n      \"parameters\": {\n        \"propertyId\": \"cannot be found\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d1c68562-a32e-4c1e-8c6d-6fa5e3dbd916",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9567.024691942896,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"string\"\n    },\n    {\n      \"code\": 6255.134320116472,\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9235ee1-98f1-4dd0-a022-cf893c532ba9",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "disclaimers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "disclaimerTypes",
+                      "value": "vg"
+                    },
+                    {
+                      "key": "state",
+                      "value": "VIC"
+                    },
+                    {
+                      "key": "asAtDate",
+                      "value": "2024-01-01"
+                    },
+                    {
+                      "key": "textFormat",
+                      "value": "html"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.",
+                    "key": "Authorization",
+                    "value": "Bearer xxxxx"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.proptrack.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a3efe424-de55-43a6-9a63-bed16609ace4",
+    "name": "Disclaimers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "- **[Disclaimers](https://developer.proptrack.com.au/docs/apis/disclaimers-api/operations/list-api-v-1-disclaimers): GET /api/v1/disclaimers**</br>Returns data source disclaimers required for some property data usage scenarios</br>\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\nContact Support:\n Name: PropTrack\n Email: https://www.proptrack.com.au/contact-us",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transactions",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Point & Radius Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/transactions/search/point-and-radius",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/transactions/search/point-and-radius",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "proximity",
+                "value": "",
+                "type": "query",
+                "description": "Address proximity type"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 6 months prior to endDate date if left empty"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Will default to today's date if left empty"
+              },
+              {
+                "name": "bedroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bedrooms"
+              },
+              {
+                "name": "bedroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bedrooms"
+              },
+              {
+                "name": "bathroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bathrooms"
+              },
+              {
+                "name": "bathroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bathrooms"
+              },
+              {
+                "name": "carSpacesMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of car spaces"
+              },
+              {
+                "name": "carSpacesMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of car spaces"
+              },
+              {
+                "name": "landAreaMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum size of land space area (measured in m2)"
+              },
+              {
+                "name": "landAreaMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum size of land space area (measured in m2)"
+              },
+              {
+                "name": "sourceCategory",
+                "value": "",
+                "type": "query",
+                "description": "Filter the transaction data source"
+              },
+              {
+                "name": "saleValueMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price associated with the transaction event"
+              },
+              {
+                "name": "saleValueMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price associated with the transaction event"
+              },
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query",
+                "description": "Unique property identifier used as a target point</br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Radius from the target property to search within (measured in metres)"
+              },
+              {
+                "name": "propertyType",
+                "value": "",
+                "type": "query",
+                "description": "Classification of the type of property"
+              },
+              {
+                "name": "afterPageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "beforePageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "pointType",
+                "value": "",
+                "type": "query",
+                "description": "Defines the identifier used as a target point"
+              },
+              {
+                "name": "landUse",
+                "value": "",
+                "type": "query",
+                "description": "Land Use of the property (note: only allows filtering by residential - omit parameter to see all properties)"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of sold transactions within a given radius of a property\r\n\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `vg`,`serviceAgent`\r\n\r\nPlease refer to [Disclaimers and Brandin"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Suburb & Postcode Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/transactions/search/suburb-and-postcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/transactions/search/suburb-and-postcode",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 6 months prior to endDate date if left empty"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Will default to today's date if left empty"
+              },
+              {
+                "name": "bedroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bedrooms"
+              },
+              {
+                "name": "bedroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bedrooms"
+              },
+              {
+                "name": "bathroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bathrooms"
+              },
+              {
+                "name": "bathroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bathrooms"
+              },
+              {
+                "name": "carSpacesMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of car spaces"
+              },
+              {
+                "name": "carSpacesMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of car spaces"
+              },
+              {
+                "name": "landAreaMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum size of land space area (measured in m2)"
+              },
+              {
+                "name": "landAreaMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum size of land space area (measured in m2)"
+              },
+              {
+                "name": "sourceCategory",
+                "value": "",
+                "type": "query",
+                "description": "Filter the transaction data source"
+              },
+              {
+                "name": "saleValueMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price associated with the transaction event"
+              },
+              {
+                "name": "saleValueMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price associated with the transaction event"
+              },
+              {
+                "name": "propertyType",
+                "value": "",
+                "type": "query",
+                "description": "Classification of the type of property"
+              },
+              {
+                "name": "afterPageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "beforePageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "landUse",
+                "value": "",
+                "type": "query",
+                "description": "Land Use of the property (note: only allows filtering by residential - omit parameter to see all properties)"
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "Name of the suburb being searched"
+              },
+              {
+                "name": "postcode",
+                "value": "",
+                "type": "query",
+                "description": "Postcode of the suburb being searched"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "State or territory within Australia"
+              }
+            ]
+          },
+          "docs": "Retrieves a list of sold transactions within a given suburb and postcode\r\n\r\n\r\n#### Data Attribution Notice:\r\nThis endpoint contains State and Territory data which may be subject to  approval by the relevant government department.\r\nDue to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.\r\n<br><br>\r\nDisclaimer Types: `vg`,`serviceAgent`\r\n\r\nPlease refer to [Disclaimers and Branding"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

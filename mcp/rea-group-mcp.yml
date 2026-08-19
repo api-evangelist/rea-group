@@ -3,8 +3,8 @@ method: derived
 status: candidate
 source: openapi/ (32 operations across nine PropTrack OpenAPI documents)
 note: PropTrack publishes no MCP server. This is a CANDIDATE tool surface derived one-tool-per-operation
-  from the provider OpenAPI, so the API is representable to agents; it is not a provider claim and
-  nothing is hosted. Input schemas are inherited from each backing operation parameters/requestBody.
+  from the provider OpenAPI, so the API is representable to agents; it is not a provider claim and nothing
+  is hosted. Input schemas are inherited from each backing operation parameters/requestBody.
 server:
   name: proptrack
   transport: null
@@ -175,3 +175,9 @@ tools:
   source_operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId-suburb
   method: GET
   path: /api/v2/transactions/search/suburb-and-postcode
+deployment:
+  mode: none
+  verified: derived
+  tools: 32
+  checked: '2026-08-12'
+  source: catalog MCP census

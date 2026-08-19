@@ -1,0 +1,994 @@
+{
+  "item": [
+    {
+      "id": "9a5daedc-2685-4561-8cc7-09ab915dfdb3",
+      "name": "AVM Report",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c3e722a6-2d1a-43a1-aa27-0edf70fb0c37",
+          "name": "/api/v1/reports/valuations/{valuationId}/pdf",
+          "request": {
+            "name": "/api/v1/reports/valuations/{valuationId}/pdf",
+            "description": {
+              "content": "Generates a valuation report, based on a previous AVM request for '**origination**' requests for the `SALE` / `RENT` / `AVM Plus` / `AVM Pro` Requests.\n\n    Note: **Enquiry** PDF requests are not supportive.\n    Endpoint /api/v1/reports/valuations/sale/{valuationId}/pdf was **`deprecated`** in March 2025. \n    ",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v1",
+                "reports",
+                "valuations",
+                ":valuationId",
+                "pdf"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "valuationId",
+                  "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53924afb-a7b2-49eb-800d-a6c2067e396c",
+              "name": "<!-- theme: success -->\n\n> #### Success (200)\n\n    Sale PDF report:\n<!--\ntype: tab\ntitle: Sale Response Example Page 1\n-->\n\n![AVM-Sale-PDF-Page-1.png](../assets/images/AVM-Sale-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: Sale Response Example Page 2\n-->\n\n--![AVM-Sale-PDF-Page-2.png](../assets/images/AVM-Sale-PDF-Page-2.png)\n\n<!-- type: tab-end -->\n\n-------------\n\n    Rental PDF report:\n<!--\ntype: tab\ntitle: Rental Response Example Page 1\n-->\n\n![AVM-Rental-PDF-Page-1.png](../assets/images/AVM-Rental-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: Rental Response Example Page 2\n-->\n\n--![AVM-Rental-PDF-Page-2.png](../assets/images/AVM-Rental-PDF-Page-2.png)\n\n<!--\ntype: tab\ntitle: Rental Response Example Page 3\n-->\n\n--![AVM-Rental-PDF-Page-3.png](../assets/images/AVM-Rental-PDF-Page3.png)\n\n\n\n<!-- type: tab-end -->\n ---------\n\n\n    AVM Plus PDF report:\n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 1\n-->\n\n![AVM-Plus-PDF-Page-1.png](../assets/images/AVM-Plus-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 2\n-->\n\n--![AVM-Plus-PDF-Page-2.png](../assets/images/AVM-Plus-PDF-Page-2.png)\n\n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 3\n-->\n\n--![AVM-Plus-PDF-Page-3.png](../assets/images/AVM-Plus-PDF-Page-3.png)\n\n\n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 4\n-->\n\n--![AVM-Plus-PDF-Page-4.png](../assets/images/AVM-Plus-PDF-Page4.png)\n\n\n<!-- type: tab-end -->\n---------\n\n\n    AVM Pro PDF report:\n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 1\n-->\n\n![AVM-Pro-PDF-Page-1.png](../assets/images/AVM-Pro-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 2\n-->\n\n--![AVM-Pro-PDF-Page-2.png](../assets/images/AVM-Pro-PDF-Page-2.png)\n\n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 3\n-->\n\n--![AVM-Pro-PDF-Page-3.png](../assets/images/AVM-Pro-PDF-Page-3.png)\n\n\n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 4\n-->\n\n--![AVM-Pro-PDF-Page-4.png](../assets/images/AVM-Pro-PDF-Page-4.png)\n\n\n<!-- type: tab-end -->",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e942ae89-e7ef-4864-ac51-a56bc920cc6c",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": {},\n      \"errorLevel\": \"string\",\n      \"errorMessage\": \"Bad Request: There was a problem with your request, check your input and ensure request contains the correct value. Please contact PropTrack Support if you require assistance\",\n      \"errorDetails\": [\n        \"Invalid Valuation ID: 29930cff-49ec-4fd5-83a6974d5e04300e\",\n        \"Invalid Valuation ID: 29930cff-49ec-4fd5-83a6974d5e04300e\"\n      ],\n      \"errorId\": \"55e17eea-8fd6-4575-8832-82ce9b9b5afd\"\n    },\n    {\n      \"errorCode\": {},\n      \"errorLevel\": \"string\",\n      \"errorMessage\": \"Bad Request: There was a problem with your request, check your input and ensure request contains the correct value. Please contact PropTrack Support if you require assistance\",\n      \"errorDetails\": [\n        \"Invalid Valuation ID: 29930cff-49ec-4fd5-83a6974d5e04300e\",\n        \"Invalid Valuation ID: 29930cff-49ec-4fd5-83a6974d5e04300e\"\n      ],\n      \"errorId\": \"55e17eea-8fd6-4575-8832-82ce9b9b5afd\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9706f6cf-dbd5-4053-8d69-9e55db425df9",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9012,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6920fd24-4f8a-44af-9989-695edc70ba93",
+              "name": "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9003,\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9e90d28c-4e94-45f4-a300-55bb6390f97c",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 9011,\n      \"level\": \"CRITICAL\",\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a7f1170-6658-4d3a-8ae8-a69e3d263b1c",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 9797,\n      \"errorLevel\": {},\n      \"errorMessage\": \"Internal Server Error: Sorry, due to an internal issue we are unable to complete this request. Please contact PropTrack Support if you require assistance\",\n      \"errorDetails\": [\n        \"Sorry but our internal server is not able to provide a response at this time\",\n        \"Sorry but our internal server is not able to provide a response at this time\"\n      ],\n      \"errorId\": \"55e17eea-8fd6-4575-8832-82ce9b9b5afd\"\n    },\n    {\n      \"errorCode\": 5810,\n      \"errorLevel\": {},\n      \"errorMessage\": \"Internal Server Error: Sorry, due to an internal issue we are unable to complete this request. Please contact PropTrack Support if you require assistance\",\n      \"errorDetails\": [\n        \"Sorry but our internal server is not able to provide a response at this time\",\n        \"Sorry but our internal server is not able to provide a response at this time\"\n      ],\n      \"errorId\": \"55e17eea-8fd6-4575-8832-82ce9b9b5afd\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8f67a9f2-9736-423c-9039-253f717e9d9d",
+              "name": "<!-- theme: danger -->\n\n> #### Gateway Timeout (504)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "valuations",
+                    ":valuationId",
+                    "pdf"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "valuationId",
+                      "description": "(Required) Unique valuation identifier, generated from an AVM response"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Gateway Timeout",
+              "code": 504,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"errorCode\": 1426,\n      \"errorLevel\": {},\n      \"errorMessage\": \"Gateway Timeout: Sorry, due to an internal timeout issue we are unable to complete this request. Please contact PropTrack Support if you require assistance\",\n      \"errorDetails\": [\n        \"Sorry the Realtime AVM is currently timing out\",\n        \"Sorry the Realtime AVM is currently timing out\"\n      ],\n      \"errorId\": \"55e17eea-8fd6-4575-8832-82ce9b9b5afd\"\n    },\n    {\n      \"errorCode\": 4746,\n      \"errorLevel\": {},\n      \"errorMessage\": \"Gateway Timeout: Sorry, due to an internal timeout issue we are unable to complete this request. Please contact PropTrack Support if you require assistance\",\n      \"errorDetails\": [\n        \"Sorry the Realtime AVM is currently timing out\",\n        \"Sorry the Realtime AVM is currently timing out\"\n      ],\n      \"errorId\": \"55e17eea-8fd6-4575-8832-82ce9b9b5afd\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "23e2f076-e1f5-43ea-a350-62cf08f6e41a",
+      "name": "Property Report",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20d70c66-4f78-4027-8b54-b08b5665ac73",
+          "name": "/api/v1/reports/property",
+          "request": {
+            "name": "/api/v1/reports/property",
+            "description": {
+              "content": "Generates a property report for a given property.",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "https",
+              "path": [
+                "api",
+                "v1",
+                "reports",
+                "property"
+              ],
+              "host": [
+                "data",
+                "proptrack",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1026852a-4563-4087-ae98-0a4ee581f7da",
+              "name": "<!-- theme: success -->\n\n> #### Created (201)\nA digital property report is successfully created and a property report URL is returned.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"reportUrl\": \"https://report.proptrack.com/r/00e7j158-b633-8874-ae81-9239f4w2f554\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6c615b6-cc47-41c5-b1d5-c3615d0eb5f2",
+              "name": "<!-- theme: danger -->\n\n> #### Bad Request (400)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": 7010,\n      \"description\": \"An incorrect format has been included - Please ensure that the correct formatting has been used for all parameters\",\n      \"parameters\": {\n        \"configId\": \"invalid format\",\n        \"expiresAt\": \"invalid format\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a887f9b-c964-4211-9558-60523f992891",
+              "name": "<!-- theme: danger -->\n\n> #### Unauthorized (401)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Unauthorized\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"Unauthorized\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "42172452-9b41-4090-ac9b-3566f160d3d0",
+              "name": "<!-- theme: danger -->\n> #### Forbidden (403)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fe44bad-9bf0-4872-aefc-70c7532169f8",
+              "name": "<!-- theme: danger -->\n\n> #### Not Found (404)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": {\n    \"code\": {},\n    \"description\": \"The value does not match a record within our system\",\n    \"parameters\": {\n      \"configId\": \"unknown value\",\n      \"propertyId\": \"unknown value\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "613c6bc4-dce3-464f-bfa0-cb19195a43b1",
+              "name": "<!-- theme: danger -->\n\n> #### Too Many Requests (429)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Should be quoted as a reference for any support request/unexpected error",
+                  "key": "X-Transaction-Id",
+                  "value": "bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": {}\n    },\n    {\n      \"code\": {},\n      \"description\": \"Rate limit has been exceeded - Please try again shortly\",\n      \"level\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fda086dd-b7fa-4057-98bd-0d59ded45f96",
+              "name": "<!-- theme: danger -->\n\n> #### Internal Server Error (500)\n\nRefer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.",
+              "originalRequest": {
+                "url": {
+                  "protocol": "https",
+                  "path": [
+                    "api",
+                    "v1",
+                    "reports",
+                    "property"
+                  ],
+                  "host": [
+                    "data",
+                    "proptrack",
+                    "com"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)",
+                    "key": "Authorization",
+                    "value": "Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"propertyId\": \"<integer>\",\n  \"configId\": \"<uuid>\",\n  \"expiresAt\": \"<string>\",\n  \"meta\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"code\": {},\n      \"description\": \"An internal server error has occurred and the requested data cannot be returned at this time\"\n    },\n    {\n      \"code\": {},\n      \"description\": \"An internal server error has occurred and the requested data cannot be returned at this time\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://data.proptrack.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "263270f7-8abb-49bd-8287-9262044387b7",
+    "name": "Reports",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "- **[AVM/PDF](https://developer.proptrack.com.au/docs/apis/reports/operations/get-a-api-v-1-report-valuation-sale-pdf): GET /api/v1/reports/valuations/{valuationId}/pdf**</br>Generates a valuation report, based on a previous AVM request\n- **[Reports/Property](https://developer.proptrack.com.au/docs/apis/reports/operations/create-a-api-v-1-report-property): POST /api/v1/reports/property**</br>Generates a property report for a given property</br>\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n\nContact Support:\n Name: PropTrack\n Email: https://www.proptrack.com.au/contact-us",
+      "type": "text/plain"
+    }
+  }
+}

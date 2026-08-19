@@ -1,0 +1,373 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Listings API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Listing by listingId",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/listings/{listingId}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/listings/:listingId",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listingId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for a listing"
+              }
+            ]
+          },
+          "docs": "Retrieves current and historic listings based on the `listingId`."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Point & Radius Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/listings/search/point-and-radius",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/listings/search/point-and-radius",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listingTypes",
+                "value": "",
+                "type": "query",
+                "description": "Select the type of listings returned</br>Note: Values are comma separated"
+              },
+              {
+                "name": "pointType",
+                "value": "",
+                "type": "query",
+                "description": "Defines the identifier used as a target point"
+              },
+              {
+                "name": "bathroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bathrooms"
+              },
+              {
+                "name": "bathroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bathrooms"
+              },
+              {
+                "name": "bedroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bedrooms"
+              },
+              {
+                "name": "bedroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bedrooms"
+              },
+              {
+                "name": "carSpacesMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of car spaces"
+              },
+              {
+                "name": "carSpacesMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of car spaces"
+              },
+              {
+                "name": "landAreaMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum size of land space area (measured in m2)"
+              },
+              {
+                "name": "landAreaMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum size of land space area (measured in m2)"
+              },
+              {
+                "name": "priceMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased`, `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+              },
+              {
+                "name": "priceMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased` `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+              },
+              {
+                "name": "propertyTypes",
+                "value": "",
+                "type": "query",
+                "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Choose the status of the listings returned</br>Note: Values are comma separated</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 6 months prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Will default to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of listings results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Radius from the target location to search within (measured in metres)"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Defines the sorting attribute and order in which the results will be returned</br>Note: sortBy date logic is set based on the status of the listing</br> - If `status` equals `sold` then the result is sorted by the `saleDate`  </br> - If `status` equals `leased` then the result is sorted by the `leaseDate`</br> - If `status` equals `current`, `notSold` or `notLeased` then the result is sorted by the `firstSeenDate`  "
+              },
+              {
+                "name": "propertyId",
+                "value": "",
+                "type": "query",
+                "description": "Unique property identifier used as a target point</br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)</br>Note: If `pointType` equals `propertyId`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude used as a target point</br>Note: If `pointType` equals `latLong`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude used as a target point</br>Note: If `pointType` equals `latLong`, then this field is <span style=\"color:#F47853\">required</span>"
+              },
+              {
+                "name": "afterPageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one listing after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "beforePageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one listing prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              }
+            ]
+          },
+          "docs": "Retrieves current and historic listings within a given radius of a target point"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Suburb & Postcode Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "/api/v2/listings/search/suburb-and-postcode",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://data.proptrack.com/api/v2/listings/search/suburb-and-postcode",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "listingTypes",
+                "value": "",
+                "type": "query",
+                "description": "Select the type of listings returned</br>Note: Values are comma separated"
+              },
+              {
+                "name": "bathroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bathrooms"
+              },
+              {
+                "name": "bathroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bathrooms"
+              },
+              {
+                "name": "bedroomsMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of bedrooms"
+              },
+              {
+                "name": "bedroomsMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of bedrooms"
+              },
+              {
+                "name": "carSpacesMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of car spaces"
+              },
+              {
+                "name": "carSpacesMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of car spaces"
+              },
+              {
+                "name": "landAreaMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum size of land space area (measured in m2)"
+              },
+              {
+                "name": "landAreaMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum size of land space area (measured in m2)"
+              },
+              {
+                "name": "priceMax",
+                "value": "",
+                "type": "query",
+                "description": "Maximum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased`, `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+              },
+              {
+                "name": "priceMin",
+                "value": "",
+                "type": "query",
+                "description": "Minimum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased` `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`"
+              },
+              {
+                "name": "propertyTypes",
+                "value": "",
+                "type": "query",
+                "description": "The type of properties that will be queried against</br>Note: Values are comma separated"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Choose the status of the listings returned</br>Note: Values are comma separated</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "Start of date range to be queried. Defaulted to 6 months prior to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "End of date range to be queried. Will default to today's date if left empty</br>Format `YYYY-MM-DD`"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of listings results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Defines the sorting attribute and order in which the results will be returned</br>Note: sortBy date logic is set based on the status of the listing</br> - If `status` equals `sold` then the result is sorted by the `saleDate`  </br> - If `status` equals `leased` then the result is sorted by the `leaseDate`</br> - If `status` equals `current`, `notSold` or `notLeased` then the result is sorted by the `firstSeenDate`  "
+              },
+              {
+                "name": "afterPageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one listing after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "beforePageCursor",
+                "value": "",
+                "type": "query",
+                "description": "The page starting position as one listing prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)"
+              },
+              {
+                "name": "postcodes",
+                "value": "",
+                "type": "query",
+                "description": "List of up to 3 postcodes for the listing search area, as a comma-separated list. <br>The postcodes must be associated with the supplied suburb."
+              },
+              {
+                "name": "suburb",
+                "value": "",
+                "type": "query",
+                "description": "The name of the suburb to search"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The name of the state that the suburb is in"
+              }
+            ]
+          },
+          "docs": "Retrieves current and historic listings within a given suburb. <br>\r\nThe suburb search area is identified by a combination of state, suburb name, and up to 3 postcodes."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
