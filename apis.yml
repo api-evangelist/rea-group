@@ -63,7 +63,7 @@ tags:
 - Australia
 created: '2026-07-20'
 modified: '2026-07-27T12:00:00Z'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: rea-group:proptrack-oauth-api
   name: PropTrack OAuth 2.0 Token API
