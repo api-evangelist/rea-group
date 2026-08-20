@@ -49,6 +49,19 @@ accessModel:
     trial programme is documented.
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rea-group.png
 tags:
+- Real-Estate
+- Property Data
+- Valuations
+- AVM
+- Market Insights
+- Listings
+- Transaction
+- Address Matching
+- REAXML
+- Partner Portal
+- PropTech
+- Australia
+tags_raw:
 - Real Estate
 - Property Data
 - Valuations
@@ -68,6 +81,9 @@ apis:
 - aid: rea-group:proptrack-oauth-api
   name: PropTrack OAuth 2.0 Token API
   tags:
+  - Authentication
+  - Security
+  tags_raw:
   - Authentication
   - OAuth
   - Security
@@ -117,6 +133,11 @@ apis:
   - Property Data
   - Valuations
   - AVM
+  - Real-Estate
+  tags_raw:
+  - Property Data
+  - Valuations
+  - AVM
   - Real Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.proptrack.com.au/docs/apis/properties
@@ -145,6 +166,11 @@ apis:
   - Listings
   - Search
   - Geospatial
+  - Real-Estate
+  tags_raw:
+  - Listings
+  - Search
+  - Geospatial
   - Real Estate
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.proptrack.com.au/docs/apis/listings
@@ -165,6 +191,11 @@ apis:
 - aid: rea-group:proptrack-transactions-api
   name: PropTrack Transactions API
   tags:
+  - Transaction
+  - Sold Data
+  - Search
+  - Geospatial
+  tags_raw:
   - Transactions
   - Sold Data
   - Search
@@ -258,6 +289,10 @@ apis:
   tags:
   - Education
   - Schools
+  - Roadmaps
+  tags_raw:
+  - Education
+  - Schools
   - Roadmap
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.proptrack.com.au/docs/apis/coming-soon
@@ -276,6 +311,12 @@ apis:
 - aid: rea-group:realestate-listing-feed-reaxml
   name: realestate.com.au Listing Feed (REAXML)
   tags:
+  - Listings
+  - Feed
+  - REAXML
+  - Real-Estate
+  - Australia
+  tags_raw:
   - Listings
   - Feed
   - REAXML
@@ -299,6 +340,12 @@ apis:
 - aid: rea-group:realestate-partner-portal
   name: realestate.com.au Partner Portal
   tags:
+  - Partner
+  - Onboarding
+  - Enquiries
+  - Real-Estate
+  - Australia
+  tags_raw:
   - Partner
   - Onboarding
   - Enquiries
