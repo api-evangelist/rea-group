@@ -78,236 +78,6 @@ created: '2026-07-20'
 modified: '2026-07-27T12:00:00Z'
 specificationVersion: '0.23'
 apis:
-- aid: rea-group:proptrack-oauth-api
-  name: PropTrack OAuth 2.0 Token API
-  tags:
-  - Authentication
-  - Security
-  tags_raw:
-  - Authentication
-  - OAuth
-  - Security
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
-  baseURL: https://data.proptrack.com
-  properties:
-  - url: openapi/rea-group-oauth-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/authentication
-    type: APIReference
-  - url: https://stoplight.io/mocks/proptrack/apis/70243931
-    type: Sandbox
-  description: >-
-    The OAuth 2.0 client credentials token service. POST /oauth2/token with the
-    partner api_key and api_secret Base64-encoded as HTTP Basic returns a JWT
-    access token with a 3600 second TTL, presented as a Bearer token on every
-    other PropTrack operation. Credentials in form parameters are not supported.
-- aid: rea-group:proptrack-address-api
-  name: PropTrack Address API
-  tags:
-  - Address
-  - Geocoding
-  - Matching
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/address
-  baseURL: https://data.proptrack.com/api/v2
-  properties:
-  - url: openapi/rea-group-address-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/address
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  - url: https://stoplight.io/mocks/proptrack/apis/67669714
-    type: Sandbox
-  description: >-
-    Address match and address suggest. Resolves free-text or partial Australian
-    addresses to a canonical propertyId and gpid with a matchScore - the entry
-    point for almost every PropTrack workflow. Structured component-wise address
-    match is documented as coming soon.
-- aid: rea-group:proptrack-properties-api
-  name: PropTrack Properties API
-  tags:
-  - Property Data
-  - Valuations
-  - AVM
-  - Real-Estate
-  tags_raw:
-  - Property Data
-  - Valuations
-  - AVM
-  - Real Estate
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/properties
-  baseURL: https://data.proptrack.com
-  properties:
-  - url: openapi/rea-group-properties-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/properties
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  - url: https://stoplight.io/mocks/proptrack/apis/67669715
-    type: Sandbox
-  description: >-
-    The largest PropTrack service - 15 operations spanning property summary,
-    attributes, listings, planning and zoning, tenure type, transactions and
-    property search (summaries and map geopoints) under /api/v2, plus the whole
-    Automated Valuation Model surface under /api/v1: sale and rent valuations by
-    address string or propertyId, each as an enquiry or origination request, and
-    the AVM Plus (sale + rent) and AVM Pro (sale + rent + environmental hazards)
-    combined products. The valuation operations are billable, side-effecting
-    orders with no idempotency contract.
-- aid: rea-group:proptrack-listings-api
-  name: PropTrack Listings API
-  tags:
-  - Listings
-  - Search
-  - Geospatial
-  - Real-Estate
-  tags_raw:
-  - Listings
-  - Search
-  - Geospatial
-  - Real Estate
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/listings
-  baseURL: https://data.proptrack.com/api/v2
-  properties:
-  - url: openapi/rea-group-listings-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/listings
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  - url: https://stoplight.io/mocks/proptrack/apis/160758630
-    type: Sandbox
-  description: >-
-    Listing detail by listingId plus two cursor-paginated search shapes - point
-    and radius, and suburb and postcode - exposing for-sale and for-rent listing
-    data from realestate.com.au and realcommercial.com.au.
-- aid: rea-group:proptrack-transactions-api
-  name: PropTrack Transactions API
-  tags:
-  - Transaction
-  - Sold Data
-  - Search
-  - Geospatial
-  tags_raw:
-  - Transactions
-  - Sold Data
-  - Search
-  - Geospatial
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/transactions
-  baseURL: https://data.proptrack.com/api/v2
-  properties:
-  - url: openapi/rea-group-transactions-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/transactions
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  - url: https://stoplight.io/mocks/proptrack/apis/205281044
-    type: Sandbox
-  description: >-
-    Sold transaction search by point and radius and by suburb and postcode,
-    cursor-paginated. On trial agreements, transactions sourced from the Victorian
-    Valuer-General are withheld while agent-advised transactions remain available.
-- aid: rea-group:proptrack-market-api
-  name: PropTrack Market API
-  tags:
-  - Market Insights
-  - Analytics
-  - Suburb Trends
-  - Demographics
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/market
-  baseURL: https://data.proptrack.com/api/v2
-  properties:
-  - url: openapi/rea-group-market-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/market
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  - url: https://stoplight.io/mocks/proptrack/apis/99896681
-    type: Sandbox
-  description: >-
-    Suburb-level market statistics - sale price history, rent history, supply and
-    demand, auction results and demographics. Keyed by geography (searchType plus
-    state, postcode or suburb) rather than by propertyId, so it is the one branch
-    of the surface that does not join to the property graph.
-- aid: rea-group:proptrack-reports-api
-  name: PropTrack Reports API
-  tags:
-  - Reports
-  - Valuations
-  - PDF
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/reports
-  baseURL: https://data.proptrack.com/api/v1
-  properties:
-  - url: openapi/rea-group-reports-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/reports
-    type: Documentation
-  - url: https://developer.proptrack.com.au/docs/apis/home
-    type: DeveloperPortal
-  - url: https://stoplight.io/mocks/proptrack/apis/181515791
-    type: Sandbox
-  description: >-
-    Renders an ordered AVM valuation as a PDF by valuationId, and orders a
-    standalone property report. Rate limited to 25 requests per second and the
-    only operations besides AVM that document a 504 Gateway Timeout.
-- aid: rea-group:proptrack-disclaimers-api
-  name: PropTrack Disclaimers API
-  tags:
-  - Disclaimers
-  - Attribution
-  - Branding
-  - Compliance
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
-  baseURL: https://data.proptrack.com/api/v1
-  properties:
-  - url: openapi/rea-group-disclaimers-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
-    type: Documentation
-  - url: https://stoplight.io/mocks/proptrack/apis/723134185
-    type: Sandbox
-  description: >-
-    Serves the attribution and disclaimer text PropTrack contractually requires be
-    displayed wherever its data is rendered, plus the associated branding rules.
-    Fetching it rather than hardcoding is the documented expectation, since the
-    required wording changes.
-- aid: rea-group:proptrack-upcoming-api
-  name: PropTrack Upcoming APIs (Schools)
-  tags:
-  - Education
-  - Schools
-  - Roadmaps
-  tags_raw:
-  - Education
-  - Schools
-  - Roadmap
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://developer.proptrack.com.au/docs/apis/coming-soon
-  baseURL: https://data.proptrack.com/api/v2
-  properties:
-  - url: openapi/rea-group-coming-soon-openapi.yml
-    type: OpenAPI
-  - url: https://developer.proptrack.com.au/docs/apis/coming-soon
-    type: Documentation
-  - url: https://stoplight.io/mocks/proptrack/apis/639882521
-    type: Sandbox
-  description: >-
-    Documented but not yet released. A nearby-education-facilities endpoint keyed
-    by propertyId, published ahead of availability on the Coming Soon page - the
-    closest thing PropTrack publishes to a roadmap.
 - aid: rea-group:realestate-listing-feed-reaxml
   name: realestate.com.au Listing Feed (REAXML)
   tags:
@@ -330,13 +100,12 @@ apis:
     type: DeveloperPortal
   - url: https://reaxml.realestate.com.au/propertyList.dtd
     type: Schema
-  description: REA Group's REAXML listing feed - the long-standing industry-standard
-    XML property schema used by Australian agency CRMs to publish residential and
-    commercial for-sale and for-rent listings onto realestate.com.au and
-    realcommercial.com.au. Registered data/interconnect providers upload listing
-    payloads (create/update/withdraw/sold) validated against the published propertyList
-    DTD. Access is gated through the realestate.com.au Partner Portal and requires an
-    approved uploader agreement with API credentials (Client ID + secret).
+  description: >-
+    REA Group's REAXML listing feed - the long-standing industry-standard XML property schema used by
+    Australian agency CRMs to publish residential and commercial for-sale and for-rent listings onto realestate.com.au
+    and realcommercial.com.au. Registered data/interconnect providers upload listing payloads (create/update/withdraw/sold)
+    validated against the published propertyList DTD. Access is gated through the realestate.com.au Partner
+    Portal and requires an approved uploader agreement with API credentials (Client ID + secret).
 - aid: rea-group:realestate-partner-portal
   name: realestate.com.au Partner Portal
   tags:
@@ -357,12 +126,1163 @@ apis:
   properties:
   - url: https://partner.realestate.com.au/
     type: DeveloperPortal
-  description: The realestate.com.au Partner Portal is REA Group's integration surface
-    for agencies and their software / CRM providers - covering partner onboarding, API
-    credential management (Client ID + API secret key issued in the REA Portal), listing
-    distribution configuration, and delivery of buyer and renter enquiries and leads
-    back to partner systems. Authenticated via REA Group's OAuth identity service;
-    access is partner-gated and requires an approved commercial agreement.
+  description: >-
+    The realestate.com.au Partner Portal is REA Group's integration surface for agencies and their software
+    / CRM providers - covering partner onboarding, API credential management (Client ID + API secret key
+    issued in the REA Portal), listing distribution configuration, and delivery of buyer and renter enquiries
+    and leads back to partner systems. Authenticated via REA Group's OAuth identity service; access is
+    partner-gated and requires an approved commercial agreement.
+- aid: rea-group:rea-group-attributes-api
+  name: REA Group Attributes API
+  description: Property Attributes
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Attributes
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-attributes-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-auction-results-api
+  name: REA Group Auction Results API
+  description: The Auction Results API from REA Group — 1 operation(s) for auction results.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Auction Results
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-auction-results-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-avm-api
+  name: REA Group AVM API
+  description: AVM
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - AVM
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-avm-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-avm-report-api
+  name: REA Group AVM Report API
+  description: The AVM Report API from REA Group — 1 operation(s) for avm report.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - AVM Report
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-avm-report-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-demographics-api
+  name: REA Group Demographics API
+  description: The Demographics API from REA Group — 1 operation(s) for demographics.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Demographics
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-demographics-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-disclaimers-api
+  name: REA Group Disclaimers API
+  description: The Disclaimers API from REA Group — 1 operation(s) for disclaimers.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Disclaimers
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-disclaimers-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-listing-by-listingid-api
+  name: REA Group Listing by listingId API
+  description: The Listing by listingId API from REA Group — 1 operation(s) for listing by listingid.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Listing by listingId
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-listing-by-listingid-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-listings-api
+  name: REA Group Listings API
+  description: Property Listings
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Listings
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-listings-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-match-api
+  name: REA Group Match API
+  description: The Match API from REA Group — 1 operation(s) for match.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Match
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-match-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-oauth2-api
+  name: REA Group Oauth2 API
+  description: The Oauth2 API from REA Group — 1 operation(s) for oauth2.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Oauth2
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-oauth2-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-planning-api
+  name: REA Group Planning API
+  description: Property Planning Overlays
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Planning
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-planning-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-point-radius-search-api
+  name: REA Group Point & Radius Search API
+  description: The Point & Radius Search API from REA Group — 2 operation(s) for point & radius search.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Point & Radius Search
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-point-radius-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-property-report-api
+  name: REA Group Property Report API
+  description: The Property Report API from REA Group — 1 operation(s) for property report.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Property Report
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-property-report-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-rent-history-api
+  name: REA Group Rent History API
+  description: The Rent History API from REA Group — 1 operation(s) for rent history.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Rent History
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-rent-history-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-sale-history-api
+  name: REA Group Sale History API
+  description: The Sale History API from REA Group — 1 operation(s) for sale history.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Sale History
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-sale-history-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-schools-api
+  name: REA Group Schools API
+  description: The Schools API from REA Group — 1 operation(s) for schools.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Schools
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-schools-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-search-api
+  name: REA Group Search API
+  description: Property Search
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-suburb-postcode-search-api
+  name: REA Group Suburb & Postcode Search API
+  description: >-
+    The Suburb & Postcode Search API from REA Group — 2 operation(s) for suburb & postcode search.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Suburb & Postcode Search
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-suburb-postcode-search-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-suggest-api
+  name: REA Group Suggest API
+  description: The Suggest API from REA Group — 1 operation(s) for suggest.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Suggest
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-suggest-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-summary-api
+  name: REA Group Summary API
+  description: Property Summary
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Summary
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-summary-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-supply-demand-api
+  name: REA Group Supply & Demand API
+  description: The Supply & Demand API from REA Group — 1 operation(s) for supply & demand.
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Supply & Demand
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-supply-demand-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-tenure-type-api
+  name: REA Group Tenure Type API
+  description: Property Tenure Type History
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Tenure Type
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-tenure-type-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
+- aid: rea-group:rea-group-transactions-api
+  name: REA Group Transactions API
+  description: Property Transactions
+  humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  baseURL: https://data.proptrack.com
+  tags:
+  - Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/rea-group-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
+  - type: APIReference
+    url: https://developer.proptrack.com.au/docs/apis/authentication
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/70243931
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/address
+  - type: DeveloperPortal
+    url: https://developer.proptrack.com.au/docs/apis/home
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669714
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/properties
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/67669715
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/listings
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/160758630
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/transactions
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/205281044
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/market
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/99896681
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/reports
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/181515791
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/723134185
+  - type: Documentation
+    url: https://developer.proptrack.com.au/docs/apis/coming-soon
+  - type: Sandbox
+    url: https://stoplight.io/mocks/proptrack/apis/639882521
 common:
 - type: Website
   url: https://www.rea-group.com/
