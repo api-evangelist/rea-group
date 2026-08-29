@@ -26,6 +26,18 @@ description: REA Group Limited is an ASX-listed (ASX:REA) digital real estate ad
   XML property feed (schema published at reaxml.realestate.com.au), which the majority
   of Australian agency CRMs implement, with partner onboarding, API credentials
   (Client ID + secret) and enquiry delivery managed through the partner portal.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: contract
   onboarding: partner-gated
