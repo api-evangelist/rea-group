@@ -1296,6 +1296,9 @@ apis:
   - type: Sandbox
     url: https://stoplight.io/mocks/proptrack/apis/639882521
 common:
+- type: CapabilityMap
+  url: capabilities/rea-group-capability-edges.yml
+  name: REA Group Business Capability Map
 - type: Website
   url: https://www.rea-group.com/
 - type: Documentation

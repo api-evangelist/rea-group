@@ -1,0 +1,46 @@
+slug: rea-group
+provider: REA Group
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Real Estate
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: AVM
+  spec_file: rea-group-avm-api-openapi.yml
+  capability_id: BC-4970.40
+  capability_id_l1: BC-4970
+  capability_name: Valuation Approach Application
+  confidence: 0.7
+  evidence: POST /api/v1/properties/valuations/sale ~ Enquiry or Origination; GET /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry
+    or requestType=origination
+  reason: Automated valuation model producing sale and rental value estimates for a property (with lending
+    enquiry/origination request types) — application of valuation methodology to derive a value. Sub-capability
+    choice between approach application and portfolio mark-to-market leaves some ambiguity.
+- tag: AVM Report
+  spec_file: rea-group-avm-report-api-openapi.yml
+  capability_id: BC-4970.50
+  capability_id_l1: BC-4970
+  capability_name: Valuation Reporting & Sign-Off
+  confidence: 0.7
+  evidence: GET /api/v1/reports/valuations/{valuationId}/pdf — 'Generates a valuation report, based on
+    a previous AVM request'
+  reason: Generation of a delivered valuation report document from a prior AVM valuation, matching valuation
+    reporting. No sign-off/review workflow is exposed, so confidence is held below the top band.
+- tag: Listing by listingId
+  spec_file: rea-group-listing-by-listingid-api-openapi.yml
+  capability_id: BC-4960.30
+  capability_id_l1: BC-4960
+  capability_name: Listing Data & MLS Management
+  confidence: 0.7
+  evidence: GET /api/v2/listings/{listingId} — "Retrieves current and historic listings for a given listing"
+  reason: REA operates property portals; this exposes current and historic portal listing records. That
+    is listing data management/distribution (BC-4960.30 Listing Data & MLS Management) rather than landlord-side
+    leasing. Some ambiguity because it is read-only data retrieval rather than listing authoring.
