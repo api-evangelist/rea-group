@@ -1,0 +1,402 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: Coming Soon Schools API
+  description: PropTrack's upcoming API Endpoints will be published here during development. <BR><br><strong>Note:</strong> Documented schemas for these API's are not final, and are subject to change.
+  contact: {}
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Schools
+paths:
+  /api/v2/properties/{propertyId}/nearby-education-facilities:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+      description: Unique identifier for a property. Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)
+    get:
+      summary: /api/v2/properties/{propertyId}/nearby-education-facilities
+      tags:
+      - Schools
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication
+        required: true
+        schema:
+          type: string
+          examples:
+          - Bearer xxxxx
+      - name: propertyId
+        in: path
+        description: Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)
+        required: true
+        schema:
+          type: integer
+          examples:
+          - 123456789
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - propertyId
+                properties:
+                  propertyId:
+                    type: integer
+                    example: 101
+                    x-stoplight:
+                      id: hkjwv4zeio0mz
+                  educationFacilities:
+                    type: array
+                    items:
+                      x-stoplight:
+                        id: 90uzj9zn3isd4
+                      type: object
+                      required:
+                      - facilityName
+                      - straightLineDistance
+                      - inCatchment
+                      properties:
+                        facilityName:
+                          type: string
+                          x-stoplight:
+                            id: n0x8pa7z4zxef
+                          description: The name of the education facility
+                        straightLineDistance:
+                          type: number
+                          x-stoplight:
+                            id: 4tqqdzi7ks5hm
+                          format: float
+                          example: 2801.25
+                          description: 'Straight line distance from property geopoint to school location geopoint<br>
+
+                            Measured in metres to two decimal places'
+                        inCatchment:
+                          type: boolean
+                          x-stoplight:
+                            id: gsyjs8gq8g028
+                          description: 'Indicates whether the property falls within the over-all school catchment area<br>
+
+
+                            - Not all schools have a defined catchment area
+
+                            - Some schools have varying catchment areas for different grade levels'
+                        sector:
+                          x-stoplight:
+                            id: ni1p0l8mbqxjb
+                          enum:
+                          - government
+                          - independent
+                          - catholic
+                          - other
+                          - unknown
+                          - christian
+                          - lutheran
+                          - anglican
+                          example: government
+                          description: Indicates the sector this school operates in
+                        type:
+                          x-stoplight:
+                            id: hgdnmd9ek1zsm
+                          enum:
+                          - primary
+                          - secondary
+                          - special
+                          - combined
+                          - unknown
+                          example: primary
+                          description: Indicates the type of school
+                        yearRange:
+                          type: string
+                          x-stoplight:
+                            id: o25bvp1rc5rau
+                          description: The year ranges provided at this school
+              examples:
+                Example 1:
+                  value:
+                    propertyId: 101
+                    educationFacilities:
+                    - facilityName: Sample Primary School 1
+                      straightLineDistance: 850.25
+                      inCatchment: true
+                      sector: government
+                      type: primary
+                      yearRange: Prep-6
+                    - facilityName: Sample Primary School 2
+                      straightLineDistance: 1800.35
+                      inCatchment: true
+                      sector: government
+                      type: primary
+                      yearRange: Prep-6
+                    - facilityName: Sample Secondary School 1
+                      straightLineDistance: 1850.25
+                      inCatchment: true
+                      sector: government
+                      type: secondary
+                      yearRange: 7-12
+                    - facilityName: Sample Secondary School 2
+                      straightLineDistance: 2800.35
+                      inCatchment: true
+                      sector: government
+                      type: combined
+                      yearRange: Prep-12
+                    - facilityName: Sample Primary School 3
+                      straightLineDistance: 750.5
+                      inCatchment: false
+                      sector: catholic
+                      type: primary
+                      yearRange: Prep-6
+                    - facilityName: Sample Secondary School 3
+                      straightLineDistance: 1750.5
+                      inCatchment: false
+                      sector: catholic
+                      type: secondary
+                      yearRange: 7-12
+                    - facilityName: Sample Primary School 4
+                      straightLineDistance: 1800
+                      inCatchment: false
+                      sector: independent
+                      type: primary
+                      yearRange: Prep-6
+                    - facilityName: Sample Primary School 5
+                      straightLineDistance: 4205.5
+                      inCatchment: false
+                      sector: government
+                      type: primary
+                      yearRange: Prep-6
+                    - facilityName: Sample Secondary School 4
+                      straightLineDistance: 4700
+                      inCatchment: false
+                      sector: independent
+                      type: secondary
+                      yearRange: 7-10
+                    - facilityName: Sample Secondary School 5
+                      straightLineDistance: 4755.5
+                      inCatchment: false
+                      sector: government
+                      type: primary
+                      yearRange: Prep-6
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 7004
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - An incorrect field type has been entered - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          properties:
+                            propertyId:
+                              type: string
+                              examples:
+                              - must be an integer
+                      required:
+                      - code
+                      - description
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                        level:
+                          const: CRITICAL
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 7002
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              examples:
+                              - cannot be found
+                      required:
+                      - code
+                      - description
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9011
+                          description: Defines the type of error that has occurred
+                        level:
+                          const: CRITICAL
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)'
+      operationId: get-api-v2-properties-propertyId-nearby-education-facilities
+      x-stoplight:
+        id: yxq3vik9ocp8k
+      description: 'Retrieves details of education facilities near a property.
+
+        The response includes an array of education facilities, which includes all ''zoned'' schools and up 5 additional nearby schools for primary and secondary school types.'

@@ -1,0 +1,1491 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: Market Rent History API
+  description: "- **[Market/Auctions](https://developer.proptrack.com.au/docs/apis/market%2Foperations%2Flist-api-v-2-market-auctions): GET /api/v2/market/auctions**</br>Retrieves auction result statistics for a given state, suburb or greater capital city statistical area\n- **[Market/Rent History](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-rent-historic): GET /api/v2/market/rent/historic/{metric}**</br>Retrieves historic rental transaction statistics for a given suburb\n- **[Market/Sale History](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-sale-historic): GET /api/v2/market/sale/historic/{metric}**</br>Retrieves historic sale transaction statistics for a given suburb </br>\n- **[Market/Supply & Demand](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-supply-and-demand): GET /api/v2/market/supply-and-demand/{metric}**</br>Retrieves property supply and consumer demand statistics for a given suburb</br>\n- **[Market/Demographics](https://developer.proptrack.com.au/docs/apis/branches/main/market/operations/list-api-v-2-market-demographics): GET /api/v2/market/demographics**</br>Retrieves Demographic statistics for a given suburb or greater capital city statistical area</br></br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    name: PropTrack
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Rent History
+paths:
+  /api/v2/market/rent/historic/{metric}:
+    get:
+      tags:
+      - Rent History
+      summary: /api/v2/market/rent/historic/{metric}
+      description: Retrieves historic rental transaction statistics for a given suburb.
+      operationId: market.rent-history
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          examples:
+          - Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+          default: Bearer {access_token}
+          example: Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+      - name: propertyTypes
+        in: query
+        description: 'The type of properties that will be queried against</br>Note: Values are comma separated'
+        required: true
+        schema:
+          enum:
+          - house
+          - unit
+          examples:
+          - house,unit
+          type: array
+      - name: frequency
+        in: query
+        description: Reporting frequency</br>`monthly` frequency is applicable for `rental-transaction-volume`, `median-days-on-market` and `median-rental-price` metrics only
+        schema:
+          enum:
+          - yearly
+          - monthly
+          default: yearly
+          examples:
+          - yearly
+          type: string
+      - name: state
+        in: query
+        description: State or territory within Australia
+        required: true
+        schema:
+          enum:
+          - act
+          - nsw
+          - nt
+          - qld
+          - sa
+          - tas
+          - vic
+          - wa
+          examples:
+          - nsw
+          type: string
+      - name: postcode
+        in: query
+        description: Four digit postcode
+        required: true
+        schema:
+          type: integer
+          examples:
+          - 2000
+      - name: suburb
+        in: query
+        description: Suburb name
+        required: true
+        schema:
+          type: string
+          examples:
+          - Sydney
+      - name: startDate
+        in: query
+        description: Start of date range to be queried. Defaulted to 12 months prior to today's date if left empty</br>Applicable for `rental-transaction-volume` and `median-rental-price` metrics only</br>Format `YYYY-MM-DD`
+        schema:
+          type: string
+          format: date
+          examples:
+          - '2022-07-01'
+      - name: endDate
+        in: query
+        description: End of date range to be queried. Defaulted to today's date if left empty</br>Applicable for `rental-transaction-volume` and `median-rental-price` metrics only</br>Format `YYYY-MM-DD`
+        schema:
+          type: string
+          format: date
+          examples:
+          - '2022-09-01'
+      - name: metric
+        in: path
+        description: Property market metric. </b> Refer to [Market Metrics](https://developer.proptrack.com.au/docs/apis/guide#market-metrics) for more information.
+        required: true
+        schema:
+          enum:
+          - median-rental-yield
+          - rental-transaction-volume
+          - median-rental-price
+          - median-days-on-market
+          examples:
+          - median-rental-yield
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyType:
+                      enum:
+                      - house
+                      - unit
+                      description: Type of property
+                    dateRanges:
+                      type: array
+                      description: Time period which the metric is expressed across
+                      items:
+                        type: object
+                        properties:
+                          startDate:
+                            type: string
+                            description: First date in the date range</br>Format `YYYY-MM-DD`
+                            format: date
+                            examples:
+                            - '2021-10-01'
+                          endDate:
+                            type: string
+                            description: Last date in the date range</br>Format `YYYY-MM-DD`
+                            format: date
+                            examples:
+                            - '2022-09-30'
+                          metricValues:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                bedrooms:
+                                  enum:
+                                  - '0'
+                                  - '1'
+                                  - '2'
+                                  - '3'
+                                  - '4'
+                                  - 4+
+                                  - 5+
+                                  - combined
+                                  description: Number of bedrooms that the metric is expressed by
+                                  examples:
+                                  - '3'
+                                value:
+                                  type: number
+                                  description: Data for the chosen corresponding metric
+                                  format: float
+                                  examples:
+                                  - 1.305889
+                x-examples:
+                  Example 1:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 10
+                      - bedrooms: '2'
+                        value: 11
+                      - bedrooms: '3'
+                        value: 18
+                      - bedrooms: '4'
+                        value: 24
+                      - bedrooms: 5+
+                        value: 14
+                  - propertyType: unit
+                    dateRanges:
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 14
+                      - bedrooms: '2'
+                        value: 14
+                      - bedrooms: '3'
+                        value: 16
+                      - bedrooms: 4+
+                        value: 16
+              examples:
+                Median Days on Site (yearly):
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2020-01-01'
+                      endDate: '2020-12-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 21
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 20
+                      - bedrooms: combined
+                        value: 22
+                Rental Transaction Volume (Monthly):
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2020-10-01'
+                      endDate: '2021-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 13
+                      - bedrooms: '3'
+                        value: 22
+                      - bedrooms: '4'
+                        value: 26
+                      - bedrooms: 5+
+                        value: 8
+                    - startDate: '2020-11-01'
+                      endDate: '2021-10-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 16
+                      - bedrooms: '3'
+                        value: 15
+                      - bedrooms: '4'
+                        value: 11
+                      - bedrooms: 5+
+                        value: 12
+                    - startDate: '2020-12-01'
+                      endDate: '2021-11-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 18
+                      - bedrooms: '3'
+                        value: 19
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: 5+
+                        value: 11
+                    - startDate: '2021-01-01'
+                      endDate: '2021-12-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 22
+                      - bedrooms: '2'
+                        value: 13
+                      - bedrooms: '3'
+                        value: 22
+                      - bedrooms: '4'
+                        value: 27
+                      - bedrooms: 5+
+                        value: 23
+                    - startDate: '2021-02-01'
+                      endDate: '2022-01-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 14
+                      - bedrooms: '2'
+                        value: 15
+                      - bedrooms: '3'
+                        value: 18
+                      - bedrooms: '4'
+                        value: 19
+                      - bedrooms: 5+
+                        value: 12
+                    - startDate: '2021-03-01'
+                      endDate: '2022-02-28'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 9
+                      - bedrooms: '2'
+                        value: 14
+                      - bedrooms: '3'
+                        value: 16
+                      - bedrooms: '4'
+                        value: 16
+                      - bedrooms: 5+
+                        value: 19
+                    - startDate: '2021-04-01'
+                      endDate: '2022-03-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 19
+                      - bedrooms: '3'
+                        value: 32
+                      - bedrooms: '4'
+                        value: 113
+                      - bedrooms: 5+
+                        value: 86
+                    - startDate: '2021-05-01'
+                      endDate: '2022-04-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 29
+                      - bedrooms: '2'
+                        value: 27
+                      - bedrooms: '3'
+                        value: 36
+                      - bedrooms: '4'
+                        value: 23
+                      - bedrooms: 5+
+                        value: 44
+                    - startDate: '2021-06-01'
+                      endDate: '2022-05-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 31
+                      - bedrooms: '2'
+                        value: 23
+                      - bedrooms: '3'
+                        value: 23
+                      - bedrooms: '4'
+                        value: 48
+                      - bedrooms: 5+
+                        value: 39
+                    - startDate: '2021-07-01'
+                      endDate: '2022-06-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 15
+                      - bedrooms: '3'
+                        value: 36
+                      - bedrooms: '4'
+                        value: 23
+                      - bedrooms: 5+
+                        value: 44
+                    - startDate: '2021-08-01'
+                      endDate: '2022-07-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 28
+                      - bedrooms: '2'
+                        value: 24
+                      - bedrooms: '3'
+                        value: 55
+                      - bedrooms: '4'
+                        value: 93
+                      - bedrooms: 5+
+                        value: 106
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 1
+                      - bedrooms: '2'
+                        value: 5
+                      - bedrooms: '3'
+                        value: 15
+                      - bedrooms: '4'
+                        value: 115
+                      - bedrooms: 5+
+                        value: 102
+                  - propertyType: unit
+                    dateRanges:
+                    - startDate: '2020-10-01'
+                      endDate: '2021-09-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 15
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 36
+                      - bedrooms: '3'
+                        value: 23
+                      - bedrooms: 4+
+                        value: 44
+                    - startDate: '2020-11-01'
+                      endDate: '2021-10-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 22
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 66
+                      - bedrooms: '3'
+                        value: 73
+                      - bedrooms: 4+
+                        value: 75
+                    - startDate: '2020-12-01'
+                      endDate: '2021-11-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 23
+                      - bedrooms: '1'
+                        value: 33
+                      - bedrooms: '2'
+                        value: 108
+                      - bedrooms: '3'
+                        value: 92
+                      - bedrooms: 4+
+                        value: 16
+                    - startDate: '2021-01-01'
+                      endDate: '2021-12-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 17
+                      - bedrooms: '1'
+                        value: 51
+                      - bedrooms: '2'
+                        value: 36
+                      - bedrooms: '3'
+                        value: 23
+                      - bedrooms: 4+
+                        value: 44
+                    - startDate: '2021-02-01'
+                      endDate: '2022-01-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 8
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 102
+                      - bedrooms: '3'
+                        value: 88
+                      - bedrooms: 4+
+                        value: 91
+                    - startDate: '2021-03-01'
+                      endDate: '2022-02-28'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 22
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 66
+                      - bedrooms: '3'
+                        value: 73
+                      - bedrooms: 4+
+                        value: 75
+                    - startDate: '2021-04-01'
+                      endDate: '2022-03-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 15
+                      - bedrooms: '1'
+                        value: 101
+                      - bedrooms: '2'
+                        value: 36
+                      - bedrooms: '3'
+                        value: 23
+                      - bedrooms: 4+
+                        value: 44
+                    - startDate: '2021-05-01'
+                      endDate: '2022-04-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 17
+                      - bedrooms: '1'
+                        value: 14
+                      - bedrooms: '2'
+                        value: 105
+                      - bedrooms: '3'
+                        value: 87
+                      - bedrooms: 4+
+                        value: 90
+                    - startDate: '2021-06-01'
+                      endDate: '2022-05-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 22
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 66
+                      - bedrooms: '3'
+                        value: 73
+                      - bedrooms: 4+
+                        value: 75
+                    - startDate: '2021-07-01'
+                      endDate: '2022-06-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 22
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 66
+                      - bedrooms: '3'
+                        value: 90
+                      - bedrooms: 4+
+                        value: 75
+                    - startDate: '2021-08-01'
+                      endDate: '2022-07-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 15
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 36
+                      - bedrooms: '3'
+                        value: 23
+                      - bedrooms: 4+
+                        value: 44
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 22
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 66
+                      - bedrooms: '3'
+                        value: 73
+                      - bedrooms: 4+
+                        value: 75
+                Rental Transaction Volume (Yearly):
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2016-09-01'
+                      endDate: '2017-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 13
+                      - bedrooms: '3'
+                        value: 22
+                      - bedrooms: '4'
+                        value: 26
+                      - bedrooms: 5+
+                        value: 8
+                    - startDate: '2017-09-01'
+                      endDate: '2018-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 19
+                      - bedrooms: '3'
+                        value: 32
+                      - bedrooms: '4'
+                        value: 113
+                      - bedrooms: 5+
+                        value: 86
+                    - startDate: '2018-09-01'
+                      endDate: '2019-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 13
+                      - bedrooms: '3'
+                        value: 22
+                      - bedrooms: '4'
+                        value: 26
+                      - bedrooms: 5+
+                        value: 8
+                    - startDate: '2019-09-01'
+                      endDate: '2020-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 19
+                      - bedrooms: '3'
+                        value: 32
+                      - bedrooms: '4'
+                        value: 113
+                      - bedrooms: 5+
+                        value: 86
+                    - startDate: '2020-09-01'
+                      endDate: '2021-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 34
+                      - bedrooms: '3'
+                        value: 56
+                      - bedrooms: '4'
+                        value: 15
+                      - bedrooms: 5+
+                        value: 92
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 13
+                      - bedrooms: '3'
+                        value: 22
+                      - bedrooms: '4'
+                        value: 26
+                      - bedrooms: 5+
+                        value: 8
+                  - propertyType: unit
+                    dateRanges:
+                    - startDate: '2016-09-01'
+                      endDate: '2017-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 5
+                      - bedrooms: '1'
+                        value: 19
+                      - bedrooms: '2'
+                        value: 22
+                      - bedrooms: '3'
+                        value: 87
+                      - bedrooms: 4+
+                        value: 43
+                    - startDate: '2017-09-01'
+                      endDate: '2018-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 12
+                      - bedrooms: '1'
+                        value: 77
+                      - bedrooms: '2'
+                        value: 63
+                      - bedrooms: '3'
+                        value: 66
+                      - bedrooms: 4+
+                        value: 104
+                    - startDate: '2018-09-01'
+                      endDate: '2019-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 24
+                      - bedrooms: '1'
+                        value: 87
+                      - bedrooms: '2'
+                        value: 33
+                      - bedrooms: '3'
+                        value: 67
+                      - bedrooms: 4+
+                        value: 83
+                    - startDate: '2019-09-01'
+                      endDate: '2020-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 13
+                      - bedrooms: '1'
+                        value: 31
+                      - bedrooms: '2'
+                        value: 36
+                      - bedrooms: '3'
+                        value: 44
+                      - bedrooms: 4+
+                        value: 92
+                    - startDate: '2020-09-01'
+                      endDate: '2021-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 15
+                      - bedrooms: '1'
+                        value: 15
+                      - bedrooms: '2'
+                        value: 23
+                      - bedrooms: '3'
+                        value: 46
+                      - bedrooms: 4+
+                        value: 59
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 31
+                      - bedrooms: '1'
+                        value: 93
+                      - bedrooms: '2'
+                        value: 82
+                      - bedrooms: '3'
+                        value: 19
+                      - bedrooms: 4+
+                        value: 23
+                Median Rental Yield:
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2024-11-01'
+                      endDate: '2024-11-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 0.0158
+                      - bedrooms: '2'
+                        value: 0.0228
+                      - bedrooms: '3'
+                        value: 0.0238
+                      - bedrooms: '4'
+                        value: 0.0261
+                      - bedrooms: 5+
+                        value: 0.0249
+                      - bedrooms: combined
+                        value: 0.0253
+                  - propertyType: unit
+                    dateRanges:
+                    - startDate: '2024-11-01'
+                      endDate: '2024-11-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 0.0469
+                      - bedrooms: '2'
+                        value: 0.044
+                      - bedrooms: '3'
+                        value: 0.0408
+                      - bedrooms: 4+
+                        value: 0.0474
+                      - bedrooms: combined
+                        value: 0.0432
+                Median Rental Price (Monthly):
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2021-04-01'
+                      endDate: '2022-03-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 568
+                      - bedrooms: '2'
+                        value: 720
+                      - bedrooms: '3'
+                        value: 760
+                      - bedrooms: '4'
+                        value: 900
+                      - bedrooms: 5+
+                        value: 1090
+                    - startDate: '2021-05-01'
+                      endDate: '2022-04-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 538
+                      - bedrooms: '2'
+                        value: 602
+                      - bedrooms: '3'
+                        value: 750
+                      - bedrooms: '4'
+                        value: 850
+                      - bedrooms: 5+
+                        value: 1090
+                    - startDate: '2021-06-01'
+                      endDate: '2022-05-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 605
+                      - bedrooms: '2'
+                        value: 660
+                      - bedrooms: '3'
+                        value: 820
+                      - bedrooms: '4'
+                        value: 890
+                      - bedrooms: 5+
+                        value: 1080
+                    - startDate: '2021-07-01'
+                      endDate: '2022-06-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 590
+                      - bedrooms: '2'
+                        value: 690
+                      - bedrooms: '3'
+                        value: 800
+                      - bedrooms: '4'
+                        value: 900
+                      - bedrooms: 5+
+                        value: 1155
+                    - startDate: '2021-08-01'
+                      endDate: '2022-07-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 620
+                      - bedrooms: '2'
+                        value: 705
+                      - bedrooms: '3'
+                        value: 790
+                      - bedrooms: '4'
+                        value: 905
+                      - bedrooms: 5+
+                        value: 1130
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 595
+                      - bedrooms: '2'
+                        value: 730
+                      - bedrooms: '3'
+                        value: 805
+                      - bedrooms: '4'
+                        value: 885
+                      - bedrooms: 5+
+                        value: 1200
+                  - propertyType: unit
+                    dateRanges:
+                    - startDate: '2021-04-01'
+                      endDate: '2022-03-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 310
+                      - bedrooms: '1'
+                        value: 400
+                      - bedrooms: '2'
+                        value: 540
+                      - bedrooms: '3'
+                        value: 405
+                      - bedrooms: 4+
+                        value: 632
+                    - startDate: '2021-05-01'
+                      endDate: '2022-04-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 315
+                      - bedrooms: '1'
+                        value: 390
+                      - bedrooms: '2'
+                        value: 540
+                      - bedrooms: '3'
+                        value: 410
+                      - bedrooms: 4+
+                        value: 605
+                    - startDate: '2021-06-01'
+                      endDate: '2022-05-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 325
+                      - bedrooms: '1'
+                        value: 410
+                      - bedrooms: '2'
+                        value: 555
+                      - bedrooms: '3'
+                        value: 410
+                      - bedrooms: 4+
+                        value: 619
+                    - startDate: '2021-07-01'
+                      endDate: '2022-06-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 350
+                      - bedrooms: '1'
+                        value: 405
+                      - bedrooms: '2'
+                        value: 520
+                      - bedrooms: '3'
+                        value: 420
+                      - bedrooms: 4+
+                        value: 605
+                    - startDate: '2021-08-01'
+                      endDate: '2022-07-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 295
+                      - bedrooms: '1'
+                        value: 415
+                      - bedrooms: '2'
+                        value: 530
+                      - bedrooms: '3'
+                        value: 430
+                      - bedrooms: 4+
+                        value: 620
+                    - startDate: '2021-09-01'
+                      endDate: '2022-08-31'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 305
+                      - bedrooms: '1'
+                        value: 410
+                      - bedrooms: '2'
+                        value: 525
+                      - bedrooms: '3'
+                        value: 450
+                      - bedrooms: 4+
+                        value: 620
+                Median Rental Price (Yearly):
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2017-10-01'
+                      endDate: '2018-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 340
+                      - bedrooms: '2'
+                        value: 397
+                      - bedrooms: '3'
+                        value: 575
+                      - bedrooms: '4'
+                        value: 870
+                      - bedrooms: 5+
+                        value: 1225
+                    - startDate: '2018-10-01'
+                      endDate: '2019-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 319
+                      - bedrooms: '2'
+                        value: 399
+                      - bedrooms: '3'
+                        value: 620
+                      - bedrooms: '4'
+                        value: 995
+                      - bedrooms: 5+
+                        value: 1075
+                    - startDate: '2019-10-01'
+                      endDate: '2020-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 380
+                      - bedrooms: '2'
+                        value: 475
+                      - bedrooms: '3'
+                        value: 650
+                      - bedrooms: '4'
+                        value: 950
+                      - bedrooms: 5+
+                        value: 1140
+                    - startDate: '2020-10-01'
+                      endDate: '2021-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 388
+                      - bedrooms: '2'
+                        value: 465
+                      - bedrooms: '3'
+                        value: 675
+                      - bedrooms: '4'
+                        value: 950
+                      - bedrooms: 5+
+                        value: 1300
+                  - propertyType: unit
+                    dateRanges:
+                    - startDate: '2017-10-01'
+                      endDate: '2018-09-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 266
+                      - bedrooms: '1'
+                        value: 280
+                      - bedrooms: '2'
+                        value: 370
+                      - bedrooms: '3'
+                        value: 537.5
+                      - bedrooms: 4+
+                        value: 806.5
+                    - startDate: '2018-10-01'
+                      endDate: '2019-09-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 255
+                      - bedrooms: '1'
+                        value: 290
+                      - bedrooms: '2'
+                        value: 380
+                      - bedrooms: '3'
+                        value: 550
+                      - bedrooms: 4+
+                        value: 813
+                    - startDate: '2019-10-01'
+                      endDate: '2020-09-30'
+                      metricValues:
+                      - bedrooms: '0'
+                        value: 293
+                      - bedrooms: '1'
+                        value: 300
+                      - bedrooms: '2'
+                        value: 390
+                      - bedrooms: '3'
+                        value: 542.5
+                      - bedrooms: 4+
+                        value: 819
+                    - startDate: '2020-10-01'
+                      endDate: '2021-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 287
+                      - bedrooms: '1'
+                        value: 295
+                      - bedrooms: '2'
+                        value: 400
+                      - bedrooms: '3'
+                        value: 595
+                      - bedrooms: 4+
+                        value: 826
+                No Market Data Available:
+                  value: []
+                Median Days on Site (monthly):
+                  value:
+                  - propertyType: house
+                    dateRanges:
+                    - startDate: '2019-03-01'
+                      endDate: '2020-02-29'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 11
+                      - bedrooms: '2'
+                        value: 16
+                      - bedrooms: '3'
+                        value: 23
+                      - bedrooms: '4'
+                        value: 27
+                      - bedrooms: 5+
+                        value: 20
+                      - bedrooms: combined
+                        value: 21
+                    - startDate: '2019-04-01'
+                      endDate: '2020-03-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 12
+                      - bedrooms: '2'
+                        value: 16
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: 5+
+                        value: 20
+                      - bedrooms: combined
+                        value: 22
+                    - startDate: '2019-05-01'
+                      endDate: '2020-04-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 10
+                      - bedrooms: '2'
+                        value: 17
+                      - bedrooms: '3'
+                        value: 24
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 23
+                    - startDate: '2019-06-01'
+                      endDate: '2020-05-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 10
+                      - bedrooms: '2'
+                        value: 17
+                      - bedrooms: '3'
+                        value: 26
+                      - bedrooms: '4'
+                        value: 21
+                      - bedrooms: combined
+                        value: 23
+                    - startDate: '2019-07-01'
+                      endDate: '2020-06-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 10
+                      - bedrooms: '2'
+                        value: 25
+                      - bedrooms: '3'
+                        value: 31
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 24
+                    - startDate: '2019-08-01'
+                      endDate: '2020-07-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 24
+                      - bedrooms: '3'
+                        value: 28
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 22
+                    - startDate: '2019-09-01'
+                      endDate: '2020-08-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 22
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 23
+                    - startDate: '2019-10-01'
+                      endDate: '2020-09-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 24
+                      - bedrooms: '3'
+                        value: 28
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 25
+                    - startDate: '2019-11-01'
+                      endDate: '2020-10-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 22
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 22
+                    - startDate: '2019-12-01'
+                      endDate: '2020-11-30'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 22
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 22
+                      - bedrooms: combined
+                        value: 22
+                    - startDate: '2020-01-01'
+                      endDate: '2020-12-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 13
+                      - bedrooms: '2'
+                        value: 21
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 20
+                      - bedrooms: combined
+                        value: 22
+                    - startDate: '2020-02-01'
+                      endDate: '2021-01-31'
+                      metricValues:
+                      - bedrooms: '1'
+                        value: 18
+                      - bedrooms: '2'
+                        value: 21
+                      - bedrooms: '3'
+                        value: 25
+                      - bedrooms: '4'
+                        value: 18
+                      - bedrooms: combined
+                        value: 22
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7004
+                          - 7005
+                          - 7007
+                          - 7008
+                          - 7009
+                          - 7010
+                          - 7011
+                          - 7014
+                          - 7015
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 7004
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Required parameter is missing - Please ensure that all required parameters have been included
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            metric:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            state:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            postcode:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            suburb:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            propertyTypes:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            frequency:
+                              type: string
+                              examples:
+                              - must only include one value
+                            startDate:
+                              type: string
+                              examples:
+                              - must be in ISO_8601 format (YYYY-MM-DD)
+                            endDate:
+                              type: string
+                              examples:
+                              - must be in ISO_8601 format (YYYY-MM-DD)
+              examples:
+                7004 - Required Parameter Missing:
+                  value:
+                    errors:
+                    - code: 7004
+                      level: CRITICAL
+                      description: Required parameter is missing - Please ensure that all required parameters have been included
+                      parameters:
+                        propertyTypes: is a required parameter
+                        state: is a required parameter
+                        postcode: is a required parameter
+                        suburb: is a required parameter
+                        metric: is a required parameter
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 9012
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: '7004'
+                      level: string
+                      description: string
+              examples:
+                9012 - Authentication Error:
+                  value:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 7002
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 7002
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Unknown identifier, the included address does not match a record within our system - Please ensure that the state, suburb and postcode are correct
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: '7004'
+                      level: string
+                      description: string
+              examples:
+                7002 - No Data Found:
+                  value:
+                    errors:
+                    - code: 7002
+                      level: CRITICAL
+                      description: Unknown identifier, the included address does not match a record within our system - Please ensure that the state, suburb and postcode are correct
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9011
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 9011
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: '7004'
+                      level: string
+                      description: string
+              examples:
+                9011 - Rate Limit Exceeded:
+                  value:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#marketrent-history) for information on error handling.'
+      servers:
+      - url: https://data.proptrack.com
+      x-stoplight:
+        id: kqbq6xu33khde

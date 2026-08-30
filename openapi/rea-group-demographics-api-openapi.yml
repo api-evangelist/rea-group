@@ -1,0 +1,622 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: Market Demographics API
+  description: "- **[Market/Auctions](https://developer.proptrack.com.au/docs/apis/market%2Foperations%2Flist-api-v-2-market-auctions): GET /api/v2/market/auctions**</br>Retrieves auction result statistics for a given state, suburb or greater capital city statistical area\n- **[Market/Rent History](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-rent-historic): GET /api/v2/market/rent/historic/{metric}**</br>Retrieves historic rental transaction statistics for a given suburb\n- **[Market/Sale History](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-sale-historic): GET /api/v2/market/sale/historic/{metric}**</br>Retrieves historic sale transaction statistics for a given suburb </br>\n- **[Market/Supply & Demand](https://developer.proptrack.com.au/docs/apis/market/operations/get-a-api-v-2-market-supply-and-demand): GET /api/v2/market/supply-and-demand/{metric}**</br>Retrieves property supply and consumer demand statistics for a given suburb</br>\n- **[Market/Demographics](https://developer.proptrack.com.au/docs/apis/branches/main/market/operations/list-api-v-2-market-demographics): GET /api/v2/market/demographics**</br>Retrieves Demographic statistics for a given suburb or greater capital city statistical area</br></br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    name: PropTrack
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Demographics
+paths:
+  /api/v2/market/demographics:
+    parameters: []
+    get:
+      summary: /api/v2/market/demographics
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    dateRanges:
+                    - startDate: '2023-10-02'
+                      endDate: '2023-10-08'
+                      metricValues:
+                        clearanceRate:
+                          value: 63.7344
+                          changePercentage: 10.13
+                          observations: 1205
+                        countScheduled:
+                          value: 62
+                          changePercentage: 313.33
+                        countSold:
+                          value: 523
+                          changePercentage: 462.37
+                        countSoldPrior:
+                          value: 205
+                          changePercentage: 632.14
+                        countSoldAfter:
+                          value: 40
+                          changePercentage: 166.67
+                        countPassedIn:
+                          value: 303
+                          changePercentage: 396.72
+                        countWithdrawn:
+                          value: 134
+                          changePercentage: 252.63
+                    - startDate: '2023-10-09'
+                      endDate: '2023-10-15'
+                      metricValues:
+                        clearanceRate:
+                          value: 60.3704
+                          changePercentage: -5.28
+                          observations: 1080
+                        countScheduled:
+                          value: 51
+                          changePercentage: -17.74
+                        countSold:
+                          value: 479
+                          changePercentage: -8.41
+                        countSoldPrior:
+                          value: 149
+                          changePercentage: -27.32
+                        countSoldAfter:
+                          value: 24
+                          changePercentage: -40
+                        countPassedIn:
+                          value: 299
+                          changePercentage: -1.32
+                        countWithdrawn:
+                          value: 129
+                          changePercentage: -3.73
+                properties:
+                  demographicMarketMetrics:
+                    type: object
+                    x-stoplight:
+                      id: svngramxykorp
+                    description: Demographic metrics for external customers as per latest census data from ABS
+                    properties:
+                      age:
+                        type: object
+                        description: Age Group Demographic metrics
+                        properties:
+                          ageMedian:
+                            type: number
+                            x-stoplight:
+                              id: qe5zq5u5hu73n
+                            example: 45
+                            description: median age
+                            format: float
+                          ageDetails:
+                            type: array
+                            x-stoplight:
+                              id: 56jdgsypdmcts
+                            description: Population details who are aged within the respective age groups
+                            items:
+                              x-stoplight:
+                                id: anq2ms54vgd6h
+                              type: object
+                              properties:
+                                ageGroup:
+                                  x-stoplight:
+                                    id: idwd9wkisvplu
+                                  description: "Age Group Ranges\nE.g.: <br> \nUnder 15<br>\n15-64<br>\nOver 65<br>"
+                                  enum:
+                                  - under15
+                                  - 15to64
+                                  - over65
+                                percentage:
+                                  type: number
+                                  x-stoplight:
+                                    id: qa311maqemseu
+                                  format: float
+                                  example: 33.33
+                                  description: The percentage of population who are aged within the respective age groups
+                      ' householdIncome':
+                        type: object
+                        x-stoplight:
+                          id: 3niuvv9xw2ekn
+                        description: Household income demographic metrics
+                        properties:
+                          medianWeeklyHouseholdIncome:
+                            type: number
+                            x-stoplight:
+                              id: 7dcqw3q3s788m
+                            description: median weekly household income as per Census
+                            example: 45000
+                            format: float
+                      householdSize:
+                        type: object
+                        x-stoplight:
+                          id: cdh8s7jcwhhzu
+                        description: Household size demographic metrics
+                        properties:
+                          meanHouseholdSize:
+                            type: number
+                            x-stoplight:
+                              id: 89zbgr6ds90x8
+                            format: float
+                            example: 2.52
+                            description: The average household size as per Census
+                      householdType:
+                        type: object
+                        x-stoplight:
+                          id: zwsdudyofqnt6
+                        description: Houshold type demographic metrics
+                        properties:
+                          householdGroup:
+                            type: array
+                            x-stoplight:
+                              id: puo5wxq2gm74l
+                            description: House Hold Group Demographic Metrics
+                            items:
+                              x-stoplight:
+                                id: r57fwvkwegf9c
+                              type: object
+                              properties:
+                                householdTypes:
+                                  x-stoplight:
+                                    id: gwqqw683y1cb4
+                                  description: 'The percentage of Households which are classified as <br> Family, Group and Single '
+                                  enum:
+                                  - family
+                                  - group
+                                  - single
+                                percentage:
+                                  type: number
+                                  x-stoplight:
+                                    id: om36yzv3sb5b9
+                                  format: float
+                                  example: 2.5
+                                  description: Household Composition Percentage
+                      population:
+                        type: object
+                        x-stoplight:
+                          id: bhcfo0uoenoo9
+                        description: Demographic Population metrics
+                        properties:
+                          totalPopulation:
+                            type: integer
+                            x-stoplight:
+                              id: qp8jn41l5upqb
+                            description: 'The total of population count as per Census '
+                            example: 25422788
+                      tenure:
+                        type: object
+                        x-stoplight:
+                          id: o9n7mtwlt6n2p
+                        description: Tenure type demographic metrics
+                        properties:
+                          tenureTypeGroup:
+                            type: array
+                            x-stoplight:
+                              id: teppo6e79iop5
+                            description: Tenure Type Groups
+                            items:
+                              x-stoplight:
+                                id: dqpn6tfgtrnkc
+                              type: object
+                              properties:
+                                tenureType:
+                                  x-stoplight:
+                                    id: nrno1xm115d4k
+                                  enum:
+                                  - notStated
+                                  - withMortgage
+                                  - ownedOutright
+                                  - rented
+                                  - notClearlyClassified
+                                  description: 'Tenure type grouping '
+                                percentage:
+                                  type: number
+                                  x-stoplight:
+                                    id: pi7yyvbzlp364
+                                  format: float
+                                  description: Tenure type percentage
+              examples:
+                Example 1:
+                  value:
+                    demographicMarketMetrics:
+                      age:
+                        ageMedian: 45
+                        ageDetails:
+                        - ageGroup: under15
+                          percentage: 33.33
+                      ' householdIncome':
+                        medianWeeklyHouseholdIncome: 45000
+                      householdSize:
+                        meanHouseholdSize: 2.52
+                      householdType:
+                        householdGroup:
+                        - householdType: family
+                          percentage: 2.5
+                      population:
+                        totalPopulation: 25422788
+                      tenure:
+                        tenureTypeGroup:
+                        - tenureType: notStated
+                          percentage: -3.402823669209385e+38
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7004
+                      level: CRITICAL
+                      description: Required parameter is missing - Please ensure that all required parameters have been included
+                      parameters:
+                        searchType: is a required parameter
+                        state: is a required parameter
+                        postcode: is a required parameter
+                        suburb: is a required parameter
+                        gccsaCode: is a required parameter
+                        startDate: is a required parameter
+                        endDate: is a required parameter
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - code
+                      - description
+                      properties:
+                        code:
+                          description: Defines the type of error that has occurred
+                          enum:
+                          - 7004
+                          - 7007
+                          - 7008
+                          - 7010
+                          - 7011
+                          - 7014
+                          - 7015
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Required parameter is missing - Please ensure that all required parameters have been included
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            searchType:
+                              type: string
+                              example: is a required parameter
+                            state:
+                              type: string
+                              example: must only include an allowed value
+                            postcode:
+                              type: string
+                              example: must be an integer
+                            suburb:
+                              type: string
+                              example: is a required parameter when searching by suburb
+                            gccsaCode:
+                              type: string
+                              example: is a required parameter when searching by gccsa
+              examples:
+                7004 - Required Parameter Missing:
+                  value:
+                    errors:
+                    - code: 7004
+                      description: Required parameter is missing - Please ensure that all required parameters have been included
+                      parameters:
+                        searchType: is a required parameter
+                        state: is a required parameter when searching by state or suburb
+                        postcode: is a required parameter when searching by suburb
+                        suburb: is a required parameter when searching by suburb
+                        gccsaCode: is a required parameter when searching by gccsa
+                7007 - Non-Allowed Value in Enum Field:
+                  value:
+                    errors:
+                    - code: 7007
+                      description: A non-allowed value has been included into an enum field - Please ensure that the value entered is an allowed option
+                      parameters:
+                        searchType: must only include an allowed value
+                        state: must only include an allowed value
+                7008 - Incorrect Field Type:
+                  value:
+                    errors:
+                    - code: 7008
+                      description: An incorrect field type has been included - Please ensure that all values are using the correct field type
+                      parameters:
+                        postcode: must be an integer
+                7010 - Incorrect Format:
+                  value:
+                    errors:
+                    - code: 7010
+                      description: An incorrect format has been included - Please ensure that the correct formatting has been used for all parameters
+                      parameters:
+                        startDate: must be in ISO_8601 format (YYYY-MM-DD)
+                        endDate: must be in ISO_8601 format (YYYY-MM-DD)
+                7011 - Above/Below Limit:
+                  value:
+                    errors:
+                    - code: 7011
+                      description: A value above/below the allowed limit has been included - Please ensure that a valid value has been entered
+                      parameters:
+                        postcode: must not exceed 4 digits
+                7014 - Invalid Date Range:
+                  value:
+                    errors:
+                    - code: 7014
+                      description: An invalid date range has been included - Please ensure that the start and end dates are valid
+                      parameters:
+                        startDate: cannot exceed the current date
+                        endDate: cannot exceed the current date
+                7015 - Conflicting Date Range:
+                  value:
+                    errors:
+                    - code: 7015
+                      description: A conflicting date range has been included - Please ensure that the start and end dates are compatible
+                      parameters:
+                        startDate: cannot be set as a date after endDate
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          description: Defines the type of error that has occurred
+                          enum:
+                          - 9012
+                          - 9016
+                        level:
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+              examples:
+                9012 - Invalid Auth Token:
+                  value:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                9016 - Expired Auth Token:
+                  value:
+                    errors:
+                    - code: 9016
+                      level: CRITICAL
+                      description: Authentication token has expired - Please ensure that a valid token authentication request has been completed before trying again
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          description: Defines the type of error that has occurred
+                          enum:
+                          - 9003
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+              examples:
+                9003 - Access Denied:
+                  value:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7002
+                      level: CRITICAL
+                      description: Unknown identifier, the included address does not match a record within our system - Please ensure that the state, suburb and postcode are correct
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - code
+                      - description
+                      properties:
+                        code:
+                          enum:
+                          - 7002
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          example: Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct
+                          description: Overview of the error that has occurred
+              examples:
+                7002 - Unknown Identifier:
+                  value:
+                    errors:
+                    - code: 7002
+                      description: Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct
+                      parameters:
+                        suburb: cannot be found
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                        level:
+                          deprecated: true
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                        description:
+                          type: string
+                          example: Rate limit has been exceeded - Please try again shortly
+                          description: Overview of the error that has occurred
+                      required:
+                      - code
+                      - description
+              examples:
+                9011- Rate Limit Exceeded:
+                  value:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+                9011 - Quota Limit Exceeded:
+                  value:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Quota limit has been reached - Please contact our customer support team at support@proptrack.com for further information
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)'
+      operationId: /api/v2/market/demographics
+      x-stoplight:
+        id: lv6zom9raoksb
+      description: 'Retrieves Demographic statistics for a given suburb or greater capital city statistical area
+
+        <br> Note: This endpoint will bring in ''latest'' census data
+
+        #### Data Attribution Notice:
+
+        This endpoint contains data licensed from the Commonwealth of Australia under the Creative Commons Attribution International (CC BY 4.0) License. Appropriate attribution should be given when displaying this data.
+
+
+        Disclaimer Types:`abs`
+
+
+        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.
+
+        '
+      parameters:
+      - schema:
+          type: string
+          example: Berwick
+        in: query
+        name: suburb
+        description: 'Suburb name <br> Note: If `searchType` equals `suburb`, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+          example: '3806'
+        in: query
+        name: postcode
+        description: 'Four digit postcode <br>  Note: If `searchType` equals `suburb`, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+          example: 2GMEL
+        in: query
+        name: gccsaCode
+        description: 'Greater Capital City Statistical Area (GCCSA) code. <br>  Note: If `searchType` equals `gccsa`, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+          enum:
+          - suburb
+          - gccsa
+        in: query
+        name: searchType
+        description: Defines the identifier used <br>  Refer to [Search Type Values](https://developer.proptrack.com.au/docs/apis/guide#valid-market-search-types).
+        required: true
+      - in: header
+        name: Authorization
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+      - schema:
+          type: string
+          enum:
+          - vic
+          - act
+          - nsw
+          - sa
+          - tas
+          - wa
+          - qld
+          - nt
+        in: query
+        name: state
+        description: 'State or territory within Australia</br>Note: If `searchType` equals `suburb`, then this field is <span style="color:#F47853">required</span>'
+      tags:
+      - Demographics

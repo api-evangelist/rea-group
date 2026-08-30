@@ -1,0 +1,534 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: Properties Planning API
+  description: "<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-house\"></i> &nbsp; &nbsp;Properties API</div\n    >\n\n- **[Properties/Summary](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-2-property-summary): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/summary**</br>Retrieves basic property and listing information about a property, including a single photo and current market status </br>\n- **[Properties/Attributes](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-attributes): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/attributes**</br>Retrieves comprehensive and up to date property attributes and features for a given property </br>\n- **[Properties/Listings](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-listings): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/listings**</br>Retrieves current and historic listings for a given property.</br>\n- **[Properties/Planning:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-planning) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/planning**</br>Retrieves planning and zoning information for a given property</br>\n- **[Properties/TenureType:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-tenure-type) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/tenure-type**</br>Retrieves historical property tenure information for a given property</br>\n- **[Properties/Transactions:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-transactions) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/transactions**</br>Retrieves sold transactions for a given property</br>\n\n<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-money-bill-wave\"></i> &nbsp; &nbsp;AVM Valuation API</div\n    >\n\n \n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/create-a-api-v-1-property-valuation-sale): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, either as requestType=enquiry OR requestType=origination</br>\n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), , either as ?requestType=enquiry OR ?requestType=origination</br>\n- **[Properties/Valuations/Rent](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-rent-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry OR requestType-origination**</br> Orders an Enquiry Rental valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), either as Enquiry or Origination Request Type</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale, Rental and environment hazards into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale, Rental and environment hazards into a single request</br>\n\n\n\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  contact:
+    email: support@proptrack.com
+    name: PropTrack Support
+servers:
+- url: https://data.proptrack.com
+  description: ''
+tags:
+- name: Planning
+  description: Property Planning Overlays
+paths:
+  /api/v2/properties/{propertyId}/planning:
+    parameters:
+    - schema:
+        type: string
+      name: propertyId
+      in: path
+      required: true
+    get:
+      summary: /properties/{propertyId}/planning
+      parameters:
+      - schema:
+          type: integer
+          example: 8282053
+        in: query
+        name: propertyId
+        description: Unique identifier for a property<br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)
+        required: true
+      - schema:
+          type: string
+          example: Bearer xxxxx
+        in: header
+        name: Authorization
+        description: Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  propertyId:
+                    type: integer
+                    x-stoplight:
+                      id: gzxewii1n7vri
+                    example: 8282053
+                  zoning:
+                    type: array
+                    x-stoplight:
+                      id: 136onyo50w9gn
+                    items:
+                      x-stoplight:
+                        id: kqu6vgyrnx818
+                      type: object
+                      properties:
+                        isPrimary:
+                          type: boolean
+                          x-stoplight:
+                            id: buxhr26hhg0lc
+                        zoneCode:
+                          type: string
+                          x-stoplight:
+                            id: jsfjwml4rrqqj
+                          example: R2
+                        zoneLabel1:
+                          type: string
+                          x-stoplight:
+                            id: xfy8y942cbath
+                          example: Low density residential
+                        zoneLabel2:
+                          type: string
+                          x-stoplight:
+                            id: n9l216mjhlnmk
+                          example: R2 Low Density Residential
+                        lgaName:
+                          type: string
+                          x-stoplight:
+                            id: wo9lu3p6gphx4
+                        lgaPlanningUrl:
+                          type:
+                          - string
+                          - 'null'
+                          x-stoplight:
+                            id: i10aedm7k3j22
+                          example: https://www.cityofparramatta.nsw.gov.au/development/planning/development-control-plans
+                        permittedUse:
+                          type: array
+                          x-stoplight:
+                            id: vzbc2rk84fjsp
+                          items:
+                            x-stoplight:
+                              id: w5294z9c4ihhj
+                            type: string
+                            example: Home occupations
+                        permittedUseWithControls:
+                          type: array
+                          x-stoplight:
+                            id: zs498recrak72
+                          items:
+                            x-stoplight:
+                              id: eds83gdrnyr7l
+                            type: string
+                            example: Attached dwellings
+                        prohibitedUse:
+                          type: array
+                          x-stoplight:
+                            id: 4h9txb2dbh0vx
+                          items:
+                            x-stoplight:
+                              id: 769ljfuwtr70n
+                            type: string
+                            example: Animal boarding or training establishments
+                        sourceDate:
+                          type: string
+                          x-stoplight:
+                            id: jwt1iu0y7k61c
+                          format: date
+                          example: '2024-03-26'
+                  propertyUse:
+                    type:
+                    - object
+                    - 'null'
+                    x-stoplight:
+                      id: lpzzxfoq79smb
+                    properties:
+                      permittedUseApartment:
+                        type: object
+                        x-stoplight:
+                          id: uw7z2d07k1fq4
+                        properties:
+                          value:
+                            x-stoplight:
+                              id: l5eq1manpa7ek
+                            example: 'true'
+                            enum:
+                            - 'true'
+                            - 'false'
+                            - maybe
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: usf3evnauyfqu
+                            format: date
+                      permittedUseDuplex:
+                        type: object
+                        x-stoplight:
+                          id: ffiptb0r3srkn
+                        properties:
+                          value:
+                            x-stoplight:
+                              id: 0cehtg1720l0i
+                            enum:
+                            - 'true'
+                            - 'false'
+                            - maybe
+                            example: 'true'
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: eqzv85ceji9m8
+                            format: date
+                      permittedUseMixedUse:
+                        type: object
+                        x-stoplight:
+                          id: bqs24b1nw98tg
+                        properties:
+                          value:
+                            x-stoplight:
+                              id: 4j5d3mcdk6n3h
+                            enum:
+                            - 'true'
+                            - 'false'
+                            - maybe
+                            example: 'true'
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: d5d2d6v2imbq9
+                            format: date
+                      permittedUseTownhouse:
+                        type: object
+                        x-stoplight:
+                          id: ypvc59r4mbp5r
+                        properties:
+                          value:
+                            x-stoplight:
+                              id: n5pwncbt5hs6k
+                            enum:
+                            - 'true'
+                            - 'false'
+                            - maybe
+                            example: 'true'
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: ejg8x9t9gnlce
+                            format: date
+              examples:
+                Example 1:
+                  value:
+                    propertyId: 8282053
+                    zoning:
+                    - isPrimary: true
+                      zoneCode: R2
+                      zoneLabel1: Low density residential
+                      zoneLabel2: R2 Low Density Residential
+                      lgaName: string
+                      lgaPlanningUrl: https://www.cityofparramatta.nsw.gov.au/development/planning/development-control-plans
+                      permittedUse:
+                      - Home occupations
+                      permittedUseWithControls:
+                      - Attached dwellings
+                      prohibitedUse:
+                      - Animal boarding or training establishments
+                      sourceDate: '2024-03-26'
+                    propertyUse:
+                      permittedUseApartment:
+                        value: 'true'
+                        sourceDate: '2019-08-24'
+                      permittedUseDuplex:
+                        value: 'true'
+                        sourceDate: '2019-08-24'
+                      permittedUseMixedUse:
+                        value: 'true'
+                        sourceDate: '2019-08-24'
+                      permittedUseTownhouse:
+                        value: maybe
+                        sourceDate: '2019-08-24'
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: r7le66zh8v67w
+                    items:
+                      x-stoplight:
+                        id: hjx2b7h7b522b
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: bxi3biqyk4f8u
+                          enum:
+                          - 7004
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: 6ghay4wgxkulh
+                          description: Overview of the error that has occurred
+                          example: An incorrect field type has been entered - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          x-stoplight:
+                            id: 7xnsmg3xr6o8l
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              x-stoplight:
+                                id: 8vc5y4xl1l3sm
+                              example: must be an integer
+                      required:
+                      - code
+                      - description
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: 846gmdjflhbel
+                    items:
+                      x-stoplight:
+                        id: q0wcvqba2kawb
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: c1bdva5f51s0r
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                        level:
+                          x-stoplight:
+                            id: 7b3fjhmy2mqm1
+                          x-deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: ip2gz8ye43efo
+                          description: Overview of the error that has occurred
+                          example: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: hkyda18rsudcx
+                    items:
+                      x-stoplight:
+                        id: ttffyir1ybkf3
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: zh7tigi9kaiq0
+                          enum:
+                          - 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: yngl3cnc9p9lt
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: rflmgrjw6r30c
+                    items:
+                      x-stoplight:
+                        id: 41xpgxe3hwplb
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: 6s11oiyf6ex4n
+                          enum:
+                          - 7002
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: eird63ds5ppbh
+                          description: Overview of the error that has occurred
+                        parameters:
+                          type: object
+                          x-stoplight:
+                            id: 6h9uxuf2b8911
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              x-stoplight:
+                                id: 8d34l73jq140e
+                              example: cannot be found
+                      required:
+                      - code
+                      - description
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: inksu4sg688w4
+                    items:
+                      x-stoplight:
+                        id: yzle9v4asb6hh
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: nufl4zvbock0h
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                        level:
+                          x-stoplight:
+                            id: uvetgewo8pu4e
+                          x-deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: ogsqejugoy2ht
+                          description: Overview of the error that has occurred
+                          example: Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)'
+      operationId: get-api-v2-properties-planning
+      x-stoplight:
+        id: t4dcw068k69y4
+      description: 'Endpoint for retrieving planning information for a specific property.<br>
+
+        This includes:
+
+        * Property Zoning
+
+        * Permitted Use
+
+
+        #### Data Attribution Notice:
+
+        This endpoint contains State and Territory data which may be subject to  approval by the relevant government department.
+
+        Due to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.
+
+        <br><br>
+
+        Disclaimer Types: `archistar`,`geoscape`
+
+
+        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.
+
+
+        '
+      tags:
+      - Planning

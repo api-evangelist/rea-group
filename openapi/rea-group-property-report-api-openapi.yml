@@ -1,0 +1,376 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: Reports Property Report API
+  description: "- **[AVM/PDF](https://developer.proptrack.com.au/docs/apis/reports/operations/get-a-api-v-1-report-valuation-sale-pdf): GET /api/v1/reports/valuations/{valuationId}/pdf**</br>Generates a valuation report, based on a previous AVM request\n- **[Reports/Property](https://developer.proptrack.com.au/docs/apis/reports/operations/create-a-api-v-1-report-property): POST /api/v1/reports/property**</br>Generates a property report for a given property</br>\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+    name: PropTrack
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Property Report
+paths:
+  /api/v1/reports/property:
+    post:
+      summary: /api/v1/reports/property
+      description: Generates a property report for a given property.
+      operationId: reports-property-report
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                propertyId:
+                  type: integer
+                  description: Unique identifier for a property
+                configId:
+                  type: string
+                  description: Unique report configuration identifier, provided by PropTrack</br>Default is a standard PropTrack property report
+                  format: uuid
+                expiresAt:
+                  type: string
+                  description: 'Date after which the report will expire</br>Default is 90 days from date of issue</br>Note: Maximum timeframe is 12 months</br>Format `YYYY-MM-DD`'
+                meta:
+                  type: object
+                  description: 'Custom data or information displayed on a property report, available on a premium report only</br>Some examples may include: name, email or phone number (Contact us to discuss you requirements)'
+              required:
+              - propertyId
+              x-examples:
+                Example 1:
+                  propertyId: 1026185
+      responses:
+        '201':
+          description: '<!-- theme: success -->
+
+
+            > #### Created (201)
+
+            A digital property report is successfully created and a property report URL is returned.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reportUrl:
+                    type: string
+                    description: Link to the digital property report
+                    examples:
+                    - https://report.proptrack.com/r/00e7j158-b633-8874-ae81-9239f4w2f554
+                required:
+                - reportUrl
+                x-examples:
+                  Example 1:
+                    reportUrl: https://report.proptrack.com/r/00e7j158-b633-8874-ae81-9239f4w2f554
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7002
+                          - 7004
+                          - 7005
+                          - 7008
+                          - 7010
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 7010
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - An incorrect format has been included - Please ensure that the correct formatting has been used for all parameters
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            configId:
+                              type: string
+                              examples:
+                              - invalid format
+                            expiresAt:
+                              type: string
+                              examples:
+                              - invalid format
+                            propertyId:
+                              type: string
+                              examples:
+                              - is required
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7002
+                      description: An incorrect format has been included - Please ensure that the correct formatting has been used for all parameters
+                      parameters:
+                        configId: invalid format
+                        expiresAt: invalid format
+                        propertyId: is required
+              examples:
+                Response Example:
+                  value:
+                    errors:
+                    - code: 7010
+                      description: An incorrect format has been included - Please ensure that the correct formatting has been used for all parameters
+                      parameters:
+                        configId: invalid format
+                        expiresAt: invalid format
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - UNAUTHORIZED
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Unauthorized
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: UNAUTHORIZED
+                      description: Unauthorized
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9003
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 9003
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: object
+                    properties:
+                      code:
+                        const: 7001
+                        description: Defines the type of error that has occurred
+                        examples:
+                        - 7001
+                      description:
+                        type: string
+                        description: Overview of the error that has occurred
+                        examples:
+                        - The value does not match a record within our system
+                      parameters:
+                        type: object
+                        description: A set of parameters that are causing the error and the rule that was invoked
+                        properties:
+                          configId:
+                            type: string
+                            examples:
+                            - unknown value
+                          propertyId:
+                            type: string
+                            examples:
+                            - unknown value
+                    required:
+                    - code
+                    - description
+                x-examples:
+                  Example 1:
+                    errors:
+                      code: 7001
+                      description: The value does not match a record within our system
+                      parameters:
+                        configId: unknown value
+                        propertyId: unknown value
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9011
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 9011
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#reportsproperty) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9000
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - An internal server error has occurred and the requested data cannot be returned at this time
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7000
+                      description: An internal server error has occurred and the requested data cannot be returned at this time
+      servers:
+      - url: https://data.proptrack.com
+      tags:
+      - Property Report
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          examples:
+          - Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc
+          default: Bearer {access_token}
+          example: Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO

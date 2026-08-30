@@ -1,0 +1,388 @@
+openapi: 3.2.0
+info:
+  version: v1
+  title: Reports AVM Report API
+  description: "- **[AVM/PDF](https://developer.proptrack.com.au/docs/apis/reports/operations/get-a-api-v-1-report-valuation-sale-pdf): GET /api/v1/reports/valuations/{valuationId}/pdf**</br>Generates a valuation report, based on a previous AVM request\n- **[Reports/Property](https://developer.proptrack.com.au/docs/apis/reports/operations/create-a-api-v-1-report-property): POST /api/v1/reports/property**</br>Generates a property report for a given property</br>\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+    name: PropTrack
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: AVM Report
+paths:
+  /api/v1/reports/valuations/{valuationId}/pdf:
+    get:
+      tags:
+      - AVM Report
+      summary: /api/v1/reports/valuations/{valuationId}/pdf
+      description: "Generates a valuation report, based on a previous AVM request for '**origination**' requests for the `SALE` / `RENT` / `AVM Plus` / `AVM Pro` Requests.\n\n    Note: **Enquiry** PDF requests are not supportive.\n    Endpoint /api/v1/reports/valuations/sale/{valuationId}/pdf was **`deprecated`** in March 2025. \n    "
+      operationId: reports-valuations-pdf
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          examples:
+          - Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc
+          default: Bearer {access_token}
+          example: Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+      - name: valuationId
+        in: path
+        description: Unique valuation identifier, generated from an AVM response
+        required: true
+        schema:
+          type: string
+          examples:
+          - 29930cff-49ec-4dc5-82a6-974d5f04300e
+      responses:
+        '200':
+          description: "<!-- theme: success -->\n\n> #### Success (200)\n\n    Sale PDF report:\n<!--\ntype: tab\ntitle: Sale Response Example Page 1\n-->\n\n![AVM-Sale-PDF-Page-1.png](../assets/images/AVM-Sale-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: Sale Response Example Page 2\n-->\n\n--![AVM-Sale-PDF-Page-2.png](../assets/images/AVM-Sale-PDF-Page-2.png)\n\n<!-- type: tab-end -->\n\n-------------\n\n    Rental PDF report:\n<!--\ntype: tab\ntitle: Rental Response Example Page 1\n-->\n\n![AVM-Rental-PDF-Page-1.png](../assets/images/AVM-Rental-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: Rental Response Example Page 2\n-->\n\n--![AVM-Rental-PDF-Page-2.png](../assets/images/AVM-Rental-PDF-Page-2.png)\n\n<!--\ntype: tab\ntitle: Rental Response Example Page 3\n-->\n\n--![AVM-Rental-PDF-Page-3.png](../assets/images/AVM-Rental-PDF-Page3.png)\n\n\n\n<!-- type: tab-end -->\n ---------\n\n\n    AVM Plus PDF report:\n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 1\n-->\n\n![AVM-Plus-PDF-Page-1.png](../assets/images/AVM-Plus-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 2\n-->\n\n--![AVM-Plus-PDF-Page-2.png](../assets/images/AVM-Plus-PDF-Page-2.png)\n\n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 3\n-->\n\n--![AVM-Plus-PDF-Page-3.png](../assets/images/AVM-Plus-PDF-Page-3.png)\n\n\n<!--\ntype: tab\ntitle: AVM Plus Response Example Page 4\n-->\n\n--![AVM-Plus-PDF-Page-4.png](../assets/images/AVM-Plus-PDF-Page4.png)\n\n\n<!-- type: tab-end -->\n---------\n\n\n    AVM Pro PDF report:\n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 1\n-->\n\n![AVM-Pro-PDF-Page-1.png](../assets/images/AVM-Pro-PDF-Page-1.png) \n \n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 2\n-->\n\n--![AVM-Pro-PDF-Page-2.png](../assets/images/AVM-Pro-PDF-Page-2.png)\n\n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 3\n-->\n\n--![AVM-Pro-PDF-Page-3.png](../assets/images/AVM-Pro-PDF-Page-3.png)\n\n\n<!--\ntype: tab\ntitle: AVM Pro Response Example Page 4\n-->\n\n--![AVM-Pro-PDF-Page-4.png](../assets/images/AVM-Pro-PDF-Page-4.png)\n\n\n<!-- type: tab-end -->"
+          headers:
+            Content-Type:
+              schema:
+                const: application/pdf
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        errorCode:
+                          const: 400
+                          description: Numeric value that defines the type of error that has occurred
+                        errorLevel:
+                          enum:
+                          - CRITICAL
+                          - WARNING
+                          description: 'Defines the severity of the error</br>
+
+                            - If level is `CRITICAL` then a successful response will not be returned</br>'
+                        errorMessage:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - 'Bad Request: There was a problem with your request, check your input and ensure request contains the correct value. Please contact PropTrack Support if you require assistance'
+                        errorDetails:
+                          type: array
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          items:
+                            type: string
+                            examples:
+                            - 'Invalid Valuation ID: 29930cff-49ec-4fd5-83a6974d5e04300e'
+                        errorId:
+                          type: string
+                          description: Unique identifier of the error
+                          format: uuid
+                          examples:
+                          - 55e17eea-8fd6-4575-8832-82ce9b9b5afd
+                x-examples:
+                  Example 1:
+                    errors:
+                    - errorCode: 400
+                      errorLevel: CRITICAL
+                      errorMessage: 'Bad Request: There was a problem with your request, check your input and ensure request contains the correct value. Please contact PropTrack Support if you require assistance'
+                      errorDetails:
+                      - propertyId must be integer value greater than 0
+                      - The address is invalid and not able to be matched
+                      errorId: eab0ca7f-5a45-4f04-ad37-8e297661e979
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Numeric value that defines the type of error that has occurred
+                        level:
+                          enum:
+                          - CRITICAL
+                          - WARNING
+                          description: 'Defines the severity of the error</br>
+
+                            - If level is `CRITICAL` then a successful response will not be returned</br>
+
+                            - If level is `WARNING` then a successful response will be returned, but with a validation warning'
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+              examples:
+                Invalid Token:
+                  value:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                Expired Token:
+                  value:
+                    errors:
+                    - code: 9016
+                      level: CRITICAL
+                      description: Authentication token has expired - Please ensure that a valid token authentication request has been completed before trying again
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9011
+                          description: Numeric value that defines the type of error that has occurred
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error </br>
+
+                            Note: If level is `CRITICAL` then a successful response will not be returned'
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - level
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        errorCode:
+                          type: integer
+                          description: Numeric value that defines the type of error that has occurred
+                        errorLevel:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>
+
+                            - If level is `CRITICAL` then a successful response will not be returned</br>'
+                        errorMessage:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - 'Internal Server Error: Sorry, due to an internal issue we are unable to complete this request. Please contact PropTrack Support if you require assistance'
+                        errorDetails:
+                          type: array
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          items:
+                            type: string
+                            examples:
+                            - Sorry but our internal server is not able to provide a response at this time
+                        errorId:
+                          type: string
+                          description: Unique identifier of the error
+                          format: uuid
+                          examples:
+                          - 55e17eea-8fd6-4575-8832-82ce9b9b5afd
+                x-examples:
+                  Example 1:
+                    errors:
+                    - errorCode: 500
+                      errorLevel: CRITICAL
+                      errorMessage: 'Internal Server Error: Sorry, due to an internal issue we are unable to complete this request. Please contact PropTrack Support if you require assistance'
+                      errorDetails:
+                      - Sorry but our internal server is not able to provide a response at this time
+                      errorId: eab0ca7f-5a45-4f04-ad37-8e297661e979
+        '504':
+          description: '<!-- theme: danger -->
+
+
+            > #### Gateway Timeout (504)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#avmsale) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        errorCode:
+                          type: integer
+                          description: Numeric value that defines the type of error that has occurred
+                        errorLevel:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>
+
+                            - If level is `CRITICAL` then a successful response will not be returned</br>'
+                        errorMessage:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - 'Gateway Timeout: Sorry, due to an internal timeout issue we are unable to complete this request. Please contact PropTrack Support if you require assistance'
+                        errorDetails:
+                          type: array
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          items:
+                            type: string
+                            examples:
+                            - Sorry the Realtime AVM is currently timing out
+                        errorId:
+                          type: string
+                          description: Unique identifier of the error
+                          format: uuid
+                          examples:
+                          - 55e17eea-8fd6-4575-8832-82ce9b9b5afd
+                x-examples:
+                  Example 1:
+                    errors:
+                    - errorCode: 504
+                      errorLevel: CRITICAL
+                      errorMessage: 'Gateway Timeout: Sorry, due to an internal timeout issue we are unable to complete this request. Please contact PropTrack Support if you require assistance'
+                      errorDetails:
+                      - Sorry the Realtime AVM is currently timing out
+                      errorId: eab0ca7f-5a45-4f04-ad37-8e297661e979
+      servers:
+      - url: https://data.proptrack.com
+      x-stoplight:
+        id: vofldnme05epo

@@ -1,0 +1,633 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: Properties Attributes API
+  description: "<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-house\"></i> &nbsp; &nbsp;Properties API</div\n    >\n\n- **[Properties/Summary](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-2-property-summary): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/summary**</br>Retrieves basic property and listing information about a property, including a single photo and current market status </br>\n- **[Properties/Attributes](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-attributes): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/attributes**</br>Retrieves comprehensive and up to date property attributes and features for a given property </br>\n- **[Properties/Listings](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-listings): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/listings**</br>Retrieves current and historic listings for a given property.</br>\n- **[Properties/Planning:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-planning) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/planning**</br>Retrieves planning and zoning information for a given property</br>\n- **[Properties/TenureType:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-tenure-type) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/tenure-type**</br>Retrieves historical property tenure information for a given property</br>\n- **[Properties/Transactions:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-transactions) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/transactions**</br>Retrieves sold transactions for a given property</br>\n\n<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-money-bill-wave\"></i> &nbsp; &nbsp;AVM Valuation API</div\n    >\n\n \n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/create-a-api-v-1-property-valuation-sale): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, either as requestType=enquiry OR requestType=origination</br>\n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), , either as ?requestType=enquiry OR ?requestType=origination</br>\n- **[Properties/Valuations/Rent](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-rent-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry OR requestType-origination**</br> Orders an Enquiry Rental valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), either as Enquiry or Origination Request Type</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale, Rental and environment hazards into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale, Rental and environment hazards into a single request</br>\n\n\n\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  contact:
+    email: support@proptrack.com
+    name: PropTrack Support
+servers:
+- url: https://data.proptrack.com
+  description: ''
+tags:
+- name: Attributes
+  description: Property Attributes
+paths:
+  /api/v2/properties/{propertyId}/attributes:
+    parameters:
+    - schema:
+        type: integer
+        example: 123456789
+      name: propertyId
+      in: path
+      required: true
+      description: Unique identifier for a property</br> Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)
+    get:
+      summary: /api/v2/properties/{propertyId}/attributes
+      tags:
+      - Attributes
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - propertyId
+                properties:
+                  propertyId:
+                    type: integer
+                    x-stoplight:
+                      id: x1wcwhbyk4b65
+                    description: Unique identifier for a property
+                    example: 123456789
+                  attributes:
+                    type: object
+                    x-stoplight:
+                      id: ow5925e8cvnmu
+                    properties:
+                      bedrooms:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: n4083nk3hen2v
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: clhrjw7nexbaf
+                            description: Number of bedrooms
+                            example: 4
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: wejzs033oc0m2
+                            format: date
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            example: '2023-01-25'
+                      bathrooms:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: wheyondlgmyqr
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: t1e1gd1v0eud7
+                            description: Number of bathrooms
+                            example: 2
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: hz3drhii7fqyb
+                            format: date
+                            example: '2023-01-25'
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                      carSpaces:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: 47axpda4hallg
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: dmtxr6c91rfen
+                            description: Number of car spaces
+                            example: 2
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: bdu1bh1o3lxyb
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      floorArea:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: oalb1kyuw9viz
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: 0p66jx4bak7za
+                            description: Floor space area (measured in m2)
+                            example: 325
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: peqx778ewgee3
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      landArea:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: kus2buhyhvx9y
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: qbtzw4x45ba5j
+                            example: 650
+                            description: Land space area (measured in m2)
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: bfph5i6u113xk
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      landUse:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: f0tb8dh3rtfwb
+                        properties:
+                          classifications:
+                            x-stoplight:
+                              id: 3060qmcgtfe0p
+                            type: array
+                            description: Classifications of the type of land use
+                            items:
+                              x-stoplight:
+                                id: y2ed1p6g2zgoe
+                              type: object
+                              properties:
+                                value:
+                                  x-stoplight:
+                                    id: pfa8bsdz6esr5
+                                  enum:
+                                  - residential
+                                  - other
+                      livingArea:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: kdnq9wm1kq2cx
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: nz318r1prsq4n
+                            description: Living area (measured in m2)
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: 1cdaqk89tcm8t
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      propertyType:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: hew0cv4jllic0
+                        properties:
+                          value:
+                            x-stoplight:
+                              id: 89uzsaiwdulwn
+                            enum:
+                            - unit
+                            - house
+                            description: Classification of the type of property
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: 0y78bu068nrw0
+                            format: date
+                            example: '2023-01-25'
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                      roofType:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: iigjecy70ekod
+                        properties:
+                          value:
+                            type: string
+                            x-stoplight:
+                              id: fvb5cjdvawgi4
+                            description: The type of roof on the property
+                            example: colorbond
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: zv44o02mq5fz6
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      wallType:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: ro9rahe6kllol
+                        properties:
+                          value:
+                            type: string
+                            x-stoplight:
+                              id: gq03g8fmjvnr3
+                            description: The type of material used on the external walls
+                            example: brick
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: 8fgfjzs00g8x5
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      yearBuilt:
+                        type:
+                        - object
+                        - 'null'
+                        x-stoplight:
+                          id: zp64yliv3q0a6
+                        properties:
+                          value:
+                            type: integer
+                            x-stoplight:
+                              id: 5k9zns7m13mbp
+                            description: The year that the property was built
+                            example: 2019
+                          sourceDate:
+                            type: string
+                            x-stoplight:
+                              id: edj91g0w1d7qt
+                            description: Date that the source provided the data for this record.</br>Format `YYYY-MM-DD`
+                            format: date
+                            example: '2023-01-25'
+                      features:
+                        type: array
+                        x-stoplight:
+                          id: 8ej3gbdi2mgca
+                        items:
+                          x-stoplight:
+                            id: 2isoyfs6x2f0d
+                          enum:
+                          - airConditioning
+                          - alarmSystem
+                          - balcony
+                          - builtInRobes
+                          - courtyard
+                          - deck
+                          - dishwasher
+                          - ductedCooling
+                          - ductedHeating
+                          - electricHeating
+                          - evaporativeCooling
+                          - floorboards
+                          - fullyFenced
+                          - furnished
+                          - gasHeating
+                          - greyWaterSystem
+                          - gym
+                          - hydronicHeating
+                          - insideSpa
+                          - openFireplace
+                          - outsideSpa
+                          - poolAbove
+                          - poolInGround
+                          - remoteGarage
+                          - reverseCycleAirCon
+                          - rumpusRoom
+                          - secureParking
+                          - shed
+                          - solarHotWater
+                          - solarPanels
+                          - splitSystemAirCon
+                          - splitSystemHeating
+                          - study
+                          - tennisCourt
+                          - vacuumSystem
+                          - waterTank
+                          - workshop
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: v837ml7r05rxl
+                    items:
+                      x-stoplight:
+                        id: nx5khpow3oin2
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: 94ts6ukimutn8
+                          enum:
+                          - 7004
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: p8l3gcnqzefm8
+                          description: Overview of the error that has occurred
+                          example: An incorrect field type has been entered - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          x-stoplight:
+                            id: 7o3jribipqu6z
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              x-stoplight:
+                                id: eblvhfgcxohg1
+                              example: must be an integer
+                      required:
+                      - code
+                      - description
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: e39h6kc7a1oy2
+                    items:
+                      x-stoplight:
+                        id: 4iaqwxq9cf2he
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: c1lcuqokkx0i2
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                        level:
+                          x-stoplight:
+                            id: 7oeyte8vbd61j
+                          x-deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: f5knmkvofp3xg
+                          description: Overview of the error that has occurred
+                          example: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: fvac9jrga0piy
+                    items:
+                      x-stoplight:
+                        id: ayjcicjfsjlu2
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: tfp9frtmdyco5
+                          enum:
+                          - 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: i30fbmnpiklyj
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: 8anir8d5za9r3
+                    items:
+                      x-stoplight:
+                        id: jodxizyivkxv7
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: 7756mpy6h0p23
+                          enum:
+                          - 7002
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: psj6o0i0dnzqi
+                          description: Overview of the error that has occurred
+                        parameters:
+                          type: object
+                          x-stoplight:
+                            id: kr7k1nvv1uccd
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              x-stoplight:
+                                id: l0qfz7o0anaf4
+                              example: cannot be found
+                      required:
+                      - code
+                      - description
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: 5zermde5wqnzt
+                    items:
+                      x-stoplight:
+                        id: 50b2j3m7ba9np
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: apai66khrgtzf
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                        level:
+                          x-stoplight:
+                            id: 0on9tfoci606j
+                          x-deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: jcmniduhjxxli
+                          description: Overview of the error that has occurred
+                          example: Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)'
+      operationId: properties-attributes
+      x-stoplight:
+        id: x3lmc3ikfjuye
+      parameters:
+      - schema:
+          type: string
+          example: Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+          default: Bearer {access_token}
+        in: header
+        name: Authorization
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+      description: 'Retrieves comprehensive and up to date property attributes and features for a given property.
+
+
+
+        #### Data Attribution Notice:
+
+        This endpoint contains State and Territory data which may be subject to  approval by the relevant government department.
+
+        Due to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.
+
+        <br><br>
+
+        Disclaimer Types: `vg`,`geoscape`,`serviceAgent`
+
+
+        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.
+
+        '

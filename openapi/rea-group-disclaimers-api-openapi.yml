@@ -1,0 +1,508 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: Disclaimers API
+  description: "- **[Disclaimers](https://developer.proptrack.com.au/docs/apis/disclaimers-api/operations/list-api-v-1-disclaimers): GET /api/v1/disclaimers**</br>Returns data source disclaimers required for some property data usage scenarios</br>\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+    name: PropTrack
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Disclaimers
+paths:
+  /api/v1/disclaimers:
+    get:
+      summary: /api/v1/disclaimers
+      tags:
+      - Disclaimers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  x-stoplight:
+                    id: tvekosjw8x3is
+                  type: object
+                  properties:
+                    disclaimerType:
+                      x-stoplight:
+                        id: t2qu2rvqvhtyn
+                      enum:
+                      - vg
+                      - serviceAgent
+                      - geoscape
+                      - archistar
+                      - abs
+                    state:
+                      x-stoplight:
+                        id: 4to6f3xlh3j7o
+                      description: 'Indicates which state this disclaimer is applicable to.<br>
+
+                        If the disclaimer is national, this value will return as `null`'
+                      example: VIC
+                      enum:
+                      - VIC
+                      - NSW
+                      - QLD
+                      - SA
+                      - NT
+                      - WA
+                      - TAS
+                      - ACT
+                      - null
+                    disclaimerContent:
+                      type: string
+                      x-stoplight:
+                        id: l1tdy4osbmic2
+                      description: Provides a string containing the required disclaimer text, in the preferred format, for the given disclaimerId
+                      example: '<p>The Territory Data is the property of the Australian Capital Territory.  No part of it may in any form or by any means (electronic, mechanical, micro copying, photocopying, recording or otherwise) be reproduced, stored in a retrieval system or transmitted without prior written permission.  Enquiries should be directed to: <a href="mailto:acepdcustomerservices@act.gov.au">acepdcustomerservices@act.gov.au</a></p> <p>Director, Customer Coordination, Access Canberra, ACT Government, GPO Box 158 CANBERRA ACT 2601.</p>'
+                    effectiveStartDate:
+                      type: string
+                      x-stoplight:
+                        id: zemic68aiqti1
+                      description: Indicates the date at which the provided disclaimer text became current.
+                      format: date
+                      example: '2023-01-01'
+                    effectiveEndDate:
+                      type:
+                      - string
+                      - 'null'
+                      x-stoplight:
+                        id: ef57cyhara1y0
+                      description: 'Provides the date at which the provided version of the disclaimer ceased to be current. <br>
+
+                        Where the provided disclaimer is current, the effectiveEndDate will be null'
+                      example: null
+                      format: date
+                    brandingImage:
+                      type:
+                      - string
+                      - 'null'
+                      x-stoplight:
+                        id: lnj7fty6rxdrq
+                      description: 'The branding image associated with the data source.<br><i>Note that only the `Archistar` disclaimerType includes a branding image URL, which is required to be displayed along with the disclaimer text. <br>Additional branding may be required for your usage of PropTrack APIs - please confirm with your account manager. '
+              examples:
+                VG - One state HTML:
+                  value:
+                  - disclaimerType: vg
+                    disclaimerContent: '<p>The Territory Data is the property of the Australian Capital Territory.  No part of it may in any form or by any means (electronic, mechanical, micro copying, photocopying, recording or otherwise) be reproduced, stored in a retrieval system or transmitted without prior written permission.  Enquiries should be directed to: <a href="mailto:acepdcustomerservices@act.gov.au">acepdcustomerservices@act.gov.au</a></p> <p>Director, Customer Coordination, Access Canberra, ACT Government, GPO Box 158 CANBERRA ACT 2601.</p>'
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: ACT
+                    brandingImage: null
+                VG - All states HTML:
+                  value:
+                  - disclaimerType: vg
+                    disclaimerContent: <p>The State of Victoria owns the copyright in the property sales data and reproduction of that data in any way without the consent of the State of Victoria will constitute a breach of the Copyright Act 1968 (Cth).  The State of Victoria does not warrant the accuracy or completeness of the licensed material and any person using or relying upon such information does so on the basis that the State of Victoria accepts no responsibility or liability whatsoever for any errors, faults, defects or omissions in the information supplied</p>
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: VIC
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: <p>Contains property sales information provided under licence from the Valuer General New South Wales. PropTrack Pty Ltd is authorised as a Property Sales Information provider by the Valuer General New South Wales.<p>
+                    effectiveStartDate: '2024-07-01'
+                    effectiveEndDate: null
+                    state: NSW
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: <p>Based on or contains data provided by the State of Queensland (Department of Resources) 2024. In consideration of the State permitting use of this data you acknowledge and agree that the State gives no warranty in relation to the data (including accuracy, reliability, completeness, currency or suitability) and accepts no liability (including without limitation, liability in negligence) for any loss, damage or costs (including consequential damage) relating to any use of the data. Data must not be used for direct marketing or be used in breach of the privacy laws.</p>
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: QLD
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: <p>Copyright in this information belongs to the South Australian Government and the South Australian Government does not accept any responsibility for the accuracy or completeness of the information or its suitability for any purpose.</p>
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: SA
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: <p>Based on information provided under licence by the Department of Lands and Planning, Northern Territory of Australia.</p>
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: NT
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: '<p>The Territory Data is the property of the Australian Capital Territory.  No part of it may in any form or by any means (electronic, mechanical, micro copying, photocopying, recording or otherwise) be reproduced, stored in a retrieval system or transmitted without prior written permission.  Enquiries should be directed to: <a href="mailto:acepdcustomerservices@act.gov.au">acepdcustomerservices@act.gov.au</a></p> <p>Director, Customer Coordination, Access Canberra, ACT Government, GPO Box 158 CANBERRA ACT 2601.</p>'
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: WA
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: '<p>The Territory Data is the property of the Australian Capital Territory.  No part of it may in any form or by any means (electronic, mechanical, micro copying, photocopying, recording or otherwise) be reproduced, stored in a retrieval system or transmitted without prior written permission.  Enquiries should be directed to: <a href="mailto:acepdcustomerservices@act.gov.au">acepdcustomerservices@act.gov.au</a></p> <p>Director, Customer Coordination, Access Canberra, ACT Government, GPO Box 158 CANBERRA ACT 2601.</p>'
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: TAS
+                    brandingImage: null
+                  - disclaimerType: vg
+                    disclaimerContent: '<p>The Territory Data is the property of the Australian Capital Territory.  No part of it may in any form or by any means (electronic, mechanical, micro copying, photocopying, recording or otherwise) be reproduced, stored in a retrieval system or transmitted without prior written permission.  Enquiries should be directed to: <a href="mailto:acepdcustomerservices@act.gov.au">acepdcustomerservices@act.gov.au</a></p> <p>Director, Customer Coordination, Access Canberra, ACT Government, GPO Box 158 CANBERRA ACT 2601.</p>'
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    state: ACT
+                    brandingImage: null
+                Service Agent and Vic VG:
+                  value:
+                  - disclaimerType: vg
+                    state: VIC
+                    disclaimerContent: <p>The State of Victoria owns the copyright in the property sales data and reproduction of that data in any way without the consent of the State of Victoria will constitute a breach of the Copyright Act 1968 (Cth).  The State of Victoria does not warrant the accuracy or completeness of the licensed material and any person using or relying upon such information does so on the basis that the State of Victoria accepts no responsibility or liability whatsoever for any errors, faults, defects or omissions in the information supplied</p>
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    brandingImage: null
+                  - disclaimerType: serviceAgent
+                    state: null
+                    disclaimerContent: <p>This information is supplied by [your company & ABN] on behalf of PropTrack Pty Ltd (ABN 43 127 386 298). <a href="https://www.proptrack.com.au/product-disclaimers/ ">Copyright and Legal Disclaimers about Property Data</a></p>
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    brandingImage: null
+                VG - One state Plaintext:
+                  value:
+                  - disclaimerType: vg
+                    state: VIC
+                    disclaimerContent: The State of Victoria owns the copyright in the property sales data and reproduction of that data in any way without the consent of the State of Victoria will constitute a breach of the Copyright Act 1968 (Cth).  The State of Victoria does not warrant the accuracy or completeness of the licensed material and any person using or relying upon such information does so on the basis that the State of Victoria accepts no responsibility or liability whatsoever for any errors, faults, defects or omissions in the information supplied
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    brandingImage: null
+                Archistar Disclaimer:
+                  value:
+                  - disclaimerType: archistar
+                    disclaimerContent: powered by Archistar (https://www.archistar.ai)
+                    state: null
+                    effectiveStartDate: '2000-01-01'
+                    effectiveEndDate: null
+                    brandingImage: https://info.proptrack.com/hubfs/Disclaimers/Archistar%20Logo%20Primary.svg
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: ifqemifoqn4eh
+                    items:
+                      x-stoplight:
+                        id: vdgq7167cah3q
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: wvc0mcv8zymcp
+                          enum:
+                          - 7004
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: 4cdehjwuetudy
+                          description: Overview of the error that has occurred
+                          example: An incorrect field type has been entered - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          x-stoplight:
+                            id: 1pb57b2sf3iso
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              x-stoplight:
+                                id: fl6kgpnmj54rc
+                              example: must be an integer
+                      required:
+                      - code
+                      - description
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: 2cn4e9rbqk9u7
+                    items:
+                      x-stoplight:
+                        id: mx349sglwnu4d
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: w1ccyp3pxolps
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                        level:
+                          x-stoplight:
+                            id: 7oap34cfukd8i
+                          x-deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: 1dhw0vx43b4dj
+                          description: Overview of the error that has occurred
+                          example: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: sojtwhkt17cdr
+                    items:
+                      x-stoplight:
+                        id: artbzkzoidkxa
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: 9ygn6rkk1u7cx
+                          enum:
+                          - 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: qfvy1zhrleuj9
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: v4gofycowdocw
+                    items:
+                      x-stoplight:
+                        id: jrcew19fr2ohm
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: teq8tb9co78p1
+                          enum:
+                          - 7002
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: 59wcgxbcqvign
+                          description: Overview of the error that has occurred
+                        parameters:
+                          type: object
+                          x-stoplight:
+                            id: 3lfgjhnrsp3cu
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              x-stoplight:
+                                id: 1ur5bahvolql9
+                              example: cannot be found
+                      required:
+                      - code
+                      - description
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    x-stoplight:
+                      id: fhnbfjrppngql
+                    items:
+                      x-stoplight:
+                        id: 7gds003aym42s
+                      type: object
+                      properties:
+                        code:
+                          x-stoplight:
+                            id: 8jq6xczyjurr0
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                        level:
+                          x-stoplight:
+                            id: sqzpn000zpl5k
+                          x-deprecated: true
+                          enum:
+                          - CRITICAL
+                        description:
+                          type: string
+                          x-stoplight:
+                            id: nq4347q0nnrt4
+                          description: Overview of the error that has occurred
+                          example: Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)'
+      operationId: get-api-v1-disclaimers
+      x-stoplight:
+        id: vbtej0yhre2dv
+      parameters:
+      - schema:
+          type: string
+          example: Bearer xxxxx
+        in: header
+        name: Authorization
+        description: Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header.  Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) for details on obtaining a token.
+        required: true
+      - schema:
+          type: string
+          enum:
+          - vg
+          - serviceAgent
+          - geoscape
+          - archistar
+          - proptrackTenureType
+          - abs
+          example: vg
+        in: query
+        name: disclaimerTypes
+        allowEmptyValue: false
+        description: Request for one or more disclaimer types, as a comma-separated list.<br>This will filter the response to show only the specified disclaimerType(s)
+        required: true
+      - schema:
+          type: string
+          enum:
+          - VIC
+          - ACT
+          - NSW
+          - QLD
+          - SA
+          - NT
+          - WA
+          - TAS
+          example: VIC
+        in: query
+        name: state
+        description: <i>Case insensitive</i><br>Only applicable for disclaimerType = `vg`<br>If omitted, all state VG disclaimers will be returned as an array<br>If the requested disclaimerType is not `vg` this field will be ignored.
+      - schema:
+          type: string
+          format: date
+          example: '2024-01-01'
+        in: query
+        name: asAtDate
+        description: The as-at date enables a requester to retrieve the disclaimer version that was valid at a specific point in time.<br> This is useful where your implementation is sensitive to text changes, such as a printed PDF, as disclaimer texts are updated from time-to-time.<br> If as-at date is omitted from the request, the response will provide the current disclaimer version.<br>
+      - schema:
+          type: string
+          enum:
+          - html
+          - plaintext
+          default: html
+          example: html
+        in: query
+        name: textFormat
+        description: Providing an optional text format will enable the requester to control the formatting of the disclaimerContent field on the response.<br>HTML or Plaintext formatting is supported
+      description: "Endpoint for retrieving data source disclaimer texts. \nThese texts are required to be displayed in user experiences and printed reports when utilising PropTrack data - refer to the [Disclaimers](https://developer.proptrack.com.au/docs/apis/disclaimers) page for an implementation guide.\n\nDevelopers have a choice in the text format to be retrieved - either HTML or Plaintext. Plaintext format utilises \\n to indicate a new line. HTML uses minimal markup, to allow integration into your UI as required.\n\n\n> Some disclaimers, such as the Service Agent statement, require dynamic insertion of information such as your company name and ABN. <br>This will be indicated by square brackets in the text content."

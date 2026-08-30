@@ -1,0 +1,2418 @@
+openapi: 3.2.0
+info:
+  title: Rea Group Suburb & Postcode Search API
+  contact:
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+    name: PropTrack
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  version: '1.0'
+  description: 'Operations tagged Suburb & Postcode Search across 2 of this provider''s published API definitions: rea-group-listings-openapi.yml, rea-group-transactions-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Suburb & Postcode Search
+paths:
+  /api/v2/listings/search/suburb-and-postcode:
+    get:
+      summary: /api/v2/listings/search/suburb-and-postcode
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    numberOfResults: 353
+                    pageInfo:
+                      pageStartCursor: WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor: LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage: true
+                      hasNextPage: true
+                    listings:
+                    - distance: 150.232
+                      listingId: '7654321'
+                      propertyId: 1234567
+                      address:
+                        fullAddress: 1/67 Louisa Rd, Birchgrove, NSW 2041
+                        location:
+                          latitude: '-34.05438'
+                          longitude: '151.6941'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 260
+                        landArea: 600
+                        propertyType: house
+                        propertySubType: apartment
+                        yearBuilt: 1998
+                        features:
+                        - airConditioning
+                      auctionDateTime: '2023-02-19T12:00:00+10:00'
+                      auctionDate: '2023-02-19'
+                      auctionTime: 12:00:00 pm
+                      auctionResult: passedIn
+                      daysOnSite: 23
+                      description: This stunning apartment is located in the heart of Baulkham Hills
+                      firstSeenDate: string
+                      listingType: sale
+                      listingPrice: 998000
+                      priceDescription: Offers from $1M
+                      status: current
+                      saleDate: '2023-02-19'
+                      saleValue: 1030000
+                      saleValueSuppressed: true
+                      leaseValue: 650
+                      leaseValueSuppressed: true
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2022-12-23'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      attachments:
+                        url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2022-12-23'
+                    - distance: 203.485
+                      listingId: '7654321'
+                      propertyId: 1234567
+                      address:
+                        fullAddress: 104 Louisa Rd, Birchgrove, NSW 2041
+                        location:
+                          latitude: '-34.05438'
+                          longitude: '152.2342'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 260
+                        landArea: 600
+                        propertyType: house
+                        propertySubType: house
+                        yearBuilt: 1998
+                        features:
+                        - balcony
+                      auctionDateTime: '2023-02-19T12:00:00+10:00'
+                      auctionDate: '2023-02-19'
+                      auctionTime: 01:00:00 pm
+                      description: This stunning apartment is located in the heart of Baulkham Hills
+                      listingType: sale
+                      firstSeenDate: '2022-12-23'
+                      source: REA
+                      status: current
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: e200f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                        date: '2022-12-23'
+                        type: image
+                        extension: jpg
+                        orderIndex: 0
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                        date: '2022-12-23'
+                        type: image
+                        extension: jpg
+                        orderIndex: 1
+                      - id: d300f1a395373a8622bb0fa1b2ec64542951d5d363defc75d18a479b06d800c4.jpg
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                        date: '2022-12-23'
+                        type: image
+                        extension: jpg
+                        orderIndex: 2
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        date: '2022-12-23'
+                        type: statement_of_information
+                required:
+                - numberOfResults
+                - pageInfo
+                - listings
+                properties:
+                  numberOfResults:
+                    type: integer
+                    description: Total number of listings that match the search criteria
+                    examples:
+                    - 353
+                  pageInfo:
+                    type: object
+                    description: 'Page information for the purpose of pagination</br>
+
+                      Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+                    required:
+                    - hasPreviousPage
+                    - hasNextPage
+                    properties:
+                      pageStartCursor:
+                        type: string
+                        description: Cursor identifier for the first transaction on the page
+                        examples:
+                        - MAo=
+                      pageEndCursor:
+                        type: string
+                        description: Cursor identifier for the last transaction on the page
+                        examples:
+                        - MzAwMAo=
+                      hasPreviousPage:
+                        type: boolean
+                        description: Defines if a preceding page of transactions exists
+                      hasNextPage:
+                        type: boolean
+                        description: Defines if a proceeding page of transactions exists
+                  listings:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        listingId:
+                          type: string
+                          description: Unique identifier for a listing
+                          examples:
+                          - '7654321'
+                        address:
+                          type: object
+                          properties:
+                            fullAddress:
+                              type: string
+                              description: Listed address, as provided by the selling agent
+                              examples:
+                              - 1/67 Louisa Rd, Birchgrove, NSW 2041
+                            location:
+                              type: object
+                              properties:
+                                latitude:
+                                  type: number
+                                  description: Listed latitude, as provided by the selling agent
+                                  examples:
+                                  - -34.05438
+                                longitude:
+                                  type: number
+                                  description: Listed longitude, as provided by the selling agent
+                                  examples:
+                                  - 151.6941
+                        propertyId:
+                          type: integer
+                          description: Unique identifier for a property
+                          examples:
+                          - 1234567
+                        attributes:
+                          type: object
+                          properties:
+                            bedrooms:
+                              type: integer
+                              description: Number of bedrooms
+                              examples:
+                              - 4
+                            bathrooms:
+                              type: integer
+                              description: Number of bathrooms
+                              examples:
+                              - 2
+                            carSpaces:
+                              type: integer
+                              description: Number of car spaces
+                              examples:
+                              - 2
+                            floorArea:
+                              type: integer
+                              description: Floor space area (measured in m2)
+                              examples:
+                              - 260
+                            landArea:
+                              type: integer
+                              description: Land space area (measured in m2)
+                              examples:
+                              - 600
+                            propertyType:
+                              type: string
+                              enum:
+                              - house
+                              - unit
+                              - land
+                              description: Classification of the type of property
+                            propertySubType:
+                              type: string
+                              enum:
+                              - apartment
+                              - retire
+                              - serviced_apartment
+                              - studio
+                              - unit
+                              - townhouse
+                              - alpine
+                              - flat
+                              - villa
+                              - terrace
+                              - house
+                              - warehouse
+                              - duplex_semi_detached
+                              - acreage
+                              - mixedfarming
+                              - lifestyle
+                              - horticulture
+                              - dairy
+                              - farmlet
+                              - residential_land
+                              - viticulture
+                              - livestock
+                              - cropping
+                              - rural_other
+                              - unitblock
+                              - residential_other
+                              description: Refer to [Property Sub-Types](https://developer.proptrack.com.au/docs/apis/guide#property-types--property-sub-types)
+                            yearBuilt:
+                              type: integer
+                              description: The year that the property was built
+                            features:
+                              type: array
+                              description: Refer to [Features](https://developer.proptrack.com.au/docs/apis/guide#features)
+                              items:
+                                type: string
+                                enum:
+                                - airConditioning
+                                - alarmSystem
+                                - balcony
+                                - broadband
+                                - builtInRobes
+                                - courtyard
+                                - deck
+                                - dishwasher
+                                - ductedCooling
+                                - ductedHeating
+                                - electricHeating
+                                - electricHotWater
+                                - evaporativeCooling
+                                - floorboards
+                                - fullyFenced
+                                - furnished
+                                - gasHeating
+                                - gasHotWater
+                                - greyWaterSystem
+                                - gym
+                                - heatPumpHotWater
+                                - hydronicHeating
+                                - insideSpa
+                                - intercom
+                                - multiDwelling
+                                - newConstruction
+                                - openFireplace
+                                - outdoorEnt
+                                - outsideSpa
+                                - payTV
+                                - petFriendly
+                                - poolAbove
+                                - poolInG
+                                - remoteGarage
+                                - reverseCycleAirCon
+                                - rumpusRoom
+                                - secureParking
+                                - shed
+                                - smokers
+                                - solarHotWater
+                                - solarPanels
+                                - spa
+                                - splitSystemAirCon
+                                - splitSystemHeating
+                                - study
+                                - tennisCourt
+                                - vacuumSystem
+                                - waterTank
+                                - workshop
+                        auctionDateTime:
+                          type: string
+                          description: Auction's local start date and time based on the listing's location (only available when the listing type is sale)
+                          examples:
+                          - '2023-02-19T12:00:00+10:00'
+                        auctionDate:
+                          type: string
+                          description: 'Auction local start date based on the listing''s location (only available when the listing type is sale)
+
+                            </br>Format `YYYY-MM-DD`'
+                          examples:
+                          - '2023-02-19'
+                        auctionTime:
+                          type: string
+                          description: Auction local start time based on the listing's location (only available when the listing type is sale)
+                          examples:
+                          - 12:00:00 pm
+                        auctionResult:
+                          type: string
+                          enum:
+                          - passedIn
+                          - passedInVendorBid
+                          - soldAfterAuction
+                          - soldAtAuction
+                          - soldPriorToAuction
+                          description: 'Auction outcome for sale listings
+
+                            </br>Refer to [Auction Results](https://developer.proptrack.com.au/docs/apis/guide#auction-results)'
+                        daysOnSite:
+                          type: integer
+                          description: Number of days the listing was advertised before it was delisted
+                          examples:
+                          - 23
+                        description:
+                          type: string
+                          description: Verbiage displayed on a listing that describes the listed property
+                          examples:
+                          - This stunning apartment is located in the heart of Baulkham Hills
+                        firstSeenDate:
+                          type: string
+                          description: 'Date that the listing was published to realestate.com.au
+
+                            </br>Format `YYYY-MM-DD`'
+                          examples:
+                          - '2023-11-13'
+                        listingType:
+                          type: string
+                          enum:
+                          - sale
+                          - rent
+                          description: Refer to [Listing Types](https://developer.proptrack.com.au/docs/apis/guide#listing-type)
+                          examples:
+                          - rent
+                        listingPrice:
+                          type: integer
+                          description: 'Price that represents the advertised listing value. When the listing type is `rent`, then returned value is per week.
+
+                            </br>**Note: This value is not permitted for display**'
+                        priceDescription:
+                          type: string
+                          description: 'Price displayed on the listing
+
+                            </br>Note: This value may not always describe the price, but a description such as "Price on request"'
+                          examples:
+                          - Offers from $1M
+                        status:
+                          type: string
+                          enum:
+                          - current
+                          - notSold
+                          - sold
+                          - notLeased
+                          - leased
+                          description: 'Listing status. Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)
+
+                            * When listing type is `sale`, then `status` can be `current`, `sold`, `notSold`
+
+                            * When listing type is `rent` then `status` can be `current`, `leased`, `notLeased`'
+                        leaseDate:
+                          type:
+                          - string
+                          - 'null'
+                          description: 'Agent advised lease date</br>
+
+                            Format `YYYY-MM-DD`'
+                          format: date
+                          examples:
+                          - '2023-12-19'
+                        saleDate:
+                          type:
+                          - string
+                          - 'null'
+                          description: 'Agent advised sale date
+
+                            </br>Format `YYYY-MM-DD`'
+                          format: date
+                          examples:
+                          - '2023-12-19'
+                        saleValue:
+                          type: integer
+                          description: 'Agent advised sale value</br>
+
+                            If `"saleValueSuppressed": true`, then this field will return as `undefined`'
+                          examples:
+                          - 1030000
+                        saleValueSuppressed:
+                          type: boolean
+                          description: Flags if the `saleValue` field has been suppressed
+                        source:
+                          const: REA
+                          description: Where the listing data has been sourced from
+                        videoUrl:
+                          type: string
+                          description: Link to video that was uploaded to the listing
+                          examples:
+                          - https://www.youtube.com/embed/j4clLwXYYXA
+                        images:
+                          type: array
+                          description: Refer to [Constructing an Image URL](https://developer.proptrack.com.au/docs/apis/faqs#how-do-i-construct-an-image-url)
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: The identifier associated with the image
+                                examples:
+                                - d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                              extension:
+                                type: string
+                                enum:
+                                - jpg
+                                - gif
+                                - png
+                                - pcx
+                                - svg
+                                - webp
+                                - ppm
+                                - tiff
+                                - bmp
+                                description: File extension type
+                              type:
+                                type: string
+                                enum:
+                                - image
+                                - floorplan
+                                description: Image type
+                              orderIndex:
+                                type: integer
+                                description: 'The order in which images are displayed on a listing. I.e. `"orderIndex": 0` for an image type represents the cover image'
+                                examples:
+                                - 0
+                              sha:
+                                type: string
+                                description: Secure hashing algorithm
+                                examples:
+                                - d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                              date:
+                                type: string
+                                format: date
+                                examples:
+                                - '2023-11-13'
+                        attachments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              url:
+                                type: string
+                                description: Web address for attachment
+                                examples:
+                                - https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                              type:
+                                const: statement_of_information
+                                description: Attachment type
+                              date:
+                                type: string
+                                format: date
+                                examples:
+                                - '2023-11-13'
+                        energyEfficiencyRating:
+                          type:
+                          - number
+                          - 'null'
+                          description: Energy Efficiency Rating for the listing. If no rating has been provided, this will be null
+                          format: float
+                          examples:
+                          - 6
+                          readOnly: true
+              examples:
+                Rent Listing Currently on the Market:
+                  value:
+                    listings:
+                    - listingId: '438163928'
+                      propertyId: 890374
+                      listingType: rent
+                      address:
+                        fullAddress: 18 Junction Street, Woollahra, NSW 2025
+                        location:
+                          longitude: 151.25029
+                          latitude: -33.89027
+                      attributes:
+                        propertyType: house
+                        bedrooms: 2
+                        bathrooms: 1
+                        carSpaces: 1
+                        propertySubType: house
+                        features:
+                        - petFriendly
+                        - airConditioning
+                      source: REA
+                      status: current
+                      description: This freestanding Edwardian home is an exquisite residence of chic contemporary style and superior quality finishes. Westfield, cafes and city trains are a stroll away.<br/><br/>FEATURING;<br/><br/>* Timeless charm of architecture seamlessly blended with contemporary elegance<br/>* Filled with an abundance of natural light.<br/>* Sun-drenched deck, a perfect setting for entertaining guests.<br/>* Caesarstone kitchen, complete with a premium gas stove.<br/>* Two double bedrooms with custom built-ins, <br/>* Ducted A/C throughout the house.<br/>* Designer bathroom, boasting a freestanding bath and a second toilet<br/>* Heated stone floors, high ceilings, and a spacious loft retreat.<br/>* Rear lane access parking <br/>* Explore the neighborhood on foot, with easy access to bus and train stations, schools, charming cafes, eateries, and shops.<br/><br/>THE - WOOLLAHRA<br/><br/>Everything about Woollahra exudes elegance. From the heritage-listed homes with manicured gardens that sit within the shade of overarching trees, to the alluring high-end boutique shopping along Queen Street. Once in, locals tend to stay, and who can blame them when they have incredible dining, old fashioned English-style pubs, Oxford Street and Centennial Park all on their doorstep. (Source- Sitchu)<br/><br/>TO – APPLY<br/><br/>https://t-app.com.au/mcgrathdb<br/>
+                      firstSeenDate: '2023-11-29'
+                      listingPrice: 2095
+                      priceDescription: $2,095 per week
+                      images:
+                      - id: 300e166634cc27add8556a47dee72dc8b35d82f441d80f61754d36731a695984.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: 300e166634cc27add8556a47dee72dc8b35d82f441d80f61754d36731a695984
+                        type: image
+                      - id: 6b0352aea1a8598b27f5d2b766ccad61eca1487416f2d96b33b339f0ff42a566.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 1
+                        sha: 6b0352aea1a8598b27f5d2b766ccad61eca1487416f2d96b33b339f0ff42a566
+                        type: image
+                      - id: 7b964daf8745aad898e21af2c4358847605806587194a632b854a21d3f61c020.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 2
+                        sha: 7b964daf8745aad898e21af2c4358847605806587194a632b854a21d3f61c020
+                        type: image
+                      - id: e840c4f6d6c6a461289262cd0ac395bd1cc0eacc09144363c3b2d118c62eb03c.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 3
+                        sha: e840c4f6d6c6a461289262cd0ac395bd1cc0eacc09144363c3b2d118c62eb03c
+                        type: image
+                      - id: 44ac55901f123e11f4a34bdb8307620bcbc0bed4fba48f83b4553e3a097e5087.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 4
+                        sha: 44ac55901f123e11f4a34bdb8307620bcbc0bed4fba48f83b4553e3a097e5087
+                        type: image
+                      - id: 79f8308afe59333bd5033e86cf8329e527b707dcf47f4523b2bd32d0c7d05efb.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 5
+                        sha: 79f8308afe59333bd5033e86cf8329e527b707dcf47f4523b2bd32d0c7d05efb
+                        type: image
+                      - id: 71b17805407e068566fd4a3647277fe2ba40a46cd2707a60efdae0145e732e48.jpg
+                        date: '2023-11-29'
+                        extension: jpg
+                        orderIndex: 6
+                        sha: 71b17805407e068566fd4a3647277fe2ba40a46cd2707a60efdae0145e732e48
+                        type: image
+                      leaseDate: null
+                      energyEfficiencyRating: 2
+                    - listingId: '438022960'
+                      propertyId: 890379
+                      listingType: rent
+                      address:
+                        fullAddress: 24 Junction St, Bondi Junction, NSW 2022
+                        location:
+                          longitude: 151.25027
+                          latitude: -33.890106
+                      attributes:
+                        propertyType: house
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        propertySubType: house
+                        features:
+                        - balcony
+                        - deck
+                        - courtyard
+                        - outdoorEnt
+                        - fullyFenced
+                        - floorboards
+                        - broadband
+                        - builtInRobes
+                        - payTV
+                        - dishwasher
+                        - waterTank
+                        - airConditioning
+                        - intercom
+                      source: REA
+                      status: current
+                      description: 'Boasting a prized position nearby Westfield''s buzzing retail and dining hub, this freestanding Federation residence provides an idyllic lifestyle haven brimming with character, charm and flexibility.<br/><br/>There is a neat and tidy kitchen, Miele gas cooktop, oven and Bosch dishwasher, while interiors spill out to a superb north facing sun washed deck and a level backyard.<br/><br/>- Free-flowing layout featuring zoned living & dining areas<br/>- North facing sun washed deck ideal for entertaining<br/>- Neat and tidy kitchen, Miele gas cooktop, dishwasher<br/>- Well-sized bedrooms, two appointed with built-in robes<br/>- Upper-level bedroom enjoys access to sunlit balcony<br/>- Elevated district and leafy outlooks, attic-storage space<br/>- Two bright and airy bathrooms, internal laundry, storage<br/>- High ceilings, polished timber floors, fireplace fixtures<br/>- Stroll to Westfield''s buzzing retail hub, Bondi Junction Station<br/>- Moments to Centennial Park, Woollahra village, Bondi Beach<br/>- Car parking space from February.<br/><br/>Please contact Agent for inspection: helen Xu 0433839888<br/>'
+                      firstSeenDate: '2023-11-12'
+                      listingPrice: 2000
+                      priceDescription: $2,000 per week
+                      images:
+                      - id: 013aa25da32902daa645dec6aa6f1b8ca6a3f61b7c9f8d6101878b03c41c0937.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: 013aa25da32902daa645dec6aa6f1b8ca6a3f61b7c9f8d6101878b03c41c0937
+                        type: image
+                      - id: 002f0ada4cc8d2d36e527c17a29e1775c3b43136c23a97e8c84bb9c1b2dbc00b.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 1
+                        sha: 002f0ada4cc8d2d36e527c17a29e1775c3b43136c23a97e8c84bb9c1b2dbc00b
+                        type: image
+                      - id: dfcb58098c99d64bf9fcfd9733f8c068b338e47c79d4011e015d606b015f95bc.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 2
+                        sha: dfcb58098c99d64bf9fcfd9733f8c068b338e47c79d4011e015d606b015f95bc
+                        type: image
+                      - id: 07ce64ddc2afdc72a6248aa98d9a8ec96389d08c83a5f247296911c93e361cde.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 3
+                        sha: 07ce64ddc2afdc72a6248aa98d9a8ec96389d08c83a5f247296911c93e361cde
+                        type: image
+                      - id: 35ee19e9426a983cedddf6cb8e9a271a5b110d077b9e0a1356d2ec8ce4f5c072.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 4
+                        sha: 35ee19e9426a983cedddf6cb8e9a271a5b110d077b9e0a1356d2ec8ce4f5c072
+                        type: image
+                      - id: f1726ee45895cdca2fdc9a137bd72adbeb22532044ff8dc6daa798c92ce23702.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 5
+                        sha: f1726ee45895cdca2fdc9a137bd72adbeb22532044ff8dc6daa798c92ce23702
+                        type: image
+                      - id: 8296d2d9e18ca89d86622bc6813b0baf1d858a13710831cb8aaeb840a838c480.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 6
+                        sha: 8296d2d9e18ca89d86622bc6813b0baf1d858a13710831cb8aaeb840a838c480
+                        type: image
+                      - id: 54b5a2a8d3f7c7f4dea4a230be7980a18cb22158607e3d7feed44cd6898f2537.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 7
+                        sha: 54b5a2a8d3f7c7f4dea4a230be7980a18cb22158607e3d7feed44cd6898f2537
+                        type: image
+                      - id: 1d99a510a3da2da1fad5cdb6d36e71ea0e8dbda6fca42f2dd40f95d469bf88a2.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 8
+                        sha: 1d99a510a3da2da1fad5cdb6d36e71ea0e8dbda6fca42f2dd40f95d469bf88a2
+                        type: image
+                      - id: e7821d249789343a459289379decddeec41c643df7270ba7d963bd2a6b12a558.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 9
+                        sha: e7821d249789343a459289379decddeec41c643df7270ba7d963bd2a6b12a558
+                        type: image
+                      - id: 1d60959661b3a6be2149847c6a7be33116c5c9380adeaedf6bdf78e9a2b5aa90.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 10
+                        sha: 1d60959661b3a6be2149847c6a7be33116c5c9380adeaedf6bdf78e9a2b5aa90
+                        type: image
+                      - id: 30790eac1641fc8e796fcd8a3fbb8fe5dc02e0527355275b561a55d4d323b34d.jpg
+                        date: '2023-11-12'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: 30790eac1641fc8e796fcd8a3fbb8fe5dc02e0527355275b561a55d4d323b34d
+                        type: floorplan
+                      leaseDate: null
+                      energyEfficiencyRating: 2
+                    pageInfo:
+                      pageStartCursor: MA==
+                      pageEndCursor: MQ==
+                      hasPreviousPage: false
+                      hasNextPage: true
+                    numberOfResults: 274
+                Sale Listing Currently on the Market:
+                  value:
+                    listings:
+                    - listingId: '143385424'
+                      propertyId: 890368
+                      listingType: sale
+                      address:
+                        fullAddress: 11 Junction Street, Woollahra, NSW 2025
+                        location:
+                          longitude: 151.25082
+                          latitude: -33.89022
+                      attributes:
+                        propertyType: house
+                        bedrooms: 3
+                        bathrooms: 2
+                        carSpaces: 1
+                        propertySubType: house
+                        features:
+                        - secureParking
+                        - balcony
+                        - courtyard
+                        - broadband
+                        - builtInRobes
+                        - dishwasher
+                        - openFireplace
+                      auctionDate: '2023-12-05'
+                      auctionTime: 05:00:00 pm
+                      auctionDateTime: '2023-12-05T17:00:00+11:00'
+                      source: REA
+                      status: current
+                      description: Positioned for ultra-convenience in a coveted Woollahra street on the doorstep of Bondi Junction - this wide-fronted terrace delivers an outstanding lifestyle haven and an exciting addition to the market. Generously proportioned and designed to maximise natural light, it features a clever layout offering a selection of living/dining areas enhanced by timeless period fixtures and stylish contemporary appointments.  The modern stone kitchen is equipped with stainless steel gas appliances, while bi-fold doors allow effortless transitions to a sun washed Parterre courtyard. With three bedrooms are on the upper levels, all with built-in wardrobes two of which enjoy access to front and rear balconies. Complete with rear access via Adelaide Lane to secure off-street parking, it is placed on the doorstep of Westfield's buzzing retail and dining hub, city buses, cafés and Bondi Junction Station.<br/><br/>- Three bedrooms all with built ins<br/>- Generous proportions with elegant formal lounge/dining<br/>- Sun washed casual dining area, effortless in/outdoor flow<br/>- Stone kitchen, integrated Bosch fridge/freezer, b/bar<br/>- N/E facing sunny Peter Fudge designed Parterre courtyard <br/>- High ornate ceilings, decorative cornices, three fireplaces<br/>- Original Kauri pine wide floorboards, plantation shutters<br/>- Well-sized bedrooms with built-in robes, two balconies<br/>- Skylit staircase, bright and airy bathrooms, ceiling fans<br/>- Internal laundry, under stair storage, rear access to parking<br/>- Footsteps to Westfield shopping, Event Cinemas, city buses<br/>- Stroll to the station, popular cafés, minutes to Bondi Beach<br/>- Zoned medium density - permits residential and commercial usage (STCA)
+                      firstSeenDate: '2023-10-18'
+                      listingPrice: 2800000
+                      priceDescription: Auction
+                      images:
+                      - id: d3459a2c719cc33c70c0887eca7d16130b57974823e9291f0f631a80ad615ec2.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: d3459a2c719cc33c70c0887eca7d16130b57974823e9291f0f631a80ad615ec2
+                        type: image
+                      - id: 9c47eaaae0682760bf0ad7cd0e0d40ff5c87ae5ffd064659d047b627a968e93b.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 1
+                        sha: 9c47eaaae0682760bf0ad7cd0e0d40ff5c87ae5ffd064659d047b627a968e93b
+                        type: image
+                      - id: 5200fc3cafa81039ea7e9af8efa8d9ea6540b8c0bcf06ee3cd6e337695149cd3.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 2
+                        sha: 5200fc3cafa81039ea7e9af8efa8d9ea6540b8c0bcf06ee3cd6e337695149cd3
+                        type: image
+                      - id: 994e26cb7be28d13d26560dd8131299a9f8cf8b03afaafc36cfc90e0d90f84ae.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 3
+                        sha: 994e26cb7be28d13d26560dd8131299a9f8cf8b03afaafc36cfc90e0d90f84ae
+                        type: image
+                      - id: 1104128bfc765992fb41e89a04cf06bb9407a5fb52a25f38734d010b77774e98.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 4
+                        sha: 1104128bfc765992fb41e89a04cf06bb9407a5fb52a25f38734d010b77774e98
+                        type: image
+                      - id: d18a9788872b40f1289e0eef6e2f6a05a3242f45a98eff55b16f055ddb163652.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 5
+                        sha: d18a9788872b40f1289e0eef6e2f6a05a3242f45a98eff55b16f055ddb163652
+                        type: image
+                      - id: 45a129d7739ba1abe898655c25eaa70d0fa97e499024748d57c086450cd8b253.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 6
+                        sha: 45a129d7739ba1abe898655c25eaa70d0fa97e499024748d57c086450cd8b253
+                        type: image
+                      - id: fd6de8d68c44fa0d50b2fed26b09870e5dca23df06400407ebe3107ddc13c569.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 7
+                        sha: fd6de8d68c44fa0d50b2fed26b09870e5dca23df06400407ebe3107ddc13c569
+                        type: image
+                      - id: 0592bf9cf9d75e3e1a070123f7d0372e851227175899812beee46df3a32a24bb.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 8
+                        sha: 0592bf9cf9d75e3e1a070123f7d0372e851227175899812beee46df3a32a24bb
+                        type: image
+                      - id: 6f4fb7843f71288966da3fad4f41a5e450d7f30822af81dce59ca7695a23530a.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 9
+                        sha: 6f4fb7843f71288966da3fad4f41a5e450d7f30822af81dce59ca7695a23530a
+                        type: image
+                      - id: c95ff74c5a8540c37aead60be00d951fa389051a645e929c2f64db252f3e34d1.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 10
+                        sha: c95ff74c5a8540c37aead60be00d951fa389051a645e929c2f64db252f3e34d1
+                        type: image
+                      - id: c9f01deec4e7006ab843391018263f8a8a5a6c37b24de88f19556c213ee8a77c.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 11
+                        sha: c9f01deec4e7006ab843391018263f8a8a5a6c37b24de88f19556c213ee8a77c
+                        type: image
+                      - id: 5c47bb1a327ce51e806c4e870ed10900aeec6d1c3846e693836c1fe51be1a140.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 12
+                        sha: 5c47bb1a327ce51e806c4e870ed10900aeec6d1c3846e693836c1fe51be1a140
+                        type: image
+                      - id: b8ecfd509cb987b80df61bf86d8ddb140b262fbe65e3bfbf98ad8f818828c78c.jpg
+                        date: '2023-10-18'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: b8ecfd509cb987b80df61bf86d8ddb140b262fbe65e3bfbf98ad8f818828c78c
+                        type: floorplan
+                      leaseDate: null
+                      energyEfficiencyRating: 2
+                    - listingId: '143726640'
+                      propertyId: 1280801
+                      listingType: sale
+                      address:
+                        fullAddress: 1102/251 Oxford Street, Bondi Junction, NSW 2022
+                        location:
+                          longitude: 151.25247
+                          latitude: -33.891644
+                      attributes:
+                        propertyType: unit
+                        bedrooms: 2
+                        bathrooms: 2
+                        carSpaces: 1
+                        propertySubType: apartment
+                      source: REA
+                      status: current
+                      description: Dazzling city skyline views and sleek contemporary interiors bring a taste of urban glamour to this recently renovated apartment set high in the prestigious Harley Place tower. Northerly sunshine beams into the streamlined interiors with floor to ceiling glass framing the sweeping district outlook and opening out to two view-swept balconies. In a gateway location directly opposite the flagship Westfield and a short walk to the station, the two-bedroom apartment features level lift access from the street, undercover security parking and a sunny rooftop pool.<br/><br/>• Stylishly renovated interiors featuring polished timber floors<br/>• Double bedrooms, the main with an ensuite and walk-in robe<br/>• Sun-drenched living opens to a terrace with city skyline views<br/>• Dedicated dining, designer lighting and ducted reverse cycle air<br/>• Streamlined Caesarstone kitchen w/ glass-fronted eat-in area<br/>• 2 bathrooms, separate internal laundry, sunny rooftop pool<br/>• Secure entry via Hollywood Avenue, lift access, secure pkg
+                      firstSeenDate: '2023-11-24'
+                      listingPrice: 1550000
+                      priceDescription: Forthcoming Auction
+                      images:
+                      - id: 2e7e08b9d76cedb81b5258cd96f64dd64a3b3c2e479ef1c878687f323aae46f5.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: 2e7e08b9d76cedb81b5258cd96f64dd64a3b3c2e479ef1c878687f323aae46f5
+                        type: image
+                      - id: 6247de808662027519ad36d646c36ee2dfc75d634975690ebc19e48d309e17e5.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 1
+                        sha: 6247de808662027519ad36d646c36ee2dfc75d634975690ebc19e48d309e17e5
+                        type: image
+                      - id: f6c847ea3943ef2586b5c9361cd5e4dbcf0f07374d173253d13f4f113d367c62.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 2
+                        sha: f6c847ea3943ef2586b5c9361cd5e4dbcf0f07374d173253d13f4f113d367c62
+                        type: image
+                      - id: 9823e0f1c89d408501f4446bd33d2f4d85aa7a4e72630e4a4e66818641b09c96.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 3
+                        sha: 9823e0f1c89d408501f4446bd33d2f4d85aa7a4e72630e4a4e66818641b09c96
+                        type: image
+                      - id: 45acfdda4709e55d89fae9d009bf52f4713f738d6fb54309b4f940afa6c22672.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 4
+                        sha: 45acfdda4709e55d89fae9d009bf52f4713f738d6fb54309b4f940afa6c22672
+                        type: image
+                      - id: a8635a41544a17ef8cf24dc53840aaeb08ce56cc6db3175cca0732f72a779d61.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 5
+                        sha: a8635a41544a17ef8cf24dc53840aaeb08ce56cc6db3175cca0732f72a779d61
+                        type: image
+                      - id: 4bc375bf2fb0cbe0c1b7a8b0f52a31a32ff483f38d8dd939e44a6a4f39578bb4.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 6
+                        sha: 4bc375bf2fb0cbe0c1b7a8b0f52a31a32ff483f38d8dd939e44a6a4f39578bb4
+                        type: image
+                      - id: d63c94d7a125131e0a1360f281f44515bda2eae152b98248905f43f8c16a4cc9.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 7
+                        sha: d63c94d7a125131e0a1360f281f44515bda2eae152b98248905f43f8c16a4cc9
+                        type: image
+                      - id: 78b880e8a0e699cb5d5b3e10cc7a54ef2fec0c4a46ffa9a2c5b583ea604afeb1.jpg
+                        date: '2023-11-24'
+                        extension: jpg
+                        orderIndex: 0
+                        sha: 78b880e8a0e699cb5d5b3e10cc7a54ef2fec0c4a46ffa9a2c5b583ea604afeb1
+                        type: floorplan
+                      leaseDate: null
+                      energyEfficiencyRating: 2
+                    pageInfo:
+                      pageStartCursor: MA==
+                      pageEndCursor: MQ==
+                      hasPreviousPage: false
+                      hasNextPage: true
+                    numberOfResults: 169
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 7004
+                          - 7005
+                          - 7007
+                          - 7008
+                          - 7010
+                          - 7011
+                          - 7014
+                          - 7015
+                          examples:
+                          - 7004
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Required parameter is missing - Please ensure that all required parameters have been included
+                        parameters:
+                          type: object
+                          description: Lists the parameter/s which is causing the error, and the rule that was invoked
+                          properties:
+                            listingTypes:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            pointType:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            propertyId:
+                              type: string
+                              examples:
+                              - is a required parameter when searching by propertyId
+                            latitude:
+                              type: string
+                              examples:
+                              - is a required parameter when searching by latLong
+                            longitude:
+                              type: string
+                              examples:
+                              - is a required parameter when searching by latLong
+                            startDate:
+                              type: string
+                              examples:
+                              - is not a valid date
+                            endDate:
+                              type: string
+                              examples:
+                              - is not a valid date
+                            sortBy:
+                              type: string
+                              examples:
+                              - must only include an allowed value
+                            'radius ':
+                              type: string
+                              examples:
+                              - must be an integer
+                            bathroomsMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bathroomsMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bedroomsMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bedroomsMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            carSpacesMax:
+                              type: string
+                              examples:
+                              - must be a number
+                            carSpacesMin:
+                              type: string
+                              examples:
+                              - must be a number
+                            landAreaMax:
+                              type: string
+                              examples:
+                              - must be a number
+                            landAreaMin:
+                              type: string
+                              examples:
+                              - must be a number
+                            pageSize:
+                              type: string
+                              examples:
+                              - must be a number
+                            priceMax:
+                              type: string
+                              examples:
+                              - must not exceed a maximum value of 2147483647
+                            priceMin:
+                              type: string
+                              examples:
+                              - must not exceed a maximum value of 2147483647
+                            status:
+                              type: string
+                              examples:
+                              - status value/s [sold,notSold] are not valid with listingType rent
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7004
+                      description: Required parameter is missing - Please ensure that all required parameters have been included
+                      parameters:
+                        listingTypes: is a required parameter
+                        pointType: is a required parameter
+                        propertyId: is a required parameter when searching by propertyId
+                        latitude: is a required parameter when searching by latLong
+                        longitude: is a required parameter when searching by latLong
+              examples:
+                '7004':
+                  value:
+                    errors:
+                    - code: 7004
+                      description: Required parameter is missing - Please ensure that all required parameters have been included
+                      parameters:
+                        listingTypes: is a required parameter
+                        pointType: is a required parameter
+                '7005':
+                  value:
+                    errors:
+                    - code: 7005
+                      description: Invalid value entry - Please ensure that all values entered are valid
+                      parameters:
+                        startDate: is not a valid date
+                        endDate: is not a valid date
+                '7007':
+                  value:
+                    errors:
+                    - code: 7007
+                      description: A non-allowed value has been included into an enum field - Please ensure that the value entered is an allowed option
+                      parameters:
+                        listingTypes: must only include allowed values
+                        pointType: must only include an allowed value
+                        status: must only include an allowed value
+                        sortBy: must only include an allowed value
+                '7008':
+                  value:
+                    errors:
+                    - code: 7008
+                      description: An incorrect field type has been included - Please ensure that all values are using the correct field type
+                      parameters:
+                        propertyId: must be an integer
+                        radius: must be an integer
+                        bathroomsMax: must be an integer
+                        bathroomsMin: must be an integer
+                        bedroomsMax: must be an integer
+                        bedroomsMin: must be an integer
+                        carSpacesMax: must be an integer
+                        carSpacesMin: must be an integer
+                        landAreaMax: must be an integer
+                        landAreaMin: must be an integer
+                        pageSize: must be an integer
+                        latitude: must be a number
+                        longitude: must be a number
+                '7010':
+                  value:
+                    errors:
+                    - code: 7010
+                      description: An incorrect format has been included - Please ensure that the correct formatting has been used for all parameters
+                      parameters:
+                        startDate: must be in ISO_8601 format (YYYY-MM-DD)
+                        endDate: must be in ISO_8601 format (YYYY-MM-DD)
+                '7011':
+                  value:
+                    errors:
+                    - code: 7011
+                      description: A value above the allowed limit has been included - Please ensure that a valid value has been entered
+                      parameters:
+                        pageSize: must not exceed a maximum value of 200
+                        radius: must not exceed a maximum value of 55000
+                        latitude: must not exceed a maximum value of 90
+                        longitude: must not exceed a maximum value of 180
+                        bathroomsMax: must not exceed a maximum value of 2147483647
+                        bathroomsMin: must not exceed a maximum value of 2147483647
+                        bedroomsMax: must not exceed a maximum value of 2147483647
+                        bedroomsMin: must not exceed a maximum value of 2147483647
+                        carSpacesMax: must not exceed a maximum value of 2147483647
+                        carSpacesMin: must not exceed a maximum value of 2147483647
+                        landAreaMax: must not exceed a maximum value of 2147483647
+                        landAreaMin: must not exceed a maximum value of 2147483647
+                        propertyId: must not exceed a maximum value of 2147483647
+                        priceMax: must not exceed a maximum value of 2147483647
+                        priceMin: must not exceed a maximum value of 2147483647
+                '7014':
+                  value:
+                    errors:
+                    - code: 7014
+                      description: An invalid date range has been included - Please ensure that the start and end dates are valid
+                      parameters:
+                        endDate: must not exceed the current date
+                        startDate: must not exceed the current date
+                '7015':
+                  value:
+                    errors:
+                    - code: 7015
+                      description: Query contains conflicting criteria - Please ensure that all parameters are compatible
+                      parameters:
+                        startDate: must not exceed the value of endDate
+                        bathroomsMin: must not exceed the value of bathroomsMax
+                        bedroomsMin: must not exceed the value of bedroomsMax
+                        carSpacesMin: must not exceed the value of carSpacesMax
+                        landAreaMin: must not exceed the value of bedroomsMax
+                        priceMin: must not exceed the value of bedroomsMax
+                        status: status value/s [leased,notLeased] are not valid with listingType sale
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Numeric value that defines the type of error that has occurred
+                          examples:
+                          - 9012
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+              examples:
+                '9012':
+                  value:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                '9016':
+                  value:
+                    errors:
+                    - code: 9016
+                      level: CRITICAL
+                      description: Authentication token has expired - Please ensure that a valid token authentication request has been completed before trying again
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9003
+                          description: Numeric value that defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+              examples:
+                '9003':
+                  value:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 7002
+                          description: Numeric value that defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct
+                        parameters:
+                          type: object
+                          description: Lists the parameter/s which is causing the error, and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              examples:
+                              - cannot be found
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7002
+                      description: Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct
+                      parameters:
+                        propertyId: cannot be found
+              examples:
+                '7002':
+                  value:
+                    errors:
+                    - code: 7002
+                      description: Unknown identifier, the included location does not match a record within our system - Please ensure that the identifier is correct
+                      parameters:
+                        propertyId: cannot be found
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9011
+                          description: Numeric value that defines the type of error that has occurred
+                          examples:
+                          - 9011
+                        level:
+                          description: 'efines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+              examples:
+                9011 Rate Limite:
+                  value:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+                9011 Quota Limit:
+                  value:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Quota limit has been reached - Please contact our customer support team at support@proptrack.com for further information
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#listingspoints--radius-search) for information on error handling.'
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+      operationId: get-api-v2-listings-search-suburb-and-postcode
+      x-stoplight:
+        id: xqvuozzk6pabj
+      description: 'Retrieves current and historic listings within a given suburb. <br>
+
+        The suburb search area is identified by a combination of state, suburb name, and up to 3 postcodes.'
+      servers:
+      - url: https://data.proptrack.com
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          default: Bearer {access_token}
+          examples:
+          - Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+      - name: listingTypes
+        in: query
+        description: 'Select the type of listings returned</br>Note: Values are comma separated'
+        required: true
+        schema:
+          type: string
+          enum:
+          - sale
+          - rent
+          examples:
+          - sale,rent
+      - name: bathroomsMax
+        in: query
+        description: Maximum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: bathroomsMin
+        in: query
+        description: Minimum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: bedroomsMax
+        in: query
+        description: Maximum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 4
+      - name: bedroomsMin
+        in: query
+        description: Minimum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 2
+      - name: carSpacesMax
+        in: query
+        description: Maximum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 2
+      - name: carSpacesMin
+        in: query
+        description: Minimum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: landAreaMax
+        in: query
+        description: Maximum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 650
+      - name: landAreaMin
+        in: query
+        description: Minimum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 500
+      - name: priceMax
+        in: query
+        description: 'Maximum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased`, `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`'
+        schema:
+          type: integer
+          examples:
+          - 1500000
+      - name: priceMin
+        in: query
+        description: 'Minimum price of the listing</br>Note: Price definition is set based on the `status` of the listing</br>-  If `status` equals `current`, `leased` `notSold` or `notLeased` then the price is defined by the `listingPrice`</br>-  If `status` equals `sold` then the price is defined by the `saleValue`'
+        schema:
+          type: integer
+          examples:
+          - 1200000
+      - name: propertyTypes
+        in: query
+        description: 'The type of properties that will be queried against</br>Note: Values are comma separated'
+        schema:
+          type: string
+          enum:
+          - house
+          - unit
+          examples:
+          - house,unit
+      - name: status
+        in: query
+        description: 'Choose the status of the listings returned</br>Note: Values are comma separated</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)'
+        schema:
+          type: string
+          enum:
+          - current
+          - notSold
+          - sold
+          - notLeased
+          - leased
+          examples:
+          - current,sold
+      - name: startDate
+        in: query
+        description: Start of date range to be queried. Defaulted to 6 months prior to today's date if left empty</br>Format `YYYY-MM-DD`
+        schema:
+          type: string
+          format: date
+          examples:
+          - '2022-11-04'
+      - name: endDate
+        in: query
+        description: End of date range to be queried. Will default to today's date if left empty</br>Format `YYYY-MM-DD`
+        schema:
+          type: string
+          format: date
+          examples:
+          - '2023-05-04'
+      - name: pageSize
+        in: query
+        description: The maximum number of listings results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+        schema:
+          type: integer
+          maximum: 200
+          default: 25
+          examples:
+          - 100
+      - name: sortBy
+        in: query
+        description: 'Defines the sorting attribute and order in which the results will be returned</br>Note: sortBy date logic is set based on the status of the listing</br> - If `status` equals `sold` then the result is sorted by the `saleDate`  </br> - If `status` equals `leased` then the result is sorted by the `leaseDate`</br> - If `status` equals `current`, `notSold` or `notLeased` then the result is sorted by the `firstSeenDate`  '
+        schema:
+          type: string
+          enum:
+          - dateAsc
+          - dateDesc
+          - priceAsc
+          - priceDesc
+          default: dateDesc
+          examples:
+          - distanceAsc
+          example: dateDesc
+      - name: afterPageCursor
+        in: query
+        description: 'The page starting position as one listing after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          examples:
+          - MAo=
+      - name: beforePageCursor
+        in: query
+        description: 'The page starting position as one listing prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          examples:
+          - MzAwMAo=
+      - schema:
+          type: string
+          minItems: 1
+          example: '3121'
+          pattern: ^\d{4}$
+        in: query
+        name: postcodes
+        description: List of up to 3 postcodes for the listing search area, as a comma-separated list. <br>The postcodes must be associated with the supplied suburb.
+        required: true
+      - schema:
+          type: string
+          example: Richmond
+        in: query
+        name: suburb
+        description: The name of the suburb to search
+        required: true
+      - in: query
+        name: state
+        schema:
+          type: string
+          enum:
+          - act
+          - nsw
+          - nt
+          - qld
+          - sa
+          - tas
+          - vic
+          - wa
+          example: vic
+        required: true
+        description: The name of the state that the suburb is in
+      tags:
+      - Suburb & Postcode Search
+    servers:
+    - url: https://data.proptrack.com
+  /api/v2/transactions/search/suburb-and-postcode:
+    get:
+      summary: /api/v2/transactions/search/suburb-and-postcode
+      description: 'Retrieves a list of sold transactions within a given suburb and postcode
+
+
+
+        #### Data Attribution Notice:
+
+        This endpoint contains State and Territory data which may be subject to  approval by the relevant government department.
+
+        Due to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.
+
+        <br><br>
+
+        Disclaimer Types: `vg`,`serviceAgent`
+
+
+        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.
+
+        '
+      operationId: get-transactions-propertyId-suburb
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          default: Bearer {access_token}
+          examples:
+          - Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+      - name: startDate
+        in: query
+        description: Start of date range to be queried. Defaulted to 6 months prior to endDate date if left empty
+        schema:
+          type: string
+          format: date
+          examples:
+          - '2022-11-04'
+      - name: endDate
+        in: query
+        description: End of date range to be queried. Will default to today's date if left empty
+        schema:
+          type: string
+          format: date
+          examples:
+          - '2023-05-04'
+      - name: bedroomsMin
+        in: query
+        description: Minimum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: bedroomsMax
+        in: query
+        description: Maximum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 4
+      - name: bathroomsMin
+        in: query
+        description: Minimum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: bathroomsMax
+        in: query
+        description: Maximum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: carSpacesMin
+        in: query
+        description: Minimum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: carSpacesMax
+        in: query
+        description: Maximum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 2
+      - name: landAreaMin
+        in: query
+        description: Minimum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 550
+      - name: landAreaMax
+        in: query
+        description: Maximum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 650
+      - name: sourceCategory
+        in: query
+        description: Filter the transaction data source
+        schema:
+          type: string
+          enum:
+          - vg
+          - agency
+      - name: saleValueMin
+        in: query
+        description: Minimum price associated with the transaction event
+        schema:
+          type: integer
+          examples:
+          - 865000
+      - name: saleValueMax
+        in: query
+        description: Maximum price associated with the transaction event
+        schema:
+          type: integer
+          examples:
+          - 1030000
+      - name: propertyType
+        in: query
+        description: Classification of the type of property
+        schema:
+          type: string
+          enum:
+          - house
+          - unit
+      - name: afterPageCursor
+        in: query
+        description: 'The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          examples:
+          - Wzc3Ni4yMTQ2NjY0NTE4Mzk5LDM0Nzg0MDFd
+      - name: beforePageCursor
+        in: query
+        description: 'The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          examples:
+          - WzU0LjgwNTYxNjE0MzQ5MTM4LDE0MDY5NjMzXQ==
+      - name: pageSize
+        in: query
+        description: The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+        schema:
+          type: integer
+          maximum: 200
+          default: 25
+          examples:
+          - 100
+      - name: landUse
+        in: query
+        description: 'Land Use of the property (note: only allows filtering by residential - omit parameter to see all properties)'
+        schema:
+          const: residential
+      - schema:
+          type: string
+        in: query
+        name: suburb
+        description: Name of the suburb being searched
+        required: true
+      - schema:
+          type: string
+        in: query
+        name: postcode
+        description: Postcode of the suburb being searched
+        required: true
+      - schema:
+          type: string
+          enum:
+          - act
+          - nsw
+          - nt
+          - qld
+          - sa
+          - tas
+          - vic
+          - wa
+          examples:
+          - vic
+        in: query
+        name: state
+        description: State or territory within Australia
+        required: true
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  numberOfResults:
+                    type: integer
+                    description: Total number of transactions that match the search criteria
+                    examples:
+                    - 552
+                  pageInfo:
+                    type: object
+                    description: Page information for the purpose of pagination</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+                    properties:
+                      pageStartCursor:
+                        type:
+                        - string
+                        - 'null'
+                        description: Unique cursor identifier for the first transaction on the page
+                        examples:
+                        - WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor:
+                        type:
+                        - string
+                        - 'null'
+                        description: Unique cursor identifier for the last transaction on the page
+                        examples:
+                        - LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage:
+                        type: boolean
+                        description: Defines if a preceding page of transactions exists
+                      hasNextPage:
+                        type: boolean
+                        description: Defines if a proceeding page of transactions exists
+                  transactions:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                      - transactionDate
+                      properties:
+                        sourceCategory:
+                          type: string
+                          enum:
+                          - vg
+                          - agency
+                          description: Source of transaction event data
+                          examples:
+                          - vg
+                        transactionDate:
+                          type: string
+                          description: Date associated with the transaction event</br>Format YYYY-MM-DD
+                          format: date
+                          examples:
+                          - '2023-01-27'
+                        contractDate:
+                          type:
+                          - string
+                          - 'null'
+                          description: Date on which the contract for the transaction was signed</br>Format YYYY-MM-DD
+                          examples:
+                          - '2023-01-25'
+                        transferDate:
+                          type:
+                          - string
+                          - 'null'
+                          description: Date on which ownership is transferred</br>Format YYYY-MM-DD
+                          examples:
+                          - '2023-01-25'
+                        transferType:
+                          type: string
+                          enum:
+                          - full
+                          - multi
+                          - partial
+                          - nil
+                          - other
+                          description: 'Type of transfer
+
+                            Refer to [Transfer Types](https://developer.proptrack.com.au/docs/apis/guide#transfer-types)'
+                          examples:
+                          - full
+                        saleValue:
+                          type: integer
+                          description: 'Price associated with the transaction event</br>
+
+                            If `"saleValueSuppressed": true`, then this field will return as `undefined`'
+                          examples:
+                          - 1350000
+                        saleValueSuppressed:
+                          type: boolean
+                          description: Flags if the `saleValue` has been suppressed
+                        listingDetails:
+                          type:
+                          - object
+                          - 'null'
+                          properties:
+                            listingId:
+                              type: string
+                              description: Unique identifier for a listing
+                              examples:
+                              - '123456789'
+                            daysOnMarket:
+                              type: integer
+                              description: Number of days the listing was advertised before resulting in a transaction
+                              examples:
+                              - 24
+                        property:
+                          type: object
+                          required:
+                          - propertyId
+                          properties:
+                            propertyId:
+                              type: integer
+                              description: Unique identifier for a property
+                              examples:
+                              - 123456789
+                            address:
+                              type: object
+                              properties:
+                                fullAddress:
+                                  type: string
+                                  description: Full address of the property
+                                  examples:
+                                  - 1/2-6 Louisa Rd, Birchgrove, NSW 2041
+                                location:
+                                  type: object
+                                  properties:
+                                    latitude:
+                                      type: number
+                                      description: Latitude of the property
+                                      format: float
+                                      examples:
+                                      - -34.05438
+                                    longitude:
+                                      type: number
+                                      description: Longitude of the property
+                                      format: float
+                                      examples:
+                                      - 151.6941
+                            attributes:
+                              type: object
+                              properties:
+                                bedrooms:
+                                  type: integer
+                                  description: Number of bedrooms
+                                  examples:
+                                  - 4
+                                bathrooms:
+                                  type: integer
+                                  description: Number of bathrooms
+                                  examples:
+                                  - 2
+                                carSpaces:
+                                  type: integer
+                                  description: Number of car spaces
+                                  examples:
+                                  - 2
+                                landArea:
+                                  type: integer
+                                  description: Land space area (measured in m2)
+                                  examples:
+                                  - 602
+                                propertyType:
+                                  type: string
+                                  enum:
+                                  - house
+                                  - unit
+                                  description: Classification of the type of property
+                                  examples:
+                                  - house
+                                landUse:
+                                  type: object
+                                  properties:
+                                    classifications:
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          value:
+                                            type: string
+                                            enum:
+                                            - residential
+                                            - other
+                                            description: Land Use classification of the property
+                                            examples:
+                                            - residential
+              examples:
+                No Transactions Available:
+                  value:
+                    numberOfResults: 0
+                    pageInfo:
+                      pageStartCursor: null
+                      pageEndCursor: null
+                      hasPreviousPage: false
+                      hasNextPage: false
+                    transactions: []
+                Example 1:
+                  value:
+                    numberOfResults: 552
+                    pageInfo:
+                      pageStartCursor: WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor: LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage: true
+                      hasNextPage: true
+                    transactions:
+                    - sourceCategory: vg
+                      transactionDate: '2023-01-27'
+                      contractDate: '2023-01-25'
+                      transferDate: '2023-01-25'
+                      transferType: full
+                      saleValue: 1350000
+                      saleValueSuppressed: true
+                      listingDetails:
+                        listingId: '123456789'
+                        daysOnMarket: 24
+                      property:
+                        propertyId: 123456789
+                        address:
+                          fullAddress: 1/2-6 Louisa Rd, Birchgrove, NSW 2041
+                          location:
+                            latitude: -34.05438
+                            longitude: 151.6941
+                        attributes:
+                          bedrooms: 4
+                          bathrooms: 2
+                          carSpaces: 2
+                          landArea: 602
+                          propertyType: house
+                          landUse:
+                            classifications:
+                            - value: residential
+          headers:
+            Content-Type:
+              schema:
+                const: application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 7004
+                          - 7005
+                          - 7007
+                          - 7008
+                          - 7010
+                          - 7011
+                          - 7014
+                          - 7015
+                          description: Numeric value that defines the type of error that has occurred
+                          examples:
+                          - 7004
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Required parameter is missing - Please ensure that all required parameters have been included
+                        parameters:
+                          type: object
+                          description: Lists the parameter/s which is causing the error, and the rule that was invoked
+                          properties:
+                            beforePageCursor:
+                              type: string
+                              examples:
+                              - must be a valid entry
+                            afterPageCursor:
+                              type: string
+                              examples:
+                              - must be a valid entry
+                            pageSize:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bedroomsMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bedroomsMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bathroomsMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            bathroomsMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            carSpacesMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            carSpacesMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            startDate:
+                              type: string
+                              examples:
+                              - must not exceed the current date
+                            endDate:
+                              type: string
+                              examples:
+                              - must not exceed the current date
+                            landAreaMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            landAreaMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            pointType:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            propertyId:
+                              type: string
+                              examples:
+                              - is a required parameter
+                            propertyType:
+                              type: string
+                              examples:
+                              - must only include an allowed value
+                            proximity:
+                              type: string
+                              examples:
+                              - must only include an allowed value
+                            radius:
+                              type: string
+                              examples:
+                              - must be an integer
+                            saleValueMax:
+                              type: string
+                              examples:
+                              - must be an integer
+                            saleValueMin:
+                              type: string
+                              examples:
+                              - must be an integer
+                            sourceCategory:
+                              type: string
+                              examples:
+                              - must only include an allowed value
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7011
+                      description: A value above/below the allowed limit has been included - Please ensure that a valid value has been entered
+                      parameters:
+                        propertyId: must not be below a value of 1
+                        radius: must not be below a value of 1
+                        pageSize: must not be below a value of 1
+                        bedroomsMax: must not be below a value of 0
+                        bedroomsMin: must not be below a value of 0
+                        bathroomsMax: must not be below a value of 0
+                        bathroomsMin: must not be below a value of 0
+                        carSpacesMax: must not be below a value of 0
+                        carSpacesMin: must not be below a value of 0
+                        landAreaMax: must not be below a value of 0
+                        landAreaMin: must not be below a value of 0
+                        saleValueMax: must not be below a value of 0
+                        saleValueMin: must not be below a value of 0
+              examples:
+                Example 1:
+                  value:
+                    errors:
+                    - code: 7008
+                      description: An incorrect field type has been included - Please ensure that all values are using the correct field type
+                      parameters:
+                        bedroomsMax: must be an integer
+                        bedroomsMin: must be an integer
+                        bathroomsMax: must be an integer
+                        bathroomsMin: must be an integer
+                        carSpacesMax: must be an integer
+                        carSpacesMin: must be an integer
+                        landAreaMax: must be an integer
+                        landAreaMin: must be an integer
+                        pageSize: must be an integer
+                        propertyId: must be an integer
+                        radius: must be an integer
+                        saleValueMax: must be an integer
+                        saleValueMin: must be an integer
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Numeric value that defines the type of error that has occurred
+                          examples:
+                          - 9012
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9003
+                          description: Numeric value that defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 7002
+                          description: Numeric value that defines the type of error that has occurred
+                          examples:
+                          - 7002
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+                        parameters:
+                          type: object
+                          description: Lists the parameter/s which is causing the error, and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              examples:
+                              - cannot be found
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7002
+                      level: CRITICAL
+                      description: Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          const: 9011
+                          description: Numeric value that defines the type of error that has occurred
+                        level:
+                          const: CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7002
+                      level: CRITICAL
+                      description: Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            '
+      servers:
+      - url: https://data.proptrack.com
+      x-stoplight:
+        id: 62xcocygtuewl
+      tags:
+      - Suburb & Postcode Search
+    servers:
+    - url: https://data.proptrack.com
+x-refined-from:
+- rea-group-listings-openapi.yml
+- rea-group-transactions-openapi.yml

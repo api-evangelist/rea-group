@@ -1,0 +1,1253 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: Properties Listings API
+  description: "<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-house\"></i> &nbsp; &nbsp;Properties API</div\n    >\n\n- **[Properties/Summary](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-2-property-summary): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/summary**</br>Retrieves basic property and listing information about a property, including a single photo and current market status </br>\n- **[Properties/Attributes](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-attributes): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/attributes**</br>Retrieves comprehensive and up to date property attributes and features for a given property </br>\n- **[Properties/Listings](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-listings): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/listings**</br>Retrieves current and historic listings for a given property.</br>\n- **[Properties/Planning:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-planning) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/planning**</br>Retrieves planning and zoning information for a given property</br>\n- **[Properties/TenureType:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-tenure-type) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/tenure-type**</br>Retrieves historical property tenure information for a given property</br>\n- **[Properties/Transactions:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-transactions) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/transactions**</br>Retrieves sold transactions for a given property</br>\n\n<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-money-bill-wave\"></i> &nbsp; &nbsp;AVM Valuation API</div\n    >\n\n \n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/create-a-api-v-1-property-valuation-sale): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, either as requestType=enquiry OR requestType=origination</br>\n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), , either as ?requestType=enquiry OR ?requestType=origination</br>\n- **[Properties/Valuations/Rent](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-rent-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry OR requestType-origination**</br> Orders an Enquiry Rental valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), either as Enquiry or Origination Request Type</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale, Rental and environment hazards into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale, Rental and environment hazards into a single request</br>\n\n\n\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  contact:
+    email: support@proptrack.com
+    name: PropTrack Support
+servers:
+- url: https://data.proptrack.com
+  description: ''
+tags:
+- name: Listings
+  description: Property Listings
+paths:
+  /api/v2/properties/{propertyId}/listings:
+    get:
+      tags:
+      - Listings
+      summary: /api/v2/properties/{propertyId}/listings
+      description: Retrieves current and historic listings for a given property.
+      operationId: listings
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          examples:
+          - Bearer eyJraWQiOiJiYWRmNzUyNC1jYzBkLTQ3YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiOiJKV1QiLCJhbGc
+          example: Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+          default: Bearer {access_token}
+      - name: latestListingOnly
+        in: query
+        description: 'Return the single most recent listing '
+        allowEmptyValue: true
+        schema:
+          type: boolean
+          default: false
+          examples:
+          - true
+      - name: numberOfResults
+        in: query
+        description: Limit the number of listings returned
+        allowEmptyValue: true
+        schema:
+          type: integer
+          maximum: 25
+          default: 25
+          examples:
+          - 5
+      - name: listingType
+        in: query
+        description: Select the type of listings returned
+        allowEmptyValue: true
+        schema:
+          enum:
+          - sale
+          - rent
+          examples:
+          - sale
+          type: string
+      - name: status
+        in: query
+        description: Choose the status of the listings returned</br>Refer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)
+        allowEmptyValue: true
+        schema:
+          enum:
+          - current
+          - sold
+          - notSold
+          - leased
+          - notLeased
+          examples:
+          - sold
+          type: string
+      - name: propertyId
+        in: path
+        description: Unique identifier for a property</br>Refer to [Obtaining a propertyId](https://developer.proptrack.com.au/docs/apis/guide#obtaining-a-propertyid)
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)
+
+            '
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      listedAddress:
+                        addressIdentifier: LG/21-23 Seven Hill Road, Baulkham Hills, NSW 2153
+                        country: AU
+                        latitude: -33.762436
+                        longitude: 150.99017
+                        postcode: '2153'
+                        state: NSW
+                        street: LG/21-23 Seven Hill Road
+                        streetName: Seven Hill Road
+                        streetNumber: 21-23
+                        suburb: Baulkham Hills
+                      agency:
+                        agencyName: Hualei Properties - Sydney
+                      agent:
+                        agentName: Danny (Lei) Shi
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: strata
+                        propertySubType: apartment
+                        yearBuilt: 1920
+                        features:
+                        - builtInRobes
+                        - airConditioning
+                      auctionDate: '2021-10-18'
+                      auctionTime: 01:00:00 am
+                      daysToSale: 23
+                      description: This stunning apartment is located in the heart of Baulkham Hills, with only few minutes walking distance to Stockland Shopping Centre, close to express buses to the City and Parramatta, and ONLY minutes away from local schools.<br/><br/>Other Features Include:<br/>- 2 Spacious bedrooms with build in wardrobes, main with ensuite;<br/>- Open plan kitchen with gas cooking, oven and dishwasher;<br/>- Two tiny and bright bathrooms;<br/>- Combined dinning and lounge area throughout to the balcony;<br/>- With internal laundry and dryer;<br/>- With security intercom, secured access and car space.<br/><br/>Please contact us for inspection.
+                      firstSeenDate: '2021-09-27'
+                      listingType: sale
+                      priceDescription: Offers over $1,000,000
+                      listingPrice: 998000
+                      status: sold
+                      saleDate: '2021-10-18'
+                      saleValue: 1030000
+                      auctionResult: soldAtAuction
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                        id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2018-09-27'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      attachments:
+                        url: https://insights.proptrack.com/documents/5c4de68d682dfaa984d4470e1326707d88cb8a4ae667de309810a7aae8a7840f/statement_of_information1.pdf
+                        type: statement_of_information
+                        date: '2018-09-27'
+                required:
+                - listings
+                properties:
+                  propertyId:
+                    type: string
+                    description: Unique identifier for a property
+                    examples:
+                    - '1234567'
+                  listings:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        listingId:
+                          type: string
+                          description: Unique identifier for a listing
+                          examples:
+                          - '7654321'
+                        address:
+                          type: object
+                          x-stoplight:
+                            id: p2apob5mn0rv2
+                          properties:
+                            fullAddress:
+                              type: string
+                              x-stoplight:
+                                id: 76a20oy1p3s9m
+                              description: Listed address, as provided by the selling agent
+                              example: 1/67 Louisa Rd, Birchgrove, NSW 2041
+                            location:
+                              type: object
+                              x-stoplight:
+                                id: v35iq9k6ufysh
+                              properties:
+                                latitude:
+                                  type: number
+                                  x-stoplight:
+                                    id: c5kkrs55knx3j
+                                  format: float
+                                  description: Listed latitude, as provided by the selling agent
+                                  example: -34.05438
+                                longitude:
+                                  type: number
+                                  x-stoplight:
+                                    id: j9esc0tdqkjlr
+                                  format: float
+                                  description: Listed longitude, as provided by the selling agent
+                                  example: 151.6941
+                        attributes:
+                          type: object
+                          properties:
+                            bedrooms:
+                              type: integer
+                              description: Number of bedrooms
+                              examples:
+                              - 4
+                            bathrooms:
+                              type: integer
+                              description: Number of bathrooms
+                              examples:
+                              - 3
+                            carSpaces:
+                              type: integer
+                              description: Number of car spaces
+                              examples:
+                              - 3
+                            floorArea:
+                              type: integer
+                              description: Floor space area (measured in m2)
+                              examples:
+                              - 143
+                            landArea:
+                              type: integer
+                              description: Land space area (measured in m2)
+                              examples:
+                              - 615
+                            propertyType:
+                              description: Type of property
+                              enum:
+                              - house
+                              - unit
+                              - land
+                              type: string
+                            propertySubType:
+                              enum:
+                              - apartment
+                              - retire
+                              - serviced_apartment
+                              - studio
+                              - unit
+                              - townhouse
+                              - alpine
+                              - flat
+                              - villa
+                              - terrace
+                              - house
+                              - warehouse
+                              - duplex_semi_detached
+                              - acreage
+                              - mixedfarming
+                              - lifestyle
+                              - horticulture
+                              - dairy
+                              - farmlet
+                              - residential_land
+                              - viticulture
+                              - livestock
+                              - cropping
+                              - rural_other
+                              - unitblock
+                              - residential_other
+                              description: Refer to [Property Sub-Types](https://developer.proptrack.com.au/docs/apis/guide#property-types--property-sub-types)
+                              type: string
+                            yearBuilt:
+                              type: integer
+                              description: The year that the property was built
+                              examples:
+                              - 1920
+                            features:
+                              type: array
+                              description: Refer to [Features](https://developer.proptrack.com.au/docs/apis/guide#features)
+                              items:
+                                enum:
+                                - airConditioning
+                                - alarmSystem
+                                - balcony
+                                - broadband
+                                - builtInRobes
+                                - courtyard
+                                - deck
+                                - dishwasher
+                                - ductedCooling
+                                - ductedHeating
+                                - electricHeating
+                                - electricHotWater
+                                - evaporativeCooling
+                                - floorboards
+                                - fullyFenced
+                                - furnished
+                                - gasHeating
+                                - gasHotWater
+                                - greyWaterSystem
+                                - gym
+                                - heatPumpHotWater
+                                - hydronicHeating
+                                - insideSpa
+                                - intercom
+                                - multiDwelling
+                                - newConstruction
+                                - openFireplace
+                                - outdoorEnt
+                                - outsideSpa
+                                - payTV
+                                - petFriendly
+                                - poolAbove
+                                - poolInG
+                                - remoteGarage
+                                - reverseCycleAirCon
+                                - rumpusRoom
+                                - secureParking
+                                - shed
+                                - smokers
+                                - solarHotWater
+                                - solarPanels
+                                - spa
+                                - splitSystemAirCon
+                                - splitSystemHeating
+                                - study
+                                - tennisCourt
+                                - vacuumSystem
+                                - waterTank
+                                - workshop
+                        auctionDate:
+                          type: string
+                          description: Auction local start date based on the listing's location (only available when the listing type is sale)</br>Format `YYYY-MM-DD`
+                          format: date
+                          examples:
+                          - '2021-10-18'
+                        auctionTime:
+                          type: string
+                          description: Auction local start time based on the listing's location (only available when the listing type is sale)
+                          examples:
+                          - 01:00:00 am
+                        auctionResult:
+                          enum:
+                          - passedIn
+                          - passedInVendorBid
+                          - soldAfterAuction
+                          - soldAtAuction
+                          - soldPriorToAuction
+                          - withdrawn
+                          description: Auction outcome for sale listings</br>Refer to [Auction Results](https://developer.proptrack.com.au/docs/apis/guide#auction-results)
+                          type: string
+                        daysOnSite:
+                          type: integer
+                          description: Number of days the listing was advertised before it was delisted
+                          examples:
+                          - 23
+                        description:
+                          type: string
+                          description: Verbiage displayed on a listing that describes the listed property
+                          examples:
+                          - This stunning apartment is located in the heart of Baulkham Hills
+                        firstSeenDate:
+                          type: string
+                          description: Date that the listing was published to realestate.com.au</br>Format `YYYY-MM-DD`
+                          format: date
+                          examples:
+                          - '2021-09-27'
+                        listingType:
+                          enum:
+                          - sale
+                          - rent
+                          description: Refer to [Listing Types](https://developer.proptrack.com.au/docs/apis/guide#listing-type)
+                          type: string
+                        priceDescription:
+                          type: string
+                          description: 'Price displayed on the listing</br>
+
+                            Note: This value may not always describe the price, but a description such as "Price on request"'
+                          examples:
+                          - Offers over $1,000,000
+                          example: Offers from $1M
+                        listingPrice:
+                          type: integer
+                          description: 'Price that represents the advertised listing value. When the listing type is ''rent, then returned value is ''per week''.</br>
+
+                            **Note: This value is not permitted for display**'
+                          examples:
+                          - 998000
+                        status:
+                          enum:
+                          - current
+                          - sold
+                          - notSold
+                          - leased
+                          - notLeased
+                          description: "Listing status. \n* When listing type is `sale`, then `status` can be `current`, `sold`, `notSold`\n* When listing type is `rent` then `status` can be  `current`, `leased`, `notLeased`\nRefer to [Listing Statuses](https://developer.proptrack.com.au/docs/apis/guide#listing-status)"
+                          type: string
+                        saleDate:
+                          type: string
+                          description: Agent advised sale date</br>Format `YYYY-MM-DD`
+                          format: date
+                          examples:
+                          - '2021-10-18'
+                        saleValue:
+                          type: integer
+                          description: 'Agent advised sale value</br>
+
+                            If `"saleValueSuppressed": true`, then this field will return as `undefined`'
+                          examples:
+                          - 1030000
+                        saleValueSuppressed:
+                          type: boolean
+                          description: Flags if the `saleValue` has been suppressed
+                        source:
+                          enum:
+                          - REA
+                          description: Where the listing data has been sourced from
+                          type: string
+                        videoUrl:
+                          type: string
+                          description: Link to video that was uploaded to the listing
+                          examples:
+                          - https://www.youtube.com/embed/j4clLwXYYXA
+                        images:
+                          type: array
+                          description: Refer to [Constructing an Image URL](https://developer.proptrack.com.au/docs/apis/faqs#how-do-i-construct-an-image-url)
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                                description: The identifier associated with the image
+                                examples:
+                                - d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                              extension:
+                                enum:
+                                - jpg
+                                - gif
+                                - png
+                                - pcx
+                                - svg
+                                - webp
+                                - ppm
+                                - tiff
+                                - bmp
+                                description: File extension type
+                                type: string
+                              type:
+                                enum:
+                                - image
+                                - agency_logo
+                                - floorplan
+                                description: Image type
+                                type: string
+                              orderIndex:
+                                type: integer
+                                description: The order in which images are displayed on a listing. I.e. orderIndex '0' for an 'image' type represents the cover image
+                                examples:
+                                - 0
+                              date:
+                                type: string
+                                description: Date that the image was uploaded</br>Format `YYYY-MM-DD`
+                                format: date
+                                examples:
+                                - '2018-09-27'
+                              sha:
+                                type: string
+                                description: Secure hashing algorithm
+                                examples:
+                                - d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                        attachments:
+                          type: array
+                          items:
+                            type: object
+                            properties:
+                              url:
+                                type: string
+                                description: Web address for attachment
+                                examples:
+                                - https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                              type:
+                                enum:
+                                - statement_of_information
+                                description: Attachment type
+                                type: string
+                              date:
+                                type: string
+                                description: Date that the attachment was uploaded</br>Format `YYYY-MM-DD`
+                                format: date
+                                examples:
+                                - '2018-09-27'
+                        energyEfficiencyRating:
+                          type:
+                          - number
+                          - 'null'
+                          x-stoplight:
+                            id: ceh5dgsuippv8
+                          example: 6
+                          description: Energy Efficiency Rating for the listing. If no rating has been provided, this will be null
+                          default: null
+                        agents:
+                          type:
+                          - array
+                          - 'null'
+                          x-stoplight:
+                            id: yzxn0a8newdbo
+                          description: 'Information regarding the agent(s) associated with a listing<br>
+
+                            <span style="color:#F47853">Additional authorisation is required for access to this data point. Please refer to your account manager for more information.</span>'
+                          items:
+                            x-stoplight:
+                              id: qfr7xx4ynm3cf
+                            type: object
+                            properties:
+                              name:
+                                type: string
+                                x-stoplight:
+                                  id: 5iu9dw82c1f47
+                                description: The full name of the agent linked to a listing
+                                example: Joe Bloggs
+                              agentId:
+                                type: string
+                                x-stoplight:
+                                  id: duf05lx4kdaww
+                                description: 'The ID of the agent linked to a listing.
+
+                                  Each REA customer/account is assigned a unique 6 character identity code'
+                                example: '817222'
+                        agencies:
+                          type:
+                          - array
+                          - 'null'
+                          x-stoplight:
+                            id: ftdqnapqigs9c
+                          description: 'Information regarding the agency(s) associated with a listing<br>
+
+                            <span style="color:#F47853">Additional authorisation is required for access to this data point. Please refer to your account manager for more information.</span>'
+                          items:
+                            x-stoplight:
+                              id: brhfwa7bxwtpa
+                            type: object
+                            properties:
+                              name:
+                                type:
+                                - string
+                                - 'null'
+                                x-stoplight:
+                                  id: 9sler4qtrttuv
+                                description: The name of the agency linked to the listing
+                                example: Estate Agent Name
+                              agencyId:
+                                type: string
+                                x-stoplight:
+                                  id: k0b5rb0th5rdr
+                                description: The ID of the agency linked to a listing. Each REA customer/account is assigned a unique 6 character identity code
+                                example: AXXYYY
+              examples:
+                Sale Listing Currently on the Market:
+                  value:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: house
+                        propertySubType: house
+                        features:
+                        - builtInRobes
+                        - airConditioning
+                      auctionDate: '2022-06-24'
+                      auctionTime: 11:00:00 am
+                      description: This stunning apartment is located in the heart of Baulkham Hills
+                      firstSeenDate: '2022-06-21'
+                      listingType: sale
+                      priceDescription: Offers over $3,000,000
+                      listingPrice: 2850000
+                      status: current
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2022-06-21'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      - id: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 1
+                        date: '2022-06-21'
+                        sha: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3
+                      - id: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 2
+                        date: '2022-06-21'
+                        sha: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2022-06-21'
+                      energyEfficiencyRating: 2
+                Sold at Auction Listing:
+                  value:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: unit
+                        propertySubType: apartment
+                        yearBuilt: 1920
+                        features:
+                        - builtInRobes
+                        - airConditioning
+                      auctionDate: '2021-10-18'
+                      auctionTime: 11:00:00 am
+                      daysOnSite: 23
+                      description: This stunning apartment is located in the heart of Baulkham Hills"
+                      firstSeenDate: '2021-09-27'
+                      listingType: sale
+                      priceDescription: Offers over $1,000,000
+                      listingPrice: 998000
+                      status: sold
+                      saleDate: '2021-10-18'
+                      saleValue: 1030000
+                      saleValueSuppressed: false
+                      auctionResult: soldAtAuction
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2021-09-27'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      - id: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 1
+                        date: '2021-09-27'
+                        sha: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3
+                      - id: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 2
+                        date: '2021-09-27'
+                        sha: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2021-09-27'
+                      energyEfficiencyRating: 2
+                Leased Rental Listing:
+                  value:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 3
+                        carSpaces: 3
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: unit
+                        propertySubType: unit
+                        yearBuilt: 1920
+                        features:
+                        - airConditioning
+                        - petFriendly
+                      description: This stunning apartment is located in the heart of Baulkham Hills
+                      firstSeenDate: '2022-05-01'
+                      listingType: rent
+                      priceDescription: Offers Between $485.00 & $525.00 per week7
+                      listingPrice: 455
+                      status: leased
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2022-05-01'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2022-05-01'
+                      energyEfficiencyRating: 2
+                Rent Listing Currently on the Market:
+                  value:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: unit
+                        propertySubType: unit
+                        yearBuilt: 1920
+                        features:
+                        - builtInRobes
+                        - airConditioning
+                        - petFriendly
+                      description: This stunning apartment is located in the heart of Baulkham Hills
+                      firstSeenDate: '2021-09-27'
+                      listingType: rent
+                      priceDescription: $500 per week
+                      listingPrice: 500
+                      status: current
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2021-09-27'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      - id: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 1
+                        date: '2021-09-27'
+                        sha: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3
+                      - id: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 2
+                        date: '2021-09-27'
+                        sha: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2021-09-27'
+                      energyEfficiencyRating: 2
+                Property with Multiple Listings:
+                  value:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: house
+                        propertySubType: house
+                        yearBuilt: 1951
+                        features:
+                        - builtInRobes
+                        - airConditioning
+                      daysOnSite: 21
+                      description: Beautifully renovated victorian bungalow.
+                      firstSeenDate: '2021-09-27'
+                      listingType: sale
+                      priceDescription: Contact agent
+                      listingPrice: 1500000
+                      status: sold
+                      saleDate: '2021-10-18'
+                      saleValue: 1600000
+                      saleValueSuppressed: false
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2021-09-27'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      - id: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 1
+                        date: '2021-09-27'
+                        sha: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3
+                      - id: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 2
+                        date: '2021-09-27'
+                        sha: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2021-09-27'
+                    - listingId: '5435748'
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: house
+                        propertySubType: house
+                        yearBuilt: 1951
+                        features:
+                        - builtInRobes
+                        - airConditioning
+                        - petFriendly
+                      description: Spacious lightfilled home great for a family.
+                      firstSeenDate: '2019-07-13'
+                      listingType: rent
+                      priceDescription: $800 per week
+                      listingPrice: 800
+                      status: leased
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2019-07-13'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      - id: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 1
+                        date: '2019-07-13'
+                        sha: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3
+                      - id: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 2
+                        date: '2019-07-13'
+                        sha: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2019-07-13'
+                    - listingId: '7654321'
+                      attributes:
+                        bedrooms: 3
+                        bathrooms: 2
+                        carSpaces: 2
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: house
+                        propertySubType: house
+                        yearBuilt: 1951
+                        features:
+                        - builtInRobes
+                      auctionDate: '2017-04-15'
+                      auctionTime: 11:00:00 am
+                      daysOnSite: 4
+                      description: ''
+                      firstSeenDate: '2017-04-11'
+                      listingType: sale
+                      priceDescription: Offers over $1,000,000
+                      listingPrice: 998000
+                      status: sold
+                      saleDate: '2017-04-15'
+                      saleValue: 1030000
+                      saleValueSuppressed: false
+                      auctionResult: soldAtAuction
+                      source: REA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2017-04-11'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      - id: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 1
+                        date: '2017-04-11'
+                        sha: 34868e32cef313f5e4a6aed0daef7ae19acc95d268cc112ca3dc39cbf91be5a3
+                      - id: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 2
+                        date: '2017-04-11'
+                        sha: 14c0fb79c39d4230e6ccf89be69a2b1cc71754c307adeb4bf05a2dc4eeacdfdd
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2017-04-11'
+                      energyEfficiencyRating: 2
+                No listings data available for the property:
+                  value:
+                    listings: []
+                Listings with Agent/Agency details:
+                  value:
+                    propertyId: '1234567'
+                    listings:
+                    - listingId: '7654321'
+                      address:
+                        fullAddress: 1/67 Louisa Rd, Birchgrove, NSW 2041
+                        location:
+                          latitude: -34.05438
+                          longitude: 151.6941
+                      attributes:
+                        bedrooms: 4
+                        bathrooms: 3
+                        carSpaces: 3
+                        floorArea: 143
+                        landArea: 615
+                        propertyType: house
+                        propertySubType: apartment
+                        yearBuilt: 1920
+                        features:
+                        - airConditioning
+                      auctionDate: '2021-10-18'
+                      auctionTime: 01:00:00 am
+                      auctionResult: passedIn
+                      daysOnSite: 23
+                      description: This stunning apartment is located in the heart of Baulkham Hills
+                      firstSeenDate: '2021-09-27'
+                      listingType: sale
+                      priceDescription: Offers from $1M
+                      listingPrice: 998000
+                      status: current
+                      saleDate: '2021-10-18'
+                      saleValue: 1030000
+                      saleValueSuppressed: true
+                      source: REA
+                      videoUrl: https://www.youtube.com/embed/j4clLwXYYXA
+                      images:
+                      - id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        orderIndex: 0
+                        date: '2018-09-27'
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      attachments:
+                      - url: https://insights.proptrack.com/documents/ba1666e6d06417d8fcdc2d4f2b622396a64d2ada61326e84b21682052af40ad8/statement.pdf
+                        type: statement_of_information
+                        date: '2018-09-27'
+                      energyEfficiencyRating: null
+                      agents:
+                      - name: Joe Bloggs
+                        agentId: '817222'
+                      agencies:
+                      - name: Estate Agent Name
+                        agencyId: AXXYYY
+          headers:
+            Content-Type:
+              schema:
+                enum:
+                - application/json
+                type: string
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertieslistings) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    errors:
+                    - code: 7006
+                      description: Number of Results contains invalid characters - Please only include a numeric value
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7006
+                          - 7007
+                          - 7011
+                          - 7013
+                          - 7014
+                          - 7015
+                          description: Numeric value that defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - An incorrect field type has been entered - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            latestListingOnly:
+                              type: string
+                              examples:
+                              - must be boolean
+                            listingType:
+                              type: string
+                              examples:
+                              - must only include allowed values
+                            numberOfResults:
+                              type: string
+                              examples:
+                              - must be an integer
+                            propertyId:
+                              type: string
+                              examples:
+                              - must be an integer
+                            status:
+                              type: string
+                              examples:
+                              - must only include allowed values
+                      required:
+                      - code
+                      - description
+              examples:
+                Sample:
+                  value:
+                    errors:
+                    - code: 7006
+                      level: CRITICAL
+                      description: Invalid characters have been included - Please only include allowed characters
+                      parameters:
+                        listingType: must only include alphabetical characters
+                        status: must only include alphabetical characters
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertieslistings) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    errors:
+                    - code: 9012
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Numeric value that defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+              examples:
+                Sample:
+                  value:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertieslistings) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertieslistings) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  example-1:
+                    errors:
+                    - code: 7002
+                      description: Unknown id, the entered value does not match a record within our system - Please ensure that the correct value is added to this field
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7002
+                          description: Numeric value that defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+                      required:
+                      - code
+                      - description
+              examples:
+                Sample:
+                  value:
+                    errors:
+                    - code: 7002
+                      level: CRITICAL
+                      description: Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertieslistings) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9011
+                      level: CRITICAL
+                      description: Rate limit has been exceeded - Please try again shortly
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9011
+                          description: Numeric value that defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Briefly describes the type of error that has occured
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+              examples: {}
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertieslistings) for information on error handling.'
+      servers:
+      - url: https://data.proptrack.com

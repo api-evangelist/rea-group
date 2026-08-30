@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: OAuth 2.0 Oauth2 API
+  description: "### Authentication\n\n- **[OAuth 2.0](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token) POST /oauth2/token**</br>The token service is responsible in generating and validating the token in order to make subsuquent calls to our API services</br>\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    email: https://www.proptrack.com.au/contact-us
+    url: https://www.proptrack.com.au/contact-us
+    name: PropTrack
+servers:
+- url: https://data.proptrack.com
+tags:
+- name: Oauth2
+paths:
+  /oauth2/token:
+    post:
+      summary: /oauth2/token
+      description: "The token service, using OAuth 2.0, is responsible for generating and validating an authentication token.\n \nPrior to making an API request, a token needs to be generated using your assigned credentials. The token is required prior to making any API call.\n\nRefer to [How To Authenticate](https://developer.proptrack.com.au/docs/apis/how-to-authenticate) for further information."
+      operationId: auth-token
+      parameters:
+      - name: Authorization
+        in: header
+        description: Contains the word Basic, followed by a space and a base64-encoded(non-encrypted) string api_key:api_secret. For example, where api_key = key and api_secret = secret, then your base64-encoded Basic Header would be the below Example value.
+        required: true
+        schema:
+          type: string
+          examples:
+          - Basic a2V5OnNlY3JldA==
+      requestBody:
+        description: '> PropTrack does not support provision of client credentials as form parameters in the request body.'
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                grant_type:
+                  enum:
+                  - client_credentials
+                  description: Should always be `client_credentials`
+                  type: string
+              required:
+              - grant_type
+            examples:
+              Sample Request:
+                value:
+                  grant_type: client_credentials
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                    description: 'The access token (JWT)</br>
+
+                      Note: This will be used in the `Authorization` Header for all subsequent calls to the other Property Data API endpoints'
+                    examples:
+                    - eyJrarY0doWW9nWmJJXC9FQWlrZXNuWUk9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI2c2QxNGVpNTVkazg1OWxjcG4yZ2tnM2JuYyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoic_lLWFw
+                  token_type:
+                    enum:
+                    - Bearer
+                    description: 'The type of authentication token</br>
+
+                      Note: `Basic` will be used for the authentication token request, but all subsequent calls to the other Property Data API endpoints would use `Bearer` as the token type'
+                    examples:
+                    - Bearer
+                    type: string
+                  expires_in:
+                    enum:
+                    - 3600
+                    description: 'Allowed time to live (TTL) until a new authentication token is required (measured in seconds)</br>
+
+                      Note: This will always be equal to 3,600 seconds (1 hour)'
+                    examples:
+                    - 3600
+                    type: integer
+                required:
+                - access_token
+                - token_type
+                - expires_in
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)'
+        '403':
+          description: "<!-- theme: danger -->\n\n> #### Forbidden (403)\n\nIf you receive an error message in the following format, it could be due to your IP address being blocked. Please contact our customer support team at support@proptrack.com for further information.\n\n``` html\n<HTML>\n\n<HEAD>\n    <TITLE>Access Denied</TITLE>\n</HEAD>\n\n<BODY>\n    <H1>Access Denied</H1>\n\n    You don't have permission to access\n    \"http&#58;&#47;&#47;data&#45;sit&#46;uat&#46;proptrack&#46;com&#47;oauth2&#47;token\" on this server.<P>\n        Reference&#32;&#35;18&#46;2ff877df&#46;1709188434&#46;cf2b11c\n</BODY>\n\n</HTML>\n```"
+          content: {}
+      servers:
+      - url: https://data.proptrack.com
+      tags:
+      - Oauth2

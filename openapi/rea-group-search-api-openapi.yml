@@ -1,0 +1,1444 @@
+openapi: 3.2.0
+info:
+  version: '1.0'
+  title: Properties Search API
+  description: "<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-house\"></i> &nbsp; &nbsp;Properties API</div\n    >\n\n- **[Properties/Summary](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-2-property-summary): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/summary**</br>Retrieves basic property and listing information about a property, including a single photo and current market status </br>\n- **[Properties/Attributes](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-attributes): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/attributes**</br>Retrieves comprehensive and up to date property attributes and features for a given property </br>\n- **[Properties/Listings](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-listings): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/listings**</br>Retrieves current and historic listings for a given property.</br>\n- **[Properties/Planning:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-planning) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/planning**</br>Retrieves planning and zoning information for a given property</br>\n- **[Properties/TenureType:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-tenure-type) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/tenure-type**</br>Retrieves historical property tenure information for a given property</br>\n- **[Properties/Transactions:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-transactions) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/transactions**</br>Retrieves sold transactions for a given property</br>\n\n<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-money-bill-wave\"></i> &nbsp; &nbsp;AVM Valuation API</div\n    >\n\n \n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/create-a-api-v-1-property-valuation-sale): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, either as requestType=enquiry OR requestType=origination</br>\n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), , either as ?requestType=enquiry OR ?requestType=origination</br>\n- **[Properties/Valuations/Rent](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-rent-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry OR requestType-origination**</br> Orders an Enquiry Rental valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), either as Enquiry or Origination Request Type</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale, Rental and environment hazards into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale, Rental and environment hazards into a single request</br>\n\n\n\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  contact:
+    email: support@proptrack.com
+    name: PropTrack Support
+servers:
+- url: https://data.proptrack.com
+  description: ''
+tags:
+- name: Search
+  description: Property Search
+paths:
+  /api/v2/properties/summaries/search:
+    parameters: []
+    get:
+      summary: /api/v2/properties/summaries/search
+      tags:
+      - Search
+      parameters:
+      - schema:
+          type: string
+          example: Bearer xxxxx
+        in: header
+        name: Authorization
+        description: Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication
+        required: true
+      - name: bedroomsMin
+        in: query
+        description: Minimum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: bedroomsMax
+        in: query
+        description: Maximum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 4
+      - name: bathroomsMin
+        in: query
+        description: Minimum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: bathroomsMax
+        in: query
+        description: Maximum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: carSpacesMin
+        in: query
+        description: Minimum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: carSpacesMax
+        in: query
+        description: Maximum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 2
+      - name: landAreaMin
+        in: query
+        description: Minimum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 550
+      - name: landAreaMax
+        in: query
+        description: Maximum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 650
+      - schema:
+          type: integer
+        in: query
+        name: livingAreaMin
+        description: Minimum size of living area (measured in m2)
+        example: 300
+      - schema:
+          type: integer
+        in: query
+        name: livingAreaMax
+        description: Maximum size of living area (measured in m2)
+        example: 850
+      - name: propertyType
+        in: query
+        description: Classification of the type of property
+        schema:
+          type: string
+          enum:
+          - house
+          - unit
+          example: house
+      - name: afterPageCursor
+        in: query
+        description: 'The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          example: Wzc3Ni4yMTQ2NjY0NTE4Mzk5LDM0Nzg0MDFd
+      - name: beforePageCursor
+        in: query
+        description: 'The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          example: WzU0LjgwNTYxNjE0MzQ5MTM4LDE0MDY5NjMzXQ==
+      - name: pageSize
+        in: query
+        description: The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+        schema:
+          type: integer
+          maximum: 25
+          default: 25
+          examples:
+          - 20
+          example: 20
+      - schema:
+          type: string
+          example: -37.822170,144.945660,-37.807524,144.971410
+        in: query
+        name: boundingBox
+        description: 'Bounding box for map-based filtering. Must provide exactly 4 numbers.<br>Provided as comma separated values in the format `minLat`,`minLong`,`maxLat`,`maxLong`<br>Note: If `suburb`, `postcode` and `state` are not supplied, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+        in: query
+        name: suburb
+        description: 'Name of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+        in: query
+        name: postcode
+        description: 'Postcode of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+          enum:
+          - act
+          - nsw
+          - nt
+          - qld
+          - sa
+          - tas
+          - vic
+          - wa
+          examples:
+          - vic
+        in: query
+        name: state
+        description: 'State or territory within Australia<br>Note: If `boundingBox` is not supplied, then this field is <span style="color:#F47853">required</span>'
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  numberOfResults:
+                    type: integer
+                    description: Total number of transactions that match the search criteria<br>A maximum of 10,000 results will be returned for a query.
+                    examples:
+                    - 552
+                    maximum: 10000
+                  pageInfo:
+                    type: object
+                    description: Page information for the purpose of pagination</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+                    properties:
+                      pageStartCursor:
+                        type:
+                        - string
+                        - 'null'
+                        description: Unique cursor identifier for the first transaction on the page
+                        examples:
+                        - WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor:
+                        type:
+                        - string
+                        - 'null'
+                        description: Unique cursor identifier for the last transaction on the page
+                        examples:
+                        - LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage:
+                        type: boolean
+                        description: Defines if a preceding page of transactions exists
+                      hasNextPage:
+                        type: boolean
+                        description: Defines if a proceeding page of transactions exists
+                  propertySummaries:
+                    type: array
+                    items:
+                      type: object
+                      x-stoplight:
+                        id: p36wtjcypqhf4
+                      properties:
+                        propertyId:
+                          type: integer
+                          x-stoplight:
+                            id: q7xkn5piafan2
+                          example: 8282053
+                        address:
+                          type:
+                          - object
+                          - 'null'
+                          description: Property Address
+                          properties:
+                            fullAddress:
+                              type: string
+                              x-stoplight:
+                                id: 5zcjnr5bylbwx
+                              example: 12 Bowman Cl, Araluen, NT 0870
+                            unitNumber:
+                              type:
+                              - string
+                              - 'null'
+                              x-stoplight:
+                                id: 9con9e51ism0o
+                            streetNumber:
+                              type: string
+                              x-stoplight:
+                                id: clbko5io646v2
+                              example: '12'
+                            streetName:
+                              type: string
+                              x-stoplight:
+                                id: bw4tvscj30lip
+                              example: BOWMAN
+                            streetType:
+                              type: string
+                              x-stoplight:
+                                id: 5hlu0340u8gpp
+                              example: CL
+                            suburb:
+                              type: string
+                              x-stoplight:
+                                id: y963qnnh405jj
+                              example: ARALUEN
+                            postcode:
+                              type: string
+                              x-stoplight:
+                                id: uq3cgq7x70fo4
+                              example: 0870
+                            state:
+                              type: string
+                              x-stoplight:
+                                id: flar8wdlxumz6
+                              example: NT
+                            location:
+                              type: object
+                              x-stoplight:
+                                id: 132d2f6rincwh
+                              properties:
+                                latitude:
+                                  type:
+                                  - number
+                                  - 'null'
+                                  x-stoplight:
+                                    id: f8wfuuk7n91yk
+                                  example: 133.85501
+                                  format: float
+                                longitude:
+                                  type:
+                                  - number
+                                  - 'null'
+                                  x-stoplight:
+                                    id: zaalil8hrli8m
+                                  example: -23.705948
+                                  format: float
+                        parcels:
+                          type: array
+                          x-stoplight:
+                            id: 24rsyk8dpera2
+                          items:
+                            x-stoplight:
+                              id: 63vj2frykduvj
+                            type: object
+                            properties:
+                              planNumber:
+                                type:
+                                - string
+                                - 'null'
+                                x-stoplight:
+                                  id: 6e2ymedhn84zu
+                                example: '786836'
+                              lotNumber:
+                                type:
+                                - string
+                                - 'null'
+                                x-stoplight:
+                                  id: tq7r5qvr3a6e7
+                                example: '124'
+                        attributes:
+                          x-stoplight:
+                            id: vjprtbbmqi2np
+                          type:
+                          - object
+                          - 'null'
+                          description: Basic property attributes
+                          properties:
+                            bedrooms:
+                              type:
+                              - object
+                              - 'null'
+                              x-stoplight:
+                                id: a9zi5xc7xzkq4
+                              properties:
+                                value:
+                                  type: integer
+                                  x-stoplight:
+                                    id: 7j4k9ktnp6k1p
+                                  example: 3
+                                sourceDate:
+                                  type: string
+                                  x-stoplight:
+                                    id: muwf0padjmu3h
+                                  example: '2022-12-10'
+                            bathrooms:
+                              type:
+                              - object
+                              - 'null'
+                              x-stoplight:
+                                id: xevadvjoh94ay
+                              properties:
+                                value:
+                                  type: integer
+                                  x-stoplight:
+                                    id: swxxo7b3t5mb5
+                                  example: 2
+                                sourceDate:
+                                  type: string
+                                  x-stoplight:
+                                    id: 1ugflicke9iyp
+                                  example: '2022-12-10'
+                            carSpaces:
+                              type:
+                              - object
+                              - 'null'
+                              x-stoplight:
+                                id: xsjmdm722qhd5
+                              properties:
+                                value:
+                                  type: integer
+                                  x-stoplight:
+                                    id: 3li5c1kkva2wp
+                                  example: 1
+                                sourceDate:
+                                  type: string
+                                  x-stoplight:
+                                    id: wembyvpemf5o7
+                                  example: '2022-12-10'
+                            livingArea:
+                              type:
+                              - object
+                              - 'null'
+                              x-stoplight:
+                                id: 15pp9fi95kye2
+                              properties:
+                                value:
+                                  type: integer
+                                  x-stoplight:
+                                    id: ocuiz9j6z7027
+                                  example: 212
+                                sourceDate:
+                                  type: string
+                                  x-stoplight:
+                                    id: q3y3d06efheqo
+                                  example: '2022-12-10'
+                            landArea:
+                              type:
+                              - object
+                              - 'null'
+                              x-stoplight:
+                                id: gthtn8avs8wa3
+                              properties:
+                                value:
+                                  type: integer
+                                  x-stoplight:
+                                    id: m30y4qhfnj76b
+                                  example: 851
+                                sourceDate:
+                                  type: string
+                                  x-stoplight:
+                                    id: xqqywt8o9wvwv
+                                  example: '2022-12-10'
+                            propertyType:
+                              type:
+                              - object
+                              - 'null'
+                              x-stoplight:
+                                id: z0t66hhmpp8wz
+                              properties:
+                                value:
+                                  x-stoplight:
+                                    id: grgym9ry9c8r6
+                                  example: house
+                                  enum:
+                                  - house
+                                  - unit
+                                sourceDate:
+                                  type: string
+                                  x-stoplight:
+                                    id: z8gu3rlabpvwj
+                                  example: '2022-12-10'
+                        recentSale:
+                          x-stoplight:
+                            id: bzgjd39mjrswl
+                          type:
+                          - object
+                          - 'null'
+                          description: Provides recent (within the past 6 months) sale information for a given `propertyId`<br>If no sale has occurred in the past 6 months, this will return null
+                          required:
+                          - transactionDate
+                          properties:
+                            transactionDate:
+                              type: string
+                              x-stoplight:
+                                id: nx1tp23jizhhl
+                              example: '2023-01-25'
+                              description: 'Date associated with the transaction event<br>
+
+                                Format `YYYY-MM-DD`'
+                            sourceCategory:
+                              x-stoplight:
+                                id: h9kp1j8pjeow5
+                              enum:
+                              - vg
+                              - agency
+                              - other
+                              example: agency
+                              description: Source of transaction event data
+                            saleValue:
+                              type:
+                              - integer
+                              - 'null'
+                              x-stoplight:
+                                id: u84r5p1m5l7ce
+                              example: 1350000
+                              description: 'Price associated with the transaction event <br>
+
+                                Note: suppressed transaction prices will be returned as undefined'
+                            saleValueSuppressed:
+                              type: boolean
+                              x-stoplight:
+                                id: lbyc1qn1xqquq
+                            listingId:
+                              type:
+                              - string
+                              - 'null'
+                              x-stoplight:
+                                id: b7ph3gbozq8ui
+                              description: Unique identifier for a listing
+                              example: '7654321'
+                        image:
+                          x-stoplight:
+                            id: r13ft7o6ua5w1
+                          type:
+                          - object
+                          - 'null'
+                          description: Provides a single property image for use in property summary experiences.<br>Refer to [Constructing an Image URL](https://developer.proptrack.com.au/docs/apis/faqs#how-do-i-construct-an-image-url) for details on how to use this image object.
+                          properties:
+                            id:
+                              type:
+                              - string
+                              - 'null'
+                              x-stoplight:
+                                id: m42v0vlg3d598
+                              example: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                            extension:
+                              x-stoplight:
+                                id: nh7hr644wuhdy
+                              enum:
+                              - jpg
+                              - gif
+                              - png
+                              - pcx
+                              - svg
+                              - webp
+                              - ppm
+                              - tiff
+                              - nb
+                              example: jpg
+                            type:
+                              x-stoplight:
+                                id: fzuov6qm2la6r
+                              enum:
+                              - image
+                              - floorplan
+                              example: image
+                            sha:
+                              type:
+                              - string
+                              - 'null'
+                              x-stoplight:
+                                id: ijzdeupkgpgb6
+                              example: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                        activeListings:
+                          type: array
+                          x-stoplight:
+                            id: iy5usz8oixn50
+                          description: 'Provides an array of active rent or sale listings<br>
+
+                            If the property has no active listings an empty array is returned'
+                          items:
+                            x-stoplight:
+                              id: g4y5gi13rs9ug
+                            type: object
+                            properties:
+                              listingId:
+                                type: string
+                                x-stoplight:
+                                  id: z06m8u4iy713w
+                                description: Unique identifier for a listing
+                                example: '7654321'
+                              priceDescription:
+                                type: string
+                                x-stoplight:
+                                  id: vsrr1i7q7tcux
+                                description: 'Price displayed on the listing<br>
+
+                                  Note: This value may not always describe the price, but a description such as "Price on request"'
+                              listingType:
+                                x-stoplight:
+                                  id: zxq2nm9ehbw57
+                                enum:
+                                - sale
+                                - rent
+                                example: sale
+                                description: Refer to [Listing Types](https://developer.proptrack.com.au/docs/apis/guide#listing-type)
+                        marketStatus:
+                          x-stoplight:
+                            id: koi63swv45oo7
+                          example:
+                          - recentlySold
+                          type: array
+                          description: 'Providex the market status for the property<br>
+
+                            Note that a property may have multiple active listings, as well as a recent sale, resulting in an accumulation of statuses. These will be sorted alphabetically in the response.'
+                          items:
+                            x-stoplight:
+                              id: pfcz17ab6v8ac
+                            enum:
+                            - offMarket
+                            - forSale
+                            - forRent
+                            - recentlySold
+                            example: recentlySold
+              examples:
+                Example 1:
+                  value:
+                    numberOfResults: 552
+                    pageInfo:
+                      pageStartCursor: WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor: LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage: true
+                      hasNextPage: true
+                    propertySummaries:
+                    - propertyId: 8282053
+                      address:
+                        fullAddress: 12 Bowman Cl, Araluen, NT 0870
+                        unitNumber: string
+                        streetNumber: '12'
+                        streetName: BOWMAN
+                        streetType: CL
+                        suburb: ARALUEN
+                        postcode: 0870
+                        state: NT
+                        location:
+                          latitude: 133.85501
+                          longitude: -23.705948
+                      parcels:
+                      - planNumber: '786836'
+                        lotNumber: '124'
+                      attributes:
+                        bedrooms:
+                          value: 3
+                          sourceDate: '2022-12-10'
+                        bathrooms:
+                          value: 2
+                          sourceDate: '2022-12-10'
+                        carSpaces:
+                          value: 1
+                          sourceDate: '2022-12-10'
+                        livingArea:
+                          value: 212
+                          sourceDate: '2022-12-10'
+                        landArea:
+                          value: 851
+                          sourceDate: '2022-12-10'
+                        propertyType:
+                          value: house
+                          sourceDate: '2022-12-10'
+                      recentSale:
+                        transactionDate: '2023-01-25'
+                        sourceCategory: vg
+                        saleValue: 1350000
+                        saleValueSuppressed: true
+                        listingId: '7654321'
+                      image:
+                        id: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4.jpg
+                        extension: jpg
+                        type: image
+                        sha: d300f1a395373a8622bb0fa1b2ec53d42951d5d363defc75d18a479b06d800c4
+                      activeListings:
+                      - listingId: '7654321'
+                        priceDescription: string
+                        listingType: sale
+                      marketStatus:
+                      - recentlySold
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 0
+                      level: string
+                      description: string
+                      parameters:
+                        propertyId: string
+                        sourceCategory: string
+                        latestTransactionOnly: string
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7004
+                          - 7007
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - An incorrect field type has been included - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              examples:
+                              - must be an integer
+                            sourceCategory:
+                              type: string
+                              examples:
+                              - must only include an allowed value
+                            latestTransactionOnly:
+                              type: string
+                              examples:
+                              - must be boolean
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7002
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+      operationId: get-api-v2-properties-summaries-search
+      x-stoplight:
+        id: ektnh73fbragv
+      description: 'Residential Properties search by suburb and postcode and/or bounding box, which returns paged property summaries (max 25 per page)<br>
+
+        This endpoint is ideal for property research, where the results are to be displayed in a list.
+
+
+        #### Data Attribution Notice:
+
+        This endpoint contains State and Territory data which may be subject to  approval by the relevant government department.
+
+        Due to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.
+
+        <br><br>
+
+        Disclaimer Types: `vg`,`geoscape`,`serviceAgent`
+
+
+        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.'
+  /api/v2/properties/geopoints/search:
+    parameters: []
+    get:
+      summary: /api/v2/properties/geopoints/search
+      tags:
+      - Search
+      parameters:
+      - schema:
+          type: string
+          example: Bearer xxxxx
+        in: header
+        name: Authorization
+        description: Provide your bearer token as a string, in the format Bearer {access_token} in the Authorization Header Refer to Authentication
+        required: true
+      - name: bedroomsMin
+        in: query
+        description: Minimum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: bedroomsMax
+        in: query
+        description: Maximum number of bedrooms
+        schema:
+          type: integer
+          examples:
+          - 4
+      - name: bathroomsMin
+        in: query
+        description: Minimum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: bathroomsMax
+        in: query
+        description: Maximum number of bathrooms
+        schema:
+          type: integer
+          examples:
+          - 3
+      - name: carSpacesMin
+        in: query
+        description: Minimum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 1
+      - name: carSpacesMax
+        in: query
+        description: Maximum number of car spaces
+        schema:
+          type: integer
+          examples:
+          - 2
+      - name: landAreaMin
+        in: query
+        description: Minimum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 550
+      - name: landAreaMax
+        in: query
+        description: Maximum size of land space area (measured in m2)
+        schema:
+          type: integer
+          examples:
+          - 650
+      - schema:
+          type: integer
+        in: query
+        name: livingAreaMin
+        description: Minimum size of living area (measured in m2)
+        example: 300
+      - schema:
+          type: integer
+        in: query
+        name: livingAreaMax
+        description: Maximum size of living area (measured in m2)
+        example: 850
+      - name: propertyType
+        in: query
+        description: Classification of the type of property
+        schema:
+          type: string
+          enum:
+          - house
+          - unit
+          example: house
+      - name: afterPageCursor
+        in: query
+        description: 'The page starting position as one transaction after the defined cursor</br>Note: Cannot be used in conjunction with `beforePageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          example: Wzc3Ni4yMTQ2NjY0NTE4Mzk5LDM0Nzg0MDFd
+      - name: beforePageCursor
+        in: query
+        description: 'The page starting position as one transaction prior to the defined cursor</br>Note: Cannot be used in conjunction with `afterPageCursor`</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)'
+        schema:
+          type: string
+          example: WzU0LjgwNTYxNjE0MzQ5MTM4LDE0MDY5NjMzXQ==
+      - name: pageSize
+        in: query
+        description: The maximum number of transaction results that will be returned for each page</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+        schema:
+          type: integer
+          default: 25
+          examples:
+          - 20
+          example: 20
+          maximum: 200
+      - schema:
+          type: string
+          example: -37.822170,144.945660,-37.807524,144.971410
+        in: query
+        name: boundingBox
+        description: 'Bounding box for map-based filtering.<br>Provided as comma separated values in the format `minLat`,`minLong`,`maxLat`,`maxLong`. Must provide exactly 4 numbers.<br>Note: If `suburb`, `postcode` and `state` are not supplied, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+        in: query
+        name: suburb
+        description: 'Name of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+        in: query
+        name: postcode
+        description: 'Postcode of the suburb being searched<br>Note: If `boundingBox` is not supplied, then this field is <span style="color:#F47853">required</span>'
+      - schema:
+          type: string
+          enum:
+          - act
+          - nsw
+          - nt
+          - qld
+          - sa
+          - tas
+          - vic
+          - wa
+          examples:
+          - vic
+        in: query
+        name: state
+        description: 'State or territory within Australia<br>Note: If `boundingBox` is not supplied, then this field is <span style="color:#F47853">required</span>'
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  numberOfResults:
+                    type: integer
+                    description: Total number of transactions that match the search criteria<br>A maximum of 10,000 results will be returned for a query.
+                    examples:
+                    - 552
+                    maximum: 10000
+                  pageInfo:
+                    type: object
+                    description: Page information for the purpose of pagination</br>Refer to [Pagination](https://developer.proptrack.com.au/docs/apis/pagination)
+                    properties:
+                      pageStartCursor:
+                        type:
+                        - string
+                        - 'null'
+                        description: Unique cursor identifier for the first transaction on the page
+                        examples:
+                        - WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor:
+                        type:
+                        - string
+                        - 'null'
+                        description: Unique cursor identifier for the last transaction on the page
+                        examples:
+                        - LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage:
+                        type: boolean
+                        description: Defines if a preceding page of transactions exists
+                      hasNextPage:
+                        type: boolean
+                        description: Defines if a proceeding page of transactions exists
+                  propertyGeopoints:
+                    type: array
+                    description: Paged array of the geopoints for properties that match the search and filter criteria
+                    items:
+                      type: object
+                      x-stoplight:
+                        id: shiaa5vzsmnqx
+                      properties:
+                        propertyId:
+                          type: integer
+                          example: 8282053
+                        address:
+                          type: object
+                          x-stoplight:
+                            id: usiq0hy89c8zd
+                          properties:
+                            location:
+                              type: object
+                              properties:
+                                latitude:
+                                  type: number
+                                  example: 133.85501
+                                  format: float
+                                longitude:
+                                  type: number
+                                  example: -23.705948
+                                  format: float
+              examples:
+                Example 1:
+                  value:
+                    numberOfResults: 552
+                    pageInfo:
+                      pageStartCursor: WzAuNTMxNTMzNzg3ODA4MDI2OCw3MTk5NDVd
+                      pageEndCursor: LzRuPDMxNTMzNzg3OYF4MDI2OCw3MTk5NRAm
+                      hasPreviousPage: true
+                      hasNextPage: true
+                    propertyGeopoints:
+                    - propertyId: 8282053
+                      address:
+                        location:
+                          latitude: 133.85501
+                          longitude: -23.705948
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                enum:
+                - application/json
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 0
+                      level: string
+                      description: string
+                      parameters:
+                        propertyId: string
+                        sourceCategory: string
+                        latestTransactionOnly: string
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7004
+                          - 7007
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - An incorrect field type has been included - Please ensure that all values are using the correct field type
+                        parameters:
+                          type: object
+                          description: A set of parameters that are causing the error and the rule that was invoked
+                          properties:
+                            propertyId:
+                              type: string
+                              examples:
+                              - must be an integer
+                            sourceCategory:
+                              type: string
+                              examples:
+                              - must only include an allowed value
+                            latestTransactionOnly:
+                              type: string
+                              examples:
+                              - must be boolean
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 9003
+                          description: Defines the type of error that has occurred
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '404':
+          description: '<!-- theme: danger -->
+
+
+            > #### Not Found (404)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 7002
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Unknown id, the included value does not match a record within our system - Please ensure that the correct value is added to this field
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid Token Authentication Request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#propertiestransactions) for information on error handling.'
+      operationId: get-api-v2-properties-geopoints-pins
+      description: 'Residential Properties search by suburb and postcode and/or bounding box, which returns lat/longs for each matching propertyI. (max 200 per page)<br>
+
+        This endpoint is ideal for property research, where the results are to be displayed as pins on a map.
+
+
+        Additional property information for individual properties can be retrieved from other PropTrack APIs utilising the provided propertyId.
+
+
+        #### Data Attribution Notice:
+
+        This endpoint contains State and Territory data which may be subject to  approval by the relevant government department.
+
+        Due to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.
+
+        <br><br>
+
+        Disclaimer Types: `vg`,`geoscape`,`serviceAgent`
+
+
+        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.
+
+        '
+      x-stoplight:
+        id: cku33zeq67ty6

@@ -1,0 +1,489 @@
+openapi: 3.2.0
+info:
+  version: v2
+  title: Address Suggest API
+  description: "- **[Address/Match](https://developer.proptrack.com.au/docs/apis/address/operations/get-a-api-v-2-address-match): GET /api/v2/address/match**</br>Matches to a corresponding record on PropTrack's master address file based on a given address string</br>\n- **[Address/Suggest](https://developer.proptrack.com.au/docs/apis/address/operations/get-a-api-v-2-address-suggest): GET /api/v2/address/suggest**</br>Suggests a list of addresses based on a given address string</br>\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  termsOfService: https://developer.proptrack.com.au/docs/apis/terms-of-use
+  contact:
+    name: PropTrack
+    url: https://www.proptrack.com.au/contact-us
+    email: https://www.proptrack.com.au/contact-us
+servers:
+- url: https://data.proptrack.com
+  description: ''
+tags:
+- name: Suggest
+paths:
+  /api/v2/address/suggest:
+    get:
+      tags:
+      - Suggest
+      summary: /api/v2/address/suggest
+      description: Suggests a list of addresses based on a given address string.
+      operationId: address.suggest
+      parameters:
+      - name: Authorization
+        in: header
+        description: Provide your bearer token as a string, in the format `Bearer {access_token}` in the Authorization Header</br>Refer to [Authentication](https://developer.proptrack.com.au/docs/apis/authentication/operations/create-a-oauth-2-token)
+        required: true
+        schema:
+          type: string
+          examples:
+          - Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+          default: Bearer {access_token}
+          example: Bearer jyJraWQiOiJiYWRmKzUyNC1jYzBkLTQ9YWUtYTAzMC02MjBlYTE3ZDNlZjMiLCJ0eXAiO
+      - name: q
+        in: query
+        description: Address on which to search</br>Refer to [minimum required input](https://developer.proptrack.com.au/docs/apis/faqs#what-is-the-minimum-required-input)
+        required: true
+        schema:
+          type: string
+          examples:
+          - 1/67 Louisa Rd
+      - name: numberOfResults
+        in: query
+        description: Defines the maximum number of results that are returned as suggested addresses
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 25
+          default: 25
+          examples:
+          - 25
+      responses:
+        '200':
+          description: '<!-- theme: success -->
+
+
+            > #### Success (200)'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    propertyId:
+                      type: string
+                      description: Unique identifier for a property
+                      examples:
+                      - '1026185'
+                    address:
+                      type: object
+                      properties:
+                        fullAddress:
+                          type: string
+                          description: Full address of the suggested property
+                          examples:
+                          - 1/67 Louisa Rd, Birchgrove, NSW 2041
+                        unitNumber:
+                          type:
+                          - string
+                          - 'null'
+                          description: Unit number of the suggested property
+                          examples:
+                          - UNIT 1
+                        streetNumber:
+                          type: string
+                          description: Street number of the suggested property
+                          examples:
+                          - '67'
+                        streetName:
+                          type: string
+                          description: Street name of the suggested property
+                          examples:
+                          - LOUISA
+                        streetType:
+                          type: string
+                          description: Street type of the suggested property
+                          examples:
+                          - RD
+                        suburb:
+                          type: string
+                          description: Suburb of the suggested property
+                          examples:
+                          - BIRCHGROVE
+                        postcode:
+                          type: integer
+                          description: Postcode of the suggested property
+                          examples:
+                          - 2041
+                        state:
+                          type: string
+                          description: State of the suggested property
+                          examples:
+                          - NSW
+                x-examples:
+                  Example 1:
+                  - propertyId: '1234567'
+                    address:
+                      fullAddress: 1/260 COBBITTY ROAD COBBITTY NSW 2570
+                      unitNumber: UNIT 1
+                      streetNumber: '260'
+                      streetName: COBBITTY
+                      streetType: RD
+                      suburb: COBBITTY
+                      postcode: 2570
+                      state: NSW
+                  - propertyId: '1234568'
+                    address:
+                      fullAddress: 261 COBBITTY ROAD COBBITTY NSW 2570
+                      unitNumber: null
+                      streetNumber: '261'
+                      streetName: COBBITTY
+                      streetType: RD
+                      suburb: COBBITTY
+                      postcode: 2570
+                      state: NSW
+                  - propertyId: '1234570'
+                    address:
+                      fullAddress: 263 COBBITTY ROAD COBBITTY NSW 2570
+                      unitNumber: null
+                      streetNumber: '263'
+                      streetName: COBBITTY
+                      streetType: RD
+                      suburb: COBBITTY
+                      postcode: 2570
+                      state: NSW
+                  - propertyId: '1234571'
+                    address:
+                      fullAddress: 264 COBBITTY ROAD COBBITTY NSW 2570
+                      unitNumber: null
+                      streetNumber: '264'
+                      streetName: COBBITTY
+                      streetType: RD
+                      suburb: COBBITTY
+                      postcode: 2570
+                      state: NSW
+                  - propertyId: '1234572'
+                    address:
+                      fullAddress: 265 COBBITTY ROAD COBBITTY NSW 2570
+                      unitNumber: null
+                      streetNumber: '265'
+                      streetName: COBBITTY
+                      streetType: RD
+                      suburb: COBBITTY
+                      postcode: 2570
+                      state: NSW
+              examples:
+                Example with 5 results:
+                  value:
+                  - propertyId: '1026185'
+                    address:
+                      fullAddress: 1/67 Louisa Rd, Birchgrove, NSW 2041
+                      unitNumber: UNIT 1
+                      streetNumber: '67'
+                      streetName: LOUISA
+                      streetType: RD
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                  - propertyId: '1026131'
+                    address:
+                      fullAddress: 1/2-6 Louisa Rd, Birchgrove, NSW 2041
+                      unitNumber: UNIT 1
+                      streetNumber: 2-6
+                      streetName: LOUISA
+                      streetType: RD
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                  - propertyId: '1026183'
+                    address:
+                      fullAddress: 1/66 Louisa Rd, Birchgrove, NSW 2041
+                      unitNumber: UNIT 1
+                      streetNumber: '66'
+                      streetName: LOUISA
+                      streetType: RD
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                  - propertyId: '1026203'
+                    address:
+                      fullAddress: 1/68 Louisa Rd, Birchgrove, NSW 2041
+                      unitNumber: UNIT 1
+                      streetNumber: '68'
+                      streetName: LOUISA
+                      streetType: RD
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                  - propertyId: '2443521'
+                    address:
+                      fullAddress: 1/97 Louisa Rd, Birchgrove, NSW 2041
+                      unitNumber: UNIT 1
+                      streetNumber: '97'
+                      streetName: LOUISA
+                      streetType: RD
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                Non-Unit Property with 3 Results:
+                  value:
+                  - propertyId: '8412322'
+                    address:
+                      fullAddress: 146 Short St, Birchgrove, NSW 2041
+                      unitNumber: null
+                      streetNumber: '146'
+                      streetName: SHORT
+                      streetType: ST
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                  - propertyId: '8412307'
+                    address:
+                      fullAddress: 140 Short St, Birchgrove, NSW 2041
+                      unitNumber: null
+                      streetNumber: '140'
+                      streetName: SHORT
+                      streetType: ST
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                  - propertyId: '8412306'
+                    address:
+                      fullAddress: 142 Short St, Birchgrove, NSW 2041
+                      unitNumber: null
+                      streetNumber: '142'
+                      streetName: SHORT
+                      streetType: ST
+                      suburb: BIRCHGROVE
+                      postcode: 2041
+                      state: NSW
+                No Suggestions Found:
+                  value: []
+          headers:
+            Content-Type:
+              schema:
+                enum:
+                - application/json
+                type: string
+              description: Media type of the resource
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '400':
+          description: '<!-- theme: danger -->
+
+
+            > #### Bad Request (400)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 7004
+                      level: CRITICAL
+                      description: Required parameter is missing - Please ensure that all required parameters have been included
+                      parameters:
+                        q: q is a required parameter
+                        numberOfResults: numberOfResults must not exceed a value of 25
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          enum:
+                          - 7004
+                          - 7006
+                          - 7008
+                          - 7011
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 7004
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Required parameter is missing - Please ensure that all required parameters have been included
+                        parameters:
+                          type: object
+                          description: Lists the parameter/s which is causing the error, and the rule that was invoked
+                          properties:
+                            q:
+                              type: string
+                              examples:
+                              - q is a required parameter
+                            numberOfResults:
+                              type: string
+                              examples:
+                              - numberOfResults must not exceed a value of 25
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '401':
+          description: '<!-- theme: danger -->
+
+
+            > #### Unauthorized (401)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9012
+                          - 9016
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 9012
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '403':
+          description: '<!-- theme: danger -->
+
+
+            > #### Forbidden (403)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9003
+                      description: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          type: integer
+                          description: Defines the type of error that has occurred
+                          enum:
+                          - 9003
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          example: Access denied - Please contact our customer support team at support@proptrack.com for access to this endpoint
+                      required:
+                      - code
+                      - description
+        '429':
+          description: '<!-- theme: danger -->
+
+
+            > #### Too Many Requests (429)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.'
+          content:
+            application/json:
+              schema:
+                type: object
+                x-examples:
+                  Example 1:
+                    errors:
+                    - code: 9012
+                      level: CRITICAL
+                      description: Authentication token validation has failed - Please ensure that a valid token authentication request has been completed before trying again
+                properties:
+                  errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        code:
+                          enum:
+                          - 9011
+                          description: Defines the type of error that has occurred
+                          examples:
+                          - 9011
+                          type: integer
+                        level:
+                          enum:
+                          - CRITICAL
+                          description: 'Defines the severity of the error</br>Note: If level is `CRITICAL` then a successful response will not be returned'
+                          examples:
+                          - CRITICAL
+                          x-deprecated: true
+                          type: string
+                        description:
+                          type: string
+                          description: Overview of the error that has occurred
+                          examples:
+                          - Rate limit has been exceeded - Please try again shortly
+                      required:
+                      - code
+                      - description
+          headers:
+            X-Transaction-Id:
+              schema:
+                type: string
+                example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
+              description: Should be quoted as a reference for any support request/unexpected error
+        '500':
+          description: '<!-- theme: danger -->
+
+
+            > #### Internal Server Error (500)
+
+
+            Refer to [Status Codes & Error Handling](https://developer.proptrack.com.au/docs/apis/error-handling#addresssuggest) for information on error handling.'
+      servers:
+      - url: https://data.proptrack.com
