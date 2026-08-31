@@ -600,6 +600,8 @@ apis:
   humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
   baseURL: https://data.proptrack.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth2
   properties:
   - type: OpenAPI
@@ -1251,6 +1253,8 @@ apis:
   humanURL: https://developer.proptrack.com.au/docs/apis/how-to-authenticate
   baseURL: https://data.proptrack.com
   tags:
+  - Transaction
+  tags_raw:
   - Transactions
   properties:
   - type: OpenAPI
