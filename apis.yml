@@ -63,7 +63,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/rea-group.
 tags:
 - Real-Estate
 - Property Data
-- Valuations
+- Valuation
 - AVM
 - Market Insights
 - Listings
@@ -121,7 +121,7 @@ apis:
 - aid: rea-group:realestate-partner-portal
   name: realestate.com.au Partner Portal
   tags:
-  - Partner
+  - Partners
   - Onboarding
   - Enquiries
   - Real-Estate
@@ -1253,6 +1253,8 @@ apis:
   humanURL: https://partner.realestate.com.au/
   baseURL: https://reaxml.realestate.com.au
   tags:
+  - Authentication
+  tags_raw:
   - Oauth2
   properties:
   - type: OpenAPI
