@@ -1424,7 +1424,8 @@ paths:
       operationId: get-api-v2-listings-search-suburb-and-postcode
       x-stoplight:
         id: xqvuozzk6pabj
-      description: 'Retrieves current and historic listings within a given suburb. <br>
+      description: 'Retrieves current and historic listings within a given suburb.
+
 
         The suburb search area is identified by a combination of state, suburb name, and up to 3 postcodes.'
       servers:
@@ -1638,21 +1639,17 @@ paths:
       description: 'Retrieves a list of sold transactions within a given suburb and postcode
 
 
-
         #### Data Attribution Notice:
 
-        This endpoint contains State and Territory data which may be subject to  approval by the relevant government department.
+        This endpoint contains State and Territory data which may be subject to approval by the relevant government department.
 
         Due to licensing agreement requirements, it is necessary to include data disclaimers and PropTrack branding when displaying this data in a user experience or printable output.
 
-        <br><br>
 
         Disclaimer Types: `vg`,`serviceAgent`
 
 
-        Please refer to [Disclaimers and Branding](https://developer.proptrack.com.au/docs/apis/disclaimersBranding) for more information on implementing data source disclaimers in your experience.
-
-        '
+        Please refer to Disclaimers and Branding for more information on implementing data source disclaimers in your experience.'
       operationId: get-transactions-propertyId-suburb
       parameters:
       - name: Authorization

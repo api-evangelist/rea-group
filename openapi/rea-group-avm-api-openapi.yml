@@ -2,7 +2,22 @@ openapi: 3.2.0
 info:
   version: '1.0'
   title: Properties AVM API
-  description: "<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-house\"></i> &nbsp; &nbsp;Properties API</div\n    >\n\n- **[Properties/Summary](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-2-property-summary): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/summary**</br>Retrieves basic property and listing information about a property, including a single photo and current market status </br>\n- **[Properties/Attributes](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-attributes): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/attributes**</br>Retrieves comprehensive and up to date property attributes and features for a given property </br>\n- **[Properties/Listings](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-listings): <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/listings**</br>Retrieves current and historic listings for a given property.</br>\n- **[Properties/Planning:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-planning) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/planning**</br>Retrieves planning and zoning information for a given property</br>\n- **[Properties/TenureType:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-tenure-type) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/tenure-type**</br>Retrieves historical property tenure information for a given property</br>\n- **[Properties/Transactions:](https://developer.proptrack.com.au/docs/apis/properties/operations/list-api-v-2-property-transactions) <span style=\"color:#28a745;\">**GET**</span> /api/v2/properties/{propertyId}/transactions**</br>Retrieves sold transactions for a given property</br>\n\n<div class=\"cta\" style=\"display: flex; justify-content: flex-start; flex-wrap: wrap; margin-top: 0px; margin-bottom: 30px\">\n  <div\n      style=\"\n        text-align: left;\n        min-width: 1000px;\n        font-family: 'Open Sans', Arial, sans-serif;\n        padding: 13px 20px;\n        color: rgb(255, 255, 255);\n        font-size: 16px;\n        line-height: 28px;\n        font-weight: 700;\n        border-radius: 4px;\n        background: #0078BD;\n        text-decoration: none;\n        margin-right: 20px;\n        margin-top: 10px;\n      \"\n      ><i class=\"fa-solid fa-money-bill-wave\"></i> &nbsp; &nbsp;AVM Valuation API</div\n    >\n\n \n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/create-a-api-v-1-property-valuation-sale): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, either as requestType=enquiry OR requestType=origination</br>\n- **[Properties/Valuations/Sale](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale**</br> Orders a sale valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), , either as ?requestType=enquiry OR ?requestType=origination</br>\n- **[Properties/Valuations/Rent](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-rent-request-type-enquiry-or-request-type-origination): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry OR requestType-origination**</br> Orders an Enquiry Rental valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), either as Enquiry or Origination Request Type</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Plus](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-plus): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=plus**</br> Orders a AVM Plus valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale and Rental into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**Post**</span> /api/v1/properties/valuations/sale ~pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given address string, combines Sale, Rental and environment hazards into a single request</br>\n- **[Properties/Valuations/Sale~AVM Pro](https://developer.proptrack.com.au/docs/apis/properties/operations/get-a-api-v-1-property-valuation-sale-request-type-pro): <span style=\"color:#28a745;\">**GET**</span> /api/v1/properties/{propertyId}/valuations/sale?requestType=pro**</br> Orders a AVM Pro valuation from PropTrack's Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale, Rental and environment hazards into a single request</br>\n\n\n\n</br>\n\n<div class=\"section-about\" style=\"margin-top: 40px\">\n  <div class=\"page-section__inner\" style=\"margin: 0px auto; max-width: 1250px; -webkit-font-smoothing: antialiased\"  >\n    <div\n      class=\"cards-list\"\n      style=\"\n        display: flex;\n        flex-wrap: wrap;\n        justify-content: space-between;\n        margin: 20px 0px;\n        max-width: 900px;\n        padding: px;\n        box-sizing: 1px;\n        border-box: 1px;\n        border-color: black;\n      \"\n    >\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-badge-check\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Getting Started\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n           Start your journey\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/api-trials\"\n              > API Trials</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/how-to-authenticate\">Authentication</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/error-handling\">Error Handling</b></a>\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-list\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          API References\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Explore our knowledge base\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/guide\"\n              >API Guide</a\n            >\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rate-limits\">Rate Limiting</a></li>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/getting-support\"\n              >Getting Support</a\n            >\n          </li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-files\" style=\"font-size: 24px; color: #F7F8F9;\"></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Useful Docs\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Helpful resources\n        </div>\n        <ul>\n          <li>\n            <a href=\"https://developer.proptrack.com.au/docs/apis/pagination\">Pagination</a>\n          </li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/rules-engine\">Rules Engine</a></li>\n          <li><a href=\"https://developer.proptrack.com.au/docs/apis/faqs\">FAQs</a></li>\n        </ul>\n      </div>\n      <div\n        class=\"cards-list__item\"\n        style=\"\n          margin-top: 16px;\n          padding: 0px 16px;\n          max-width: 250px;\n          min-width: 200px;\n          margin-bottom: 0px;\n          box-sizing: border-box;\n        \"\n      >\n        <div\n          class=\"card__thumb\"\n          style=\"height: 49px; width: 50px; background-color: #0078BD; border-radius: 4px; padding: 4px; display: flex; align-items: center; justify-content: center;\"\n        >\n          <i class=\"fa-regular fa-tag\" style=\"font-size: 24px; color: #F7F8F9;\"></i></i>\n        </div>\n        <div\n          class=\"card__title\"\n          style=\"\n            margin-top: 22px;\n            font-family: Graphik, Arial, sans-serif;\n            font-size: 24px;\n            line-height: 36px;\n            font-weight: 700;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Get in Touch\n        </div>\n        <div\n          class=\"card__text\"\n          style=\"\n            margin-top: 8px;\n            font-size: 14px;\n            line-height: 24px;\n            font-family: 'Open Sans', Arial, sans-serif;\n            font-weight: 400;\n            color: rgb(44, 44, 44);\n          \"\n        >\n          Connect with us\n        </div>\n        <ul>\n          <li><a href=\"https://www.proptrack.com.au/contact-us/sales/\">Contact Sales</a></li>\n          <li><a href=\"https://www.proptrack.com.au/support/contact-support/\">Contact Support</a></li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>"
+  description: 'Properties API
+
+
+    - **Properties/Summary: **GET** /api/v2/properties/{propertyId}/summary**
+
+    Retrieves basic property and listing information about a property, including a single photo and current market status
+
+
+    - **Properties/Attributes: **GET** /api/v2/properties/{propertyId}/attributes**
+
+    Retrieves comprehensive and up to date property attributes and features for a given property
+
+
+    - **Properties/Listings: **GET** /api/v2/properties/{propertyId}/listings**
+
+    Retrieves current and historic listings…'
   contact:
     email: support@proptrack.com
     name: PropTrack Support
@@ -19,7 +34,35 @@ paths:
       tags:
       - AVM
       summary: /api/v1/properties/valuations/sale ~ Enquiry or Origination
-      description: "<span style=\"color:#0078BD;\">**AVM Sale - by address:**</span> Get a property price estimate from PropTrack’s Sale Automated Valuation Model (AVM) using the property address. \n\nThe service returns the most up-to-date value estimate, just provide the <span style=\"color:#0078BD;\">fullAddress OR address</span>, only provide either not both in the same request.\n\nThis operation supports two <span style=\"color:#0078BD;\">requestType</span> options within the request body based estimates. Each type uses its own request body parameters, and customers can be enabled for one or both:\n\n- <p style=\"color:#0078BD\"><b>Enquiry:</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=enquiry</span></span> </p> a simplified version only returning the property valuation details \n ![Sale_Enquiry](../assets/images/AVM-origination.png)\n- <p style=\"color:#0078BD\"><b>Origination:</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=origination</span></span> </p> offers a detailed view of what goes into the price estimate including attributes, and supporting valuation data, with the option to obtain a Sale PDF report\n\n ![Sale_Origination](../assets/images/AVM-SALE-Origination.png)\n\n"
+      description: '**AVM Sale - by address:** Get a property price estimate from PropTrack’s Sale Automated Valuation Model (AVM) using the property address.
+
+
+        The service returns the most up-to-date value estimate, just provide the fullAddress OR address, only provide either not both in the same request.
+
+
+        This operation supports two requestType options within the request body based estimates. Each type uses its own request body parameters, and customers can be enabled for one or both:
+
+
+        -
+
+        Enquiry:
+
+        requestType=enquiry
+
+        a simplified version only returning the property valuation details
+
+        !Sale_Enquiry
+
+        -
+
+        Origination:
+
+        requestType=origination
+
+        offers a detailed view of what goes into the price estimate including attributes, and supporting valuation data, with the option to obtain a Sale PDF report
+
+
+        !Sale_Origination'
       operationId: v1-properties-valuation-sale
       parameters:
       - name: Authorization
@@ -917,8 +960,36 @@ paths:
     get:
       tags:
       - AVM
-      summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
-      description: "<span style=\"color:#0078BD;\">**AVM Sale - by propertyId:**</span>Get a property price estimate from PropTrack’s Sale Automated Valuation Model (AVM) using a propertyId. \n\nThe service returns the most up-to-date value estimate for the specified <span style=\"color:#0078BD;\">propertyId</span>.\n\nThis operation supports two <span style=\"color:#0078BD;\">requestType</span> options for <span style=\"color:#0078BD;\">propertyId</span> based estimates. Each type uses its own parameters, and customers can be enabled for one or both:\n\n\n- <p style=\"color:#0078BD\"><b>Enquiry:</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=enquiry</span></span> </p> a simplified version only returning the property valuation details \n ![Sale_Enquiry](../assets/images/AVM-origination.png)\n- <p style=\"color:#0078BD\"><b>Origination:</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=origination</span></span> </p> offers a detailed view of what goes into the price estimate including attributes, and supporting valuation data, with the option to obtain a Sale PDF report\n\n ![Sale_Origination](../assets/images/AVM-SALE-Origination.png)\n\n"
+      summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or…
+      description: '**AVM Sale - by propertyId:**Get a property price estimate from PropTrack’s Sale Automated Valuation Model (AVM) using a propertyId.
+
+
+        The service returns the most up-to-date value estimate for the specified propertyId.
+
+
+        This operation supports two requestType options for propertyId based estimates. Each type uses its own parameters, and customers can be enabled for one or both:
+
+
+        -
+
+        Enquiry:
+
+        requestType=enquiry
+
+        a simplified version only returning the property valuation details
+
+        !Sale_Enquiry
+
+        -
+
+        Origination:
+
+        requestType=origination
+
+        offers a detailed view of what goes into the price estimate including attributes, and supporting valuation data, with the option to obtain a Sale PDF report
+
+
+        !Sale_Origination'
       operationId: avm-propertyId
       parameters:
       - name: Authorization
@@ -1510,7 +1581,7 @@ paths:
       required: true
       description: Property Id from address match/suggest
     get:
-      summary: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
+      summary: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or…
       tags:
       - AVM
       responses:
@@ -2058,7 +2129,35 @@ paths:
       operationId: avm-propertyId-enquiry
       x-stoplight:
         id: aggs2cg1cnt2m
-      description: "<span style=\"color:#0078BD;\">**AVM Rental - by propertyId:**</span>Get a Rental estimate from Proptrack’s Rental Automated Valuation Model (AVM).\n\nJust provide the  <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: lite-bold;\">propertyId</span> to get the most up-to-date rental estimate.\n\nWe offer two distinct <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: lite-bold;\">requestType</span>, for the <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: lite-bold;\">rent</span> estimates, each type is operated by unique query parameters:\n\n\n- <p style=\"color:#0078BD\"><b>Enquiry:</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=enquiry</span></span> </p> a simplified version only returning the property valuation details... \n ![Rental_Enquiry](../assets/images/enquiry-rent.png)\n- <p style=\"color:#0078BD\"><b>Origination:</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=origination</span></span> </p> offers a detailed view of what goes into the price estimate including attributes, yield, leased values and supporting valuation data, with the option to obtain a Rental PDF report\n\n![Rental_Origination](../assets/images/AVM-Rental-Origination.png) \n\n\n\n "
+      description: '**AVM Rental - by propertyId:**Get a Rental estimate from Proptrack’s Rental Automated Valuation Model (AVM).
+
+
+        Just provide the propertyId to get the most up-to-date rental estimate.
+
+
+        We offer two distinct requestType, for the rent estimates, each type is operated by unique query parameters:
+
+
+        -
+
+        Enquiry:
+
+        requestType=enquiry
+
+        a simplified version only returning the property valuation details...
+
+        !Rental_Enquiry
+
+        -
+
+        Origination:
+
+        requestType=origination
+
+        offers a detailed view of what goes into the price estimate including attributes, yield, leased values and supporting valuation data, with the option to obtain a Rental PDF report
+
+
+        !Rental_Origination'
       parameters:
       - schema:
           type: string
@@ -2084,7 +2183,25 @@ paths:
       tags:
       - AVM
       summary: /api/v1/properties/valuations/sale ~ Plus
-      description: "<span style=\"color:#0078BD;\">**AVM Plus - by address:**</span> delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales and rental insights into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**fullAddress or address**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n\n- <p style=\"color:#0078BD\"><b>Plus</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=plus</span></span> </p> offers a detailed view of what goes into the price estimate for sale and rental including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Plus PDF report\n\n<span style=\"color:#0078BD\"><b>Note:</B></span> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=plus</span></span> to be included in the body of the request!\n\n ![AVM Plus](../assets/images/AVM-Plus.png)\n"
+      description: '**AVM Plus - by address:** delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales and rental insights into a single, streamlined API endpoint.
+
+
+        By supplying a **fullAddress or address** , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.
+
+
+        -
+
+        Plus
+
+        requestType=plus
+
+        offers a detailed view of what goes into the price estimate for sale and rental including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Plus PDF report
+
+
+        Note: requestType=plus to be included in the body of the request!
+
+
+        !AVM Plus'
       operationId: v1-properties-valuation-sale-plus
       parameters:
       - name: Authorization
@@ -3147,7 +3264,22 @@ paths:
       tags:
       - AVM
       summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
-      description: " <span style=\"color:#0078BD;\">**AVM Plus - by propertyId:**</span>  delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales and rental insights into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**propertyId**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n- <p style=\"color:#0078BD\"><b>Plus</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=plus</span></span> </p> offers a detailed view of what goes into the price estimate for sale and rental including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Plus PDF report\n\n ![AVM Plus](../assets/images/AVM-Plus.png)\n\n"
+      description: '**AVM Plus - by propertyId:** delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales and rental insights into a single, streamlined API endpoint.
+
+
+        By supplying a **propertyId** , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.
+
+
+        -
+
+        Plus
+
+        requestType=plus
+
+        offers a detailed view of what goes into the price estimate for sale and rental including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Plus PDF report
+
+
+        !AVM Plus'
       operationId: avm-propertyId-plus
       parameters:
       - name: Authorization
@@ -3957,7 +4089,25 @@ paths:
       tags:
       - AVM
       summary: /api/v1/properties/valuations/sale ~ Pro
-      description: "<span style=\"color:#0078BD;\">**AVM Pro - by address:**</span> delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales, rental and environmental hazards insights into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**fullAddress or address**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n- <p style=\"color:#0078BD\"><b>Plus</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=pro</span></span> </p> offers a detailed view of what goes into the price estimate for sale, rental, rental and environmental hazards including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Pro PDF report\n\n\n<span style=\"color:#0078BD\"><b>Note:</B></span> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=pro</span></span> to be included in the body of the request!\n\n\n ![AVM Pro](../assets/images/AVM_PRO.png)\n"
+      description: '**AVM Pro - by address:** delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales, rental and environmental hazards insights into a single, streamlined API endpoint.
+
+
+        By supplying a **fullAddress or address** , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.
+
+
+        -
+
+        Plus
+
+        requestType=pro
+
+        offers a detailed view of what goes into the price estimate for sale, rental, rental and environmental hazards including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Pro PDF report
+
+
+        Note: requestType=pro to be included in the body of the request!
+
+
+        !AVM Pro'
       operationId: v1-properties-valuation-sale-pro
       parameters:
       - name: Authorization
@@ -5027,7 +5177,22 @@ paths:
       tags:
       - AVM
       summary: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
-      description: " <span style=\"color:#0078BD;\">**AVM Pro - by propertyId:**</span>  delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales, rental and environmental hazards into a single, streamlined API endpoint.\n\nBy supplying a <span style=\"color:#0078BD;\">**propertyId**</span> , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.\n\n\n- <p style=\"color:#0078BD\"><b>Pro</B></p> <span style=\"background-color: #f5f5f5; padding: 0.2em; font-weight: bold;\">requestType=pro</span></span> </p> offers a detailed view of what goes into the price estimate for sale, rental and environmental hazards including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Pro PDF report\n\n ![AVM Pro](../assets/images/AVM_PRO.png)\n\n"
+      description: '**AVM Pro - by propertyId:** delivers a comprehensive property price estimate powered by PropTrack’s advanced Automated Valuation Model. It consolidates both sales, rental and environmental hazards into a single, streamlined API endpoint.
+
+
+        By supplying a **propertyId** , you can retrieve the latest and most accurate valuation available, enabling faster decisions and seamless integration into your business workflows.
+
+
+        -
+
+        Pro
+
+        requestType=pro
+
+        offers a detailed view of what goes into the price estimate for sale, rental and environmental hazards including attributes, rental yield, leased values and supporting valuation data, with the option to obtain a AVM Pro PDF report
+
+
+        !AVM Pro'
       operationId: avm-propertyId-pro
       parameters:
       - name: Authorization

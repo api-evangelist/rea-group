@@ -2,7 +2,10 @@ openapi: 3.2.0
 info:
   version: v1
   title: Coming Soon Schools API
-  description: PropTrack's upcoming API Endpoints will be published here during development. <BR><br><strong>Note:</strong> Documented schemas for these API's are not final, and are subject to change.
+  description: 'PropTrack''s upcoming API Endpoints will be published here during development.
+
+
+    Note: Documented schemas for these API''s are not final, and are subject to change.'
   contact: {}
 servers:
 - url: https://data.proptrack.com
