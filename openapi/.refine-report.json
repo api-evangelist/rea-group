@@ -36,9 +36,7 @@
     "rea-group-avm-report-api-openapi.yml",
     "rea-group-property-report-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -72,8 +70,7 @@
     "rea-group-transactions-openapi.yml: declared missing tag: Suburb & Postcode Search",
     "tag 'Point & Radius Search' spans 2 source specs (rea-group-listings-openapi.yml, rea-group-transactions-openapi.yml): per-path servers applied",
     "tag 'Suburb & Postcode Search' spans 2 source specs (rea-group-listings-openapi.yml, rea-group-transactions-openapi.yml): per-path servers applied",
-    "superseded outputs removed: rea-group-o-auth2-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 25 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "rea-group-attributes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -85,7 +82,7 @@
     "rea-group-listing-by-listingid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "rea-group-listings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "rea-group-match-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "rea-group-o-auth2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "rea-group-oauth2-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "rea-group-planning-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "rea-group-point-radius-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "rea-group-property-report-api-openapi.yml: previously refined output, superseded by openapi/_original/",
