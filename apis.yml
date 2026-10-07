@@ -1303,6 +1303,8 @@ apis:
   - type: Sandbox
     url: https://stoplight.io/mocks/proptrack/apis/639882521
 common:
+- type: Pricing
+  url: https://developer.proptrack.com.au/docs/apis/api-trials
 - type: CapabilityMap
   url: capabilities/rea-group-capability-edges.yml
   name: REA Group Business Capability Map
