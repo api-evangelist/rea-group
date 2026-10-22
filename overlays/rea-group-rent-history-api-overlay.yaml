@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Market Rent History API
+  version: 1.0.0
+extends: openapi/rea-group-rent-history-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-rent-history-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-rent-history-api
+      api_name: Market Rent History API
+      family: PropTrack data API
+      documentation: https://developer.proptrack.com.au/docs/apis/home
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/api/v2/market/rent/historic/{metric}'].get
+  update:
+    x-agent-tool:
+      candidate_name: rent_history_api_market_rent_history
+      read_only: true
+      side_effects: none

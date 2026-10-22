@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Listing Upload API
+  version: 1.0.0
+extends: openapi/rea-group-upload-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-upload-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-upload-api
+      api_name: Listing Upload API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/listing/v1/upload'].post
+  update:
+    x-agent-tool:
+      candidate_name: upload_api_uploadxml
+      read_only: false
+      side_effects: writes provider state

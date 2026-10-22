@@ -1,10 +1,18 @@
 ---
-name: Resolve an Australian address to a PropTrack property profile
-description: >-
-  Turn a free-text Australian address into a PropTrack propertyId, then assemble
-  the full property profile - attributes, listing history, sold transactions,
-  planning and tenure - from the PropTrack Property Data APIs.
-api: openapi/rea-group-properties-openapi.yml
+name: resolve-address-to-property
+title: Resolve an Australian address to a PropTrack property profile
+description: Turn a free-text Australian address into a PropTrack propertyId, then assemble the full property profile
+  - attributes, listing history, sold transactions, planning and tenure - from the PropTrack Property Data APIs.
+api:
+- openapi/rea-group-attributes-api-openapi.yml
+- openapi/rea-group-disclaimers-api-openapi.yml
+- openapi/rea-group-listings-api-openapi.yml
+- openapi/rea-group-match-api-openapi.yml
+- openapi/rea-group-planning-api-openapi.yml
+- openapi/rea-group-suggest-api-openapi.yml
+- openapi/rea-group-summary-api-openapi.yml
+- openapi/rea-group-tenure-type-api-openapi.yml
+- openapi/rea-group-transactions-api-openapi.yml
 operations:
 - address.match
 - address.suggest

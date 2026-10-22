@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-realcommercial-products-schema.json",
+  "title": "realcommercial_products",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-pricing-openapi.yml#/components/schemas/realcommercial_products",
+  "type": "object",
+  "required": [
+    "agencyName",
+    "state",
+    "suburb",
+    "postcode",
+    "subscription",
+    "productPrice",
+    "productOption"
+  ],
+  "properties": {
+    "agencyName": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "ACT",
+        "NSW",
+        "NT",
+        "QLD",
+        "SA",
+        "TAS",
+        "VIC",
+        "WA"
+      ]
+    },
+    "suburb": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "subscription": {
+      "type": "string",
+      "enum": [
+        "Diamond",
+        "Flexi",
+        "Access",
+        "Standard"
+      ]
+    },
+    "productPrice": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "section",
+          "priceOptions",
+          "newPrice"
+        ],
+        "properties": {
+          "section": {
+            "type": "string",
+            "enum": [
+              "sale",
+              "lease"
+            ]
+          },
+          "priceOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/realcommercial_price_option"
+            }
+          },
+          "newPrice": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "required": [
+              "title",
+              "priceOptions"
+            ],
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "priceOptions": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/realcommercial_price_option"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "productOption": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "listingTier",
+          "listingPrice",
+          "description"
+        ],
+        "properties": {
+          "listingTier": {
+            "$ref": "#/$defs/realcommercial_listing_tier"
+          },
+          "listingPrice": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "realcommercial_listing_tier": {
+      "type": "string",
+      "enum": [
+        "elite_plus",
+        "elite",
+        "enhanced",
+        "basic"
+      ]
+    },
+    "realcommercial_price_option": {
+      "type": "object",
+      "required": [
+        "listingTier",
+        "isCurrentContract",
+        "priceDetails"
+      ],
+      "properties": {
+        "listingTier": {
+          "$ref": "#/$defs/realcommercial_listing_tier"
+        },
+        "isCurrentContract": {
+          "type": "boolean"
+        },
+        "priceDetails": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "duration",
+              "price",
+              "rackPrice",
+              "isContracted"
+            ],
+            "properties": {
+              "duration": {
+                "type": "integer"
+              },
+              "price": {
+                "type": "number",
+                "format": "double"
+              },
+              "rackPrice": {
+                "type": "number",
+                "format": "double"
+              },
+              "isContracted": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

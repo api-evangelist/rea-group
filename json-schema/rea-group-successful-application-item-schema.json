@@ -1,0 +1,535 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-successful-application-item-schema.json",
+  "title": "SuccessfulApplicationItem",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-successful-applicant-openapi.yml#/components/schemas/SuccessfulApplicationItem",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "$ref": "#/$defs/Embedded"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "AddressHistory": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string",
+          "description": "The street and street number of the property"
+        },
+        "cityOrSuburb": {
+          "type": "string",
+          "description": "The locality the property is in"
+        },
+        "postcode": {
+          "type": "string",
+          "description": "The postcode for the property"
+        },
+        "stateOrTerritoryOrProvince": {
+          "type": "string",
+          "description": "The state or territory the property is in"
+        },
+        "country": {
+          "type": "object",
+          "description": "The country the property is in",
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The ISO code for the country"
+            },
+            "name": {
+              "type": "string",
+              "description": "The official name for the country"
+            }
+          }
+        }
+      },
+      "title": "AddressHistory"
+    },
+    "Applicant": {
+      "type": "object",
+      "properties": {
+        "applicantREAId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier for the applicant within REA's scope"
+        },
+        "primaryApplicant": {
+          "type": "boolean",
+          "description": "A flag indicating the applicant is responsible for initiating the application"
+        },
+        "applicantContactDetails": {
+          "$ref": "#/$defs/ApplicantContactDetails"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The birth date of the applicant in YYYY-MM-DD format"
+        },
+        "hasOrWillInspect": {
+          "type": "boolean",
+          "description": "A flag indicating whether the applicant has visited the property or intends to"
+        },
+        "inspectionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date the applicant visited the property in YYYY-MM-DD format"
+        },
+        "residentialHistory": {
+          "type": "array",
+          "description": "A list of properties the applicant previously resided at. Maybe empty if the applicant has no residential history",
+          "items": {
+            "$ref": "#/$defs/ResidentialHistory"
+          }
+        },
+        "employmentHistory": {
+          "type": "array",
+          "description": "A list of records showing where the applicant has been employed. Maybe empty if the applicant has no employment history",
+          "items": {
+            "$ref": "#/$defs/EmploymentHistory"
+          }
+        },
+        "income": {
+          "$ref": "#/$defs/Income"
+        },
+        "coverLetter": {
+          "type": "string",
+          "description": "A letter of introduction written by the applicant for the purposes of the application"
+        },
+        "identityDocuments": {
+          "type": "array",
+          "description": "A list of documents used by the applicant for proof of identity",
+          "items": {
+            "$ref": "#/$defs/ApplicantDocument"
+          }
+        },
+        "pets": {
+          "$ref": "#/$defs/Pets"
+        },
+        "tenantVerification": {
+          "$ref": "#/$defs/ApplicantDocument"
+        },
+        "otherOccupants": {
+          "type": "array",
+          "description": "A list of occupants who will be at the property but are not lease-holders",
+          "items": {
+            "$ref": "#/$defs/Occupant"
+          }
+        }
+      },
+      "title": "Applicant"
+    },
+    "ApplicantContactDetails": {
+      "type": "object",
+      "description": "The basic contact information for the applicant",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The applicant's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The applicant's last or family name"
+        },
+        "email": {
+          "type": "string",
+          "description": "The applicant's email address"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "The applicant's phone number"
+        }
+      },
+      "title": "ApplicantContactDetails"
+    },
+    "ApplicantDocument": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the file uploaded by the applicant"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of document uploaded",
+          "enum": [
+            "INCOME",
+            "AU_DRIVERS_LICENCE",
+            "AU_PASSPORT",
+            "OVERSEAS_PASSPORT",
+            "TENANT_VERIFICATION_1FORM",
+            "OTHER",
+            "ADDITIONAL"
+          ]
+        }
+      },
+      "title": "ApplicantDocument"
+    },
+    "ApplicantReference": {
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "The full name for the referee"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The email address for the referee"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "format": "phone",
+          "description": "The contact phone number for the referee"
+        },
+        "relationship": {
+          "type": "string",
+          "description": "The relationship between referee and applicant",
+          "enum": [
+            "PROPERTY_MANAGER",
+            "PRIVATE_LANDLORD",
+            "PARENTS",
+            "OTHER",
+            "HOMER_OWNER",
+            "OWNER",
+            "MANAGER",
+            "ACCOUNTANT"
+          ]
+        }
+      },
+      "title": "ApplicantReference"
+    },
+    "ApplicationDetails": {
+      "type": "object",
+      "description": "A summary of the status of the application",
+      "properties": {
+        "leaseTerm": {
+          "type": "integer",
+          "description": "The lease term submitted by the primary applicant"
+        },
+        "leaseStartDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date submitted by the primary applicant when they want to move in"
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time when the application was published"
+        },
+        "statusLastUpdatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The time when the application was marked successful"
+        }
+      },
+      "title": "ApplicationDetails"
+    },
+    "Embedded": {
+      "type": "object",
+      "properties": {
+        "successfulApplications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SuccessfulApplicationSummary"
+          }
+        },
+        "application": {
+          "$ref": "#/$defs/SuccessfulApplication"
+        }
+      }
+    },
+    "EmploymentHistory": {
+      "type": "object",
+      "properties": {
+        "isCurrent": {
+          "type": "boolean",
+          "description": "A flag indicating if the record shows the current employment details for the applicant"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of employment the record relates to",
+          "enum": [
+            "EMPLOYED",
+            "SELF_EMPLOYED",
+            "UNEMPLOYED"
+          ]
+        },
+        "abnOrAcn": {
+          "type": "string",
+          "description": "The ABN or ACN the applicant uses for their self-employed business"
+        },
+        "workRole": {
+          "type": "object",
+          "description": "A record that describes the work the applicant is engaged in",
+          "properties": {
+            "occupation": {
+              "type": "string",
+              "description": "The occupation the applicant engaged in for the employment period"
+            },
+            "companyName": {
+              "type": "string",
+              "description": "The name of the company the applicant was employed with"
+            }
+          }
+        },
+        "employmentReference": {
+          "$ref": "#/$defs/ApplicantReference"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date from when the applicant started the employment in the format YYYY-MM"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the applicant finished the employment in the format YYYY-MM"
+        }
+      },
+      "title": "EmploymentHistory"
+    },
+    "Income": {
+      "type": "object",
+      "description": "A structure that describes proof of income for the applicant",
+      "properties": {
+        "hasIncome": {
+          "type": "boolean",
+          "description": "A flag indicating the applicant has provided proof of income"
+        },
+        "incomeRecords": {
+          "type": "array",
+          "description": "A list of income records to show the types of income the applicant receives",
+          "items": {
+            "$ref": "#/$defs/IncomeRecord"
+          }
+        },
+        "documents": {
+          "type": "array",
+          "description": "A list of documents to show proof of income",
+          "items": {
+            "$ref": "#/$defs/ApplicantDocument"
+          }
+        }
+      },
+      "title": "Income"
+    },
+    "IncomeRecord": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of income received by the applicant",
+          "enum": [
+            "SALARY",
+            "FAMILY_ALLOWANCE",
+            "PENSIONS",
+            "EXISTING_RENTAL_INCOME",
+            "PROPOSED_RENTAL_INCOME",
+            "SUPERANNUATION_INCOME",
+            "DIVIDEND_INCOME",
+            "OVERTIME",
+            "COMMISSION",
+            "CHILD_SUPPORT",
+            "BONUS",
+            "OTHER",
+            "NO_INCOME"
+          ]
+        },
+        "amount": {
+          "type": "integer",
+          "description": "The value of the income per cycle"
+        },
+        "frequency": {
+          "type": "string",
+          "description": "How often this income is received by the applicant",
+          "enum": [
+            "YEARLY",
+            "MONTHLY",
+            "FORTNIGHTLY",
+            "WEEKLY"
+          ]
+        }
+      },
+      "title": "IncomeRecord"
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Successful Applicant API resource"
+        }
+      },
+      "title": "Links"
+    },
+    "ListingAddress": {
+      "type": "object",
+      "properties": {
+        "postCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "streetAddress": {
+          "type": "string"
+        },
+        "suburb": {
+          "type": "string"
+        }
+      },
+      "title": "ListingAddress"
+    },
+    "ListingDetails": {
+      "type": "object",
+      "description": "A summary of the listing",
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/ListingAddress"
+        },
+        "reaAgencyId": {
+          "type": "string",
+          "description": "Unique identifier representing the listing agency"
+        },
+        "reaListingId": {
+          "type": "string",
+          "description": "Unique identifier representing the property"
+        }
+      },
+      "title": "ListingDetails"
+    },
+    "Occupant": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The full name of the occupant"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "CHILD",
+            "ADULT"
+          ]
+        },
+        "age": {
+          "type": "integer",
+          "description": "The age in years of the child"
+        }
+      }
+    },
+    "Pets": {
+      "type": "object",
+      "description": "A structure that describes the pets the applicant owns",
+      "properties": {
+        "cats": {
+          "type": "integer",
+          "description": "The number of cats the applicant owns. A value of 4 indicates four or more"
+        },
+        "dogs": {
+          "type": "integer",
+          "description": "The number of dogs the applicant owns. A value of 4 indicates four or more"
+        },
+        "other": {
+          "type": "integer",
+          "description": "The number of other animals the applicant owns. A value of 4 indicates four or more"
+        },
+        "description": {
+          "type": "string",
+          "description": "A description of the pets the applicant owns"
+        }
+      },
+      "title": "Pets"
+    },
+    "ResidentialHistory": {
+      "type": "object",
+      "properties": {
+        "isCurrent": {
+          "type": "boolean",
+          "description": "A flag indicating if the address record is the present home for the applicant"
+        },
+        "address": {
+          "$ref": "#/$defs/AddressHistory"
+        },
+        "addressReference": {
+          "$ref": "#/$defs/ApplicantReference"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date from when the applicant occupied the property in the format YYYY-MM"
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date until when the applicant occupied the property in the format YYYY-MM"
+        }
+      },
+      "title": "ResidentialHistory"
+    },
+    "SuccessfulApplication": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier for the rental application"
+        },
+        "applicationDocumentsUrl": {
+          "type": "string",
+          "description": "URL to fetch the documents attached to this application from this API as a PDF download"
+        },
+        "applicationDetails": {
+          "$ref": "#/$defs/ApplicationDetails"
+        },
+        "listingDetails": {
+          "$ref": "#/$defs/ListingDetails"
+        },
+        "applicants": {
+          "type": "array",
+          "description": "The applicants for the lease",
+          "items": {
+            "$ref": "#/$defs/Applicant"
+          }
+        }
+      },
+      "title": "SuccessfulApplication"
+    },
+    "SuccessfulApplicationSummary": {
+      "type": "object",
+      "properties": {
+        "applicationId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier for the rental application"
+        },
+        "applicationDetailsUrl": {
+          "type": "string",
+          "description": "URL to fetch the application data from this API"
+        },
+        "applicationDetails": {
+          "$ref": "#/$defs/ApplicationDetails"
+        },
+        "listingDetails": {
+          "$ref": "#/$defs/ListingDetails"
+        }
+      },
+      "title": "SuccessfulApplication"
+    }
+  }
+}

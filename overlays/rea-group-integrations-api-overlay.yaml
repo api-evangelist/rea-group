@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Integrations API
+  version: 1.0.0
+extends: openapi/rea-group-integrations-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-integrations-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-integrations-api
+      api_name: Integrations API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/me/v1/integrations'].get
+  update:
+    x-agent-tool:
+      candidate_name: integrations_api_listintegrations
+      read_only: true
+      side_effects: none
+- target: $.paths['/me/v1/integrations/{id}'].get
+  update:
+    x-agent-tool:
+      candidate_name: integrations_api_getintegration
+      read_only: true
+      side_effects: none

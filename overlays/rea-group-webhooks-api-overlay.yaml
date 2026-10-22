@@ -1,0 +1,62 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Partner Platform Webhook Subscription Webhooks API
+  version: 1.0.0
+extends: openapi/rea-group-webhooks-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-webhooks-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-webhooks-api
+      api_name: Partner Platform Webhook Subscription Webhooks API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/webhooks/v1/signing'].get
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_getsigningkeys
+      read_only: true
+      side_effects: none
+- target: $.paths['/webhooks/v1/subscriptions'].post
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_createsubscription
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/webhooks/v1/subscriptions'].get
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_getsubscriptions
+      read_only: true
+      side_effects: none
+- target: $.paths['/webhooks/v1/subscriptions/{subscriptionId}'].get
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_getsubscription
+      read_only: true
+      side_effects: none
+- target: $.paths['/webhooks/v1/subscriptions/{subscriptionId}'].delete
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_deletesubscription
+      read_only: false
+      side_effects: deletes provider state
+- target: $.paths['/webhooks/v1/subscriptions/{subscriptionId}/validate'].patch
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_validatesubscription
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/webhooks/v1/subscriptions/{subscriptionId}/delivery'].get
+  update:
+    x-agent-tool:
+      candidate_name: webhooks_api_getdeliveryattempts
+      read_only: true
+      side_effects: none

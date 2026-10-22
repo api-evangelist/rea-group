@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-ratings-reviews-schema.json",
+  "title": "RatingsReviews",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-ratings-reviews-openapi.yml#/components/schemas/RatingsReviews",
+  "type": "object",
+  "properties": {
+    "totalCount": {
+      "type": "integer",
+      "format": "int32",
+      "description": "total reviews count based on the filter"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        },
+        "prev": {
+          "$ref": "#/$defs/Link"
+        }
+      },
+      "required": [
+        "self",
+        "next",
+        "prev"
+      ]
+    },
+    "result": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/RatingReview"
+      }
+    }
+  },
+  "required": [
+    "totalCount",
+    "_links",
+    "result"
+  ],
+  "$defs": {
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to an API resource"
+        }
+      }
+    },
+    "RatingReview": {
+      "type": "object",
+      "properties": {
+        "rating": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Integer rating value ranged from 1 to 5"
+        },
+        "content": {
+          "type": "string",
+          "description": "review content"
+        },
+        "listing": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "listing id"
+            },
+            "_links": {
+              "type": "object",
+              "description": "listing page url",
+              "properties": {
+                "self": {
+                  "$ref": "#/$defs/Link"
+                }
+              }
+            }
+          },
+          "required": [
+            "id",
+            "_links"
+          ]
+        },
+        "reviewer": {
+          "type": "object",
+          "properties": {
+            "role": {
+              "type": "string",
+              "description": "reviewer role type, buyer or seller"
+            },
+            "name": {
+              "type": "string",
+              "description": "reviewer name, first name and first letter of last name"
+            }
+          },
+          "required": [
+            "role",
+            "name"
+          ]
+        },
+        "agent": {
+          "type": "object",
+          "properties": {
+            "profileId": {
+              "type": "string"
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "description": "agent name"
+            },
+            "emailAddresses": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "a list of agent email addresses"
+            },
+            "_links": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "$ref": "#/$defs/Link"
+                }
+              }
+            }
+          },
+          "required": [
+            "profileId",
+            "name",
+            "emailAddresses",
+            "_links"
+          ]
+        },
+        "agency": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "_links": {
+              "type": "object",
+              "description": "Agency profile page url",
+              "properties": {
+                "self": {
+                  "$ref": "#/$defs/Link"
+                }
+              }
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "_links"
+          ]
+        },
+        "createdDate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rating",
+        "content",
+        "listing",
+        "reviewer",
+        "agent",
+        "agency",
+        "createdDate"
+      ]
+    }
+  }
+}

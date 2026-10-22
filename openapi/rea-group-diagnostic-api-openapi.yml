@@ -1,0 +1,100 @@
+openapi: 3.2.0
+info:
+  title: Partner Profile Diagnostic API
+  version: 0.0.1
+  description: Partner Profile API presents an access point for Agency CRMs to publish agent profile data to REA. Data written to PPAPI is forwarded onto other systems within the wider ecosystem, and is not stored locally.
+security: []
+tags:
+- name: diagnostic
+paths:
+  /diagnostic/heartbeat:
+    get:
+      tags:
+      - diagnostic
+      operationId: diagnostic.getHeartbeat
+      parameters: []
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+                enum:
+                - Service alive
+        '400':
+          description: The request did not match the expected schema
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HttpApiDecodeError'
+      summary: Diagnostic get heartbeat
+      x-summary-source: derived
+components:
+  schemas:
+    Issue:
+      type: object
+      required:
+      - _tag
+      - path
+      - message
+      properties:
+        _tag:
+          type: string
+          enum:
+          - Pointer
+          - Unexpected
+          - Missing
+          - Composite
+          - Refinement
+          - Transformation
+          - Type
+          - Forbidden
+          description: The tag identifying the type of parse issue
+        path:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyKey'
+          description: The path to the property where the issue occurred
+        message:
+          type: string
+          description: A descriptive message explaining the issue
+      additionalProperties: false
+      description: Represents an error encountered while parsing a value to match the schema
+    PropertyKey:
+      anyOf:
+      - type: string
+      - type: number
+      - type: object
+        required:
+        - _tag
+        - key
+        properties:
+          _tag:
+            type: string
+            enum:
+            - symbol
+          key:
+            type: string
+        additionalProperties: false
+        description: an object to be decoded into a globally shared symbol
+    HttpApiDecodeError:
+      type: object
+      required:
+      - issues
+      - message
+      - _tag
+      properties:
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+        message:
+          type: string
+        _tag:
+          type: string
+          enum:
+          - HttpApiDecodeError
+      additionalProperties: false
+      description: The request did not match the expected schema

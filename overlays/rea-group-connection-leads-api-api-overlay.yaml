@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Connection Leads API
+  version: 1.0.0
+extends: openapi/rea-group-connection-leads-api-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-connection-leads-api-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-connection-leads-api-api
+      api_name: Connection Leads API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/connection-leads'].get
+  update:
+    x-agent-tool:
+      candidate_name: connection_leads_api_api_getconnectionleadsusingget
+      read_only: true
+      side_effects: none
+- target: $.paths['/connection-leads/agencies'].get
+  update:
+    x-agent-tool:
+      candidate_name: connection_leads_api_api_getconnectionleadsaffiliatedagenciesusi
+      read_only: true
+      side_effects: none

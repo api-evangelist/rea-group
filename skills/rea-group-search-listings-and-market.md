@@ -1,10 +1,20 @@
 ---
-name: Search PropTrack listings, sold transactions and suburb market trends
-description: >-
-  Run geospatial and suburb/postcode searches across for-sale and sold listings on
-  realestate.com.au data, and pull suburb-level market statistics - sale and rent
-  history, supply and demand, auction results and demographics.
-api: openapi/rea-group-listings-openapi.yml
+name: search-listings-and-market
+title: Search PropTrack listings, sold transactions and suburb market trends
+description: Run geospatial and suburb/postcode searches across for-sale and sold listings on realestate.com.au
+  data, and pull suburb-level market statistics - sale and rent history, supply and demand, auction results and
+  demographics.
+api:
+- openapi/rea-group-auction-results-api-openapi.yml
+- openapi/rea-group-demographics-api-openapi.yml
+- openapi/rea-group-listing-by-listingid-api-openapi.yml
+- openapi/rea-group-oauth2-api-openapi.yml
+- openapi/rea-group-point-radius-search-api-openapi.yml
+- openapi/rea-group-rent-history-api-openapi.yml
+- openapi/rea-group-sale-history-api-openapi.yml
+- openapi/rea-group-search-api-openapi.yml
+- openapi/rea-group-suburb-postcode-search-api-openapi.yml
+- openapi/rea-group-supply-demand-api-openapi.yml
 operations:
 - auth-token
 - listings-point-and-radius-search

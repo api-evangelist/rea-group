@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-connection-leads-schema.json",
+  "title": "ConnectionLeads",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-connection-leads-openapi.yml#/components/schemas/ConnectionLeads",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "$ref": "#/$defs/ConnectionLeadsEmbedded"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Agency": {
+      "type": "object",
+      "properties": {
+        "reaId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Agent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    },
+    "Application": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier representing a specific application."
+        },
+        "approvedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The application approved datetime with ISO-8601 DateTime format."
+        }
+      }
+    },
+    "ConnectionLead": {
+      "type": "object",
+      "properties": {
+        "application": {
+          "$ref": "#/$defs/Application"
+        },
+        "tenant": {
+          "$ref": "#/$defs/Tenant"
+        },
+        "property": {
+          "$ref": "#/$defs/Property"
+        },
+        "agency": {
+          "$ref": "#/$defs/Agency"
+        },
+        "agents": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Agent"
+          }
+        },
+        "connectionProviderName": {
+          "type": "string"
+        },
+        "utilityConnectionsAllowed": {
+          "type": "array",
+          "description": "The types of the utility connection allowed to be connecting.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ConnectionLeadsEmbedded": {
+      "type": "object",
+      "properties": {
+        "connectionLeads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ConnectionLead"
+          }
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Connection Leads API resource"
+        }
+      }
+    },
+    "Property": {
+      "type": "object",
+      "properties": {
+        "street": {
+          "type": "string"
+        },
+        "suburb": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "postCode": {
+          "type": "string"
+        },
+        "moveInDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when tenant moves in"
+        }
+      }
+    },
+    "Tenant": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "description": "Can be null if the applicant use Apple social sign-in."
+        },
+        "mobilePhoneNumber": {
+          "type": "string"
+        },
+        "birthDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The tenant's birth date"
+        },
+        "identityDocument": {
+          "type": "object",
+          "properties": {
+            "documentType": {
+              "type": "string",
+              "enum": [
+                "DRIVER_LICENCE",
+                "PASSPORT"
+              ]
+            },
+            "passportCountryCode": {
+              "type": "string"
+            },
+            "passportNumber": {
+              "type": "string"
+            },
+            "passportExpiryDate": {
+              "type": "string",
+              "format": "date"
+            },
+            "licenceNumber": {
+              "type": "string"
+            },
+            "licenceState": {
+              "type": "string"
+            },
+            "licenceExpiryDate": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-update-application-status-request-schema.json",
+  "title": "UpdateApplicationStatusRequest",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-tenant-selection-openapi.yml#/components/schemas/UpdateApplicationStatusRequest",
+  "type": "object",
+  "properties": {
+    "fromStatus": {
+      "type": "string",
+      "enum": [
+        "PUBLISHED",
+        "SUCCESSFUL",
+        "UNSUCCESSFUL",
+        "WITHDRAWN"
+      ],
+      "description": "The previous status of the application. See the API document to check the valid status rules."
+    },
+    "toStatus": {
+      "type": "string",
+      "enum": [
+        "SUCCESSFUL",
+        "UNSUCCESSFUL",
+        "WITHDRAWN"
+      ],
+      "description": "The next status of the application. See the API document to check the valid status rules."
+    },
+    "statusLastUpdatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Required a time when the status is updated and should format with ISO-8601. The time should be a past or present time."
+    }
+  }
+}

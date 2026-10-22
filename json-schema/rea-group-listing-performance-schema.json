@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-listing-performance-schema.json",
+  "title": "ListingPerformance",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-campaign-listing-performance-openapi.yml#/components/schemas/ListingPerformance",
+  "type": "object",
+  "properties": {
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    },
+    "id": {
+      "type": "string",
+      "description": "Unique identifier representing a specific listing (listing_id)."
+    },
+    "dataSourceLastUpdated": {
+      "$ref": "#/$defs/DataSourceLastUpdated"
+    },
+    "lastModifiedAt": {
+      "type": "string",
+      "format": "dateTime",
+      "description": "Date/time that the listing performance report was last modified."
+    },
+    "listing": {
+      "$ref": "#/$defs/Listing"
+    },
+    "reportingPeriod": {
+      "$ref": "#/$defs/ReportingPeriod"
+    },
+    "portalMetrics": {
+      "type": "array",
+      "description": "Array of portal metrics for the listing campaign.",
+      "items": {
+        "$ref": "#/$defs/PortalMetric"
+      }
+    },
+    "productMetrics": {
+      "type": "array",
+      "description": "Array of product metrics for the listing campaign.",
+      "items": {
+        "$ref": "#/$defs/ProductMetrics"
+      }
+    }
+  },
+  "$defs": {
+    "DataSourceLastUpdated": {
+      "type": "object",
+      "description": "Contains dates indicating data source currency",
+      "properties": {
+        "listingEvents": {
+          "type": "string",
+          "format": "date",
+          "description": "Date that the data for Web, Mobile, SRP Impressions was last refreshed."
+        },
+        "audienceMaximiser": {
+          "type": "string",
+          "format": "date",
+          "description": "Date that the data for Audience Maximiser was last refreshed. The date will be null if there is no Audience Maximiser add on."
+        },
+        "eBrochure": {
+          "type": "string",
+          "format": "date",
+          "description": "Date that the data for eBrochure was last refreshed. The date will be null if there is no eBrochure add on. **Not available for Commercial listings.*"
+        },
+        "bundledNotifications": {
+          "type": "string",
+          "format": "date",
+          "description": "Date that the data for Bundled Notifications was last refreshed. The date will be null if there were no Bundled Notifications sent for this listing."
+        },
+        "amplify": {
+          "type": "string",
+          "format": "date",
+          "description": "Date that the data for Luxe Home Page was last refreshed. The date will be null if there is no Luxe Home Page add on."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Campaign API resource"
+        }
+      }
+    },
+    "Listing": {
+      "type": "object",
+      "description": "Listing to which listing performance report relates.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier representing a specific listing."
+        },
+        "externalListingId": {
+          "type": "string",
+          "description": "External listing identifier provided by the agency or CRM platform."
+        },
+        "agencyId": {
+          "type": "string",
+          "description": "Unique identifier representing the listing agency."
+        }
+      }
+    },
+    "Metric": {
+      "type": "object",
+      "properties": {
+        "metricName": {
+          "type": "string",
+          "description": "Name of the performance metric being measured.\nSupports the following metric names:\n* listingEvents (portal listing events for portal metrics)\n* marketPerformance (market performance metrics for portal metrics)\n* audienceSourcePageView (audience source page view metrics for portal metrics)\n* audienceSourcePhoneReveal (audience source phone reveal metrics for portal metrics)\n* productSourcePageView (product source page view metrics for portal metrics)\n* emailEnquiryEvents (email enquiry events metrics for portal metrics)\n* intentToInspectEvents (inspect intention metrics for portal metrics)\n* productSourceCampaignExposure (product source campaign exposure metrics for portal metrics)\n* uniqueVisitorsEvents (unique visitors events metrics for portal metrics)\n* videoViews (video views metrics for portal metrics)\n* productEvents (product events metrics for product metrics)\n* uniqueImpression (unique impression metrics for product metrics' audienceMaximiser)\n* publisherSourceAdImpression (publisher source ad impression metrics for product metrics' audienceMaximiser)\n* suburbs (suburbs metrics for product metrics' amplify)\n",
+          "enum": [
+            "listingEvents",
+            "marketPerformance",
+            "audienceSourcePageView",
+            "audienceSourcePhoneReveal",
+            "productSourcePageView",
+            "emailEnquiryEvents",
+            "intentToInspectEvents",
+            "productSourceCampaignExposure",
+            "uniqueVisitorsEvents",
+            "videoViews",
+            "productEvents",
+            "uniqueImpression",
+            "publisherSourceAdImpression",
+            "suburbs"
+          ]
+        },
+        "metricType": {
+          "type": "string",
+          "description": "Type of the performance metric being measured.\nSupports the following metric types:\n* sum (integer sum)\n",
+          "enum": [
+            "sum"
+          ]
+        },
+        "metricPeriods": {
+          "type": "array",
+          "description": "Array of measured periods for the performance metric.",
+          "items": {
+            "$ref": "#/$defs/MetricPeriod"
+          }
+        }
+      }
+    },
+    "MetricPeriod": {
+      "type": "object",
+      "properties": {
+        "period": {
+          "type": "string",
+          "description": "Calendar period the metric values are totalled for."
+        },
+        "metricValues": {
+          "type": "array",
+          "description": "Array of individual metric values for the period.",
+          "items": {
+            "$ref": "#/$defs/MetricValue"
+          }
+        }
+      }
+    },
+    "MetricValue": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the individual performance data point being measured."
+        },
+        "value": {
+          "type": "number",
+          "description": "Value of the individual performance data point being measured."
+        }
+      }
+    },
+    "PortalMetric": {
+      "type": "object",
+      "properties": {
+        "portalName": {
+          "type": "string",
+          "description": "Name of the advertising portal on which the listing or project activity occurred.\nSupports the following advertising portals:\n* realestate_au (realestate.com.au)\n",
+          "enum": [
+            "realestate_au"
+          ]
+        },
+        "all": {
+          "type": "array",
+          "description": "Array of performance metrics, totalled for the whole campaign reporting period.",
+          "items": {
+            "$ref": "#/$defs/Metric"
+          }
+        },
+        "daily": {
+          "type": "array",
+          "description": "Array of performance metrics, totalled for daily periods.",
+          "items": {
+            "$ref": "#/$defs/Metric"
+          }
+        }
+      }
+    },
+    "ProductMetrics": {
+      "type": "object",
+      "properties": {
+        "productName": {
+          "type": "string",
+          "description": "This is the name of the add-on product eg. audienceMaximiser, amplify, eBrochure, and bundledNotifications."
+        },
+        "productPurchases": {
+          "type": "array",
+          "description": "Array of performance metrics for each purchaseId",
+          "items": {
+            "$ref": "#/$defs/ProductPurchaseMetrics"
+          }
+        }
+      }
+    },
+    "ProductPurchaseMetrics": {
+      "type": "object",
+      "properties": {
+        "purchaseId": {
+          "type": "string",
+          "description": "Also known as a booking id or payment id, this represent the purchase of an add-on products for\nwhich metrics are supplied. eg Audience Maximiser\n"
+        },
+        "purchaseType": {
+          "type": "string",
+          "x-nullable": true,
+          "description": "Type of product purchased. Only used when product name is audienceMaximiser. Indicates the type of Audience Maximiser campaign purchased.\nSupports the following purchase types:\n* click\n* impression\n* null\n"
+        },
+        "all": {
+          "type": "array",
+          "description": "Array of performance metrics, totalled for the whole campaign reporting period.",
+          "items": {
+            "$ref": "#/$defs/Metric"
+          }
+        },
+        "daily": {
+          "type": "array",
+          "description": "Array of performance metrics, totalled for daily periods.",
+          "items": {
+            "$ref": "#/$defs/Metric"
+          }
+        }
+      }
+    },
+    "ReportingPeriod": {
+      "type": "object",
+      "description": "Reporting period (inclusive) to which the listing performance report applies.",
+      "properties": {
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Start date of the reporting period (inclusive)."
+        },
+        "endDate": {
+          "type": "string",
+          "format": "date",
+          "description": "End date of the reporting period (inclusive)."
+        }
+      }
+    }
+  }
+}

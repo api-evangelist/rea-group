@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-non-empty-string-schema.json",
+  "title": "nonEmptyString",
+  "description": "a non empty string",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-customer-profile-openapi.yml#/components/schemas/NonEmptyString",
+  "type": "string",
+  "minLength": 1
+}

@@ -1,0 +1,77 @@
+generated: '2026-10-21'
+method: probed
+source: pre-flight dossier (docs platform, portal detections) + CNAME chains and response headers of the hosts apis.yml names
+registry: all/0-working/vendors.yml
+areas_vocabulary:
+- documentation
+- developer-portal
+- api-gateway
+- cdn
+- hosting
+- sdk-generation
+- api-collections
+- status-page
+- support
+- community
+- identity
+- mcp-hosting
+vendors:
+- vendor: akamai
+  name: Akamai
+  area: cdn
+  host: api.realestate.com.au
+  evidence: cname:akamaiedge.net
+  signal: cname
+  confidence: high
+  kin_score: []
+- vendor: cloudflare
+  name: Cloudflare
+  area: cdn
+  host: developer.proptrack.com.au
+  evidence: header:cf-ray
+  signal: header
+  confidence: high
+  kin_score:
+  - https_enforced
+  - hsts
+- vendor: cloudfront
+  name: Amazon CloudFront
+  area: cdn
+  host: reaxml.realestate.com.au
+  evidence: header:x-amz-cf-id
+  signal: header
+  confidence: high
+  kin_score: []
+- vendor: stoplight
+  name: Stoplight
+  area: documentation
+  host: developer.proptrack.com.au
+  evidence: cname:stoplight.io
+  signal: docs-platform
+  confidence: high
+  kin_score:
+  - openapi_published
+  - rules_present
+reliance:
+  areas_vendor_served:
+  - cdn
+  - documentation
+  vendor_count: 4
+  areas_observed: 12
+  share_of_observable_areas: 0.167
+  note: areas where a third party was DETECTED serving this provider; an area absent here was either self-run or not observed, and this script
+    cannot tell those apart
+checked:
+- 'docs-platform: stoplight'
+- status.api.realestate.com.au (StatusPage)
+- www.rea-group.com (Website)
+- developer.proptrack.com.au (Documentation)
+- developer.proptrack.com.au (DeveloperPortal)
+- developer.proptrack.com.au (APIReference)
+- developer.proptrack.com.au (GettingStarted)
+- www.proptrack.com.au (Support)
+- www.proptrack.com.au (SignUp)
+- help.enterprise.rea-group.com (HelpCenter)
+- reaxml.realestate.com.au (baseURL)
+- api.realestate.com.au (baseURL)
+- data.proptrack.com (baseURL)

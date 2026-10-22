@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Properties Tenure Type API
+  version: 1.0.0
+extends: openapi/rea-group-tenure-type-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-tenure-type-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-tenure-type-api
+      api_name: Properties Tenure Type API
+      family: PropTrack data API
+      documentation: https://developer.proptrack.com.au/docs/apis/home
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/api/v2/properties/{propertyId}/tenureType'].get
+  update:
+    x-agent-tool:
+      candidate_name: tenure_type_api_get_api_v2_properties_tenure
+      read_only: true
+      side_effects: none

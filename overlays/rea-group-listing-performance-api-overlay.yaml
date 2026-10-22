@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Campaign Listing Performance API
+  version: 1.0.0
+extends: openapi/rea-group-listing-performance-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-listing-performance-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-listing-performance-api
+      api_name: Campaign Listing Performance API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/listing-performance'].get
+  update:
+    x-agent-tool:
+      candidate_name: listing_performance_api_getlistingperformance
+      read_only: true
+      side_effects: none
+- target: $.paths['/listing-performance/{listing_id}'].get
+  update:
+    x-agent-tool:
+      candidate_name: listing_performance_api_getlistingperformancebyid
+      read_only: true
+      side_effects: none

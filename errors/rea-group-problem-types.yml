@@ -1,0 +1,128 @@
+generated: '2026-10-21'
+method: derived
+generator: derive-problem-types.py
+source:
+- openapi/rea-group-agencies-stats-api-openapi.yml
+- openapi/rea-group-agency-ratings-reviews-api-openapi.yml
+- openapi/rea-group-agent-ratings-reviews-api-openapi.yml
+- openapi/rea-group-agents-stats-api-openapi.yml
+- openapi/rea-group-attributes-api-openapi.yml
+- openapi/rea-group-auction-results-api-openapi.yml
+- openapi/rea-group-avm-api-openapi.yml
+- openapi/rea-group-avm-report-api-openapi.yml
+- openapi/rea-group-campaign-api-openapi.yml
+- openapi/rea-group-connection-leads-api-api-openapi.yml
+- openapi/rea-group-creative-api-openapi.yml
+- openapi/rea-group-customerv1-api-openapi.yml
+format: custom
+envelope:
+  media_type: application/json
+  schema: Error
+coverage:
+  operations: 86
+  statuses_declared: 14
+problems:
+- status: 400
+  title: Bad Request
+  description: '<!-- theme: danger -->'
+  operations: 78
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: Error
+- status: 401
+  title: Unauthorized
+  description: '<!-- theme: danger -->'
+  operations: 64
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: Error
+- status: 403
+  title: Forbidden
+  description: '<!-- theme: danger -->'
+  operations: 60
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: Error
+- status: 404
+  title: Not Found
+  description: '<!-- theme: danger -->'
+  operations: 61
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: Error
+- status: 405
+  title: Method Not Allowed
+  description: Method Not Allowed. The requested HTTP Method is not permitted on this resource.
+  operations: 13
+  media_types:
+  - application/json
+  schema: Error
+- status: 406
+  title: Not Acceptable
+  description: Not Acceptable. The response content type is not acceptable according to the accept headers sent
+    in the request.
+  operations: 10
+  media_types:
+  - application/json
+  schema: Error
+- status: 409
+  title: Conflict
+  description: The request conflicts with the current state of the resource (RFC 7807)
+  operations: 4
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: RFC7807ApiError.ConflictError
+- status: 410
+  title: Gone
+  description: The requested successful application is no longer available
+  operations: 1
+  media_types: []
+  schema: null
+- status: 413
+  title: Content Too Large
+  description: Payload Too Large
+  operations: 1
+  media_types: []
+  schema: null
+- status: 422
+  title: Unprocessable Content
+  description: 422 Unprocessable Entity
+  operations: 5
+  media_types:
+  - application/json
+  schema: Error
+- status: 429
+  title: Too Many Requests
+  description: '<!-- theme: danger -->'
+  operations: 52
+  media_types:
+  - application/json
+  schema: Error
+- status: 500
+  title: Internal Server Error
+  description: '<!-- theme: danger -->'
+  operations: 69
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: Error
+- status: 504
+  title: Gateway Timeout
+  description: '<!-- theme: danger -->'
+  operations: 8
+  media_types:
+  - application/json
+  schema: null
+- status: default
+  title: null
+  description: Unexpected error
+  operations: 12
+  media_types:
+  - application/json
+  - application/hal+json
+  schema: Error

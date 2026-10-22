@@ -1,38 +1,160 @@
-generated: '2026-07-27'
+name: REA Group rate limits
+generated: '2026-10-20'
 method: searched
 source: https://developer.proptrack.com.au/docs/apis/rate-limits
+limit_count: 21
+limits:
+- name: Address/Match
+  endpoint: Address/Match
+  operation: openapi/rea-group-address-openapi.yml#address.match
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Address/Suggest
+  endpoint: Address/Suggest
+  operation: openapi/rea-group-address-openapi.yml#address.suggest
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Listings/{listingId}
+  endpoint: Listings/{listingId}
+  operation: openapi/rea-group-listings-openapi.yml#listings
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Listings/search/point-and-radius
+  endpoint: Listings/search/point-and-radius
+  operation: openapi/rea-group-listings-openapi.yml#listings-point-and-radius-search
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Market/Rent History
+  endpoint: Market/Rent History
+  operation: openapi/rea-group-market-openapi.yml#market.rent-history
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Market/Sale History
+  endpoint: Market/Sale History
+  operation: openapi/rea-group-market-openapi.yml#market.sale-history
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Market/Supply & Demand
+  endpoint: Market/Supply & Demand
+  operation: openapi/rea-group-market-openapi.yml#market.supply-and-demand
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Market/Auction Results
+  endpoint: Market/Auction Results
+  operation: openapi/rea-group-market-openapi.yml#get-api-v2-market-auctions
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Properties/Listings
+  endpoint: Properties/Listings
+  operation: openapi/rea-group-properties-openapi.yml#listings
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Properties/Transactions
+  endpoint: Properties/Transactions
+  operation: openapi/rea-group-properties-openapi.yml#transactions
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Properties/Attributes
+  endpoint: Properties/Attributes
+  operation: openapi/rea-group-properties-openapi.yml#properties-attributes
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
+- name: Properties/Valuations/Sale
+  endpoint: Properties/Valuations/Sale
+  operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale
+  window: 1 second
+  max: 25
+  limit: 25
+  scope: per-endpoint
+  limit_text: 25 requests per second
+- name: Properties/{propertyId}/Valuations/Sale
+  endpoint: Properties/{propertyId}/Valuations/Sale
+  operation: openapi/rea-group-properties-openapi.yml#avm-propertyId
+  window: 1 second
+  max: 25
+  limit: 25
+  scope: per-endpoint
+  limit_text: 25 requests per second
+- name: Reports/AVM/PDF
+  endpoint: Reports/AVM/PDF
+  operation: openapi/rea-group-reports-openapi.yml#reports-valuations-pdf
+  window: 1 second
+  max: 25
+  limit: 25
+  scope: per-endpoint
+  limit_text: 25 requests per second
+- name: Reports/Property
+  endpoint: Reports/Property
+  operation: openapi/rea-group-reports-openapi.yml#reports-property-report
+  window: 1 second
+  max: 25
+  limit: 25
+  scope: per-endpoint
+  limit_text: 25 requests per second
+- name: Transactions/Search/Point & Radius
+  endpoint: Transactions/Search/Point & Radius
+  operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId
+  window: 1 second
+  max: 50
+  limit: 50
+  scope: per-endpoint
+  limit_text: 50 requests per second
 enforcement:
   model: rolling-window
   window_seconds: 1
   scope: per-endpoint
-  detail: >-
-    A sliding one-second window per endpoint. On each request, expired requests
-    from the previous interval are evicted and the count updated; the window
-    resets continuously rather than on a fixed boundary.
+  detail: A sliding one-second window per endpoint. On each request, expired requests from the previous interval
+    are evicted and the count updated; the window resets continuously rather than on a fixed boundary.
   headers_exposed: false
-  headers_note: >-
-    No RateLimit or X-RateLimit response headers are documented. A client cannot
-    observe remaining budget - the only signal is the 429 after the limit is hit.
+  headers_note: No RateLimit or X-RateLimit response headers are documented. A client cannot observe remaining budget
+    - the only signal is the 429 after the limit is hit.
 violation:
   http_status: 429
   error_code: 9011
-  body: >-
-    {"errors":[{"code":9011,"description":"Rate limit has been exceeded - Please
-    try again shortly"}]}
+  body: '{"errors":[{"code":9011,"description":"Rate limit has been exceeded - Please try again shortly"}]}'
 quota:
   model: per-endpoint request allocation
   applies_to: trial and paid agreements
   http_status: 429
   error_code: 9011
-  body: >-
-    {"errors":[{"code":9011,"description":"Quota limit has been reached - Please
-    contact our customer support team at support@proptrack.com for further
-    information"}]}
-  detail: >-
-    Distinct from the per-second rate limit: a total request allocation per
-    endpoint set commercially. Both successful and failed requests count toward
-    it. Rate-limit and quota exhaustion share HTTP 429 and error code 9011 and are
-    distinguishable only by the description text.
+  body: '{"errors":[{"code":9011,"description":"Quota limit has been reached - Please contact our customer support
+    team at support@proptrack.com for further information"}]}'
+  detail: 'Distinct from the per-second rate limit: a total request allocation per endpoint set commercially. Both
+    successful and failed requests count toward it. Rate-limit and quota exhaustion share HTTP 429 and error code
+    9011 and are distinguishable only by the description text.'
   docs: https://developer.proptrack.com.au/docs/apis/api-trials
 rate_limits:
 - endpoint: Address/Match
@@ -102,11 +224,60 @@ rate_limits:
 tiers:
   read_endpoints: 50 requests per second
   valuation_and_report_endpoints: 25 requests per second
-  note: >-
-    The published table covers 16 of the 32 operations. Endpoints not listed
-    (suburb-and-postcode searches, demographics, planning, tenure type, summary,
-    property search, disclaimers) have no published limit.
+  note: The published table covers 16 of the 32 operations. Endpoints not listed (suburb-and-postcode searches,
+    demographics, planning, tenure type, summary, property search, disclaimers) have no published limit.
 cross_links:
   errors: errors/rea-group-error-codes.yml
   conventions: conventions/rea-group-conventions.yml
   plans: plans/rea-group-plans.yml
+partner_platform:
+  source: https://partner.realestate.com.au/getting-started/rate-limiting/
+  host: https://api.realestate.com.au
+  headers:
+  - X-RateLimit-Limit-minute
+  - X-RateLimit-Remaining-minute
+  http_status: 429
+  note: 'Partner Platform limits are per API, per minute, and are signalled on response headers (unlike PropTrack,
+    which exposes no headers). Status on exhaustion: 429 (Too Many Requests). Kept in this block because the top-level
+    limits[] are verified against the single PropTrack source page.'
+  limits:
+  - name: Partner Platform Listing Upload API
+    endpoint: Listing Upload API
+    window: 1 minute
+    max: 300
+    limit: 300
+    scope: per-api
+    limit_text: 300 requests per minute
+    source: https://partner.realestate.com.au/getting-started/rate-limiting/
+  - name: Partner Platform Listing Export API
+    endpoint: Listing Export API
+    window: 1 minute
+    max: 300
+    limit: 300
+    scope: per-api
+    limit_text: 300 requests per minute
+    source: https://partner.realestate.com.au/getting-started/rate-limiting/
+  - name: Partner Platform Campaign API
+    endpoint: Campaign API
+    window: 1 minute
+    max: 400
+    limit: 400
+    scope: per-api
+    limit_text: 400 requests per minute
+    source: https://partner.realestate.com.au/getting-started/rate-limiting/
+  - name: Partner Platform Leads API
+    endpoint: Leads API
+    window: 1 minute
+    max: 400
+    limit: 400
+    scope: per-api
+    limit_text: 400 requests per minute
+    source: https://partner.realestate.com.au/getting-started/rate-limiting/
+  - name: Partner Platform Webhooks API
+    endpoint: Webhooks API
+    window: 1 minute
+    max: 300
+    limit: 300
+    scope: per-api
+    limit_text: 300 requests per minute
+    source: https://partner.realestate.com.au/getting-started/rate-limiting/

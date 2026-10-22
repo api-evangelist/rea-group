@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-seller-leads-schema.json",
+  "title": "SellerLeads",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-leads-openapi.yml#/components/schemas/SellerLeads",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "type": "object",
+      "properties": {
+        "seller-leads": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SellerLead"
+          }
+        }
+      }
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "BaseEnquiry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier representing a specific enquiry."
+        },
+        "agencyId": {
+          "type": "string",
+          "description": "Identifier representing the agency that owns the listing that the enquiry is for."
+        },
+        "receivedAt": {
+          "type": "string",
+          "description": "Date/Time that the enquiry was received by REA Group.",
+          "format": "date-time"
+        },
+        "processedAt": {
+          "type": "string",
+          "description": "Date/Time that the enquiry was processed by REA Group.",
+          "format": "date-time"
+        },
+        "comments": {
+          "type": "string",
+          "description": "The enquirer's free-form comments."
+        },
+        "requestedInformation": {
+          "type": "array",
+          "description": "A list of information the enquirer is asking for.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "suppliedMarketStatus": {
+          "type": "string",
+          "description": "The enquirer's description of their market status."
+        },
+        "agentRecipients": {
+          "type": "array",
+          "description": "A list of recipients for this enquiry.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contactDetails": {
+          "$ref": "#/$defs/ContactDetails"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "externalIdentifiers": {
+          "$ref": "#/$defs/ExternalIdentifiers"
+        },
+        "customAttributes": {
+          "$ref": "#/$defs/CustomAttributes"
+        },
+        "emailSubject": {
+          "type": "string",
+          "description": "The subject of the email."
+        },
+        "_links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "$ref": "#/$defs/Link"
+            }
+          }
+        }
+      }
+    },
+    "ContactDetails": {
+      "type": "object",
+      "required": [
+        "fullName",
+        "email",
+        "preferredContactMethod"
+      ],
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the person sending an enquiry."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address used to contact the person sending an enquiry."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number used to contact the person sending an enquiry."
+        },
+        "postcode": {
+          "type": "string",
+          "description": "The enquirer's supplied postcode."
+        },
+        "preferredContactMethod": {
+          "type": "string",
+          "description": "Preferred contact method supplied by the person sending an enquiry.",
+          "enum": [
+            "PHONE",
+            "EMAIL"
+          ]
+        }
+      }
+    },
+    "CustomAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "ExternalIdentifiers": {
+      "type": "object",
+      "properties": {
+        "externalProjectId": {
+          "type": "string",
+          "description": "External project identifier setup by CRM / customer."
+        },
+        "externalListingId": {
+          "type": "string",
+          "description": "The partner's identifier for the listing. This is used to replace the old `listing.externalListingId` field."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Leads API resource"
+        }
+      }
+    },
+    "Property": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "[Appraisal requests only] The address of the property."
+        }
+      }
+    },
+    "SellerEnrichmentError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string",
+          "description": "Reason why seller enrichment information is not available",
+          "enum": [
+            "SELLER_ENRICHMENT_NO_DATA",
+            "SELLER_ENRICHMENT_NOT_PURCHASED"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "Further details on why seller enrichment information is not available"
+        }
+      }
+    },
+    "SellerEnrichmentResult": {
+      "type": "object",
+      "properties": {
+        "sellerScore": {
+          "type": "integer",
+          "description": "[Pro required] X out of 10 value representing seller enrichment score."
+        },
+        "sellerReadiness": {
+          "type": "string",
+          "description": "[Pro required] Value indicating where the consumer is in their sell journey.",
+          "enum": [
+            "EARLY_SELL_STAGE",
+            "MID_SELL_STAGE",
+            "LATE_SELL_STAGE"
+          ]
+        },
+        "buyerReadiness": {
+          "type": "string",
+          "description": "[Pro required] Value indicating where the consumer is in their buy journey.",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "predicatedSellerSuburb": {
+          "type": "string",
+          "description": "[Pro required, potential seller only] A predicted suburb where the consumer's property to be sold is located"
+        }
+      }
+    },
+    "SellerLead": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/BaseEnquiry"
+        },
+        {
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The type of seller lead that was captured.",
+              "enum": [
+                "REALESTATE_COM_AU_SALES_APPRAISAL_REQUEST",
+                "REALESTATE_COM_AU_RENTAL_APPRAISAL_REQUEST",
+                "REALESTATE_COM_AU_BANK_VALUATION_REQUEST",
+                "REALESTATE_COM_AU_OTHER_REQUEST",
+                "REALESTATE_COM_AU_POTENTIAL_SELLER"
+              ]
+            },
+            "sellerEnrichment": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/SellerEnrichmentResult"
+                },
+                {
+                  "$ref": "#/$defs/SellerEnrichmentError"
+                }
+              ]
+            },
+            "property": {
+              "$ref": "#/$defs/Property"
+            },
+            "agentsContactedCount": {
+              "type": "integer",
+              "description": "[Appraisal requests only] Number of agents that received an appraisal request for this property."
+            },
+            "leasingPriceExpectation": {
+              "type": "integer",
+              "description": "[Appraisal requests only] Weekly rent price expectation provided by property owner at time of request."
+            },
+            "leasingTimeframe": {
+              "type": "string",
+              "description": "[Appraisal requests only] Timeframe to lease as provided by property owner at time of request.",
+              "enum": [
+                "WITHIN_3_MONTHS",
+                "WITHIN_6_MONTHS",
+                "WITHIN_12_MONTHS",
+                "NOT_SURE"
+              ]
+            },
+            "sellingPriceExpectation": {
+              "type": "integer",
+              "description": "[Appraisal requests only] Sale price expectation provided by property owner at time of request."
+            },
+            "sellingTimeframe": {
+              "type": "string",
+              "description": "[Appraisal requests only] Timeframe to sell as provided by property owner at time of request.",
+              "enum": [
+                "WITHIN_3_MONTHS",
+                "WITHIN_6_MONTHS",
+                "WITHIN_12_MONTHS",
+                "NOT_SURE"
+              ]
+            },
+            "propertyPrimaryUse": {
+              "type": "string",
+              "description": "[Appraisal requests only] REA category used to describe how the property is being used as selected by property owner at time of request.",
+              "enum": [
+                "INVESTMENT",
+                "RESIDENTIAL"
+              ]
+            },
+            "agentPhoneRevealsCount": {
+              "type": "integer",
+              "description": "[Pro required, appraisal requests only] Number of phone reveals of agents by the consumer making the original request."
+            }
+          }
+        }
+      ]
+    },
+    "Source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the enquiry source, e.g campaign id, project profile id or listing id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the enquiry source, e.g campaign name, listing page name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the enquiry source, e.g campaign type, listing inspection type."
+        }
+      }
+    }
+  }
+}

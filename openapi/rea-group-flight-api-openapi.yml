@@ -1,0 +1,294 @@
+openapi: 3.2.0
+info:
+  title: Campaign API - display performance Flight API
+  description: Aggregated reporting data for developer campaign display performance.
+  version: 0.0.3
+servers:
+- url: https://api.realestate.com.au
+security:
+- PartnerPlatform:
+  - display:campaign-performance:read
+tags:
+- name: Flight
+paths:
+  /campaign/v1/display-performance/{campaignId}/flights:
+    get:
+      tags:
+      - Flight
+      summary: Get flights
+      description: Returns a list of flights by campaign ID
+      parameters:
+      - $ref: '#/components/parameters/campaignId'
+      - $ref: '#/components/parameters/flightId'
+      - $ref: '#/components/parameters/creativeId'
+      - $ref: '#/components/parameters/startDate'
+      - $ref: '#/components/parameters/endDate'
+      - $ref: '#/components/parameters/status'
+      - $ref: '#/components/parameters/pageSize'
+      - $ref: '#/components/parameters/pageIndex'
+      - $ref: '#/components/parameters/withDailyPerformance'
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FlightResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestError'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntityError'
+        '429':
+          $ref: '#/components/responses/RateLimitedError'
+        '500':
+          $ref: '#/components/responses/Error'
+      security:
+      - PartnerPlatform:
+        - display:campaign-performance:read
+      operationId: getCampaignV1DisplayPerformanceByCampaignIdFlights
+      x-operation-id-source: derived
+components:
+  parameters:
+    creativeId:
+      in: query
+      name: creativeId
+      example: '12345'
+      schema:
+        type: string
+      description: Find all creatives where contains given creativeId
+    flightId:
+      in: query
+      name: flightId
+      example: '12345'
+      schema:
+        type: string
+      description: Find all flights where contains given flightId
+    startDate:
+      name: startDate
+      in: query
+      description: Start date greater than or equal to a given date (iso date)
+      schema:
+        type: string
+        example: '2023-09-16'
+    pageSize:
+      name: pageSize
+      in: query
+      description: Specify the number of results to return in one request, specified as an integer from `1` to `100`
+      schema:
+        type: integer
+        example: 1
+    pageIndex:
+      name: pageIndex
+      in: query
+      description: Specify the page index of results to return. Zero index based.
+      schema:
+        type: integer
+        example: 1
+    status:
+      name: status
+      in: query
+      description: Find all campaigns of a certain status. Available statuses are `Active`, `Pending`, `Completed` and `Unknown`.
+      schema:
+        type: string
+        example: Active
+    withDailyPerformance:
+      in: query
+      name: withDailyPerformance
+      schema:
+        type: string
+        example: 'true'
+      description: Specify whether includes daily performance
+    campaignId:
+      in: path
+      name: campaignId
+      schema:
+        type: string
+      required: true
+      description: Return data given a specific campaign ID
+    endDate:
+      name: endDate
+      in: query
+      description: End date less than or equal to a given date (iso date)
+      schema:
+        type: string
+        example: '2023-09-16'
+  responses:
+    RateLimitedError:
+      description: Too Many Requests. You have exceeded the maximum number of requests permitted.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnprocessableEntityError:
+      description: 422 Unprocessable Entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequestError:
+      description: Bad request. The request is missing required fields or is malformed.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Error:
+      description: A general error has occurred. Inspect the payload for additional information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Flight:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '2222'
+        name:
+          type: string
+          example: VIC_campaign
+        startDate:
+          type: string
+          example: '2021-09-17 10:00:00'
+        endDate:
+          type: string
+          example: '2021-09-17 10:00:00'
+        productRateType:
+          type: string
+          example: CPM
+        type:
+          type: string
+          example: Lead Ad
+        adType:
+          type: string
+          example: CPM
+        impressionsGoal:
+          type: string
+          example: '1'
+        budget:
+          type: string
+          example: '1'
+        status:
+          type: string
+          example: pending
+        channel:
+          type:
+          - string
+          - 'null'
+          example: FB Newsfeed
+        performance:
+          $ref: '#/components/schemas/Performance'
+        dailyPerformance:
+          $ref: '#/components/schemas/DailyPerformance'
+    FlightResponse:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: '#/components/schemas/Flight'
+        _links:
+          $ref: '#/components/schemas/Links'
+        total:
+          type: integer
+          example: 50
+    Links:
+      type: object
+      properties:
+        self:
+          type: object
+          properties:
+            href:
+              type: string
+              example: https://exampleurl.com
+        next:
+          type: object
+          properties:
+            href:
+              type:
+              - string
+              - 'null'
+              example: https://exampleurl.com?page=2
+    DailyPerformance:
+      type: array
+      items:
+        allOf:
+        - $ref: '#/components/schemas/Performance'
+        - properties:
+            day:
+              type: string
+              example: '2023-09-16'
+    Performance:
+      type: object
+      properties:
+        impressionsDelivered:
+          type: string
+          example: '1'
+        clicksDelivered:
+          type: string
+          example: '1'
+        leadsDelivered:
+          type: string
+          example: '1'
+        leads:
+          type: object
+          properties:
+            delivered:
+              type: string
+              example: '1'
+            deliveredPostClicks:
+              type: string
+              example: '1'
+            deliveredPostImpressions:
+              type: string
+              example: '0'
+        spend:
+          type: string
+          example: '0.00'
+        clickThroughRate:
+          type: string
+          example: '50.00'
+        costPerLead:
+          type: string
+          example: '20.00'
+        costPerClick:
+          type: string
+          example: '10.00'
+        postEngagement:
+          type:
+          - object
+          - 'null'
+          properties:
+            postComments:
+              type: string
+              example: '1'
+            postShares:
+              type: string
+              example: '1'
+            postReactions:
+              type: string
+              example: '1'
+            pageLikes:
+              type: string
+              example: '1'
+    Error:
+      type: object
+      properties:
+        statusCode:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    PartnerPlatform:
+      type: oauth2
+      description: OAuth 2 Client Credentials grant flow
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.realestate.com.au/oauth/token
+          scopes:
+            display:campaign-performance:read: Read campaign performance records

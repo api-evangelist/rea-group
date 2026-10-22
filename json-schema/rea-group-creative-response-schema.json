@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-creative-response-schema.json",
+  "title": "CreativeResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-campaign-display-performance-openapi.yml#/components/schemas/CreativeResponse",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Creative"
+          }
+        }
+      }
+    },
+    "_links": {
+      "$ref": "#/$defs/Links"
+    },
+    "total": {
+      "type": "integer"
+    }
+  },
+  "$defs": {
+    "Creative": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "channel": {
+          "type": "string"
+        },
+        "performance": {
+          "$ref": "#/$defs/Performance"
+        },
+        "dailyPerformance": {
+          "$ref": "#/$defs/DailyPerformance"
+        }
+      }
+    },
+    "DailyPerformance": {
+      "type": "array",
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/Performance"
+          },
+          {
+            "properties": {
+              "day": {
+                "type": "string"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "Links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          }
+        },
+        "next": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Performance": {
+      "type": "object",
+      "properties": {
+        "impressionsDelivered": {
+          "type": "string"
+        },
+        "clicksDelivered": {
+          "type": "string"
+        },
+        "leadsDelivered": {
+          "type": "string"
+        },
+        "leads": {
+          "type": "object",
+          "properties": {
+            "delivered": {
+              "type": "string"
+            },
+            "deliveredPostClicks": {
+              "type": "string"
+            },
+            "deliveredPostImpressions": {
+              "type": "string"
+            }
+          }
+        },
+        "spend": {
+          "type": "string"
+        },
+        "clickThroughRate": {
+          "type": "string"
+        },
+        "costPerLead": {
+          "type": "string"
+        },
+        "costPerClick": {
+          "type": "string"
+        },
+        "postEngagement": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "postComments": {
+              "type": "string"
+            },
+            "postShares": {
+              "type": "string"
+            },
+            "postReactions": {
+              "type": "string"
+            },
+            "pageLikes": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

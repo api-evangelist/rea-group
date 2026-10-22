@@ -3,7 +3,8 @@ method: searched
 source: https://developer.proptrack.com.au/docs/apis/properties
 verified: '2026-07-27'
 type: hosted-mock
-detail: >-
+docs: https://developer.proptrack.com.au/docs/apis/properties
+description: >-
   PropTrack publishes a Stoplight Prism mock server alongside every documented
   API service, advertised as "Mock Server" in the API Base URL panel on each
   service's docs page. The mocks are live, require NO authentication and no

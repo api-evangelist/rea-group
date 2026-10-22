@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-campaign-response-schema.json",
+  "title": "CampaignResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-campaign-display-performance-openapi.yml#/components/schemas/CampaignResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "impressionsGoal": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "string"
+    },
+    "accountManager": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "string"
+    },
+    "endDate": {
+      "type": "string"
+    },
+    "advertiser": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    },
+    "impressionsDelivered": {
+      "type": "string"
+    },
+    "clicksDelivered": {
+      "type": "string"
+    },
+    "spend": {
+      "type": "string"
+    },
+    "leadsDelivered": {
+      "type": "string"
+    },
+    "costPerLead": {
+      "type": "string"
+    },
+    "clickThroughRate": {
+      "type": "string"
+    },
+    "clickThroughConversion": {
+      "type": "string"
+    },
+    "listingId": {
+      "type": "string"
+    },
+    "performance": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "campaignId": {
+                "type": "string"
+              },
+              "impressionsDelivered": {
+                "type": "string"
+              },
+              "clicksDelivered": {
+                "type": "string"
+              },
+              "leadsDelivered": {
+                "type": "string"
+              },
+              "leadsDeliveredPostClicks": {
+                "type": "string"
+              },
+              "leadsDeliveredPostImpressions": {
+                "type": "string"
+              },
+              "spend": {
+                "type": "string"
+              },
+              "day": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "_links": {
+      "$ref": "#/$defs/SelfLink"
+    }
+  },
+  "$defs": {
+    "SelfLink": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,270 @@
+openapi: 3.2.0
+info:
+  title: Listing Upload Report API
+  description: An API to accept listing uploads and report on the progress of these listing uploads.
+  version: '1'
+servers:
+- url: https://api.realestate.com.au
+  description: Production API
+security:
+- PartnerPlatform:
+  - listing:listings:write
+tags:
+- name: Report
+paths:
+  /listing/v1/upload:
+    get:
+      parameters:
+      - in: query
+        name: agencyId
+        description: The REAXML agentID
+        required: true
+        schema:
+          $ref: '#/components/schemas/AgencyId'
+      - in: query
+        name: externalListingId
+        description: The REAXML uniqueID of the listing
+        required: true
+        schema:
+          $ref: '#/components/schemas/ExternalListingId'
+      tags:
+      - Report
+      summary: Search upload reports
+      description: Search reports for a given `externalListingId` and `agencyId`
+      operationId: searchUploadReports
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchReportResponse'
+        '403':
+          description: Forbidden
+        '404':
+          description: Verify that the URL is correct.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '404'
+                  title: Not found
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '405':
+          description: Method Not Allowed
+        '406':
+          description: Verify that `Accept.MediaType` is correct.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '406'
+                  title: Not acceptable
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '500':
+          description: Search report request failed.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '500'
+                  title: Unexpected error has occurred
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+      security:
+      - PartnerPlatform:
+        - listing:listings:write
+  /listing/v1/upload/{uploadId}:
+    get:
+      parameters:
+      - in: path
+        name: uploadId
+        description: Upload id returned by the Listing Upload API
+        required: true
+        schema:
+          $ref: '#/components/schemas/UploadId'
+      tags:
+      - Report
+      summary: View listing upload report
+      description: View the report for a given upload id
+      operationId: getUploadReport
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportResponse'
+        '403':
+          description: Forbidden
+        '404':
+          description: The report does not exist yet for the upload id or the URL may be malformed.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '404'
+                  title: Not found
+                  detail: Upload not found 6096a9ea-a0f6-4997-81d7-9c6c038abb8a
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '405':
+          description: Method Not Allowed
+        '406':
+          description: Verify that `Accept.MediaType` is correct.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '406'
+                  title: Not acceptable
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '500':
+          description: View report request failed.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '500'
+                  title: Unexpected error has occurred
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+      security:
+      - PartnerPlatform:
+        - listing:listings:write
+components:
+  schemas:
+    SearchReportResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/Upload'
+    AgencyId:
+      type: string
+      format: string
+      example: ABCDEF
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+        title:
+          type: string
+        meta:
+          type: object
+          properties:
+            transactionId:
+              type: string
+    ExternalListingId:
+      type: string
+      example: 123456
+    ResponseErrors:
+      type: array
+      items:
+        type: object
+        properties:
+          type:
+            type: string
+            example: listing
+          field:
+            type: string
+            example: headline
+          messages:
+            type: array
+            items:
+              type: string
+              example: A property 'headline' has not been provided. Please provide a headline in your uploader and re-feed the listing.
+          helpCentreUrl:
+            type: string
+            example: https://help.realestate.com.au/hc/en-us/categories/20857782169113
+    Upload:
+      type: object
+      properties:
+        uploadId:
+          $ref: '#/components/schemas/UploadId'
+        lastModified:
+          type: string
+          format: datetime
+          example: '2018-07-30T18:30:00.000Z'
+    ResponseWarnings:
+      type: array
+      items:
+        type: object
+        properties:
+          type:
+            type: string
+            example: listing
+          field:
+            type: string
+            example: display_price
+          messages:
+            type: array
+            items:
+              type: string
+              example: Please update your display price to be within 10% of the search price. The listing has been published with the display price 'Awaiting Price Guide' until updated.
+          helpCentreUrl:
+            type: string
+            example: https://help.realestate.com.au/hc/en-us/categories/20857782169113
+    ReportResponse:
+      type: object
+      properties:
+        uploadId:
+          $ref: '#/components/schemas/UploadId'
+        completedTime:
+          type:
+          - string
+          - 'null'
+          example: '2019-06-12T15:11:46+10:00'
+        progress:
+          type: string
+          enum:
+          - IN_PROGRESS COMPLETED
+        result:
+          type:
+          - string
+          - 'null'
+          enum:
+          - INTERNAL_ERROR PROCESSED SKIPPED NEW DELETED UNCHANGED
+        externalListingId:
+          $ref: '#/components/schemas/ListingId'
+        listingId:
+          $ref: '#/components/schemas/ListingId'
+        agencyId:
+          $ref: '#/components/schemas/AgencyId'
+        issues:
+          type: object
+          properties:
+            warnings:
+              $ref: '#/components/schemas/ResponseWarnings'
+            errors:
+              $ref: '#/components/schemas/ResponseErrors'
+    ListingId:
+      type: string
+      example: 131603746
+    UploadId:
+      type: string
+      format: uuid
+      example: ba879408-8ccc-11e9-9f4b-54e1ad4ab1b6
+  securitySchemes:
+    PartnerPlatform:
+      type: oauth2
+      description: OAuth 2 Client Credentials grant flow
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.realestate.com.au/oauth/token
+          scopes:
+            listing:listings:write: Upload listings

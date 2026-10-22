@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-campaign-list-response-schema.json",
+  "title": "CampaignListResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-campaign-display-performance-openapi.yml#/components/schemas/CampaignListResponse",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/BasicCampaign"
+          }
+        }
+      }
+    },
+    "_links": {
+      "$ref": "#/$defs/Links"
+    },
+    "total": {
+      "type": "integer"
+    }
+  },
+  "$defs": {
+    "AccountManager": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Advertiser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "BasicCampaign": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "product": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "accountManager": {
+          "$ref": "#/$defs/AccountManager"
+        },
+        "advertiser": {
+          "$ref": "#/$defs/Advertiser"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "startDate": {
+          "type": "string"
+        },
+        "endDate": {
+          "type": "string"
+        },
+        "impressionsGoal": {
+          "type": "string"
+        },
+        "impressionsDelivered": {
+          "type": "string"
+        },
+        "clicksDelivered": {
+          "type": "string"
+        },
+        "leadsDelivered": {
+          "type": "string"
+        },
+        "clickThroughRate": {
+          "type": "string"
+        },
+        "costPerLead": {
+          "type": "string"
+        },
+        "budget": {
+          "type": "string"
+        },
+        "spend": {
+          "type": "string"
+        },
+        "budgetRemaining": {
+          "type": "string"
+        },
+        "listingId": {
+          "type": "string"
+        }
+      }
+    },
+    "Links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            }
+          }
+        },
+        "next": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

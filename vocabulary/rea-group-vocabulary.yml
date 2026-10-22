@@ -1,0 +1,424 @@
+generated: '2026-10-21'
+method: derived
+generator: derive-vocabulary.py
+source:
+- openapi/rea-group-agencies-stats-api-openapi.yml
+- openapi/rea-group-agency-ratings-reviews-api-openapi.yml
+- openapi/rea-group-agent-ratings-reviews-api-openapi.yml
+- openapi/rea-group-agents-stats-api-openapi.yml
+- openapi/rea-group-attributes-api-openapi.yml
+vocabulary:
+  name: REA Group Domain Vocabulary
+  description: 'Terms declared by REA Group''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-21'
+  terms:
+  - term: Attributes
+    definition: Property Attributes
+    tags:
+    - Resource Group
+    source: openapi/rea-group-attributes-api-openapi.yml
+  - term: AVM
+    definition: AVM
+    tags:
+    - Resource Group
+    source: openapi/rea-group-avm-api-openapi.yml
+  - term: Listings
+    definition: Property Listings
+    tags:
+    - Resource Group
+    source: openapi/rea-group-listings-api-openapi.yml
+  - term: Planning
+    definition: Property Planning Overlays
+    tags:
+    - Resource Group
+    source: openapi/rea-group-planning-api-openapi.yml
+  - term: Search
+    definition: Property Search
+    tags:
+    - Resource Group
+    source: openapi/rea-group-search-api-openapi.yml
+  - term: Summary
+    definition: Property Summary
+    tags:
+    - Resource Group
+    source: openapi/rea-group-summary-api-openapi.yml
+  - term: Tenure Type
+    definition: Property Tenure Type History
+    tags:
+    - Resource Group
+    source: openapi/rea-group-tenure-type-api-openapi.yml
+  - term: Transactions
+    definition: Property Transactions
+    tags:
+    - Resource Group
+    source: openapi/rea-group-transactions-api-openapi.yml
+  - term: ErrorResponse
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/rea-group-agencies-stats-api-openapi.yml#/components/schemas/ErrorResponse
+  - term: AgenciesStats
+    definition: 'Object declared by the contract with fields: agenciesStats.'
+    tags:
+    - Object
+    source: openapi/rea-group-agencies-stats-api-openapi.yml#/components/schemas/AgenciesStats
+  - term: AgencyStats
+    definition: 'Object declared by the contract with fields: agencyId, averageRating, reviewsCount.'
+    tags:
+    - Object
+    source: openapi/rea-group-agencies-stats-api-openapi.yml#/components/schemas/AgencyStats
+  - term: Link
+    definition: 'Object declared by the contract with fields: href.'
+    tags:
+    - Object
+    source: openapi/rea-group-agency-ratings-reviews-api-openapi.yml#/components/schemas/Link
+  - term: RatingsReviews
+    definition: 'Object declared by the contract with fields: totalCount, _links, result.'
+    tags:
+    - Object
+    source: openapi/rea-group-agency-ratings-reviews-api-openapi.yml#/components/schemas/RatingsReviews
+  - term: RatingReview
+    definition: 'Object declared by the contract with fields: rating, content, listing, reviewer, agent, agency, createdDate.'
+    tags:
+    - Object
+    source: openapi/rea-group-agency-ratings-reviews-api-openapi.yml#/components/schemas/RatingReview
+  - term: AgentStats
+    definition: 'Object declared by the contract with fields: profileId, averageRating, reviewsCount.'
+    tags:
+    - Object
+    source: openapi/rea-group-agents-stats-api-openapi.yml#/components/schemas/AgentStats
+  - term: AgentsStats
+    definition: 'Object declared by the contract with fields: agentsStats.'
+    tags:
+    - Object
+    source: openapi/rea-group-agents-stats-api-openapi.yml#/components/schemas/AgentsStats
+  - term: AccountManager
+    definition: 'Object declared by the contract with fields: id, name.'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/AccountManager
+  - term: CampaignListResponse
+    definition: 'Object declared by the contract with fields: _embedded, _links, total.'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/CampaignListResponse
+  - term: SelfLink
+    definition: 'Object declared by the contract with fields: self.'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/SelfLink
+  - term: Links
+    definition: 'Object declared by the contract with fields: self, next.'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/Links
+  - term: Error
+    definition: 'Object declared by the contract with fields: statusCode, error, message.'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/Error
+  - term: Advertiser
+    definition: 'Object declared by the contract with fields: id, name.'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/Advertiser
+  - term: BasicCampaign
+    definition: 'Object declared by the contract with fields: id, name, product, status, accountManager, advertiser, createdAt, startDate, endDate,
+      impressionsGoal, impressionsDelivered, clicksDelivered. (7 more)'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/BasicCampaign
+  - term: CampaignResponse
+    definition: 'Object declared by the contract with fields: id, name, product, status, impressionsGoal, budget, accountManager, startDate, endDate,
+      advertiser, updatedAt, impressionsDelivered. (9 more)'
+    tags:
+    - Object
+    source: openapi/rea-group-campaign-api-openapi.yml#/components/schemas/CampaignResponse
+  - term: ConnectionLead
+    definition: 'Object declared by the contract with fields: application, tenant, property, agency, agents, connectionProviderName, utilityConnectionsAllowed.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/ConnectionLead
+  - term: AffiliatedAgency
+    definition: 'Object declared by the contract with fields: _embedded, _links.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/AffiliatedAgencies
+  - term: Application
+    definition: 'Object declared by the contract with fields: id, approvedAt.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/Application
+  - term: Agency
+    definition: 'Object declared by the contract with fields: reaId, name.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/Agency
+  - term: ConnectionLeads
+    definition: 'Object declared by the contract with fields: _embedded, _links.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/ConnectionLeads
+  - term: ConnectionLeadsEmbedded
+    definition: 'Object declared by the contract with fields: connectionLeads.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/ConnectionLeadsEmbedded
+  - term: Agent
+    definition: 'Object declared by the contract with fields: id, name, email.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/Agent
+  - term: AffiliatedAgenciesEmbedded
+    definition: 'Object declared by the contract with fields: affiliatedAgencies.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/AffiliatedAgenciesEmbedded
+  - term: Tenant
+    definition: 'Object declared by the contract with fields: firstName, lastName, email, mobilePhoneNumber, birthDate, identityDocument.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/Tenant
+  - term: Property
+    definition: 'Object declared by the contract with fields: street, suburb, state, postCode, moveInDate.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/Property
+  - term: AffiliatedAgency
+    definition: 'Object declared by the contract with fields: agencyId, agencyName, providerName, updatedAt.'
+    tags:
+    - Object
+    source: openapi/rea-group-connection-leads-api-api-openapi.yml#/components/schemas/AffiliatedAgency
+  - term: Creative
+    definition: 'Object declared by the contract with fields: id, name, imageUrl, type, channel, performance, dailyPerformance.'
+    tags:
+    - Object
+    source: openapi/rea-group-creative-api-openapi.yml#/components/schemas/Creative
+  - term: Performance
+    definition: 'Object declared by the contract with fields: impressionsDelivered, clicksDelivered, leadsDelivered, leads, spend, clickThroughRate,
+      costPerLead, costPerClick, postEngagement.'
+    tags:
+    - Object
+    source: openapi/rea-group-creative-api-openapi.yml#/components/schemas/Performance
+  - term: CreativeResponse
+    definition: 'Object declared by the contract with fields: _embedded, _links, total.'
+    tags:
+    - Object
+    source: openapi/rea-group-creative-api-openapi.yml#/components/schemas/CreativeResponse
+  - term: Issue
+    definition: Represents an error encountered while parsing a value to match the schema
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/Issue
+  - term: RFC7807ApiError.ConflictError
+    definition: The request conflicts with the current state of the resource (RFC 7807)
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/RFC7807ApiError.ConflictError
+  - term: UUID
+    definition: a Universally Unique Identifier
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/UUID
+  - term: nonEmptyString
+    definition: a non empty string
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/NonEmptyString
+  - term: HttpApiDecodeError
+    definition: The request did not match the expected schema
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/HttpApiDecodeError
+  - term: RFC7807ApiError.NotFoundError
+    definition: The requested resource could not be found (RFC 7807)
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/RFC7807ApiError.NotFoundError
+  - term: BooleanFromString
+    definition: a string to be decoded into a boolean
+    tags:
+    - Enumeration
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/BooleanFromString
+  - term: int
+    definition: an integer
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/Int
+  - term: RFC7807ApiError.InternalServerError
+    definition: An unexpected error occurred on the server (RFC 7807)
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/RFC7807ApiError.InternalServerError
+  - term: RFC7807ApiError.DecodeError
+    definition: The request did not match the expected schema (RFC 7807)
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/RFC7807ApiError.DecodeError
+  - term: RFC7807ApiError.BadRequestError
+    definition: The request was invalid or cannot be served (RFC 7807)
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/RFC7807ApiError.BadRequestError
+  - term: NumberFromString
+    definition: a string to be decoded into a number
+    tags:
+    - Object
+    source: openapi/rea-group-customerv1-api-openapi.yml#/components/schemas/NumberFromString
+  - term: EdmPerformance
+    definition: 'Object declared by the contract with fields: _links, flightId, campaignId, accountManager, advertiser, name, sendDate, sends,
+      clicks, uniqueClicks, clickThroughRate, flatRateLocal. (3 more)'
+    tags:
+    - Object
+    source: openapi/rea-group-edm-performance-api-openapi.yml#/components/schemas/EdmPerformance
+  - term: EdmPerformanceItems
+    definition: 'Object declared by the contract with fields: _embedded, _links.'
+    tags:
+    - Object
+    source: openapi/rea-group-edm-performance-api-openapi.yml#/components/schemas/EdmPerformanceItems
+  - term: Errors
+    definition: 'Object declared by the contract with fields: errors.'
+    tags:
+    - Object
+    source: openapi/rea-group-edm-performance-api-openapi.yml#/components/schemas/Errors
+  - term: Source
+    definition: 'Object declared by the contract with fields: id, name, type.'
+    tags:
+    - Object
+    source: openapi/rea-group-enquiries-api-openapi.yml#/components/schemas/Source
+  - term: Enquiries
+    definition: 'Object declared by the contract with fields: _embedded, _links.'
+    tags:
+    - Object
+    source: openapi/rea-group-enquiries-api-openapi.yml#/components/schemas/Enquiries
+  - term: BaseEnquiry
+    definition: 'Object declared by the contract with fields: id, agencyId, receivedAt, processedAt, comments, requestedInformation, suppliedMarketStatus,
+      agentRecipients, contactDetails, source, externalIdentifiers, customAttributes. (2 more)'
+    tags:
+    - Object
+    source: openapi/rea-group-enquiries-api-openapi.yml#/components/schemas/BaseEnquiry
+  - term: ContactDetails
+    definition: 'Object declared by the contract with fields: fullName, email, phone, postcode, preferredContactMethod.'
+    tags:
+    - Object
+    source: openapi/rea-group-enquiries-api-openapi.yml#/components/schemas/ContactDetails
+  - term: Listing
+    definition: 'Object declared by the contract with fields: id, externalListingId, parentId, address.'
+    tags:
+    - Object
+    source: openapi/rea-group-enquiries-api-openapi.yml#/components/schemas/Listing
+  - term: ExternalIdentifiers
+    definition: 'Object declared by the contract with fields: externalProjectId, externalListingId.'
+    tags:
+    - Object
+    source: openapi/rea-group-enquiries-api-openapi.yml#/components/schemas/ExternalIdentifiers
+  - term: Enrichment
+    definition: 'Object declared by the contract with fields: enquiryId, listingId, score, isFinalised, enrichedAt, buyerReadiness, listingEngagement,
+      topSearchedConfigurationBathrooms, topSearchedConfigurationBedrooms, topSearchedConstructionTypes, topSearchedPropertyTypes, topSearchedSuburbs.
+      (1 more)'
+    tags:
+    - Object
+    source: openapi/rea-group-enrichments-api-openapi.yml#/components/schemas/Enrichment
+  - term: Enrichments
+    definition: 'Object declared by the contract with fields: _embedded, _links.'
+    tags:
+    - Object
+    source: openapi/rea-group-enrichments-api-openapi.yml#/components/schemas/Enrichments
+  - term: Flight
+    definition: 'Object declared by the contract with fields: id, name, startDate, endDate, productRateType, type, adType, impressionsGoal, budget,
+      status, channel, performance. (1 more)'
+    tags:
+    - Object
+    source: openapi/rea-group-flight-api-openapi.yml#/components/schemas/Flight
+  - term: FlightResponse
+    definition: 'Object declared by the contract with fields: _embedded, _links, total.'
+    tags:
+    - Object
+    source: openapi/rea-group-flight-api-openapi.yml#/components/schemas/FlightResponse
+  - term: HalNextLink
+    definition: A HAL link for pagination
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/HalNextLink
+  - term: IntegrationLinks
+    definition: HAL links for an Integration
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/IntegrationLinks
+  - term: HalLink
+    definition: A HAL link
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/HalLink
+  - term: Integration
+    definition: An Integration representing a delegation between an API Consumer and a Resource Owner
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/Integration
+  - term: Integrations
+    definition: A HAL response containing a list of Integrations
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/Integrations
+  - term: IntegrationsLinks
+    definition: HAL links for the Integrations index response
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/IntegrationsLinks
+  - term: IntegrationsEmbedded
+    definition: Embedded resources in the Integrations response
+    tags:
+    - Object
+    source: openapi/rea-group-integrations-api-openapi.yml#/components/schemas/IntegrationsEmbedded
+  - term: ListingPerformance
+    definition: 'Object declared by the contract with fields: _links, id, dataSourceLastUpdated, lastModifiedAt, listing, reportingPeriod, portalMetrics,
+      productMetrics.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/ListingPerformance
+  - term: ProductMetrics
+    definition: 'Object declared by the contract with fields: productName, productPurchases.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/ProductMetrics
+  - term: ListingPerformanceItems
+    definition: 'Object declared by the contract with fields: _embedded, _links.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/ListingPerformanceItems
+  - term: MetricPeriod
+    definition: 'Object declared by the contract with fields: period, metricValues.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/MetricPeriod
+  - term: Metric
+    definition: 'Object declared by the contract with fields: metricName, metricType, metricPeriods.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/Metric
+  - term: ProductPurchaseMetrics
+    definition: 'Object declared by the contract with fields: purchaseId, purchaseType, all, daily.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/ProductPurchaseMetrics
+  - term: PortalMetric
+    definition: 'Object declared by the contract with fields: portalName, all, daily.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/PortalMetric
+  - term: MetricValue
+    definition: 'Object declared by the contract with fields: name, value.'
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/MetricValue
+  - term: ReportingPeriod
+    definition: Reporting period (inclusive) to which the listing performance report applies.
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/ReportingPeriod
+  - term: DataSourceLastUpdated
+    definition: Contains dates indicating data source currency
+    tags:
+    - Object
+    source: openapi/rea-group-listing-performance-api-openapi.yml#/components/schemas/DataSourceLastUpdated

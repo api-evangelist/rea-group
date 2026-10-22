@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-subscription-response-schema.json",
+  "title": "SubscriptionResponse",
+  "description": "A webhook's subscription response",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-webhooks-openapi.yml#/components/schemas/SubscriptionResponse",
+  "type": "object",
+  "properties": {
+    "subscriptionId": {
+      "type": "string"
+    },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "UploadCompleted",
+        "IntegrationCreated",
+        "IntegrationUpdated",
+        "IntegrationDeleted",
+        "EnquiryCreated"
+      ]
+    },
+    "eventCategory": {
+      "type": "string",
+      "enum": [
+        "listing",
+        "me",
+        "lead"
+      ]
+    },
+    "ownerType": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "webhookUrl": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PENDING",
+        "VALIDATED",
+        "FAILED",
+        "DISABLED"
+      ]
+    }
+  }
+}

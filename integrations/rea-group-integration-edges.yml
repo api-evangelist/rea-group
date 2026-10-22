@@ -1,0 +1,26 @@
+generated: '2026-10-21'
+method: none
+source:
+- https://zapier.com/apps/rea-group/integrations
+- https://n8n.io/integrations/rea-group/
+- https://composio.dev/toolkits/rea-group
+- https://monid.ai/tools/rea-group
+checked:
+- https://composio.dev/toolkits/rea-group
+- https://monid.ai/tools/rea-group
+- https://n8n.io/integrations/rea-group/
+- https://zapier.com/apps/rea-group/integrations
+- https://customer.realestate.com.au/residential/crm-integrations/
+- https://partner.realestate.com.au/
+- https://developer.proptrack.com.au/docs/apis/home
+- https://partner.realestate.com.au/deep-links/examples/integrations/
+- https://help.realestate.com.au/hc/en-us/articles/48887137885465-How-to-change-your-listing-uploader-or-CRM
+summary: 'No marketplace listing and no named integration partner found. The CRM Integrations page describes REA''s
+  own APIs used "through your chosen provider" but names no CRM vendors; the partner portal and saved contracts
+  name no third-party services. Re-checked 2026-10-21: the Partner Platform integrations deep-link page and the
+  help article on changing a listing uploader/CRM name no CRM vendors either; third-party sites (ProperEasy, Codingclave)
+  claim REAXML upload support by Rex, VaultRE, Agentbox and Box+Dice, but REA publishes no directory of them, so
+  no edge is recorded.'
+marketplace_apps: []
+edges: []
+templates: []

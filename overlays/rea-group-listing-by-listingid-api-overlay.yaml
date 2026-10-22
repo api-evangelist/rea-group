@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Listings Listing by listingId API
+  version: 1.0.0
+extends: openapi/rea-group-listing-by-listingid-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-listing-by-listingid-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-listing-by-listingid-api
+      api_name: Listings Listing by listingId API
+      family: PropTrack data API
+      documentation: https://developer.proptrack.com.au/docs/apis/home
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/api/v2/listings/{listingId}'].get
+  update:
+    x-agent-tool:
+      candidate_name: listing_by_listingid_api_listings
+      read_only: true
+      side_effects: none

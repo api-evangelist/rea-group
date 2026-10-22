@@ -1,183 +1,1218 @@
-generated: '2026-07-27'
+generated: '2026-10-21'
 method: derived
 status: candidate
-source: openapi/ (32 operations across nine PropTrack OpenAPI documents)
-note: PropTrack publishes no MCP server. This is a CANDIDATE tool surface derived one-tool-per-operation
-  from the provider OpenAPI, so the API is representable to agents; it is not a provider claim and nothing
-  is hosted. Input schemas are inherited from each backing operation parameters/requestBody.
+source: openapi/ (47 OpenAPI documents under openapi/, regenerated 2026-10-21 against the current file set)
+note: 'Neither REA Group, PropTrack nor realestate.com.au publishes an MCP server: the pre-flight docs probe found no MCP
+  docs (mcp_tool_table l3=no-mcp-docs-found) and a 2026-10-20 web search found no official server. This is a CANDIDATE tool
+  surface derived one-tool-per-operation from the OpenAPI documents; nothing is hosted and no endpoint exists. The POST /oauth2/token
+  operation is excluded as a tool (it is the credential exchange, brokered by any deployment).'
+deployment:
+  mode: none
+  auth: unknown
+  verified: derived
 server:
-  name: proptrack
+  name: rea-group
   transport: null
   url: null
   published: false
 auth:
   model: oauth2-client-credentials
-  token_url: https://data.proptrack.com/oauth2/token
-  note: Any MCP deployment must broker the partner credential; PropTrack issues no per-user tokens.
+  proptrack_token_url: https://data.proptrack.com/oauth2/token
+  partner_token_url: https://api.realestate.com.au/oauth/token
+  note: Both families are partner-gated OAuth 2.0 client credentials issued under a commercial agreement; a deployment must
+    broker the partner credential.
+coverage:
+  operations: 86
+  tools: 85
+  read_only: 70
+  write: 15
+  without_operationId: 0
+  note: POST /oauth2/token (auth-token) excluded as a tool. customerv1 and diagnostic specs declare no servers[], so base_url
+    is null for those tools.
 tools:
-- name: address_address_match
-  description: /api/v2/address/match
-  source_operation: openapi/rea-group-address-openapi.yml#address.match
+- name: agencies_stats_api_getagenciesstats
+  description: Get agencies stats
+  source_operation: openapi/rea-group-agencies-stats-api-openapi.yml#GetAgenciesStats
+  operationId: GetAgenciesStats
   method: GET
-  path: /api/v2/address/match
-- name: address_address_suggest
-  description: /api/v2/address/suggest
-  source_operation: openapi/rea-group-address-openapi.yml#address.suggest
+  path: /agencies/{agencyIds}/stats
+  base_url: https://api.realestate.com.au/customer-profile/v1/ratings-reviews
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agencyIds
+- name: agency_ratings_reviews_api_getagenciesreviewsdoc
+  description: Get agencies reviews doc
+  source_operation: openapi/rea-group-agency-ratings-reviews-api-openapi.yml#GetAgenciesReviewsDoc
+  operationId: GetAgenciesReviewsDoc
   method: GET
-  path: /api/v2/address/suggest
-- name: coming_soon_get_api_v2_properties_propertyid_nearby_educatio
-  description: /api/v2/properties/{propertyId}/nearby-education-facilities
-  source_operation: openapi/rea-group-coming-soon-openapi.yml#get-api-v2-properties-propertyId-nearby-education-facilities
+  path: /agencies/{agencyIds}
+  base_url: https://api.realestate.com.au/customer-profile/v1/ratings-reviews
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agencyIds
+  - page
+  - since
+  - ratings
+  - order
+- name: agent_ratings_reviews_api_getagentreviewsdoc
+  description: Get agent reviews doc
+  source_operation: openapi/rea-group-agent-ratings-reviews-api-openapi.yml#GetAgentReviewsDoc
+  operationId: GetAgentReviewsDoc
   method: GET
-  path: /api/v2/properties/{propertyId}/nearby-education-facilities
-- name: disclaimers_get_api_v1_disclaimers
-  description: /api/v1/disclaimers
-  source_operation: openapi/rea-group-disclaimers-openapi.yml#get-api-v1-disclaimers
+  path: /agent/{agentProfileId}
+  base_url: https://api.realestate.com.au/customer-profile/v1/ratings-reviews
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agentProfileId
+  - page
+  - since
+  - ratings
+  - order
+- name: agents_stats_api_getagentsstats
+  description: Get agents stats
+  source_operation: openapi/rea-group-agents-stats-api-openapi.yml#GetAgentsStats
+  operationId: GetAgentsStats
   method: GET
-  path: /api/v1/disclaimers
-- name: listings_listings
-  description: /api/v2/listings/{listingId}
-  source_operation: openapi/rea-group-listings-openapi.yml#listings
-  method: GET
-  path: /api/v2/listings/{listingId}
-- name: listings_listings_point_and_radius_search
-  description: /api/v2/listings/search/point-and-radius
-  source_operation: openapi/rea-group-listings-openapi.yml#listings-point-and-radius-search
-  method: GET
-  path: /api/v2/listings/search/point-and-radius
-- name: listings_get_api_v2_listings_search_suburb_and_postcode
-  description: /api/v2/listings/search/suburb-and-postcode
-  source_operation: openapi/rea-group-listings-openapi.yml#get-api-v2-listings-search-suburb-and-postcode
-  method: GET
-  path: /api/v2/listings/search/suburb-and-postcode
-- name: market_get_api_v2_market_auctions
-  description: /api/v2/market/auctions
-  source_operation: openapi/rea-group-market-openapi.yml#get-api-v2-market-auctions
-  method: GET
-  path: /api/v2/market/auctions
-- name: market_market_rent_history
-  description: /api/v2/market/rent/historic/{metric}
-  source_operation: openapi/rea-group-market-openapi.yml#market.rent-history
-  method: GET
-  path: /api/v2/market/rent/historic/{metric}
-- name: market_market_sale_history
-  description: /api/v2/market/sale/historic/{metric}
-  source_operation: openapi/rea-group-market-openapi.yml#market.sale-history
-  method: GET
-  path: /api/v2/market/sale/historic/{metric}
-- name: market_market_supply_and_demand
-  description: /api/v2/market/supply-and-demand/{metric}
-  source_operation: openapi/rea-group-market-openapi.yml#market.supply-and-demand
-  method: GET
-  path: /api/v2/market/supply-and-demand/{metric}
-- name: market_api_v2_market_demographics
-  description: /api/v2/market/demographics
-  source_operation: openapi/rea-group-market-openapi.yml#/api/v2/market/demographics
-  method: GET
-  path: /api/v2/market/demographics
-- name: oauth_auth_token
-  description: /oauth2/token
-  source_operation: openapi/rea-group-oauth-openapi.yml#auth-token
-  method: POST
-  path: /oauth2/token
-- name: properties_get_v2_summary
-  description: /api/v2/properties/{propertyId}/summary
-  source_operation: openapi/rea-group-properties-openapi.yml#get-v2-summary
-  method: GET
-  path: /api/v2/properties/{propertyId}/summary
-- name: properties_properties_attributes
+  path: /agents/{agentProfileIds}/stats
+  base_url: https://api.realestate.com.au/customer-profile/v1/ratings-reviews
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agentProfileIds
+- name: attributes_api_properties_attributes
   description: /api/v2/properties/{propertyId}/attributes
-  source_operation: openapi/rea-group-properties-openapi.yml#properties-attributes
+  source_operation: openapi/rea-group-attributes-api-openapi.yml#properties-attributes
+  operationId: properties-attributes
   method: GET
   path: /api/v2/properties/{propertyId}/attributes
-- name: properties_listings
-  description: /api/v2/properties/{propertyId}/listings
-  source_operation: openapi/rea-group-properties-openapi.yml#listings
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+- name: auction_results_api_get_api_v2_market_auctions
+  description: /api/v2/market/auctions
+  source_operation: openapi/rea-group-auction-results-api-openapi.yml#get-api-v2-market-auctions
+  operationId: get-api-v2-market-auctions
   method: GET
-  path: /api/v2/properties/{propertyId}/listings
-- name: properties_get_api_v2_properties_planning
-  description: /properties/{propertyId}/planning
-  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-planning
-  method: GET
-  path: /api/v2/properties/{propertyId}/planning
-- name: properties_get_api_v2_properties_tenure
-  description: /api/v2/properties/{propertyId}/tenureType
-  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-tenure
-  method: GET
-  path: /api/v2/properties/{propertyId}/tenureType
-- name: properties_transactions
-  description: /api/v2/properties/{propertyId}/transactions
-  source_operation: openapi/rea-group-properties-openapi.yml#transactions
-  method: GET
-  path: /api/v2/properties/{propertyId}/transactions
-- name: properties_v1_properties_valuation_sale
+  path: /api/v2/market/auctions
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - searchType
+  - suburb
+  - state
+  - postcode
+  - gccsaCode
+  - startDate
+  - endDate
+- name: avm_api_v1_properties_valuation_sale
   description: /api/v1/properties/valuations/sale ~ Enquiry or Origination
-  source_operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale
+  source_operation: openapi/rea-group-avm-api-openapi.yml#v1-properties-valuation-sale
+  operationId: v1-properties-valuation-sale
   method: POST
   path: /api/v1/properties/valuations/sale
-- name: properties_avm_propertyid
-  description: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
-  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: false
+  parameters:
+  - Authorization
+  request_body: true
+- name: avm_api_avm_propertyid
+  description: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or…
+  source_operation: openapi/rea-group-avm-api-openapi.yml#avm-propertyId
+  operationId: avm-propertyId
   method: GET
   path: /api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination
-- name: properties_avm_propertyid_enquiry
-  description: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
-  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId-enquiry
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+  - requestType
+  - propertyId
+  request_body: true
+- name: avm_api_avm_propertyid_enquiry
+  description: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or…
+  source_operation: openapi/rea-group-avm-api-openapi.yml#avm-propertyId-enquiry
+  operationId: avm-propertyId-enquiry
   method: GET
   path: /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination
-- name: properties_v1_properties_valuation_sale_plus
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - requestType
+  - propertyId
+- name: avm_api_v1_properties_valuation_sale_plus
   description: /api/v1/properties/valuations/sale ~ Plus
-  source_operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale-plus
+  source_operation: openapi/rea-group-avm-api-openapi.yml#v1-properties-valuation-sale-plus
+  operationId: v1-properties-valuation-sale-plus
   method: POST
   path: /api/v1/properties/valuations/sale ~ requestType=plus
-- name: properties_avm_propertyid_plus
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: false
+  parameters:
+  - Authorization
+  request_body: true
+- name: avm_api_avm_propertyid_plus
   description: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
-  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId-plus
+  source_operation: openapi/rea-group-avm-api-openapi.yml#avm-propertyId-plus
+  operationId: avm-propertyId-plus
   method: GET
   path: /api/v1/properties/{propertyId}/valuations/sale?requestType=plus
-- name: properties_v1_properties_valuation_sale_pro
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+  - requestType
+  - effectiveDate
+  - customerReference
+  - bedrooms
+  - bathrooms
+  - carSpaces
+  - propertyType
+  - propertyId
+  request_body: true
+- name: avm_api_v1_properties_valuation_sale_pro
   description: /api/v1/properties/valuations/sale ~ Pro
-  source_operation: openapi/rea-group-properties-openapi.yml#v1-properties-valuation-sale-pro
+  source_operation: openapi/rea-group-avm-api-openapi.yml#v1-properties-valuation-sale-pro
+  operationId: v1-properties-valuation-sale-pro
   method: POST
   path: /api/v1/properties/valuations/sale ~ Pro
-- name: properties_avm_propertyid_pro
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: false
+  parameters:
+  - Authorization
+  request_body: true
+- name: avm_api_avm_propertyid_pro
   description: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
-  source_operation: openapi/rea-group-properties-openapi.yml#avm-propertyId-pro
+  source_operation: openapi/rea-group-avm-api-openapi.yml#avm-propertyId-pro
+  operationId: avm-propertyId-pro
   method: GET
   path: /api/v1/properties/{propertyId}/valuations/sale?requestType=pro
-- name: properties_get_api_v2_properties_summaries_search
-  description: /api/v2/properties/summaries/search
-  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-summaries-search
-  method: GET
-  path: /api/v2/properties/summaries/search
-- name: properties_get_api_v2_properties_geopoints_pins
-  description: /api/v2/properties/geopoints/search
-  source_operation: openapi/rea-group-properties-openapi.yml#get-api-v2-properties-geopoints-pins
-  method: GET
-  path: /api/v2/properties/geopoints/search
-- name: reports_reports_valuations_pdf
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+  - requestType
+  - effectiveDate
+  - customerReference
+  - bedrooms
+  - bathrooms
+  - carSpaces
+  - propertyType
+  - propertyId
+  request_body: true
+- name: avm_report_api_reports_valuations_pdf
   description: /api/v1/reports/valuations/{valuationId}/pdf
-  source_operation: openapi/rea-group-reports-openapi.yml#reports-valuations-pdf
+  source_operation: openapi/rea-group-avm-report-api-openapi.yml#reports-valuations-pdf
+  operationId: reports-valuations-pdf
   method: GET
   path: /api/v1/reports/valuations/{valuationId}/pdf
-- name: reports_reports_property_report
-  description: /api/v1/reports/property
-  source_operation: openapi/rea-group-reports-openapi.yml#reports-property-report
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - valuationId
+- name: campaign_api_getcampaignv1displayperformance
+  description: Get multiple campaigns
+  source_operation: openapi/rea-group-campaign-api-openapi.yml#getCampaignV1DisplayPerformance
+  operationId: getCampaignV1DisplayPerformance
+  method: GET
+  path: /campaign/v1/display-performance
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - where[name][iLike]
+  - product
+  - sortBy[costPerLead]
+  - excludeCommercialCampaigns
+- name: campaign_api_getcampaignv1displayperformancebycampaignid
+  description: Get single campaign
+  source_operation: openapi/rea-group-campaign-api-openapi.yml#getCampaignV1DisplayPerformanceByCampaignId
+  operationId: getCampaignV1DisplayPerformanceByCampaignId
+  method: GET
+  path: /campaign/v1/display-performance/{campaignId}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: campaign_api_getcampaignv1displayperformancecsv
+  description: Get single or multiple campaigns in CSV format
+  source_operation: openapi/rea-group-campaign-api-openapi.yml#getCampaignV1DisplayPerformanceCsv
+  operationId: getCampaignV1DisplayPerformanceCsv
+  method: GET
+  path: /campaign/v1/display-performance/csv
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - campaignIds
+  - filename
+  - snapshot
+- name: connection_leads_api_api_getconnectionleadsusingget
+  description: Poll connection leads of the applications approved by agents
+  source_operation: openapi/rea-group-connection-leads-api-api-openapi.yml#getConnectionLeadsUsingGet
+  operationId: getConnectionLeadsUsingGet
+  method: GET
+  path: /connection-leads
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - happenedSince
+- name: connection_leads_api_api_getconnectionleadsaffiliatedagenciesusi
+  description: Poll the affiliated agencies for the provider
+  source_operation: openapi/rea-group-connection-leads-api-api-openapi.yml#getConnectionLeadsAffiliatedAgenciesUsingGet
+  operationId: getConnectionLeadsAffiliatedAgenciesUsingGet
+  method: GET
+  path: /connection-leads/agencies
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - happenedSince
+- name: creative_api_getbycampaignidcreatives
+  description: Get creatives
+  source_operation: openapi/rea-group-creative-api-openapi.yml#getByCampaignIdCreatives
+  operationId: getByCampaignIdCreatives
+  method: GET
+  path: /{campaignId}/creatives
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: customerv1_api_customerv1_postindividualcustomerv1
+  description: Customer V1 post individual customer V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.postIndividualCustomerV1
+  operationId: customerV1.postIndividualCustomerV1
   method: POST
-  path: /api/v1/reports/property
-- name: transactions_get_transactions_propertyid
+  path: /v1/individual-customers
+  base_url: null
+  family: realestate-partner
+  read_only: false
+  parameters: []
+  request_body: true
+- name: customerv1_api_customerv1_readindividualcustomersv1
+  description: Customer V1 read individual customers V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.readIndividualCustomersV1
+  operationId: customerV1.readIndividualCustomersV1
+  method: GET
+  path: /v1/individual-customers
+  base_url: null
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - pageSize
+  - cursor
+  - isActiveOnly
+- name: customerv1_api_customerv1_readindividualcustomerv1
+  description: Customer V1 read individual customer V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.readIndividualCustomerV1
+  operationId: customerV1.readIndividualCustomerV1
+  method: GET
+  path: /v1/individual-customers/{id}
+  base_url: null
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - id
+- name: customerv1_api_customerv1_putindividualcustomerv1
+  description: Customer V1 put individual customer V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.putIndividualCustomerV1
+  operationId: customerV1.putIndividualCustomerV1
+  method: PUT
+  path: /v1/individual-customers/{externalId}
+  base_url: null
+  family: realestate-partner
+  read_only: false
+  parameters:
+  - externalId
+  request_body: true
+- name: customerv1_api_customerv1_postoffboardindividualcustomerv1
+  description: Customer V1 post offboard individual customer V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.postOffboardIndividualCustomerV1
+  operationId: customerV1.postOffboardIndividualCustomerV1
+  method: POST
+  path: /v1/individual-customers/{externalId}/offboard
+  base_url: null
+  family: realestate-partner
+  read_only: false
+  parameters:
+  - externalId
+- name: customerv1_api_customerv1_addworkingrelationshipsv1
+  description: Customer V1 add working relationships V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.addWorkingRelationshipsV1
+  operationId: customerV1.addWorkingRelationshipsV1
+  method: POST
+  path: /v1/individual-customers/{externalId}/add-working-relationships
+  base_url: null
+  family: realestate-partner
+  read_only: false
+  parameters:
+  - externalId
+  request_body: true
+- name: customerv1_api_customerv1_endworkingrelationshipsv1
+  description: Customer V1 end working relationships V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.endWorkingRelationshipsV1
+  operationId: customerV1.endWorkingRelationshipsV1
+  method: POST
+  path: /v1/individual-customers/{externalId}/end-working-relationships
+  base_url: null
+  family: realestate-partner
+  read_only: false
+  parameters:
+  - externalId
+  request_body: true
+- name: customerv1_api_customerv1_updateworkingrelationshipv1
+  description: Customer V1 update working relationship V1
+  source_operation: openapi/rea-group-customerv1-api-openapi.yml#customerV1.updateWorkingRelationshipV1
+  operationId: customerV1.updateWorkingRelationshipV1
+  method: PUT
+  path: /v1/individual-customers/{externalId}/working-relationships/{agencyId}
+  base_url: null
+  family: realestate-partner
+  read_only: false
+  parameters:
+  - externalId
+  - agencyId
+  request_body: true
+- name: demographics_api_api_v2_market_demographics
+  description: /api/v2/market/demographics
+  source_operation: openapi/rea-group-demographics-api-openapi.yml#/api/v2/market/demographics
+  operationId: /api/v2/market/demographics
+  method: GET
+  path: /api/v2/market/demographics
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - suburb
+  - postcode
+  - gccsaCode
+  - searchType
+  - Authorization
+  - state
+- name: diagnostic_api_diagnostic_getheartbeat
+  description: Diagnostic get heartbeat
+  source_operation: openapi/rea-group-diagnostic-api-openapi.yml#diagnostic.getHeartbeat
+  operationId: diagnostic.getHeartbeat
+  method: GET
+  path: /diagnostic/heartbeat
+  base_url: null
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: disclaimers_api_get_api_v1_disclaimers
+  description: /api/v1/disclaimers
+  source_operation: openapi/rea-group-disclaimers-api-openapi.yml#get-api-v1-disclaimers
+  operationId: get-api-v1-disclaimers
+  method: GET
+  path: /api/v1/disclaimers
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - disclaimerTypes
+  - state
+  - asAtDate
+  - textFormat
+- name: edm_performance_api_getedmperformance
+  description: Get list of campaigns as per user's permission
+  source_operation: openapi/rea-group-edm-performance-api-openapi.yml#getEdmPerformance
+  operationId: getEdmPerformance
+  method: GET
+  path: /edm-performance
+  base_url: https://api.realestate.com.au/campaign/v1/edm-performance
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: enquiries_api_getv1enquiries
+  description: Get multiple enquiries accessible to the partner
+  source_operation: openapi/rea-group-enquiries-api-openapi.yml#getV1Enquiries
+  operationId: getV1Enquiries
+  method: GET
+  path: /v1/enquiries
+  base_url: https://api.realestate.com.au/lead
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - since
+  - page
+  - agency_id
+  - agent_profile_id
+  - listing_ids
+  - exclude_types
+- name: enquiries_api_getv1enquiriesbyenquiryid
+  description: Get a single enquiry resource
+  source_operation: openapi/rea-group-enquiries-api-openapi.yml#getV1EnquiriesByEnquiryId
+  operationId: getV1EnquiriesByEnquiryId
+  method: GET
+  path: /v1/enquiries/{enquiry_id}
+  base_url: https://api.realestate.com.au/lead
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - enquiry_id
+- name: enquiries_api_getv1enquiriescount
+  description: Get the count of enquiries since a given date
+  source_operation: openapi/rea-group-enquiries-api-openapi.yml#getV1EnquiriesCount
+  operationId: getV1EnquiriesCount
+  method: GET
+  path: /v1/enquiries/count
+  base_url: https://api.realestate.com.au/lead
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - since
+- name: enrichments_api_getenrichments
+  description: Get enrichments
+  source_operation: openapi/rea-group-enrichments-api-openapi.yml#getEnrichments
+  operationId: getEnrichments
+  method: GET
+  path: /enrichments
+  base_url: https://api.realestate.com.au/lead-enrichment/v1
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - enquiryIds
+  - since
+  - pageIndex
+  - pageSize
+- name: enrichments_api_getenrichmentsbyenquiryid
+  description: Get enrichment data for a single enquiry
+  source_operation: openapi/rea-group-enrichments-api-openapi.yml#getEnrichmentsByEnquiryId
+  operationId: getEnrichmentsByEnquiryId
+  method: GET
+  path: /enrichments/{enquiryId}
+  base_url: https://api.realestate.com.au/lead-enrichment/v1
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - enquiryId
+- name: flight_api_getcampaignv1displayperformancebycampaignidflights
+  description: Get flights
+  source_operation: openapi/rea-group-flight-api-openapi.yml#getCampaignV1DisplayPerformanceByCampaignIdFlights
+  operationId: getCampaignV1DisplayPerformanceByCampaignIdFlights
+  method: GET
+  path: /campaign/v1/display-performance/{campaignId}/flights
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: integrations_api_listintegrations
+  description: List all integrations
+  source_operation: openapi/rea-group-integrations-api-openapi.yml#listIntegrations
+  operationId: listIntegrations
+  method: GET
+  path: /me/v1/integrations
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: integrations_api_getintegration
+  description: Get a specific integration
+  source_operation: openapi/rea-group-integrations-api-openapi.yml#getIntegration
+  operationId: getIntegration
+  method: GET
+  path: /me/v1/integrations/{id}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: listing_by_listingid_api_listings
+  description: /api/v2/listings/{listingId}
+  source_operation: openapi/rea-group-listing-by-listingid-api-openapi.yml#listings
+  operationId: listings
+  method: GET
+  path: /api/v2/listings/{listingId}
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - listingId
+- name: listing_performance_api_getlistingperformance
+  description: Get multiple listing performance reports by agency ID
+  source_operation: openapi/rea-group-listing-performance-api-openapi.yml#getListingPerformance
+  operationId: getListingPerformance
+  method: GET
+  path: /listing-performance
+  base_url: https://api.realestate.com.au/campaign/v1
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agency_id
+- name: listing_performance_api_getlistingperformancebyid
+  description: Get single listing performance report by listing ID
+  source_operation: openapi/rea-group-listing-performance-api-openapi.yml#getListingPerformanceById
+  operationId: getListingPerformanceById
+  method: GET
+  path: /listing-performance/{listing_id}
+  base_url: https://api.realestate.com.au/campaign/v1
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - listing_id
+- name: listings_api_listings
+  description: /api/v2/properties/{propertyId}/listings
+  source_operation: openapi/rea-group-listings-api-openapi.yml#listings
+  operationId: listings
+  method: GET
+  path: /api/v2/properties/{propertyId}/listings
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - latestListingOnly
+  - numberOfResults
+  - listingType
+  - status
+  - propertyId
+- name: listings_export_api_listings_export
+  description: Export all listings filtered based on query params
+  source_operation: openapi/rea-group-listings-export-api-openapi.yml#listings-export
+  operationId: listings-export
+  method: GET
+  path: /listing/v1/export
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: listings_export_api_listings_export_agency
+  description: Export all listings by Agency
+  source_operation: openapi/rea-group-listings-export-api-openapi.yml#listings-export-agency
+  operationId: listings-export-agency
+  method: GET
+  path: /listing/v1/export?agency_id={agency_id}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agency_id
+- name: listings_export_api_listings_export_listing
+  description: Export all listings by ListingID
+  source_operation: openapi/rea-group-listings-export-api-openapi.yml#listings-export-listing
+  operationId: listings-export-listing
+  method: GET
+  path: /listing/v1/export?listing_id={listing_id}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - listing_id
+- name: match_api_address_match
+  description: /api/v2/address/match
+  source_operation: openapi/rea-group-match-api-openapi.yml#address.match
+  operationId: address.match
+  method: GET
+  path: /api/v2/address/match
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - q
+- name: planning_api_get_api_v2_properties_planning
+  description: /properties/{propertyId}/planning
+  source_operation: openapi/rea-group-planning-api-openapi.yml#get-api-v2-properties-planning
+  operationId: get-api-v2-properties-planning
+  method: GET
+  path: /api/v2/properties/{propertyId}/planning
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - propertyId
+  - Authorization
+  - propertyId
+- name: point_radius_search_api_listings_point_and_radius_search
+  description: /api/v2/listings/search/point-and-radius
+  source_operation: openapi/rea-group-point-radius-search-api-openapi.yml#listings-point-and-radius-search
+  operationId: listings-point-and-radius-search
+  method: GET
+  path: /api/v2/listings/search/point-and-radius
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - listingTypes
+  - pointType
+  - bathroomsMax
+  - bathroomsMin
+  - bedroomsMax
+  - bedroomsMin
+  - carSpacesMax
+  - carSpacesMin
+  - landAreaMax
+  - landAreaMin
+  - priceMax
+  - priceMin
+  - propertyTypes
+  - status
+  - startDate
+  - endDate
+  - pageSize
+  - radius
+  - sortBy
+  - propertyId
+  - latitude
+  - longitude
+  - afterPageCursor
+  - beforePageCursor
+- name: point_radius_search_api_get_transactions_propertyid
   description: /api/v2/transactions/search/point-and-radius
-  source_operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId
+  source_operation: openapi/rea-group-point-radius-search-api-openapi.yml#get-transactions-propertyId
+  operationId: get-transactions-propertyId
   method: GET
   path: /api/v2/transactions/search/point-and-radius
-- name: transactions_get_transactions_propertyid_suburb
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - proximity
+  - startDate
+  - endDate
+  - bedroomsMin
+  - bedroomsMax
+  - bathroomsMin
+  - bathroomsMax
+  - carSpacesMin
+  - carSpacesMax
+  - landAreaMin
+  - landAreaMax
+  - sourceCategory
+  - saleValueMin
+  - saleValueMax
+  - propertyId
+  - radius
+  - propertyType
+  - afterPageCursor
+  - beforePageCursor
+  - pageSize
+  - pointType
+  - Authorization
+  - landUse
+- name: prices_api_realestateprices
+  description: Product prices when listing properties on realestate.com.au
+  source_operation: openapi/rea-group-prices-api-openapi.yml#realestatePrices
+  operationId: realestatePrices
+  method: GET
+  path: /prices/v1/realestate-properties
+  base_url: https://api.realestate.com.au/
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agency_id
+  - suburb
+  - state
+  - postcode
+  - section
+  - listing_type
+  - reupgrade
+  - date
+- name: prices_api_realcommercialprices
+  description: Product prices and options when listing properties on realcommercial.com.au
+  source_operation: openapi/rea-group-prices-api-openapi.yml#realcommercialPrices
+  operationId: realcommercialPrices
+  method: GET
+  path: /prices/v1/commercial-properties
+  base_url: https://api.realestate.com.au/
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agency_id
+  - suburb
+  - state
+  - postcode
+- name: project_performance_api_getprojectperformance
+  description: Get multiple project performance reports by agency ID
+  source_operation: openapi/rea-group-project-performance-api-openapi.yml#getProjectPerformance
+  operationId: getProjectPerformance
+  method: GET
+  path: /project-performance
+  base_url: https://api.realestate.com.au/campaign/v2
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agency_id
+- name: project_performance_api_getprojectperformancebyprojectprofileid
+  description: Get single project performance report by project ID
+  source_operation: openapi/rea-group-project-performance-api-openapi.yml#getProjectPerformanceByProjectProfileId
+  operationId: getProjectPerformanceByProjectProfileId
+  method: GET
+  path: /project-performance/{project_profile_id}
+  base_url: https://api.realestate.com.au/campaign/v2
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - project_profile_id
+  - start_date
+  - end_date
+- name: property_report_api_reports_property_report
+  description: /api/v1/reports/property
+  source_operation: openapi/rea-group-property-report-api-openapi.yml#reports-property-report
+  operationId: reports-property-report
+  method: POST
+  path: /api/v1/reports/property
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: false
+  parameters:
+  - Authorization
+  request_body: true
+- name: rent_history_api_market_rent_history
+  description: /api/v2/market/rent/historic/{metric}
+  source_operation: openapi/rea-group-rent-history-api-openapi.yml#market.rent-history
+  operationId: market.rent-history
+  method: GET
+  path: /api/v2/market/rent/historic/{metric}
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyTypes
+  - frequency
+  - state
+  - postcode
+  - suburb
+  - startDate
+  - endDate
+  - metric
+- name: report_api_searchuploadreports
+  description: Search upload reports
+  source_operation: openapi/rea-group-report-api-openapi.yml#searchUploadReports
+  operationId: searchUploadReports
+  method: GET
+  path: /listing/v1/upload
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agencyId
+  - externalListingId
+- name: report_api_getuploadreport
+  description: View listing upload report
+  source_operation: openapi/rea-group-report-api-openapi.yml#getUploadReport
+  operationId: getUploadReport
+  method: GET
+  path: /listing/v1/upload/{uploadId}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - uploadId
+- name: sale_history_api_market_sale_history
+  description: /api/v2/market/sale/historic/{metric}
+  source_operation: openapi/rea-group-sale-history-api-openapi.yml#market.sale-history
+  operationId: market.sale-history
+  method: GET
+  path: /api/v2/market/sale/historic/{metric}
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyTypes
+  - frequency
+  - state
+  - postcode
+  - suburb
+  - startDate
+  - endDate
+  - metric
+- name: schools_api_get_api_v2_properties_propertyid_nearby_education_fa
+  description: /api/v2/properties/{propertyId}/nearby-education-facilities
+  source_operation: openapi/rea-group-schools-api-openapi.yml#get-api-v2-properties-propertyId-nearby-education-facilities
+  operationId: get-api-v2-properties-propertyId-nearby-education-facilities
+  method: GET
+  path: /api/v2/properties/{propertyId}/nearby-education-facilities
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+  - propertyId
+- name: search_api_get_api_v2_properties_summaries_search
+  description: /api/v2/properties/summaries/search
+  source_operation: openapi/rea-group-search-api-openapi.yml#get-api-v2-properties-summaries-search
+  operationId: get-api-v2-properties-summaries-search
+  method: GET
+  path: /api/v2/properties/summaries/search
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - bedroomsMin
+  - bedroomsMax
+  - bathroomsMin
+  - bathroomsMax
+  - carSpacesMin
+  - carSpacesMax
+  - landAreaMin
+  - landAreaMax
+  - livingAreaMin
+  - livingAreaMax
+  - propertyType
+  - afterPageCursor
+  - beforePageCursor
+  - pageSize
+  - boundingBox
+  - suburb
+  - postcode
+  - state
+- name: search_api_get_api_v2_properties_geopoints_pins
+  description: /api/v2/properties/geopoints/search
+  source_operation: openapi/rea-group-search-api-openapi.yml#get-api-v2-properties-geopoints-pins
+  operationId: get-api-v2-properties-geopoints-pins
+  method: GET
+  path: /api/v2/properties/geopoints/search
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - bedroomsMin
+  - bedroomsMax
+  - bathroomsMin
+  - bathroomsMax
+  - carSpacesMin
+  - carSpacesMax
+  - landAreaMin
+  - landAreaMax
+  - livingAreaMin
+  - livingAreaMax
+  - propertyType
+  - afterPageCursor
+  - beforePageCursor
+  - pageSize
+  - boundingBox
+  - suburb
+  - postcode
+  - state
+- name: seller_leads_api_getsellerleads
+  description: Get enriched seller leads accessible to the partner
+  source_operation: openapi/rea-group-seller-leads-api-openapi.yml#getSellerLeads
+  operationId: getSellerLeads
+  method: GET
+  path: /v2/seller-leads
+  base_url: https://api.realestate.com.au/lead
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - since
+  - page
+  - agency_id
+  - agent_profile_id
+- name: seller_leads_api_getsellerlead
+  description: Get a single enriched seller lead resource
+  source_operation: openapi/rea-group-seller-leads-api-openapi.yml#getSellerLead
+  operationId: getSellerLead
+  method: GET
+  path: /v2/seller-leads/{enquiry_id}
+  base_url: https://api.realestate.com.au/lead
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - enquiry_id
+- name: suburb_postcode_search_api_get_api_v2_listings_search_suburb_and
+  description: /api/v2/listings/search/suburb-and-postcode
+  source_operation: openapi/rea-group-suburb-postcode-search-api-openapi.yml#get-api-v2-listings-search-suburb-and-postcode
+  operationId: get-api-v2-listings-search-suburb-and-postcode
+  method: GET
+  path: /api/v2/listings/search/suburb-and-postcode
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - listingTypes
+  - bathroomsMax
+  - bathroomsMin
+  - bedroomsMax
+  - bedroomsMin
+  - carSpacesMax
+  - carSpacesMin
+  - landAreaMax
+  - landAreaMin
+  - priceMax
+  - priceMin
+  - propertyTypes
+  - status
+  - startDate
+  - endDate
+  - pageSize
+  - sortBy
+  - afterPageCursor
+  - beforePageCursor
+  - postcodes
+  - suburb
+  - state
+- name: suburb_postcode_search_api_get_transactions_propertyid_suburb
   description: /api/v2/transactions/search/suburb-and-postcode
-  source_operation: openapi/rea-group-transactions-openapi.yml#get-transactions-propertyId-suburb
+  source_operation: openapi/rea-group-suburb-postcode-search-api-openapi.yml#get-transactions-propertyId-suburb
+  operationId: get-transactions-propertyId-suburb
   method: GET
   path: /api/v2/transactions/search/suburb-and-postcode
-deployment:
-  mode: none
-  verified: derived
-  tools: 32
-  checked: '2026-08-12'
-  source: catalog MCP census
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - startDate
+  - endDate
+  - bedroomsMin
+  - bedroomsMax
+  - bathroomsMin
+  - bathroomsMax
+  - carSpacesMin
+  - carSpacesMax
+  - landAreaMin
+  - landAreaMax
+  - sourceCategory
+  - saleValueMin
+  - saleValueMax
+  - propertyType
+  - afterPageCursor
+  - beforePageCursor
+  - pageSize
+  - landUse
+  - suburb
+  - postcode
+  - state
+- name: successful_applicant_api_api_getsuccessfulapplicationsusingget
+  description: Poll for successful applications since a specified date and time
+  source_operation: openapi/rea-group-successful-applicant-api-api-openapi.yml#getSuccessfulApplicationsUsingGET
+  operationId: getSuccessfulApplicationsUsingGET
+  method: GET
+  path: /applications/successful/feed
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agencyIds
+  - happenedSince
+- name: successful_applicant_api_api_getsuccessfulapplicationdetailsusin
+  description: Access the details of a successful application
+  source_operation: openapi/rea-group-successful-applicant-api-api-openapi.yml#getSuccessfulApplicationDetailsUsingGET
+  operationId: getSuccessfulApplicationDetailsUsingGET
+  method: GET
+  path: /applications/successful/{applicationId}/details
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - applicationId
+- name: suggest_api_address_suggest
+  description: /api/v2/address/suggest
+  source_operation: openapi/rea-group-suggest-api-openapi.yml#address.suggest
+  operationId: address.suggest
+  method: GET
+  path: /api/v2/address/suggest
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - q
+  - numberOfResults
+- name: summary_api_get_v2_summary
+  description: /api/v2/properties/{propertyId}/summary
+  source_operation: openapi/rea-group-summary-api-openapi.yml#get-v2-summary
+  operationId: get-v2-summary
+  method: GET
+  path: /api/v2/properties/{propertyId}/summary
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+- name: supply_demand_api_market_supply_and_demand
+  description: /api/v2/market/supply-and-demand/{metric}
+  source_operation: openapi/rea-group-supply-demand-api-openapi.yml#market.supply-and-demand
+  operationId: market.supply-and-demand
+  method: GET
+  path: /api/v2/market/supply-and-demand/{metric}
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - state
+  - postcode
+  - suburb
+  - startDate
+  - endDate
+  - propertyTypes
+  - frequency
+  - metric
+- name: tenant_selection_api_api_getapplicationsusingget
+  description: Poll published applications' details by happenedSince and agencyIds(optional)
+  source_operation: openapi/rea-group-tenant-selection-api-api-openapi.yml#getApplicationsUsingGET
+  operationId: getApplicationsUsingGET
+  method: GET
+  path: /applications/published/feed
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agencyIds
+  - happenedSince
+- name: tenant_selection_api_api_getupdatedapplicationsusingget
+  description: Poll updated applications' details by happenedSince and agencyIds(optional)
+  source_operation: openapi/rea-group-tenant-selection-api-api-openapi.yml#getUpdatedApplicationsUsingGET
+  operationId: getUpdatedApplicationsUsingGET
+  method: GET
+  path: /applications/updated/feed
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - agencyIds
+  - happenedSince
+- name: tenant_selection_api_api_updateapplicationstatususingput
+  description: update application status
+  source_operation: openapi/rea-group-tenant-selection-api-api-openapi.yml#updateApplicationStatusUsingPUT
+  operationId: updateApplicationStatusUsingPUT
+  method: PUT
+  path: /applications/{applicationId}/status
+  base_url: https://api.realestate.com.au/applications/v1/rental
+  family: realestate-partner
+  read_only: false
+  parameters:
+  - applicationId
+  request_body: true
+- name: tenure_type_api_get_api_v2_properties_tenure
+  description: /api/v2/properties/{propertyId}/tenureType
+  source_operation: openapi/rea-group-tenure-type-api-openapi.yml#get-api-v2-properties-tenure
+  operationId: get-api-v2-properties-tenure
+  method: GET
+  path: /api/v2/properties/{propertyId}/tenureType
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - propertyId
+- name: transactions_api_transactions
+  description: /api/v2/properties/{propertyId}/transactions
+  source_operation: openapi/rea-group-transactions-api-openapi.yml#transactions
+  operationId: transactions
+  method: GET
+  path: /api/v2/properties/{propertyId}/transactions
+  base_url: https://data.proptrack.com
+  family: proptrack
+  read_only: true
+  parameters:
+  - Authorization
+  - latestTransactionOnly
+  - sourceCategory
+  - propertyId
+- name: upload_api_uploadxml
+  description: Accepts an REAXML document containing a single listing for processing
+  source_operation: openapi/rea-group-upload-api-openapi.yml#uploadXml
+  operationId: uploadXml
+  method: POST
+  path: /listing/v1/upload
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: false
+  parameters: []
+  request_body: true
+- name: webhooks_api_getsigningkeys
+  description: Get public keys used to verify incoming webhook requests
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#getSigningKeys
+  operationId: getSigningKeys
+  method: GET
+  path: /webhooks/v1/signing
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: webhooks_api_createsubscription
+  description: Create a new subscription
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#createSubscription
+  operationId: createSubscription
+  method: POST
+  path: /webhooks/v1/subscriptions
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: false
+  parameters: []
+  request_body: true
+- name: webhooks_api_getsubscriptions
+  description: Get webhook subscriptions
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#getSubscriptions
+  operationId: getSubscriptions
+  method: GET
+  path: /webhooks/v1/subscriptions
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - page
+- name: webhooks_api_getsubscription
+  description: Get a webhook's subscription
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#getSubscription
+  operationId: getSubscription
+  method: GET
+  path: /webhooks/v1/subscriptions/{subscriptionId}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters: []
+- name: webhooks_api_deletesubscription
+  description: Delete a webhook's subscription
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#deleteSubscription
+  operationId: deleteSubscription
+  method: DELETE
+  path: /webhooks/v1/subscriptions/{subscriptionId}
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: false
+  parameters: []
+- name: webhooks_api_validatesubscription
+  description: Validate a Failed or Disabled subscription
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#validateSubscription
+  operationId: validateSubscription
+  method: PATCH
+  path: /webhooks/v1/subscriptions/{subscriptionId}/validate
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: false
+  parameters: []
+- name: webhooks_api_getdeliveryattempts
+  description: Get delivery attempted logs
+  source_operation: openapi/rea-group-webhooks-api-openapi.yml#getDeliveryAttempts
+  operationId: getDeliveryAttempts
+  method: GET
+  path: /webhooks/v1/subscriptions/{subscriptionId}/delivery
+  base_url: https://api.realestate.com.au
+  family: realestate-partner
+  read_only: true
+  parameters:
+  - page

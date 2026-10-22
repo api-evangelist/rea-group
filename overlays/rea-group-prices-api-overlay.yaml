@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Pricing Prices API
+  version: 1.0.0
+extends: openapi/rea-group-prices-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-prices-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-prices-api
+      api_name: Pricing Prices API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/prices/v1/realestate-properties'].get
+  update:
+    x-agent-tool:
+      candidate_name: prices_api_realestateprices
+      read_only: true
+      side_effects: none
+- target: $.paths['/prices/v1/commercial-properties'].get
+  update:
+    x-agent-tool:
+      candidate_name: prices_api_realcommercialprices
+      read_only: true
+      side_effects: none

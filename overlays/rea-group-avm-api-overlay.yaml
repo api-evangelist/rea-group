@@ -1,0 +1,62 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Properties AVM API
+  version: 1.0.0
+extends: openapi/rea-group-avm-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-avm-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-avm-api
+      api_name: Properties AVM API
+      family: PropTrack data API
+      documentation: https://developer.proptrack.com.au/docs/apis/home
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/api/v1/properties/valuations/sale'].post
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_v1_properties_valuation_sale
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/api/v1/properties/{propertyId}/valuations/sale?requestType=enquiry or requestType=origination'].get
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_avm_propertyid
+      read_only: true
+      side_effects: none
+- target: $.paths['/api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry or requestType=origination'].get
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_avm_propertyid_enquiry
+      read_only: true
+      side_effects: none
+- target: $.paths['/api/v1/properties/valuations/sale ~ requestType=plus'].post
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_v1_properties_valuation_sale_plus
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/api/v1/properties/{propertyId}/valuations/sale?requestType=plus'].get
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_avm_propertyid_plus
+      read_only: true
+      side_effects: none
+- target: $.paths['/api/v1/properties/valuations/sale ~ Pro'].post
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_v1_properties_valuation_sale_pro
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/api/v1/properties/{propertyId}/valuations/sale?requestType=pro'].get
+  update:
+    x-agent-tool:
+      candidate_name: avm_api_avm_propertyid_pro
+      read_only: true
+      side_effects: none

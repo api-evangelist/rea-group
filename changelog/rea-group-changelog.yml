@@ -1,0 +1,87 @@
+generated: '2026-10-20'
+method: searched
+source: https://partner.realestate.com.au/changelog/
+docs: https://partner.realestate.com.au/changelog/
+scheme: dated (no version numbers); entries labelled Added / Changed / Removed
+current_version: null
+note: Covers the realestate.com.au Partner Platform. Per-API changelogs also exist under each API directory (e.g.
+  /connection-leads/changelog/, /customer-profile/changelog/, /campaign/changelog/). PropTrack (developer.proptrack.com.au)
+  publishes no dated changelog. breaking is our reading of a Removed entry or a field/endpoint becoming obsolete;
+  the page does not label breaking changes.
+entries:
+- version: null
+  date: '2026-05-20'
+  type: Changed
+  breaking: false
+  highlights:
+  - Amplify-assisted metrics in the Campaign API Project Performance switched from post-click to post-impression
+    attribution; response schema unchanged, values higher, history restated up to 90 days.
+- version: null
+  date: '2026-02-03'
+  type: Added
+  breaking: false
+  highlights:
+  - Integration change events (IntegrationCreated, IntegrationUpdated, IntegrationDeleted) added to the Webhooks
+    API.
+- version: null
+  date: '2026-01-30'
+  type: Added
+  breaking: false
+  highlights:
+  - Lead events (EnquiryCreated) added to the Webhooks API.
+- version: null
+  date: '2025-11-05'
+  type: Added
+  breaking: false
+  highlights:
+  - Deeplinks into Ignite released.
+- version: null
+  date: '2025-07-25'
+  type: Added
+  breaking: false
+  highlights:
+  - Self-service permissions released in Ignite; the web-form remains for complex set-ups.
+- version: null
+  date: '2024-10-03'
+  type: Changed
+  breaking: true
+  highlights:
+  - NSW rental listings use a single price field for search and display; the "display" field in Listing Upload API
+    is obsolete for NSW rentals.
+- version: null
+  date: '2024-07-01'
+  type: Removed
+  breaking: true
+  highlights:
+  - REA FTP retired for all listing exports, superseded by the Listing Export API.
+- version: null
+  date: '2024-05-15'
+  type: Changed
+  breaking: false
+  highlights:
+  - Pricing API updated for Lower Valued Assets (LVA) changes and the new Luxe product.
+- version: null
+  date: '2024-03-01'
+  type: Changed
+  breaking: false
+  highlights:
+  - Audience Maximiser campaigns become click-based; Campaign Performance API returns 0 impressions and adds a purchaseType
+    field.
+- version: null
+  date: '2024-02-21'
+  type: Added
+  breaking: true
+  highlights:
+  - Leads API endpoint transitioned from /v1/enquires to /v2-seller-leads (migration guide published).
+- version: null
+  date: '2024-01-01'
+  type: Changed
+  breaking: false
+  highlights:
+  - REA automatically updates listing status when under offer / under contract / deposit taken.
+- version: null
+  date: '2023-12-21'
+  type: Added
+  breaking: false
+  highlights:
+  - Ratings & Reviews API is live.

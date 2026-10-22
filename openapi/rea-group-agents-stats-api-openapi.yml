@@ -1,0 +1,92 @@
+openapi: 3.2.0
+info:
+  title: Rating reviews outbound Agents stats API
+  description: This API allows partners to retrieve ratings and reviews information for agents and agencies listed on realestate.com.au. It provides endpoints to fetch ratings and reviews based on agent profile IDs or agency IDs, as well as aggregate statistics such as average ratings and total review counts.
+  version: 1.0.0
+servers:
+- url: https://api.realestate.com.au/customer-profile/v1/ratings-reviews
+security:
+- PartnerPlatform: []
+tags:
+- name: Agents stats
+paths:
+  /agents/{agentProfileIds}/stats:
+    get:
+      tags:
+      - Agents stats
+      description: Get agent stats by a list of profileIds
+      operationId: GetAgentsStats
+      parameters:
+      - name: agentProfileIds
+        in: path
+        description: The agent profile ids delimited by comma in string format
+        required: true
+        example: 12345,56789
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentsStats'
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal service error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      summary: Get agents stats
+      x-summary-source: derived
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+      required:
+      - errors
+    AgentsStats:
+      type: object
+      properties:
+        agentsStats:
+          type: array
+          items:
+            $ref: '#/components/schemas/AgentStats'
+      required:
+      - agentsStats
+    AgentStats:
+      type: object
+      properties:
+        profileId:
+          type: string
+          example: 123456
+        averageRating:
+          type: number
+          format: float
+          example: 4.782
+        reviewsCount:
+          type: integer
+          format: int32
+          example: 13
+      required:
+      - profileId
+      - averageRating
+      - reviewsCount
+  securitySchemes:
+    PartnerPlatform:
+      type: oauth2
+      description: OAuth 2 Client Credentials grant flow
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.realestate.com.au/oauth/token

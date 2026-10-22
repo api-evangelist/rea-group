@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-integrations-schema.json",
+  "title": "Integrations",
+  "description": "A HAL response containing a list of Integrations",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-integrations-openapi.yml#/components/schemas/Integrations",
+  "type": "object",
+  "properties": {
+    "_links": {
+      "$ref": "#/$defs/IntegrationsLinks"
+    },
+    "_embedded": {
+      "$ref": "#/$defs/IntegrationsEmbedded"
+    }
+  },
+  "required": [
+    "_links",
+    "_embedded"
+  ],
+  "$defs": {
+    "HalLink": {
+      "type": "object",
+      "description": "A HAL link",
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of the linked resource"
+        }
+      },
+      "required": [
+        "href"
+      ]
+    },
+    "HalNextLink": {
+      "type": "object",
+      "description": "A HAL link for pagination",
+      "properties": {
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri",
+          "description": "The URL to retrieve the next page of results"
+        },
+        "cursor": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "The cursor value to use for the next page"
+        }
+      }
+    },
+    "Integration": {
+      "type": "object",
+      "description": "An Integration representing a delegation between an API Consumer and a Resource Owner",
+      "properties": {
+        "integrationId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The unique identifier for the integration"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 formatted date string. The time the Integration was last updated."
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "A human-readable identifier for the resource owner"
+        },
+        "ownerType": {
+          "type": "string",
+          "description": "The type of the resource owner"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "List of scopes granted to this integration"
+        },
+        "_links": {
+          "$ref": "#/$defs/IntegrationLinks"
+        }
+      },
+      "required": [
+        "integrationId",
+        "updatedAt",
+        "ownerId",
+        "ownerType",
+        "scopes",
+        "_links"
+      ]
+    },
+    "IntegrationLinks": {
+      "type": "object",
+      "description": "HAL links for an Integration",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/HalLink"
+        }
+      },
+      "required": [
+        "self"
+      ]
+    },
+    "IntegrationsEmbedded": {
+      "type": "object",
+      "description": "Embedded resources in the Integrations response",
+      "properties": {
+        "integrations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Integration"
+          }
+        }
+      },
+      "required": [
+        "integrations"
+      ]
+    },
+    "IntegrationsLinks": {
+      "type": "object",
+      "description": "HAL links for the Integrations index response",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/HalLink"
+        },
+        "next": {
+          "$ref": "#/$defs/HalNextLink"
+        }
+      },
+      "required": [
+        "self"
+      ]
+    }
+  }
+}

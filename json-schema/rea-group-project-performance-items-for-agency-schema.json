@@ -1,0 +1,287 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-project-performance-items-for-agency-schema.json",
+  "title": "ProjectPerformanceItemsForAgency",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-campaign-project-performance-openapi.yml#/components/schemas/ProjectPerformanceItemsForAgency",
+  "allOf": [
+    {
+      "$ref": "#/$defs/ProjectPerformanceItems"
+    },
+    {
+      "properties": {
+        "_embedded": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ProjectPerformanceForAgency"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "CostPerLead": {
+      "type": "object",
+      "properties": {
+        "leadsAndEngagements": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "emailLeads": {
+          "type": "number",
+          "description": "Email leads is the sum of document downloads and email enquiries that occurred for the date range selected."
+        },
+        "phoneEngagement": {
+          "type": "number",
+          "description": "Metric of actions by consumers which show a high level of interest or intention for a property without necessarily directly contacting someone."
+        },
+        "phoneLeads": {
+          "type": "number",
+          "description": "Phone leads refers to our tracked phone calls and SMS. It is only available to those with this product turned on."
+        },
+        "emailAndPhoneLeads": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        }
+      }
+    },
+    "EmailLeads": {
+      "type": "object",
+      "properties": {
+        "documentDownload": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "emailEnquiry": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Campaign API resource"
+        }
+      }
+    },
+    "Performance": {
+      "type": "object",
+      "properties": {
+        "pageView": {
+          "type": "number",
+          "description": "Count of when a user has viewed full page on site and includes Project Profile child listings views."
+        },
+        "emailLeads": {
+          "type": "number",
+          "description": "Email leads is the sum of document downloads and email enquiries that occurred for the date range selected."
+        },
+        "phoneEngagement": {
+          "type": "number",
+          "description": "Metric of actions by consumers which show a high level of interest or intention for a property without necessarily directly contacting someone."
+        },
+        "phoneLeads": {
+          "type": "number",
+          "description": "Phone leads refers to our tracked phone calls and SMS. It is only available to those with this product turned on."
+        },
+        "spend": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "day": {
+          "type": "string",
+          "description": "Reporting day."
+        }
+      }
+    },
+    "PhoneEngagement": {
+      "type": "object",
+      "properties": {
+        "revealedAgentPhoneNumber": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "clickToCall": {
+          "type": "number",
+          "description": "Click to call is when someone on a mobile device or app taps the \"call\" button to display the phone number; which they can then tap to call."
+        }
+      }
+    },
+    "PhoneLeads": {
+      "type": "object",
+      "properties": {
+        "sms": {
+          "type": "number",
+          "description": "SMS refers to the tracked SMS through our Phone Leads product."
+        },
+        "phoneCall": {
+          "type": "number",
+          "description": "Phone calls refers to the tracked phone calls through our Phone Leads product."
+        }
+      }
+    },
+    "ProjectPerformance": {
+      "type": "object",
+      "properties": {
+        "_links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "$ref": "#/$defs/Link"
+            }
+          }
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique identifier representing a specific project (project_profile_id)."
+        },
+        "listingType": {
+          "type": "string",
+          "description": "Type of listing."
+        },
+        "agencyId": {
+          "type": "string",
+          "description": "Unique identifier representing the project agency."
+        },
+        "listedDate": {
+          "type": "string",
+          "description": "Listed date of listing."
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "dateTime",
+          "description": "Date/time that the project performance report was last modified."
+        },
+        "pageView": {
+          "type": "number",
+          "description": "Count of when a user has viewed full page on site and includes Project Profile child listings views."
+        },
+        "searchResultsPageImpression": {
+          "type": "number",
+          "description": "The number of times a project profile has been displayed on site."
+        },
+        "spend": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "phoneEngagement": {
+          "$ref": "#/$defs/PhoneEngagement",
+          "description": "Metric of actions by consumers which show a high level of interest or intention for a property without necessarily directly contacting someone."
+        },
+        "emailLeads": {
+          "$ref": "#/$defs/EmailLeads",
+          "description": "Email leads is the sum of document downloads and email enquiries that occurred for the date range selected."
+        },
+        "phoneLeads": {
+          "$ref": "#/$defs/PhoneLeads",
+          "description": "Phone leads refers to our tracked phone calls and SMS. It is only available to those with this product turned on."
+        },
+        "costPerLead": {
+          "$ref": "#/$defs/CostPerLead",
+          "description": "The amount paid for each lead as the result of campaign activity and value."
+        },
+        "viewStatementOfInformation": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "listingSaved": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "sendToFriend": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "savedInspectionTime": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "threeDTourView": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "floorplanView": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "videoView": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "expandMap": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "getDirections": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "emailDirections": {
+          "type": "number",
+          "description": "Individual metric of total project performance aggregated total value."
+        },
+        "performance": {
+          "type": "array",
+          "description": "Individual metrics of total project performance at daily level.",
+          "items": {
+            "$ref": "#/$defs/Performance"
+          }
+        }
+      }
+    },
+    "ProjectPerformanceForAgency": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ProjectPerformance"
+        },
+        {
+          "properties": {
+            "lastActivityDate": {
+              "type": "string",
+              "description": "a measure of how recently campaign activity occurred for a given project"
+            }
+          }
+        }
+      ]
+    },
+    "ProjectPerformanceItems": {
+      "type": "object",
+      "properties": {
+        "_embedded": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ProjectPerformance"
+              }
+            }
+          }
+        },
+        "_links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "$ref": "#/$defs/Link"
+            },
+            "prev": {
+              "$ref": "#/$defs/Link"
+            },
+            "next": {
+              "$ref": "#/$defs/Link"
+            }
+          }
+        }
+      }
+    }
+  }
+}

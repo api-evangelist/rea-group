@@ -1,0 +1,38 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Listing Export Listings Export API
+  version: 1.0.0
+extends: openapi/rea-group-listings-export-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-listings-export-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-listings-export-api
+      api_name: Listing Export Listings Export API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/listing/v1/export'].get
+  update:
+    x-agent-tool:
+      candidate_name: listings_export_api_listings_export
+      read_only: true
+      side_effects: none
+- target: $.paths['/listing/v1/export?agency_id={agency_id}'].get
+  update:
+    x-agent-tool:
+      candidate_name: listings_export_api_listings_export_agency
+      read_only: true
+      side_effects: none
+- target: $.paths['/listing/v1/export?listing_id={listing_id}'].get
+  update:
+    x-agent-tool:
+      candidate_name: listings_export_api_listings_export_listing
+      read_only: true
+      side_effects: none

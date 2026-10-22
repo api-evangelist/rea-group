@@ -1,10 +1,14 @@
 ---
-name: Order a PropTrack AVM valuation and retrieve the report
-description: >-
-  Order an automated valuation (sale, rent, AVM Plus or AVM Pro) from PropTrack's
-  Automated Valuation Model for an address or a propertyId, and download the
-  resulting PDF valuation report.
-api: openapi/rea-group-properties-openapi.yml
+name: order-avm-valuation
+title: Order a PropTrack AVM valuation and retrieve the report
+description: Order an automated valuation (sale, rent, AVM Plus or AVM Pro) from PropTrack's Automated Valuation
+  Model for an address or a propertyId, and download the resulting PDF valuation report.
+api:
+- openapi/rea-group-avm-api-openapi.yml
+- openapi/rea-group-avm-report-api-openapi.yml
+- openapi/rea-group-match-api-openapi.yml
+- openapi/rea-group-oauth2-api-openapi.yml
+- openapi/rea-group-property-report-api-openapi.yml
 operations:
 - auth-token
 - address.match

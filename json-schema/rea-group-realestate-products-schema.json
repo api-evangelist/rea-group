@@ -1,0 +1,274 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-realestate-products-schema.json",
+  "title": "realestate_products",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-pricing-openapi.yml#/components/schemas/realestate_products",
+  "type": "object",
+  "required": [
+    "_links",
+    "section",
+    "listingType",
+    "reupgrade",
+    "date",
+    "manual"
+  ],
+  "properties": {
+    "_links": {
+      "$ref": "#/$defs/_links"
+    },
+    "section": {
+      "type": "string",
+      "enum": [
+        "buy",
+        "rent",
+        "sold"
+      ],
+      "description": "As the **section** parameter is optional in the request, the response will explicitly specify \nthe **section** that relates to the prices returned.\n"
+    },
+    "listingType": {
+      "type": "string",
+      "enum": [
+        "residential",
+        "land",
+        "rural"
+      ],
+      "description": "As the **listingType** parameter is optional in the request, the response will explicitly specify\nthe **listingType** that relates to the prices returned.\n"
+    },
+    "reupgrade": {
+      "type": "boolean",
+      "description": "As the **reupgrade** parameter is optional in the request, the response will explicitly specify \nwhether the prices returned are for a subsequent upgrade (true), or if it is for the initial \nupgrade of the product (false).\n"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "This is the date that the product prices are for. If the request did not include a date, the\ndate returned will be today's date (Australian Eastern Daylight Savings Time).\n"
+    },
+    "all": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/product_price"
+      },
+      "description": "These products will be automatically purchased on the customer's behalf when \nthey list on realestate.com.au\n"
+    },
+    "elect": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/product_price"
+      },
+      "description": "These products are *not* automatically purchased, but customers can choose to\npurchase them at their discretion. However, they have a minimum number that have \nbeen commited to over a specified period of time\n"
+    },
+    "manual": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/product_price"
+      },
+      "description": "These products can be manually purchased by the customer and are not \nautomatically purchased on their behalf.\n"
+    },
+    "flex": {
+      "type": "object",
+      "properties": {
+        "exceptionDowngrade": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/product_price"
+          },
+          "description": "In a situation where a Premiere, Highlight or Feature product will be automatically \npurchased on the customer's behalf, occassionally the customer might want to\nuse a different product. In this situation, the customer can choose to use their \npoints to downgrade to a different product, so the points required and price charged\n will be indicate here. \n"
+        },
+        "payOnSale": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/product_price"
+          },
+          "description": "In this instance, a customer can choose to delay payment for a product until it\nis sold. This is the price and points required to access these products.\n"
+        }
+      },
+      "description": "These products are available to customers to manually purchase, so long as\nthey have the necessary points to access them. There is a **points** attribute \nincluded for each product that indicates how many points will be needed to \naccess them.\n"
+    },
+    "cappedProduct": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "cap",
+          "period",
+          "price"
+        ],
+        "properties": {
+          "cap": {
+            "type": "integer",
+            "description": "This indicates that how many listings can have this product for the corresponding period.\n\nFor example, if the value is 5, listing more than this number for the corresponding **period** will incur the **charge** specified.\n"
+          },
+          "period": {
+            "type": "string",
+            "enum": [
+              "monthly",
+              "quarterly"
+            ],
+            "description": "This indicates that the length of time that the cap applies for.\n\nFor example, if the value is monthly, cap is 5 and product is standard, then customer can purchase 5 standard listings each month.\n"
+          },
+          "price": {
+            "$ref": "#/$defs/product_price"
+          }
+        }
+      },
+      "description": "For a given period, this indicates the maximum amount a customer can list for a particular product before additional charges apply.\nOnce this number is exceeded, each additional listing with this product will be charged during the specified period.\n"
+    },
+    "bundle": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/bundle_price"
+      },
+      "description": "These are the combined prices of pre-defined groups of products that are automatically purchased on the customer's behalf. A bundle is only returned when every product it is made up of is available in the **all** collection.\n"
+    }
+  },
+  "$defs": {
+    "_links": {
+      "type": "object",
+      "required": [
+        "self"
+      ],
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/self"
+        }
+      },
+      "description": "As part of the HAL+JSON specification, the [_links](https://tools.ietf.org/id/draft-kelly-json-hal-01.html#rfc.section.4.1)\nattribute will contain a **self Link object** that is the canonical representation of this resource.\n"
+    },
+    "bundle_price": {
+      "type": "object",
+      "required": [
+        "bundleName",
+        "displayPrice",
+        "price",
+        "rackPrice",
+        "currency",
+        "products"
+      ],
+      "properties": {
+        "bundleName": {
+          "type": "string",
+          "description": "The name of the bundle."
+        },
+        "displayPrice": {
+          "type": "string",
+          "description": "The combined price of every product in the bundle, formatted for display."
+        },
+        "price": {
+          "type": "string",
+          "description": "The sum of the **price** of every product in the bundle."
+        },
+        "rackPrice": {
+          "type": "string",
+          "description": "The sum of the **rackPrice** of every product in the bundle."
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "AUD"
+          ],
+          "description": "The units of price and rackPrice."
+        },
+        "products": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/product_price"
+          },
+          "description": "The individual products that make up the bundle, in the order they are configured."
+        }
+      }
+    },
+    "product_price": {
+      "type": "object",
+      "description": "This is the price customer need to pay if they purchase the product beyond cap.\n",
+      "required": [
+        "product",
+        "productName",
+        "displayPrice",
+        "price",
+        "rackPrice",
+        "currency"
+      ],
+      "properties": {
+        "product": {
+          "type": "string",
+          "enum": [
+            "standard",
+            "feature",
+            "highlight",
+            "premiere",
+            "luxe",
+            "ebrochure",
+            "audience-maximiser",
+            "property-showcase",
+            "suburb-sponsorship",
+            "rent-banners"
+          ],
+          "description": "This is the name of the product available for purchase. This product may appear multiple\ntimes, but the combination of the product and duration should be unique (note: duration is optional).\n"
+        },
+        "productName": {
+          "type": "string",
+          "description": "This is the user friendly product name to display to the customer. This name will remain consistent\nwith the latest names used for each of REA's products and services and is recommended for use when\nshowing the customers the price of a product.\n"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "This is the number of active days for the specified product. This field is optional, and if it \nis not specified, it means this product is available for an unlimited time for this price.\n"
+        },
+        "billingCyclePeriod": {
+          "type": "integer",
+          "description": "This is the days of the billing cycle period. This field is optional, and only existing when this is a multiple billing cycle product.\n"
+        },
+        "displayPrice": {
+          "type": "string",
+          "description": "This is a formatted string that represents the price to display to the customer. This includes the\n'$' symbol along with the dollar and cents amount for this product. It is important to note that there\ncould be other text in this field and it is recommended that this field be used to display the\nprice to the customer. Some potential examples of this field are '$5.00', '$1,000.00' or \n'$0 upfront, $200 when sold'\n"
+        },
+        "price": {
+          "type": "string",
+          "description": "This is the price the customer will pay for this product. It includes GST and any discounts\napplicable for this customer. This value will include the dollars and cents amount, but will \nnot include the '$' symbol, eg. '5.00' or '10000.00'\n"
+        },
+        "rackPrice": {
+          "type": "string",
+          "description": "This is the standard price for this product, and should be displayed to the customer to\nhelp illustrate the discounting they receive.\n"
+        },
+        "currency": {
+          "type": "string",
+          "enum": [
+            "AUD"
+          ],
+          "description": "This is the units of price and rackPrice.\n"
+        },
+        "points": {
+          "type": "integer",
+          "description": "Some products require the customer to use their points to be able to access a particular\nproduct and price combination. This indicates how many points the customer has to use to\nbe able to access this product.\n"
+        },
+        "upliftedFrom": {
+          "type": "string",
+          "enum": [
+            "feature",
+            "highlight"
+          ],
+          "description": "This indicates that this is an uplifted product from a lower-priced depth tier. \n\nFor example, the current product may be 'premiere' but this field will indicate that it was uplifted from a 'highlight' product.\nThe price field will reflect the price of the corresponding 'highlight' product.\n"
+        },
+        "topUpPrice": {
+          "type": "string",
+          "description": "The extra price for Luxe in addition to original Premiere+ price. This is only applicable to Luxe prices.\n"
+        }
+      }
+    },
+    "self": {
+      "type": "object",
+      "required": [
+        "href"
+      ],
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "description": "This is a HAL+JSON [Link object](https://tools.ietf.org/id/draft-kelly-json-hal-01.html#rfc.section.5)\nwith an **href** attribute describing the URL to this resource.\n"
+    }
+  }
+}

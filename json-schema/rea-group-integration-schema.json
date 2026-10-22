@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-integration-schema.json",
+  "title": "Integration",
+  "description": "An Integration representing a delegation between an API Consumer and a Resource Owner",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-integrations-openapi.yml#/components/schemas/Integration",
+  "type": "object",
+  "properties": {
+    "integrationId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The unique identifier for the integration"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 formatted date string. The time the Integration was last updated."
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "A human-readable identifier for the resource owner"
+    },
+    "ownerType": {
+      "type": "string",
+      "description": "The type of the resource owner"
+    },
+    "scopes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of scopes granted to this integration"
+    },
+    "_links": {
+      "$ref": "#/$defs/IntegrationLinks"
+    }
+  },
+  "required": [
+    "integrationId",
+    "updatedAt",
+    "ownerId",
+    "ownerType",
+    "scopes",
+    "_links"
+  ],
+  "$defs": {
+    "HalLink": {
+      "type": "object",
+      "description": "A HAL link",
+      "properties": {
+        "href": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL of the linked resource"
+        }
+      },
+      "required": [
+        "href"
+      ]
+    },
+    "IntegrationLinks": {
+      "type": "object",
+      "description": "HAL links for an Integration",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/HalLink"
+        }
+      },
+      "required": [
+        "self"
+      ]
+    }
+  }
+}

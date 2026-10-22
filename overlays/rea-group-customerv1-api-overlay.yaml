@@ -1,0 +1,68 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Partner Profile Customer V1 API
+  version: 1.0.0
+extends: openapi/rea-group-customerv1-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-customerv1-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-customerv1-api
+      api_name: Partner Profile Customer V1 API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/v1/individual-customers'].post
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_postindividualcustomerv1
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/v1/individual-customers'].get
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_readindividualcustomersv1
+      read_only: true
+      side_effects: none
+- target: $.paths['/v1/individual-customers/{id}'].get
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_readindividualcustomerv1
+      read_only: true
+      side_effects: none
+- target: $.paths['/v1/individual-customers/{externalId}'].put
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_putindividualcustomerv1
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/v1/individual-customers/{externalId}/offboard'].post
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_postoffboardindividualcustomerv1
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/v1/individual-customers/{externalId}/add-working-relationships'].post
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_addworkingrelationshipsv1
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/v1/individual-customers/{externalId}/end-working-relationships'].post
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_endworkingrelationshipsv1
+      read_only: false
+      side_effects: writes provider state
+- target: $.paths['/v1/individual-customers/{externalId}/working-relationships/{agencyId}'].put
+  update:
+    x-agent-tool:
+      candidate_name: customerv1_api_customerv1_updateworkingrelationshipv1
+      read_only: false
+      side_effects: writes provider state

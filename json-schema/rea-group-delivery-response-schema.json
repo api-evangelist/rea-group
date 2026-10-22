@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-delivery-response-schema.json",
+  "title": "DeliveryResponse",
+  "description": "A webhook's delivery response",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-webhooks-openapi.yml#/components/schemas/DeliveryResponse",
+  "type": "object",
+  "properties": {
+    "deliveries": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "attemptId": {
+            "type": "string"
+          },
+          "deliveryId": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "integer"
+          },
+          "outcome": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "_links": {
+      "$ref": "#/$defs/Links"
+    }
+  },
+  "$defs": {
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Webhooks API resource"
+        }
+      }
+    },
+    "Links": {
+      "type": "object",
+      "properties": {
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  }
+}

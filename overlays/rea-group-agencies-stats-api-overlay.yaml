@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rating reviews outbound Agencies stats API
+  version: 1.0.0
+extends: openapi/rea-group-agencies-stats-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-agencies-stats-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-agencies-stats-api
+      api_name: Rating reviews outbound Agencies stats API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/agencies/{agencyIds}/stats'].get
+  update:
+    x-agent-tool:
+      candidate_name: agencies_stats_api_getagenciesstats
+      read_only: true
+      side_effects: none

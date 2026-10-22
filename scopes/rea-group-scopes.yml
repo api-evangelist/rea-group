@@ -1,0 +1,206 @@
+generated: '2026-10-20'
+method: searched
+source: https://partner.realestate.com.au/getting-started/authorization/
+docs: https://partner.realestate.com.au/getting-started/authorization/
+grant_model: 'Customers (agencies) authorise a partner through REA; REA then adds the relevant scopes to the partner.
+  The docs quote: "Upon successful processing we will then add the relevant scopes to the respective partners."'
+schemes:
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-campaign-display-performance-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-campaign-edm-performance-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-campaign-listing-performance-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-campaign-project-performance-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-connection-leads-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-integrations-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-lead-enrichment-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-leads-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-listing-export-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-listing-upload-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-pricing-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-ratings-reviews-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-successful-applicant-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-tenant-selection-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+- name: PartnerPlatform
+  source: openapi/rea-group-partner-webhooks-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.realestate.com.au/oauth/token
+  description: OAuth 2 Client Credentials grant flow
+scopes:
+- scope: campaign:edm-performance:read
+  description: Read edm-performance records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-campaign-edm-performance-openapi.yml
+- scope: campaign:listing-performance:read
+  description: Read listing-performance records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-campaign-listing-performance-openapi.yml
+  documented: true
+  api: Campaign API
+- scope: campaign:project-performance:read
+  description: Read project-performance records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-campaign-project-performance-openapi.yml
+  documented: true
+  api: Campaign API
+- scope: display:campaign-performance:read
+  description: Read campaign performance records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-campaign-display-performance-openapi.yml
+- scope: integrations:read
+  sources:
+  - openapi/rea-group-partner-integrations-openapi.yml
+- scope: lead:enquiries:read
+  description: Read enquiry records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-lead-enrichment-openapi.yml
+  - openapi/rea-group-partner-leads-openapi.yml
+  documented: true
+  api: Leads API
+- scope: listing:listings:export
+  description: Export listings
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-listing-export-openapi.yml
+  documented: true
+  api: Listing Export API
+- scope: listing:listings:write
+  description: Upload listings
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-listing-upload-openapi.yml
+  documented: true
+  api: Listing Upload API
+- scope: pricing:products:read
+  description: Read pricing product information
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-pricing-openapi.yml
+- scope: rent:applications:read
+  description: Fetch application records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-tenant-selection-openapi.yml
+- scope: rent:applications:write
+  description: Update application status
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-tenant-selection-openapi.yml
+- scope: rent:connection-leads:read
+  description: Fetch connection leads
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-connection-leads-openapi.yml
+- scope: rent:successful-applications:read
+  description: Fetch application records
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-successful-applicant-openapi.yml
+- scope: webhooks:subscriptions:read
+  description: Webhook listings read
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-webhooks-openapi.yml
+  documented: true
+  api: Webhooks API
+- scope: webhooks:subscriptions:write
+  description: Webhook listings write
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/rea-group-partner-webhooks-openapi.yml
+  documented: true
+  api: Webhooks API
+derived_from: openapi/rea-group-partner-campaign-display-performance-openapi.yml, openapi/rea-group-partner-campaign-edm-performance-openapi.yml,
+  openapi/rea-group-partner-campaign-listing-performance-openapi.yml, openapi/rea-group-partner-campaign-project-performance-openapi.yml,
+  openapi/rea-group-partner-connection-leads-openapi.yml, openapi/rea-group-partner-integrations-openapi.yml, openapi/rea-group-partner-lead-enrichment-openapi.yml,
+  openapi/rea-group-partner-leads-openapi.yml, openapi/rea-group-partner-listing-export-openapi.yml, openapi/rea-group-partner-listing-upload-openapi.yml,
+  openapi/rea-group-partner-pricing-openapi.yml, openapi/rea-group-partner-ratings-reviews-openapi.yml, openapi/rea-group-partner-successful-applicant-openapi.yml,
+  openapi/rea-group-partner-tenant-selection-openapi.yml, openapi/rea-group-partner-webhooks-openapi.yml

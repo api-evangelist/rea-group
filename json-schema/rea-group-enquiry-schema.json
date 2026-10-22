@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-enquiry-schema.json",
+  "title": "Enquiry",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-leads-openapi.yml#/components/schemas/Enquiry",
+  "allOf": [
+    {
+      "$ref": "#/$defs/BaseEnquiry"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of enquiry that was captured.",
+          "enum": [
+            "DEVELOPER_BUILDER_DESIGN",
+            "DEVELOPER_BUILDER_DISPLAY_VISIT",
+            "DEVELOPER_BUILDER_GENERAL",
+            "DEVELOPER_BUILDER_INFORMATION_PACK",
+            "DEVELOPER_BUILDER_PROMOTION",
+            "DEVELOPER_PROJECT",
+            "DEVELOPER_PROJECT_DOCUMENT_DOWNLOAD",
+            "DEVELOPER_INSPECTION_REGISTRATION",
+            "DEVELOPER_EXTENSION_CAMPAIGN",
+            "REALCOMMERCIAL_COM_AU_BUY",
+            "REALCOMMERCIAL_COM_AU_BUY_AND_LEASE",
+            "REALCOMMERCIAL_COM_AU_FIND_AGENCY",
+            "REALCOMMERCIAL_COM_AU_LEASE",
+            "REALCOMMERCIAL_COM_AU_DOCUMENT_ACCESS",
+            "REALESTATE_COM_AU_AGENCY",
+            "REALESTATE_COM_AU_AGENT",
+            "REALESTATE_COM_AU_LISTING",
+            "REALESTATE_COM_AU_LEAD_AD",
+            "REALESTATE_COM_AU_RENT",
+            "REALESTATE_COM_AU_SALES_APPRAISAL_REQUEST",
+            "REALESTATE_COM_AU_RENTAL_APPRAISAL_REQUEST",
+            "REALESTATE_COM_AU_AGENCY_SALES_APPRAISAL_REQUEST",
+            "REALESTATE_COM_AU_AGENCY_RENTAL_APPRAISAL_REQUEST"
+          ]
+        },
+        "listing": {
+          "$ref": "#/$defs/Listing"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "BaseEnquiry": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier representing a specific enquiry."
+        },
+        "agencyId": {
+          "type": "string",
+          "description": "Identifier representing the agency that owns the listing that the enquiry is for."
+        },
+        "receivedAt": {
+          "type": "string",
+          "description": "Date/Time that the enquiry was received by REA Group.",
+          "format": "date-time"
+        },
+        "processedAt": {
+          "type": "string",
+          "description": "Date/Time that the enquiry was processed by REA Group.",
+          "format": "date-time"
+        },
+        "comments": {
+          "type": "string",
+          "description": "The enquirer's free-form comments."
+        },
+        "requestedInformation": {
+          "type": "array",
+          "description": "A list of information the enquirer is asking for.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "suppliedMarketStatus": {
+          "type": "string",
+          "description": "The enquirer's description of their market status."
+        },
+        "agentRecipients": {
+          "type": "array",
+          "description": "A list of recipients for this enquiry.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "contactDetails": {
+          "$ref": "#/$defs/ContactDetails"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "externalIdentifiers": {
+          "$ref": "#/$defs/ExternalIdentifiers"
+        },
+        "customAttributes": {
+          "$ref": "#/$defs/CustomAttributes"
+        },
+        "emailSubject": {
+          "type": "string",
+          "description": "The subject of the email."
+        },
+        "_links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "$ref": "#/$defs/Link"
+            }
+          }
+        }
+      }
+    },
+    "ContactDetails": {
+      "type": "object",
+      "required": [
+        "fullName",
+        "email",
+        "preferredContactMethod"
+      ],
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the person sending an enquiry."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address used to contact the person sending an enquiry."
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number used to contact the person sending an enquiry."
+        },
+        "postcode": {
+          "type": "string",
+          "description": "The enquirer's supplied postcode."
+        },
+        "preferredContactMethod": {
+          "type": "string",
+          "description": "Preferred contact method supplied by the person sending an enquiry.",
+          "enum": [
+            "PHONE",
+            "EMAIL"
+          ]
+        }
+      }
+    },
+    "CustomAttributes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "ExternalIdentifiers": {
+      "type": "object",
+      "properties": {
+        "externalProjectId": {
+          "type": "string",
+          "description": "External project identifier setup by CRM / customer."
+        },
+        "externalListingId": {
+          "type": "string",
+          "description": "The partner's identifier for the listing. This is used to replace the old `listing.externalListingId` field."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Leads API resource"
+        }
+      }
+    },
+    "Listing": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier representing a specific listing."
+        },
+        "externalListingId": {
+          "type": "string",
+          "deprecated": true,
+          "description": "The partner's identifier for the listing. Deprecated - please use externalIdentifiers.externalListingId instead."
+        },
+        "parentId": {
+          "type": "string",
+          "description": "The parent listing's identifier in the case of a child project listing."
+        },
+        "address": {
+          "type": "string",
+          "description": "The address of the listed property."
+        }
+      }
+    },
+    "Source": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The id of the enquiry source, e.g campaign id, project profile id or listing id."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the enquiry source, e.g campaign name, listing page name."
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the enquiry source, e.g campaign type, listing inspection type."
+        }
+      }
+    }
+  }
+}

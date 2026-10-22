@@ -1,4 +1,4 @@
-generated: '2026-07-20'
+generated: '2026-10-21'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
 hosts:
@@ -8,35 +8,34 @@ hosts:
   cert_expires: Jan 24 23:59:59 2027 GMT
   hsts: true
   hsts_max_age: 31536000
-- host: developer.proptrack.com.au
+- host: partner.realestate.com.au
   https: true
   tls_version: TLSv1.3
-  cert_expires: Sep 17 22:33:34 2026 GMT
-  hsts: true
-  hsts_max_age: 31536000
-- host: data.proptrack.com
+  cert_expires: Jan 27 23:59:59 2027 GMT
+  hsts: false
+- host: reaxml.realestate.com.au
   https: true
   tls_version: TLSv1.3
-  cert_expires: Sep 28 23:37:58 2026 GMT
-  hsts: null
+  cert_expires: Dec  5 23:59:59 2026 GMT
+  hsts: false
 domains:
 - domain: rea-group.com
   dnssec: false
   caa:
+  - 0 iodef "mailto:security@rea-group.com"
   - 0 issue "amazon.com"
   - 0 issue "digicert.com"
   - 0 issue "letsencrypt.org"
-  - 0 iodef "mailto:security@rea-group.com"
   spf: true
   dmarc: true
   dmarc_policy: reject
-- domain: proptrack.com.au
+- domain: realestate.com.au
   dnssec: false
   caa:
-  - 0 issue "letsencrypt.org"
-  - 0 iodef "mailto:pt-systems-support@rea-group.com"
-  - 0 issue "amazon.com"
   - 0 issue "digicert.com"
+  - 0 issue "letsencrypt.org"
+  - 0 iodef "mailto:it-siteops@realestate.com.au"
+  - 0 issue "amazon.com"
   spf: true
   dmarc: true
   dmarc_policy: reject

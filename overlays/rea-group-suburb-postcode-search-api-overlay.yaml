@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Rea Group Suburb & Postcode Search API
+  version: 1.0.0
+extends: openapi/rea-group-suburb-postcode-search-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-suburb-postcode-search-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-suburb-postcode-search-api
+      api_name: Rea Group Suburb & Postcode Search API
+      family: PropTrack data API
+      documentation: https://developer.proptrack.com.au/docs/apis/home
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/api/v2/listings/search/suburb-and-postcode'].get
+  update:
+    x-agent-tool:
+      candidate_name: suburb_postcode_search_api_get_api_v2_listings_search_suburb_and
+      read_only: true
+      side_effects: none
+- target: $.paths['/api/v2/transactions/search/suburb-and-postcode'].get
+  update:
+    x-agent-tool:
+      candidate_name: suburb_postcode_search_api_get_transactions_propertyid_suburb
+      read_only: true
+      side_effects: none

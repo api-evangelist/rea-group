@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-report-response-schema.json",
+  "title": "ReportResponse",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-listing-upload-openapi.yml#/components/schemas/ReportResponse",
+  "type": "object",
+  "properties": {
+    "uploadId": {
+      "$ref": "#/$defs/UploadId"
+    },
+    "completedTime": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "progress": {
+      "type": "string",
+      "enum": [
+        "IN_PROGRESS COMPLETED"
+      ]
+    },
+    "result": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "INTERNAL_ERROR PROCESSED SKIPPED NEW DELETED UNCHANGED"
+      ]
+    },
+    "externalListingId": {
+      "$ref": "#/$defs/ListingId"
+    },
+    "listingId": {
+      "$ref": "#/$defs/ListingId"
+    },
+    "agencyId": {
+      "$ref": "#/$defs/AgencyId"
+    },
+    "issues": {
+      "type": "object",
+      "properties": {
+        "warnings": {
+          "$ref": "#/$defs/ResponseWarnings"
+        },
+        "errors": {
+          "$ref": "#/$defs/ResponseErrors"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "AgencyId": {
+      "type": "string",
+      "format": "string"
+    },
+    "ListingId": {
+      "type": "string"
+    },
+    "ResponseErrors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "helpCentreUrl": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ResponseWarnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "helpCentreUrl": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UploadId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

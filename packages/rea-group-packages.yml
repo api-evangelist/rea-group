@@ -1,0 +1,16 @@
+generated: '2026-10-20'
+method: none
+packages: []
+checked:
+- https://registry.npmjs.org/proptrack (404)
+- https://registry.npmjs.org/@proptrack/sdk (404)
+- https://registry.npmjs.org/realestate-com-au (404)
+- https://registry.npmjs.org/reaxml (404)
+- https://pypi.org/pypi/proptrack/json (404)
+- https://pypi.org/pypi/reaxml/json (404)
+- https://registry.npmjs.org/-/v1/search?text=proptrack (no first-party result)
+- https://api.github.com/orgs/realestate-com-au/repos (no API SDK/CLI repo)
+- https://developer.proptrack.com.au/docs/apis/guide
+- https://partner.realestate.com.au/
+note: Neither PropTrack nor the realestate.com.au Partner Platform publishes a first-party SDK, client library or
+  CLI; integration is by raw HTTP against the published OpenAPI documents.

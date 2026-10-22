@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-updated-application-item-schema.json",
+  "title": "UpdatedApplicationItem",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-tenant-selection-openapi.yml#/components/schemas/UpdatedApplicationItem",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "$ref": "#/$defs/UpdatedApplicationsEmbedded"
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Applicant": {
+      "type": "object",
+      "properties": {
+        "applicantContactDetails": {
+          "$ref": "#/$defs/ApplicantContactDetails"
+        },
+        "applicantREAId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier representing a specific applicant."
+        },
+        "primaryApplicant": {
+          "type": "boolean",
+          "description": "To indicate this is a primary applicant or not."
+        },
+        "pets": {
+          "$ref": "#/$defs/Pets"
+        },
+        "hasOrWillInspect": {
+          "type": "boolean",
+          "description": "Whether the tenant has inspected or is going to inspect the property."
+        },
+        "inspectionDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date the tenant had inspected or is planning to inspect the property."
+        },
+        "otherOccupants": {
+          "type": "integer",
+          "description": "The number of non-lease holder occupants for application."
+        }
+      },
+      "title": "Applicant"
+    },
+    "ApplicantContactDetails": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "Can be null if the applicant use Apple social sign-in."
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        }
+      },
+      "title": "ApplicantContactDetails"
+    },
+    "ApplicationDetails": {
+      "type": "object",
+      "properties": {
+        "leaseStartDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The move in date submitted by the applicant when they want to move in."
+        },
+        "leaseTerm": {
+          "type": "integer",
+          "description": "The lease term submitted by the applicant."
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The application published datetime with ISO-8601 DateTime format."
+        },
+        "statusLastUpdatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The application last updated datetime with ISO-8601 DateTime format."
+        },
+        "applicationStatus": {
+          "type": "string",
+          "description": "The status of the application."
+        },
+        "isShortlisted": {
+          "type": "boolean",
+          "description": "Flag that indicates whether is an application shortlisted or not."
+        },
+        "rentOfferAmount": {
+          "type": "integer",
+          "description": "The amount of rent the consumer has indicated they're willing to pay weekly."
+        }
+      },
+      "title": "ApplicationDetails"
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Tenant Selection API resource"
+        }
+      },
+      "title": "Links"
+    },
+    "ListingAddress": {
+      "type": "object",
+      "properties": {
+        "postCode": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "streetAddress": {
+          "type": "string"
+        },
+        "suburb": {
+          "type": "string"
+        }
+      },
+      "title": "ListingAddress"
+    },
+    "ListingDetails": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "$ref": "#/$defs/ListingAddress"
+        },
+        "reaAgencyId": {
+          "type": "string",
+          "description": "Unique identifier representing the listing agency."
+        },
+        "reaListingId": {
+          "type": "string",
+          "description": "Unique identifier representing the listing."
+        }
+      },
+      "title": "ListingDetails"
+    },
+    "Pets": {
+      "type": "object",
+      "properties": {
+        "dogs": {
+          "type": "integer",
+          "description": "The number of dogs an applicant has(the number limit is 4, which means 4 or more than 4 dogs)."
+        },
+        "cats": {
+          "type": "integer",
+          "description": "The number of cats an applicant has(the number limit is 4, which means 4 or more than 4 cats)."
+        },
+        "others": {
+          "type": "integer",
+          "description": "The number of other pets an applicant has(the number limit is 4, which means 4 or more than 4 pets)."
+        }
+      },
+      "title": "Pets"
+    },
+    "UpdatedApplication": {
+      "type": "object",
+      "properties": {
+        "applicants": {
+          "type": "array",
+          "description": "A list of applicants.",
+          "items": {
+            "$ref": "#/$defs/Applicant"
+          }
+        },
+        "applicationDetails": {
+          "$ref": "#/$defs/ApplicationDetails"
+        },
+        "applicationDetailsUrl": {
+          "type": "string",
+          "description": "The URL to view the application informations."
+        },
+        "applicationId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "Unique identifier representing a specific application."
+        },
+        "listingDetails": {
+          "$ref": "#/$defs/ListingDetails"
+        }
+      },
+      "title": "UpdatedApplication"
+    },
+    "UpdatedApplicationsEmbedded": {
+      "type": "object",
+      "properties": {
+        "updatedApplications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/UpdatedApplication"
+          }
+        }
+      }
+    }
+  }
+}

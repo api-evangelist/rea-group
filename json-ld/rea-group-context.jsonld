@@ -1,0 +1,1179 @@
+{
+  "@context": {
+    "@vocab": "https://rea-group.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rea": "https://rea-group.com/schema#",
+    "Error": "rea:Error",
+    "statusCode": {
+      "@id": "rea:statusCode",
+      "@type": "xsd:integer"
+    },
+    "error": {
+      "@id": "rea:error",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "rea:message",
+      "@type": "xsd:string"
+    },
+    "Links": "rea:Links",
+    "self": {
+      "@id": "rea:self"
+    },
+    "next": {
+      "@id": "rea:next"
+    },
+    "SelfLink": "rea:SelfLink",
+    "AccountManager": "rea:AccountManager",
+    "id": {
+      "@id": "rea:id",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "rea:name",
+      "@type": "xsd:string"
+    },
+    "Advertiser": "rea:Advertiser",
+    "BasicCampaign": "rea:BasicCampaign",
+    "product": {
+      "@id": "rea:product",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "rea:status",
+      "@type": "xsd:string"
+    },
+    "accountManager": {
+      "@id": "rea:accountManager",
+      "@type": "@id"
+    },
+    "advertiser": {
+      "@id": "rea:advertiser",
+      "@type": "@id"
+    },
+    "createdAt": {
+      "@id": "rea:createdAt",
+      "@type": "xsd:string"
+    },
+    "startDate": {
+      "@id": "rea:startDate",
+      "@type": "xsd:string"
+    },
+    "endDate": {
+      "@id": "rea:endDate",
+      "@type": "xsd:string"
+    },
+    "impressionsGoal": {
+      "@id": "rea:impressionsGoal",
+      "@type": "xsd:string"
+    },
+    "impressionsDelivered": {
+      "@id": "rea:impressionsDelivered",
+      "@type": "xsd:string"
+    },
+    "clicksDelivered": {
+      "@id": "rea:clicksDelivered",
+      "@type": "xsd:string"
+    },
+    "leadsDelivered": {
+      "@id": "rea:leadsDelivered",
+      "@type": "xsd:string"
+    },
+    "clickThroughRate": {
+      "@id": "rea:clickThroughRate",
+      "@type": "xsd:string"
+    },
+    "costPerLead": {
+      "@id": "rea:costPerLead",
+      "@type": "xsd:string"
+    },
+    "budget": {
+      "@id": "rea:budget",
+      "@type": "xsd:string"
+    },
+    "spend": {
+      "@id": "rea:spend",
+      "@type": "xsd:string"
+    },
+    "budgetRemaining": {
+      "@id": "rea:budgetRemaining",
+      "@type": "xsd:string"
+    },
+    "listingId": {
+      "@id": "rea:listingId",
+      "@type": "xsd:string"
+    },
+    "CampaignListResponse": "rea:CampaignListResponse",
+    "_embedded": {
+      "@id": "rea:_embedded"
+    },
+    "_links": {
+      "@id": "rea:_links",
+      "@type": "@id"
+    },
+    "total": {
+      "@id": "rea:total",
+      "@type": "xsd:integer"
+    },
+    "CampaignResponse": "rea:CampaignResponse",
+    "updatedAt": {
+      "@id": "rea:updatedAt",
+      "@type": "xsd:string"
+    },
+    "clickThroughConversion": {
+      "@id": "rea:clickThroughConversion",
+      "@type": "xsd:string"
+    },
+    "performance": {
+      "@id": "rea:performance"
+    },
+    "Performance": "rea:Performance",
+    "leads": {
+      "@id": "rea:leads"
+    },
+    "costPerClick": {
+      "@id": "rea:costPerClick",
+      "@type": "xsd:string"
+    },
+    "postEngagement": {
+      "@id": "rea:postEngagement"
+    },
+    "Flight": "rea:Flight",
+    "productRateType": {
+      "@id": "rea:productRateType",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "rea:type",
+      "@type": "xsd:string"
+    },
+    "adType": {
+      "@id": "rea:adType",
+      "@type": "xsd:string"
+    },
+    "channel": {
+      "@id": "rea:channel",
+      "@type": "xsd:string"
+    },
+    "dailyPerformance": {
+      "@id": "rea:dailyPerformance",
+      "@type": "@id"
+    },
+    "FlightResponse": "rea:FlightResponse",
+    "Creative": "rea:Creative",
+    "imageUrl": {
+      "@id": "rea:imageUrl",
+      "@type": "xsd:string"
+    },
+    "CreativeResponse": "rea:CreativeResponse",
+    "EdmPerformanceItems": "rea:EdmPerformanceItems",
+    "EdmPerformance": "rea:EdmPerformance",
+    "flightId": {
+      "@id": "rea:flightId",
+      "@type": "xsd:string"
+    },
+    "campaignId": {
+      "@id": "rea:campaignId",
+      "@type": "xsd:string"
+    },
+    "sendDate": {
+      "@id": "rea:sendDate",
+      "@type": "xsd:string"
+    },
+    "sends": {
+      "@id": "rea:sends",
+      "@type": "xsd:string"
+    },
+    "clicks": {
+      "@id": "rea:clicks",
+      "@type": "xsd:string"
+    },
+    "uniqueClicks": {
+      "@id": "rea:uniqueClicks",
+      "@type": "xsd:string"
+    },
+    "flatRateLocal": {
+      "@id": "rea:flatRateLocal",
+      "@type": "xsd:string"
+    },
+    "Link": "rea:Link",
+    "href": {
+      "@id": "rea:href",
+      "@type": "xsd:string"
+    },
+    "Errors": "rea:Errors",
+    "errors": {
+      "@id": "rea:errors",
+      "@container": "@list"
+    },
+    "ListingPerformanceItems": "rea:ListingPerformanceItems",
+    "ListingPerformance": "rea:ListingPerformance",
+    "dataSourceLastUpdated": {
+      "@id": "rea:dataSourceLastUpdated",
+      "@type": "@id"
+    },
+    "lastModifiedAt": {
+      "@id": "rea:lastModifiedAt",
+      "@type": "xsd:string"
+    },
+    "listing": {
+      "@id": "rea:listing",
+      "@type": "@id"
+    },
+    "reportingPeriod": {
+      "@id": "rea:reportingPeriod",
+      "@type": "@id"
+    },
+    "portalMetrics": {
+      "@id": "rea:portalMetrics",
+      "@container": "@list"
+    },
+    "productMetrics": {
+      "@id": "rea:productMetrics",
+      "@container": "@list"
+    },
+    "Listing": "rea:Listing",
+    "externalListingId": {
+      "@id": "rea:externalListingId",
+      "@type": "xsd:string"
+    },
+    "agencyId": {
+      "@id": "rea:agencyId",
+      "@type": "xsd:string"
+    },
+    "DataSourceLastUpdated": "rea:DataSourceLastUpdated",
+    "listingEvents": {
+      "@id": "rea:listingEvents",
+      "@type": "xsd:date"
+    },
+    "audienceMaximiser": {
+      "@id": "rea:audienceMaximiser",
+      "@type": "xsd:date"
+    },
+    "eBrochure": {
+      "@id": "rea:eBrochure",
+      "@type": "xsd:date"
+    },
+    "bundledNotifications": {
+      "@id": "rea:bundledNotifications",
+      "@type": "xsd:date"
+    },
+    "amplify": {
+      "@id": "rea:amplify",
+      "@type": "xsd:date"
+    },
+    "ReportingPeriod": "rea:ReportingPeriod",
+    "ProductMetrics": "rea:ProductMetrics",
+    "productName": {
+      "@id": "rea:productName",
+      "@type": "xsd:string"
+    },
+    "productPurchases": {
+      "@id": "rea:productPurchases",
+      "@container": "@list"
+    },
+    "ProductPurchaseMetrics": "rea:ProductPurchaseMetrics",
+    "purchaseId": {
+      "@id": "rea:purchaseId",
+      "@type": "xsd:string"
+    },
+    "purchaseType": {
+      "@id": "rea:purchaseType",
+      "@type": "xsd:string"
+    },
+    "all": {
+      "@id": "rea:all",
+      "@container": "@list"
+    },
+    "daily": {
+      "@id": "rea:daily",
+      "@container": "@list"
+    },
+    "PortalMetric": "rea:PortalMetric",
+    "portalName": {
+      "@id": "rea:portalName",
+      "@type": "xsd:string"
+    },
+    "Metric": "rea:Metric",
+    "metricName": {
+      "@id": "rea:metricName",
+      "@type": "xsd:string"
+    },
+    "metricType": {
+      "@id": "rea:metricType",
+      "@type": "xsd:string"
+    },
+    "metricPeriods": {
+      "@id": "rea:metricPeriods",
+      "@container": "@list"
+    },
+    "MetricPeriod": "rea:MetricPeriod",
+    "period": {
+      "@id": "rea:period",
+      "@type": "xsd:string"
+    },
+    "metricValues": {
+      "@id": "rea:metricValues",
+      "@container": "@list"
+    },
+    "MetricValue": "rea:MetricValue",
+    "value": {
+      "@id": "rea:value",
+      "@type": "xsd:decimal"
+    },
+    "ProjectPerformanceItems": "rea:ProjectPerformanceItems",
+    "ProjectPerformance": "rea:ProjectPerformance",
+    "listingType": {
+      "@id": "rea:listingType",
+      "@type": "xsd:string"
+    },
+    "listedDate": {
+      "@id": "rea:listedDate",
+      "@type": "xsd:string"
+    },
+    "pageView": {
+      "@id": "rea:pageView",
+      "@type": "xsd:decimal"
+    },
+    "searchResultsPageImpression": {
+      "@id": "rea:searchResultsPageImpression",
+      "@type": "xsd:decimal"
+    },
+    "phoneEngagement": {
+      "@id": "rea:phoneEngagement",
+      "@type": "@id"
+    },
+    "emailLeads": {
+      "@id": "rea:emailLeads",
+      "@type": "@id"
+    },
+    "phoneLeads": {
+      "@id": "rea:phoneLeads",
+      "@type": "@id"
+    },
+    "viewStatementOfInformation": {
+      "@id": "rea:viewStatementOfInformation",
+      "@type": "xsd:decimal"
+    },
+    "listingSaved": {
+      "@id": "rea:listingSaved",
+      "@type": "xsd:decimal"
+    },
+    "sendToFriend": {
+      "@id": "rea:sendToFriend",
+      "@type": "xsd:decimal"
+    },
+    "savedInspectionTime": {
+      "@id": "rea:savedInspectionTime",
+      "@type": "xsd:decimal"
+    },
+    "threeDTourView": {
+      "@id": "rea:threeDTourView",
+      "@type": "xsd:decimal"
+    },
+    "floorplanView": {
+      "@id": "rea:floorplanView",
+      "@type": "xsd:decimal"
+    },
+    "videoView": {
+      "@id": "rea:videoView",
+      "@type": "xsd:decimal"
+    },
+    "expandMap": {
+      "@id": "rea:expandMap",
+      "@type": "xsd:decimal"
+    },
+    "getDirections": {
+      "@id": "rea:getDirections",
+      "@type": "xsd:decimal"
+    },
+    "emailDirections": {
+      "@id": "rea:emailDirections",
+      "@type": "xsd:decimal"
+    },
+    "PhoneEngagement": "rea:PhoneEngagement",
+    "revealedAgentPhoneNumber": {
+      "@id": "rea:revealedAgentPhoneNumber",
+      "@type": "xsd:decimal"
+    },
+    "clickToCall": {
+      "@id": "rea:clickToCall",
+      "@type": "xsd:decimal"
+    },
+    "EmailLeads": "rea:EmailLeads",
+    "documentDownload": {
+      "@id": "rea:documentDownload",
+      "@type": "xsd:decimal"
+    },
+    "emailEnquiry": {
+      "@id": "rea:emailEnquiry",
+      "@type": "xsd:decimal"
+    },
+    "PhoneLeads": "rea:PhoneLeads",
+    "sms": {
+      "@id": "rea:sms",
+      "@type": "xsd:decimal"
+    },
+    "phoneCall": {
+      "@id": "rea:phoneCall",
+      "@type": "xsd:decimal"
+    },
+    "CostPerLead": "rea:CostPerLead",
+    "leadsAndEngagements": {
+      "@id": "rea:leadsAndEngagements",
+      "@type": "xsd:decimal"
+    },
+    "emailAndPhoneLeads": {
+      "@id": "rea:emailAndPhoneLeads",
+      "@type": "xsd:decimal"
+    },
+    "ConnectionLeads": "rea:ConnectionLeads",
+    "ConnectionLeadsEmbedded": "rea:ConnectionLeadsEmbedded",
+    "connectionLeads": {
+      "@id": "rea:connectionLeads",
+      "@container": "@list"
+    },
+    "ConnectionLead": "rea:ConnectionLead",
+    "application": {
+      "@id": "rea:application",
+      "@type": "@id"
+    },
+    "tenant": {
+      "@id": "rea:tenant",
+      "@type": "@id"
+    },
+    "property": {
+      "@id": "rea:property",
+      "@type": "@id"
+    },
+    "agency": {
+      "@id": "rea:agency",
+      "@type": "@id"
+    },
+    "agents": {
+      "@id": "rea:agents",
+      "@container": "@list"
+    },
+    "connectionProviderName": {
+      "@id": "rea:connectionProviderName",
+      "@type": "xsd:string"
+    },
+    "utilityConnectionsAllowed": {
+      "@id": "rea:utilityConnectionsAllowed",
+      "@container": "@list"
+    },
+    "AffiliatedAgencies": "rea:AffiliatedAgencies",
+    "AffiliatedAgenciesEmbedded": "rea:AffiliatedAgenciesEmbedded",
+    "affiliatedAgencies": {
+      "@id": "rea:affiliatedAgencies",
+      "@container": "@list"
+    },
+    "AffiliatedAgency": "rea:AffiliatedAgency",
+    "agencyName": {
+      "@id": "rea:agencyName",
+      "@type": "xsd:string"
+    },
+    "providerName": {
+      "@id": "rea:providerName",
+      "@type": "xsd:string"
+    },
+    "Application": "rea:Application",
+    "approvedAt": {
+      "@id": "rea:approvedAt",
+      "@type": "xsd:dateTime"
+    },
+    "Tenant": "rea:Tenant",
+    "firstName": {
+      "@id": "rea:firstName",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "rea:lastName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "rea:email",
+      "@type": "xsd:string"
+    },
+    "mobilePhoneNumber": {
+      "@id": "rea:mobilePhoneNumber",
+      "@type": "xsd:string"
+    },
+    "birthDate": {
+      "@id": "rea:birthDate",
+      "@type": "xsd:date"
+    },
+    "identityDocument": {
+      "@id": "rea:identityDocument"
+    },
+    "Property": "rea:Property",
+    "street": {
+      "@id": "rea:street",
+      "@type": "xsd:string"
+    },
+    "suburb": {
+      "@id": "rea:suburb",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "rea:state",
+      "@type": "xsd:string"
+    },
+    "postCode": {
+      "@id": "rea:postCode",
+      "@type": "xsd:string"
+    },
+    "moveInDate": {
+      "@id": "rea:moveInDate",
+      "@type": "xsd:date"
+    },
+    "Agency": "rea:Agency",
+    "reaId": {
+      "@id": "rea:reaId",
+      "@type": "xsd:string"
+    },
+    "Agent": "rea:Agent",
+    "HttpApiDecodeError": "rea:HttpApiDecodeError",
+    "issues": {
+      "@id": "rea:issues",
+      "@container": "@list"
+    },
+    "_tag": {
+      "@id": "rea:_tag",
+      "@type": "xsd:string"
+    },
+    "Issue": "rea:Issue",
+    "path": {
+      "@id": "rea:path",
+      "@container": "@list"
+    },
+    "RFC7807ApiError.DecodeError": "rea:RFC7807ApiError.DecodeError",
+    "title": {
+      "@id": "rea:title",
+      "@type": "xsd:string"
+    },
+    "detail": {
+      "@id": "rea:detail",
+      "@type": "@id"
+    },
+    "RFC7807ApiError.BadRequestError": "rea:RFC7807ApiError.BadRequestError",
+    "RFC7807ApiError.InternalServerError": "rea:RFC7807ApiError.InternalServerError",
+    "RFC7807ApiError.ConflictError": "rea:RFC7807ApiError.ConflictError",
+    "RFC7807ApiError.NotFoundError": "rea:RFC7807ApiError.NotFoundError",
+    "BooleanFromString": "rea:BooleanFromString",
+    "Integration": "rea:Integration",
+    "integrationId": {
+      "@id": "rea:integrationId",
+      "@type": "xsd:string"
+    },
+    "ownerId": {
+      "@id": "rea:ownerId",
+      "@type": "xsd:string"
+    },
+    "ownerType": {
+      "@id": "rea:ownerType",
+      "@type": "xsd:string"
+    },
+    "scopes": {
+      "@id": "rea:scopes",
+      "@container": "@list"
+    },
+    "IntegrationLinks": "rea:IntegrationLinks",
+    "Integrations": "rea:Integrations",
+    "IntegrationsLinks": "rea:IntegrationsLinks",
+    "IntegrationsEmbedded": "rea:IntegrationsEmbedded",
+    "integrations": {
+      "@id": "rea:integrations",
+      "@container": "@list"
+    },
+    "HalLink": "rea:HalLink",
+    "HalNextLink": "rea:HalNextLink",
+    "cursor": {
+      "@id": "rea:cursor",
+      "@type": "xsd:string"
+    },
+    "Enrichment": "rea:Enrichment",
+    "enquiryId": {
+      "@id": "rea:enquiryId",
+      "@type": "xsd:string"
+    },
+    "score": {
+      "@id": "rea:score",
+      "@type": "xsd:decimal"
+    },
+    "isFinalised": {
+      "@id": "rea:isFinalised",
+      "@type": "xsd:boolean"
+    },
+    "enrichedAt": {
+      "@id": "rea:enrichedAt",
+      "@type": "xsd:string"
+    },
+    "buyerReadiness": {
+      "@id": "rea:buyerReadiness",
+      "@type": "xsd:string"
+    },
+    "listingEngagement": {
+      "@id": "rea:listingEngagement",
+      "@type": "xsd:string"
+    },
+    "topSearchedConfigurationBathrooms": {
+      "@id": "rea:topSearchedConfigurationBathrooms",
+      "@container": "@list"
+    },
+    "topSearchedConfigurationBedrooms": {
+      "@id": "rea:topSearchedConfigurationBedrooms",
+      "@container": "@list"
+    },
+    "topSearchedConstructionTypes": {
+      "@id": "rea:topSearchedConstructionTypes",
+      "@container": "@list"
+    },
+    "topSearchedPropertyTypes": {
+      "@id": "rea:topSearchedPropertyTypes",
+      "@container": "@list"
+    },
+    "topSearchedSuburbs": {
+      "@id": "rea:topSearchedSuburbs",
+      "@container": "@list"
+    },
+    "Enrichments": "rea:Enrichments",
+    "BaseEnquiry": "rea:BaseEnquiry",
+    "receivedAt": {
+      "@id": "rea:receivedAt",
+      "@type": "xsd:dateTime"
+    },
+    "processedAt": {
+      "@id": "rea:processedAt",
+      "@type": "xsd:dateTime"
+    },
+    "comments": {
+      "@id": "rea:comments",
+      "@type": "xsd:string"
+    },
+    "requestedInformation": {
+      "@id": "rea:requestedInformation",
+      "@container": "@list"
+    },
+    "suppliedMarketStatus": {
+      "@id": "rea:suppliedMarketStatus",
+      "@type": "xsd:string"
+    },
+    "agentRecipients": {
+      "@id": "rea:agentRecipients",
+      "@container": "@list"
+    },
+    "contactDetails": {
+      "@id": "rea:contactDetails",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "rea:source",
+      "@type": "@id"
+    },
+    "externalIdentifiers": {
+      "@id": "rea:externalIdentifiers",
+      "@type": "@id"
+    },
+    "customAttributes": {
+      "@id": "rea:customAttributes",
+      "@type": "@id"
+    },
+    "emailSubject": {
+      "@id": "rea:emailSubject",
+      "@type": "xsd:string"
+    },
+    "ContactDetails": "rea:ContactDetails",
+    "fullName": {
+      "@id": "rea:fullName",
+      "@type": "xsd:string"
+    },
+    "phone": {
+      "@id": "rea:phone",
+      "@type": "xsd:string"
+    },
+    "postcode": {
+      "@id": "rea:postcode",
+      "@type": "xsd:string"
+    },
+    "preferredContactMethod": {
+      "@id": "rea:preferredContactMethod",
+      "@type": "xsd:string"
+    },
+    "SellerLeads": "rea:SellerLeads",
+    "SellerEnrichmentResult": "rea:SellerEnrichmentResult",
+    "sellerScore": {
+      "@id": "rea:sellerScore",
+      "@type": "xsd:integer"
+    },
+    "sellerReadiness": {
+      "@id": "rea:sellerReadiness",
+      "@type": "xsd:string"
+    },
+    "predicatedSellerSuburb": {
+      "@id": "rea:predicatedSellerSuburb",
+      "@type": "xsd:string"
+    },
+    "SellerEnrichmentError": "rea:SellerEnrichmentError",
+    "description": {
+      "@id": "rea:description",
+      "@type": "xsd:string"
+    },
+    "Enquiries": "rea:Enquiries",
+    "Source": "rea:Source",
+    "ExternalIdentifiers": "rea:ExternalIdentifiers",
+    "externalProjectId": {
+      "@id": "rea:externalProjectId",
+      "@type": "xsd:string"
+    },
+    "propertyList": "rea:propertyList",
+    "residential": {
+      "@id": "rea:residential"
+    },
+    "Upload": "rea:Upload",
+    "uploadId": {
+      "@id": "rea:uploadId",
+      "@type": "@id"
+    },
+    "lastModified": {
+      "@id": "rea:lastModified",
+      "@type": "xsd:string"
+    },
+    "UploadSuccessResponse": "rea:UploadSuccessResponse",
+    "ReportResponse": "rea:ReportResponse",
+    "completedTime": {
+      "@id": "rea:completedTime",
+      "@type": "xsd:string"
+    },
+    "progress": {
+      "@id": "rea:progress",
+      "@type": "xsd:string"
+    },
+    "result": {
+      "@id": "rea:result",
+      "@type": "xsd:string"
+    },
+    "product_price": "rea:product_price",
+    "duration": {
+      "@id": "rea:duration",
+      "@type": "xsd:integer"
+    },
+    "billingCyclePeriod": {
+      "@id": "rea:billingCyclePeriod",
+      "@type": "xsd:integer"
+    },
+    "displayPrice": {
+      "@id": "rea:displayPrice",
+      "@type": "xsd:string"
+    },
+    "price": {
+      "@id": "rea:price",
+      "@type": "xsd:string"
+    },
+    "rackPrice": {
+      "@id": "rea:rackPrice",
+      "@type": "xsd:string"
+    },
+    "currency": {
+      "@id": "rea:currency",
+      "@type": "xsd:string"
+    },
+    "points": {
+      "@id": "rea:points",
+      "@type": "xsd:integer"
+    },
+    "upliftedFrom": {
+      "@id": "rea:upliftedFrom",
+      "@type": "xsd:string"
+    },
+    "topUpPrice": {
+      "@id": "rea:topUpPrice",
+      "@type": "xsd:string"
+    },
+    "bundle_price": "rea:bundle_price",
+    "bundleName": {
+      "@id": "rea:bundleName",
+      "@type": "xsd:string"
+    },
+    "products": {
+      "@id": "rea:products",
+      "@container": "@list"
+    },
+    "realcommercial_listing_tier": "rea:realcommercial_listing_tier",
+    "realcommercial_price_option": "rea:realcommercial_price_option",
+    "listingTier": {
+      "@id": "rea:listingTier",
+      "@type": "@id"
+    },
+    "isCurrentContract": {
+      "@id": "rea:isCurrentContract",
+      "@type": "xsd:boolean"
+    },
+    "priceDetails": {
+      "@id": "rea:priceDetails",
+      "@container": "@list"
+    },
+    "realestate_products": "rea:realestate_products",
+    "section": {
+      "@id": "rea:section",
+      "@type": "xsd:string"
+    },
+    "reupgrade": {
+      "@id": "rea:reupgrade",
+      "@type": "xsd:boolean"
+    },
+    "date": {
+      "@id": "rea:date",
+      "@type": "xsd:date"
+    },
+    "elect": {
+      "@id": "rea:elect",
+      "@container": "@list"
+    },
+    "manual": {
+      "@id": "rea:manual",
+      "@container": "@list"
+    },
+    "flex": {
+      "@id": "rea:flex"
+    },
+    "cappedProduct": {
+      "@id": "rea:cappedProduct",
+      "@container": "@list"
+    },
+    "bundle": {
+      "@id": "rea:bundle",
+      "@container": "@list"
+    },
+    "realcommercial_products": "rea:realcommercial_products",
+    "subscription": {
+      "@id": "rea:subscription",
+      "@type": "xsd:string"
+    },
+    "productPrice": {
+      "@id": "rea:productPrice",
+      "@container": "@list"
+    },
+    "productOption": {
+      "@id": "rea:productOption",
+      "@container": "@list"
+    },
+    "ErrorResponse": "rea:ErrorResponse",
+    "AgentStats": "rea:AgentStats",
+    "profileId": {
+      "@id": "rea:profileId",
+      "@type": "xsd:string"
+    },
+    "averageRating": {
+      "@id": "rea:averageRating",
+      "@type": "xsd:decimal"
+    },
+    "reviewsCount": {
+      "@id": "rea:reviewsCount",
+      "@type": "xsd:integer"
+    },
+    "AgentsStats": "rea:AgentsStats",
+    "agentsStats": {
+      "@id": "rea:agentsStats",
+      "@container": "@list"
+    },
+    "RatingReview": "rea:RatingReview",
+    "rating": {
+      "@id": "rea:rating",
+      "@type": "xsd:integer"
+    },
+    "content": {
+      "@id": "rea:content",
+      "@type": "xsd:string"
+    },
+    "reviewer": {
+      "@id": "rea:reviewer"
+    },
+    "agent": {
+      "@id": "rea:agent"
+    },
+    "createdDate": {
+      "@id": "rea:createdDate",
+      "@type": "xsd:string"
+    },
+    "RatingsReviews": "rea:RatingsReviews",
+    "totalCount": {
+      "@id": "rea:totalCount",
+      "@type": "xsd:integer"
+    },
+    "AgencyStats": "rea:AgencyStats",
+    "AgenciesStats": "rea:AgenciesStats",
+    "agenciesStats": {
+      "@id": "rea:agenciesStats",
+      "@container": "@list"
+    },
+    "SuccessfulApplicationItem": "rea:SuccessfulApplicationItem",
+    "Embedded": "rea:Embedded",
+    "successfulApplications": {
+      "@id": "rea:successfulApplications",
+      "@container": "@list"
+    },
+    "SuccessfulApplicationSummary": "rea:SuccessfulApplicationSummary",
+    "applicationId": {
+      "@id": "rea:applicationId",
+      "@type": "xsd:string"
+    },
+    "applicationDetailsUrl": {
+      "@id": "rea:applicationDetailsUrl",
+      "@type": "xsd:string"
+    },
+    "applicationDetails": {
+      "@id": "rea:applicationDetails",
+      "@type": "@id"
+    },
+    "listingDetails": {
+      "@id": "rea:listingDetails",
+      "@type": "@id"
+    },
+    "ApplicationDetails": "rea:ApplicationDetails",
+    "leaseTerm": {
+      "@id": "rea:leaseTerm",
+      "@type": "xsd:integer"
+    },
+    "leaseStartDate": {
+      "@id": "rea:leaseStartDate",
+      "@type": "xsd:date"
+    },
+    "publishedAt": {
+      "@id": "rea:publishedAt",
+      "@type": "xsd:dateTime"
+    },
+    "statusLastUpdatedAt": {
+      "@id": "rea:statusLastUpdatedAt",
+      "@type": "xsd:dateTime"
+    },
+    "ListingDetails": "rea:ListingDetails",
+    "address": {
+      "@id": "rea:address",
+      "@type": "@id"
+    },
+    "reaAgencyId": {
+      "@id": "rea:reaAgencyId",
+      "@type": "xsd:string"
+    },
+    "reaListingId": {
+      "@id": "rea:reaListingId",
+      "@type": "xsd:string"
+    },
+    "ListingAddress": "rea:ListingAddress",
+    "streetAddress": {
+      "@id": "rea:streetAddress",
+      "@type": "xsd:string"
+    },
+    "SuccessfulApplication": "rea:SuccessfulApplication",
+    "applicationDocumentsUrl": {
+      "@id": "rea:applicationDocumentsUrl",
+      "@type": "xsd:string"
+    },
+    "applicants": {
+      "@id": "rea:applicants",
+      "@container": "@list"
+    },
+    "Applicant": "rea:Applicant",
+    "applicantREAId": {
+      "@id": "rea:applicantREAId",
+      "@type": "xsd:string"
+    },
+    "primaryApplicant": {
+      "@id": "rea:primaryApplicant",
+      "@type": "xsd:boolean"
+    },
+    "applicantContactDetails": {
+      "@id": "rea:applicantContactDetails",
+      "@type": "@id"
+    },
+    "hasOrWillInspect": {
+      "@id": "rea:hasOrWillInspect",
+      "@type": "xsd:boolean"
+    },
+    "inspectionDate": {
+      "@id": "rea:inspectionDate",
+      "@type": "xsd:date"
+    },
+    "residentialHistory": {
+      "@id": "rea:residentialHistory",
+      "@container": "@list"
+    },
+    "employmentHistory": {
+      "@id": "rea:employmentHistory",
+      "@container": "@list"
+    },
+    "income": {
+      "@id": "rea:income",
+      "@type": "@id"
+    },
+    "coverLetter": {
+      "@id": "rea:coverLetter",
+      "@type": "xsd:string"
+    },
+    "identityDocuments": {
+      "@id": "rea:identityDocuments",
+      "@container": "@list"
+    },
+    "pets": {
+      "@id": "rea:pets",
+      "@type": "@id"
+    },
+    "tenantVerification": {
+      "@id": "rea:tenantVerification",
+      "@type": "@id"
+    },
+    "otherOccupants": {
+      "@id": "rea:otherOccupants",
+      "@container": "@list"
+    },
+    "ApplicantContactDetails": "rea:ApplicantContactDetails",
+    "phoneNumber": {
+      "@id": "rea:phoneNumber",
+      "@type": "xsd:string"
+    },
+    "ResidentialHistory": "rea:ResidentialHistory",
+    "isCurrent": {
+      "@id": "rea:isCurrent",
+      "@type": "xsd:boolean"
+    },
+    "addressReference": {
+      "@id": "rea:addressReference",
+      "@type": "@id"
+    },
+    "AddressHistory": "rea:AddressHistory",
+    "cityOrSuburb": {
+      "@id": "rea:cityOrSuburb",
+      "@type": "xsd:string"
+    },
+    "stateOrTerritoryOrProvince": {
+      "@id": "rea:stateOrTerritoryOrProvince",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "rea:country"
+    },
+    "ApplicantReference": "rea:ApplicantReference",
+    "relationship": {
+      "@id": "rea:relationship",
+      "@type": "xsd:string"
+    },
+    "EmploymentHistory": "rea:EmploymentHistory",
+    "abnOrAcn": {
+      "@id": "rea:abnOrAcn",
+      "@type": "xsd:string"
+    },
+    "workRole": {
+      "@id": "rea:workRole"
+    },
+    "employmentReference": {
+      "@id": "rea:employmentReference",
+      "@type": "@id"
+    },
+    "Income": "rea:Income",
+    "hasIncome": {
+      "@id": "rea:hasIncome",
+      "@type": "xsd:boolean"
+    },
+    "incomeRecords": {
+      "@id": "rea:incomeRecords",
+      "@container": "@list"
+    },
+    "documents": {
+      "@id": "rea:documents",
+      "@container": "@list"
+    },
+    "IncomeRecord": "rea:IncomeRecord",
+    "amount": {
+      "@id": "rea:amount",
+      "@type": "xsd:integer"
+    },
+    "frequency": {
+      "@id": "rea:frequency",
+      "@type": "xsd:string"
+    },
+    "ApplicantDocument": "rea:ApplicantDocument",
+    "Pets": "rea:Pets",
+    "cats": {
+      "@id": "rea:cats",
+      "@type": "xsd:integer"
+    },
+    "dogs": {
+      "@id": "rea:dogs",
+      "@type": "xsd:integer"
+    },
+    "other": {
+      "@id": "rea:other",
+      "@type": "xsd:integer"
+    },
+    "Occupant": "rea:Occupant",
+    "age": {
+      "@id": "rea:age",
+      "@type": "xsd:integer"
+    },
+    "PublishedApplicationItem": "rea:PublishedApplicationItem",
+    "UpdatedApplicationItem": "rea:UpdatedApplicationItem",
+    "UpdatedApplicationsEmbedded": "rea:UpdatedApplicationsEmbedded",
+    "updatedApplications": {
+      "@id": "rea:updatedApplications",
+      "@container": "@list"
+    },
+    "PublishedApplication": "rea:PublishedApplication",
+    "UpdatedApplication": "rea:UpdatedApplication",
+    "UpdateApplicationStatusRequest": "rea:UpdateApplicationStatusRequest",
+    "fromStatus": {
+      "@id": "rea:fromStatus",
+      "@type": "xsd:string"
+    },
+    "toStatus": {
+      "@id": "rea:toStatus",
+      "@type": "xsd:string"
+    },
+    "SubscriptionRequest": "rea:SubscriptionRequest",
+    "eventType": {
+      "@id": "rea:eventType",
+      "@type": "xsd:string"
+    },
+    "eventCategory": {
+      "@id": "rea:eventCategory",
+      "@type": "xsd:string"
+    },
+    "webhookUrl": {
+      "@id": "rea:webhookUrl",
+      "@type": "xsd:string"
+    },
+    "SubscriptionResponse": "rea:SubscriptionResponse",
+    "subscriptionId": {
+      "@id": "rea:subscriptionId",
+      "@type": "xsd:string"
+    },
+    "DeliveryResponse": "rea:DeliveryResponse",
+    "deliveries": {
+      "@id": "rea:deliveries",
+      "@container": "@list"
+    },
+    "404Error": "rea:404Error",
+    "meta": {
+      "@id": "rea:meta"
+    },
+    "400Error": "rea:400Error",
+    "SubscriptionsResponse": "rea:SubscriptionsResponse",
+    "subscriptions": {
+      "@id": "rea:subscriptions",
+      "@container": "@list"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "REA Group API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects REA Group's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-20) from openapi/rea-group-attributes-api-openapi.yml, openapi/rea-group-auction-results-api-openapi.yml, openapi/rea-group-avm-api-openapi.yml.",
+  "dcterms:created": "2026-10-20",
+  "dcterms:source": [
+    "openapi/rea-group-attributes-api-openapi.yml",
+    "openapi/rea-group-auction-results-api-openapi.yml",
+    "openapi/rea-group-avm-api-openapi.yml",
+    "openapi/rea-group-avm-report-api-openapi.yml",
+    "openapi/rea-group-demographics-api-openapi.yml"
+  ]
+}

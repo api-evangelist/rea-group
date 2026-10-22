@@ -1,0 +1,259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-enrichments-schema.json",
+  "title": "Enrichments",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-lead-enrichment-openapi.yml#/components/schemas/Enrichments",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "description": "The collection of enrichment data items matching the request",
+          "items": {
+            "$ref": "#/$defs/Enrichment"
+          }
+        }
+      }
+    },
+    "_links": {
+      "type": "object",
+      "description": "Set of URLs related to the enrichment item, includes `self` URL and `next` page URL",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Enrichment": {
+      "type": "object",
+      "properties": {
+        "enquiryId": {
+          "type": "string",
+          "description": "Unique identifier of an enquiry"
+        },
+        "listingId": {
+          "type": "string",
+          "description": "Unique identifier a listing"
+        },
+        "score": {
+          "type": "number",
+          "description": "X out of 10 value representing enquiry enrichment score"
+        },
+        "isFinalised": {
+          "type": "boolean",
+          "description": "Value indicating whether enrichment process has been completed and data is fully available"
+        },
+        "enrichedAt": {
+          "type": "string",
+          "description": "Time that the enquiry was enriched in ISO8601 format"
+        },
+        "buyerReadiness": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "description": "Value indicating where the consumer is in their buy journey"
+        },
+        "listingEngagement": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ],
+          "description": "Value indicating level of engagement with the listing"
+        },
+        "topSearchedConfigurationBathrooms": {
+          "type": "array",
+          "description": "Collection of consumer's top searched bedroom configurations. If corresponding data is not available, it will be returned as an empty array (`[]`)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "type": "integer",
+                "description": "Number indicating the order of available search preference items"
+              },
+              "band": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "description": "Value indicating level of consumer's interest in particular listing configuration"
+              },
+              "match": {
+                "type": "boolean",
+                "description": "Value indicating whether consumer's search preference matches the listing configuration"
+              },
+              "bathrooms": {
+                "type": "integer",
+                "description": "Number of bathrooms captured as consumer's listing configuration search preference"
+              }
+            }
+          }
+        },
+        "topSearchedConfigurationBedrooms": {
+          "type": "array",
+          "description": "Collection of consumer's top searched bathroom configurations. If corresponding data is not available, it will be returned as an empty array (`[]`)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "type": "integer",
+                "description": "Number indicating the order of available search preference items"
+              },
+              "band": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "description": "Value indicating level of consumer's interest in particular listing configuration"
+              },
+              "match": {
+                "type": "boolean",
+                "description": "Value indicating whether consumer's search preference matches the listing configuration"
+              },
+              "bedrooms": {
+                "type": "integer",
+                "description": "Number of bedrooms captured as consumer's search preference"
+              }
+            }
+          }
+        },
+        "topSearchedConstructionTypes": {
+          "type": "array",
+          "description": "Collection of consumer's top searched construction types. If corresponding data is not available, it will be returned as an empty array (`[]`)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "type": "integer",
+                "description": "Number indicating the order of available search preference items"
+              },
+              "band": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "description": "Value indicating level of consumer's interest in particular construction type"
+              },
+              "match": {
+                "type": "boolean",
+                "description": "Value indicating whether consumer's search preference matches the listing construction type"
+              },
+              "constructionType": {
+                "type": "string",
+                "description": "Construction type captured as consumer's search preference"
+              }
+            }
+          }
+        },
+        "topSearchedPropertyTypes": {
+          "type": "array",
+          "description": "Collection of consumer's top searched property types. If corresponding data is not available, it will be returned as an empty array (`[]`)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "type": "integer",
+                "description": "Number indicating the order of available search preference items"
+              },
+              "band": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "description": "Value indicating level of consumer's interest in particular property type"
+              },
+              "match": {
+                "type": "boolean",
+                "description": "Value indicating whether consumer's search preference matches the listing property type"
+              },
+              "propertyType": {
+                "type": "string",
+                "enum": [
+                  "house",
+                  "land",
+                  "townhouse",
+                  "unit",
+                  "other"
+                ],
+                "description": "Construction type captured as consumer's search preference"
+              }
+            }
+          }
+        },
+        "topSearchedSuburbs": {
+          "type": "array",
+          "description": "Collection of consumer's top searched suburbs. If corresponding data is not available, it will be returned as an empty array (`[]`)",
+          "items": {
+            "type": "object",
+            "properties": {
+              "position": {
+                "type": "integer",
+                "description": "Number indicating the order of available search preference items"
+              },
+              "band": {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ],
+                "description": "Value indicating level of consumer's interest in particular suburb"
+              },
+              "match": {
+                "type": "boolean",
+                "description": "Value indicating whether consumer's search preference matches the listing location suburb"
+              },
+              "suburb": {
+                "type": "string",
+                "description": "Suburb name captured as consumer's search preference"
+              }
+            }
+          }
+        },
+        "_links": {
+          "type": "object",
+          "description": "Set of URLs related to the enrichment item, includes `self` URL and `enquiry` URL",
+          "properties": {
+            "self": {
+              "$ref": "#/$defs/Link"
+            },
+            "enquiry": {
+              "$ref": "#/$defs/Link"
+            }
+          }
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a resource"
+        }
+      }
+    }
+  }
+}

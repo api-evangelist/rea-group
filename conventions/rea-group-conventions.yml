@@ -1,4 +1,4 @@
-generated: '2026-07-27'
+generated: '2026-10-20'
 method: searched
 source: https://developer.proptrack.com.au/docs/apis/guide
 sources:
@@ -9,22 +9,26 @@ sources:
 - https://developer.proptrack.com.au/docs/apis/api-trials
 authentication:
   style: oauth2-bearer
-  detail: >-
-    OAuth 2.0 client credentials. api_key:api_secret Base64-encoded as HTTP Basic
-    on POST https://data.proptrack.com/oauth2/token, returning a JWT bearer token
-    with a 3600 second TTL, presented as "Authorization: Bearer <token>" on every
-    call. See authentication/rea-group-authentication.yml
+  detail: 'OAuth 2.0 client credentials. api_key:api_secret Base64-encoded as HTTP Basic on POST https://data.proptrack.com/oauth2/token,
+    returning a JWT bearer token with a 3600 second TTL, presented as "Authorization: Bearer <token>" on every call.
+    See authentication/rea-group-authentication.yml'
 versioning:
   style: uri-path
   current: v2
-  detail: >-
-    Two versions are live concurrently. The property-data surface (address,
-    listings, market, properties, transactions) is served under /api/v2; the
-    valuation, report and disclaimer surface is served under /api/v1. The OAuth
-    token endpoint is unversioned at /oauth2/token.
+  detail: Two versions are live concurrently. The property-data surface (address, listings, market, properties,
+    transactions) is served under /api/v2; the valuation, report and disclaimer surface is served under /api/v1.
+    The OAuth token endpoint is unversioned at /oauth2/token.
   versions_in_use:
-    v2: [address, listings, market, properties, transactions]
-    v1: [valuations, reports, disclaimers]
+    v2:
+    - address
+    - listings
+    - market
+    - properties
+    - transactions
+    v1:
+    - valuations
+    - reports
+    - disclaimers
 pagination:
   style: cursor
   applies_to: search endpoints returning collections
@@ -36,77 +40,68 @@ pagination:
     description: Maximum number of results returned per page
   - name: afterPageCursor
     type: string
-    description: >-
-      Page starting position, one record after the given cursor. Mutually
-      exclusive with beforePageCursor.
+    description: Page starting position, one record after the given cursor. Mutually exclusive with beforePageCursor.
   - name: beforePageCursor
     type: string
-    description: >-
-      Page starting position, one record before the given cursor. Mutually
-      exclusive with afterPageCursor.
+    description: Page starting position, one record before the given cursor. Mutually exclusive with afterPageCursor.
   response_fields:
   - name: numberOfResults
-    description: >-
-      Total results matching the search criteria across all pages, not the count
-      of the current page.
-  detail: >-
-    Opaque bidirectional cursors. Passing both afterPageCursor and
-    beforePageCursor in one request is a documented conflict (error 7015).
+    description: Total results matching the search criteria across all pages, not the count of the current page.
+  detail: Opaque bidirectional cursors. Passing both afterPageCursor and beforePageCursor in one request is a documented
+    conflict (error 7015).
   docs: https://developer.proptrack.com.au/docs/apis/pagination
 idempotency:
   supported: false
-  detail: >-
-    No idempotency-key header, parameter or retry contract is documented, and none
-    appears in the published OpenAPI. The surface is overwhelmingly read-only (29
-    of 32 operations are GET); the three POST operations (two AVM valuation orders
-    and the property report order) are billable side-effecting calls with no
-    documented safe-retry mechanism. No Idempotency pointer is emitted for this
-    provider - see review.yml.
+  detail: No idempotency-key header, parameter or retry contract is documented, and none appears in the published
+    OpenAPI. The surface is overwhelmingly read-only (29 of 32 operations are GET); the three POST operations (two
+    AVM valuation orders and the property report order) are billable side-effecting calls with no documented safe-retry
+    mechanism. No Idempotency pointer is emitted for this provider - see review.yml.
+  coverage: none
+  partner_platform: None of the 15 saved Partner Platform contracts declares an idempotency key or retry contract
+    (grep for "idempot" across openapi/ returns nothing).
 request_tracing:
   header: X-Transaction-Id
   direction: response
-  detail: >-
-    Every response carries an X-Transaction-Id header. The support process asks
-    partners to quote this value when raising an issue.
+  detail: Every response carries an X-Transaction-Id header. The support process asks partners to quote this value
+    when raising an issue.
   example: bxxe12cb-a6a8-4cad-9a8c-4f1d8abfa0d9
   docs: https://developer.proptrack.com.au/docs/apis/api-trials
+  partner_platform_docs: https://partner.realestate.com.au/getting-started/responses/
 error_envelope:
   style: proprietary-array
   media_type: application/json
-  shape: >-
-    {"errors": [{"code": <integer>, "level": "CRITICAL", "description": "<text>",
-    "parameters": {<field>: "<rule>"}}]}
+  shape: '{"errors": [{"code": <integer>, "level": "CRITICAL", "description": "<text>", "parameters": {<field>:
+    "<rule>"}}]}'
   fields:
     code: integer error code from the published registry (7xxx validation, 9xxx platform)
-    level: >-
-      Severity. Only CRITICAL is defined and the field is marked deprecated in the
-      published schemas; when level is CRITICAL no successful response is returned.
+    level: Severity. Only CRITICAL is defined and the field is marked deprecated in the published schemas; when
+      level is CRITICAL no successful response is returned.
     description: human-readable overview of the error
     parameters: map of offending parameter to the rule it violated
   rfc9457: false
-  detail: >-
-    Not RFC 9457 problem+json. A proprietary errors[] array is returned as
-    application/json against standard HTTP status codes.
+  detail: Not RFC 9457 problem+json. A proprietary errors[] array is returned as application/json against standard
+    HTTP status codes.
   catalog: errors/rea-group-error-codes.yml
 rate_limiting:
   signaled: false
   headers: []
-  detail: >-
-    Per-endpoint limits are published as documentation (50 rps for most read
-    endpoints, 25 rps for valuation and report endpoints) and enforced on a rolling
-    one-second window, but no RateLimit / X-RateLimit response headers are
-    documented, so a client cannot observe remaining budget - only the 429 with
-    error code 9011 after the fact.
+  detail: Per-endpoint limits are published as documentation (50 rps for most read endpoints, 25 rps for valuation
+    and report endpoints) and enforced on a rolling one-second window, but no RateLimit / X-RateLimit response headers
+    are documented, so a client cannot observe remaining budget - only the 429 with error code 9011 after the fact.
   catalog: rate-limits/rea-group-rate-limits.yml
+  partner_platform:
+    headers:
+    - X-RateLimit-Limit-minute
+    - X-RateLimit-Remaining-minute
+    status: 429
+    docs: https://partner.realestate.com.au/getting-started/rate-limiting/
 content_negotiation:
   request: application/x-www-form-urlencoded (token endpoint), query parameters (data endpoints)
   response: application/json; application/pdf for the AVM report download
 disclaimers:
   required: true
-  detail: >-
-    PropTrack requires attribution and disclaimer text to be displayed alongside
-    data rendered from the APIs. The Disclaimers API (/api/v1/disclaimers) serves
-    the current required text and branding rules programmatically.
+  detail: PropTrack requires attribution and disclaimer text to be displayed alongside data rendered from the APIs.
+    The Disclaimers API (/api/v1/disclaimers) serves the current required text and branding rules programmatically.
   operation: openapi/rea-group-disclaimers-openapi.yml#get-api-v1-disclaimers
   docs: https://developer.proptrack.com.au/docs/apis/disclaimersbranding
 cross_links:
@@ -115,3 +110,31 @@ cross_links:
   rate_limits: rate-limits/rea-group-rate-limits.yml
   lifecycle: lifecycle/rea-group-lifecycle.yml
   security: security/rea-group-domain-security.yml
+reversibility:
+  method: derived
+  source: openapi/
+  status: documented
+  note: Reversal paths are pairs of operations in the contracts; no doc states a time window for any of them, so
+    none is recorded. PropTrack valuation/report orders (POST) are billable calls with no cancel or refund operation.
+  surfaces:
+  - write: webhooks createSubscription
+    reversal: deleteSubscription
+    spec: openapi/rea-group-partner-webhooks-openapi.yml
+    window: null
+  - write: customer-profile customerV1.postIndividualCustomerV1
+    reversal: customerV1.postOffboardIndividualCustomerV1
+    spec: openapi/rea-group-partner-customer-profile-openapi.yml
+    window: null
+  - write: customer-profile customerV1.addWorkingRelationshipsV1
+    reversal: customerV1.endWorkingRelationshipsV1
+    spec: openapi/rea-group-partner-customer-profile-openapi.yml
+    window: null
+  - write: PropTrack v1-properties-valuation-sale / -plus / -pro, reports-property-report
+    reversal: null
+    window: null
+    note: no reversal operation; side-effecting billable orders
+  - write: listing upload uploadXml
+    reversal: null
+    window: null
+    note: no dedicated reversal operation in the contract; listing status changes are carried inside the REAXML
+      document, which we did not verify

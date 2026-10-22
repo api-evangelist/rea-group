@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Campaign API - display performance Creative API
+  version: 1.0.0
+extends: openapi/rea-group-creative-api-openapi.yml
+x-apievangelist:
+  generated: '2026-10-21'
+  method: generated
+  source: openapi/rea-group-creative-api-openapi.yml
+  note: Additive annotations only; the original OpenAPI is never mutated.
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: REA Group
+      aid: rea-group:rea-group-creative-api
+      api_name: Campaign API - display performance Creative API
+      family: realestate.com.au Partner Platform
+      documentation: https://partner.realestate.com.au/
+      access: partner-gated (OAuth 2.0 client credentials under a commercial agreement)
+- target: $.paths['/{campaignId}/creatives'].get
+  update:
+    x-agent-tool:
+      candidate_name: creative_api_getbycampaignidcreatives
+      read_only: true
+      side_effects: none

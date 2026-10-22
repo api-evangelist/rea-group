@@ -1,0 +1,69 @@
+generated: '2026-10-20'
+method: searched
+source:
+- https://www.rea-group.com/security/
+- https://developer.proptrack.com.au/docs/apis/terms-of-use
+coverage_note: >-
+  The REA Group privacy policy (https://www.rea-group.com/privacy/ redirects to
+  https://www.realestate.com.au/legal/privacy-policy) could not be read: a plain GET returned 429 and the
+  fetch-url.py fallback got a "403 - Permission Denied" page (2026-10-20). Signals that would normally come
+  from the privacy policy (subprocessors, retention of personal data, cross-border disclosure, complaint
+  handling) are therefore unrecorded, not absent. Re-checked 2026-10-21: plain GET 429, crawler-UA fallback a
+  "403 - Permission Denied" page, headless render 429; all four quotes below re-verified verbatim on their pages.
+signals:
+  data_subject_request:
+    url: https://www.rea-group.com/security/
+    section: Responsible disclosure
+    rights_named: [access, correction, complaint]
+    evidence:
+    - source: https://www.rea-group.com/security/
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: >-
+        Our Privacy Policy further explains how we collect, use and disclose personal information and how to
+        access, correct or complain about the handling of personal information.
+    note: >-
+      An indirect statement on the security page saying that individuals can access, correct and complain about
+      their personal information, and that the Privacy Policy explains how. The policy itself was blocked (403/429),
+      so the channel, the SLA and any further rights could not be verified.
+  data_retention:
+    url: https://developer.proptrack.com.au/docs/apis/terms-of-use
+    section: 2. Supply and Grant of Licence
+    evidence:
+    - source: https://developer.proptrack.com.au/docs/apis/terms-of-use
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: >-
+        On expiration of the Evaluation Period, Company must destroy or delete all data that it and its
+        personnel have downloaded pursuant to sub-clause 2a. during the Evaluation Period.
+    note: >-
+      A deletion obligation the PropTrack (REA Group) trial API terms place on the CUSTOMER: downloaded data must
+      be destroyed when the evaluation ends. It says nothing about how long PropTrack itself keeps data.
+  data_residency:
+    url: https://developer.proptrack.com.au/docs/apis/terms-of-use
+    section: 4. Access Security
+    evidence:
+    - source: https://developer.proptrack.com.au/docs/apis/terms-of-use
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: >-
+        only access the Services using the API key provided by PropTrack to enable Company to access the
+        Services (API Key) from secure computer infrastructure located within Australia;
+    note: >-
+      A location requirement on the customer: trial API access has to come from infrastructure in Australia.
+      This limits where the consumer can be, not where PropTrack hosts data. No provider-side residency
+      statement was found.
+  incident_notification:
+    url: https://developer.proptrack.com.au/docs/apis/terms-of-use
+    section: 4. Access Security
+    direction: customer-to-provider
+    evidence:
+    - source: https://developer.proptrack.com.au/docs/apis/terms-of-use
+      http_status: 200
+      fetched: '2026-10-20'
+      quote: >-
+        notify PropTrack immediately if it suspects that the security of its API Key or network has been
+        compromised or if the Services are being used in an unauthorised manner.
+    note: >-
+      The customer must report an incident to PropTrack immediately. The pages that were read contain no
+      commitment from PropTrack to notify customers of incidents on its side.

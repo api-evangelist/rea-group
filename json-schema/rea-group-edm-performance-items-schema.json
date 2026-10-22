@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/rea-group/main/json-schema/rea-group-edm-performance-items-schema.json",
+  "title": "EdmPerformanceItems",
+  "x-generated": "2026-10-20",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/rea-group-partner-campaign-edm-performance-openapi.yml#/components/schemas/EdmPerformanceItems",
+  "type": "object",
+  "properties": {
+    "_embedded": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/EdmPerformance"
+          }
+        }
+      }
+    },
+    "_links": {
+      "type": "object",
+      "properties": {
+        "self": {
+          "$ref": "#/$defs/Link"
+        },
+        "prev": {
+          "$ref": "#/$defs/Link"
+        },
+        "next": {
+          "$ref": "#/$defs/Link"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "AccountManager": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the account manager."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the account manager."
+        }
+      }
+    },
+    "Advertiser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the advertiser."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the advertising agency."
+        }
+      }
+    },
+    "EdmPerformance": {
+      "type": "object",
+      "properties": {
+        "_links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "$ref": "#/$defs/Link"
+            }
+          }
+        },
+        "flightId": {
+          "type": "string",
+          "description": "Unique identifier for the eDM campaign."
+        },
+        "campaignId": {
+          "type": "string",
+          "description": "n/a."
+        },
+        "accountManager": {
+          "$ref": "#/$defs/AccountManager",
+          "description": "Information about the REA account manager servicing the campaign."
+        },
+        "advertiser": {
+          "$ref": "#/$defs/Advertiser",
+          "description": "Information about the advertising agency running the campaign."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the campaign."
+        },
+        "sendDate": {
+          "type": "string",
+          "description": "date of eDM sent."
+        },
+        "sends": {
+          "type": "string",
+          "description": "number of eDM sent."
+        },
+        "clicks": {
+          "type": "string",
+          "description": "Number of delivered clicks for the campaign."
+        },
+        "uniqueClicks": {
+          "type": "string",
+          "description": "Number of delivered unique clicks for the campaign."
+        },
+        "clickThroughRate": {
+          "type": "string",
+          "description": "Number of clicks divided by total impressions served."
+        },
+        "flatRateLocal": {
+          "type": "string",
+          "description": "Total spent on campaign to date."
+        },
+        "leads": {
+          "type": "string",
+          "description": "Number of delivered leads for the campaign."
+        },
+        "costPerLead": {
+          "type": "string",
+          "description": "The amount paid for each lead as the result of campaign activity and value."
+        },
+        "product": {
+          "type": "string",
+          "description": "Type of advertising product - generally \"Hyper Targeted\", \"Solus State\" or \"New Homes\"."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string",
+          "description": "Hyperlink to a Campaign API resource"
+        }
+      }
+    }
+  }
+}

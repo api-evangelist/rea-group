@@ -17,7 +17,117 @@ info:
 
     - **Properties/Listings: **GET** /api/v2/properties/{propertyId}/listings**
 
-    Retrieves current and historic listings…'
+    Retrieves current and historic listings for a given property.
+
+
+    - **Properties/Planning: **GET** /api/v2/properties/{propertyId}/planning**
+
+    Retrieves planning and zoning information for a given property
+
+
+    - **Properties/TenureType: **GET** /api/v2/properties/{propertyId}/tenure-type**
+
+    Retrieves historical property tenure information for a given property
+
+
+    - **Properties/Transactions: **GET** /api/v2/properties/{propertyId}/transactions**
+
+    Retrieves sold transactions for a given property
+
+
+    AVM Valuation API
+
+
+    - **Properties/Valuations/Sale: **Post** /api/v1/properties/valuations/sale**
+
+    Orders a sale valuation from PropTrack''s Automated Valuation Model (AVM) for a given address string, either as requestType=enquiry OR requestType=origination
+
+
+    - **Properties/Valuations/Sale: **GET** /api/v1/properties/{propertyId}/valuations/sale**
+
+    Orders a sale valuation from PropTrack''s Automated Valuation Model (AVM) for a given property (by propertyId), , either as ?requestType=enquiry OR ?requestType=origination
+
+
+    - **Properties/Valuations/Rent: **GET** /api/v1/properties/{propertyId}/valuations/rent?requestType=enquiry OR requestType-origination**
+
+    Orders an Enquiry Rental valuation from PropTrack''s Automated Valuation Model (AVM) for a given property (by propertyId), either as Enquiry or Origination Request Type
+
+
+    - **Properties/Valuations/Sale~AVM Plus: **Post** /api/v1/properties/valuations/sale ~plus**
+
+    Orders a AVM Plus valuation from PropTrack''s Automated Valuation Model (AVM) for a given address string, combines Sale and Rental into a single request
+
+
+    - **Properties/Valuations/Sale~AVM Plus: **GET** /api/v1/properties/{propertyId}/valuations/sale?requestType=plus**
+
+    Orders a AVM Plus valuation from PropTrack''s Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale and Rental into a single request
+
+
+    - **Properties/Valuations/Sale~AVM Pro: **Post** /api/v1/properties/valuations/sale ~pro**
+
+    Orders a AVM Pro valuation from PropTrack''s Automated Valuation Model (AVM) for a given address string, combines Sale, Rental and environment hazards into a single request
+
+
+    - **Properties/Valuations/Sale~AVM Pro: **GET** /api/v1/properties/{propertyId}/valuations/sale?requestType=pro**
+
+    Orders a AVM Pro valuation from PropTrack''s Automated Valuation Model (AVM) for a given property (by propertyId), combines Sale, Rental and environment hazards into a single request
+
+
+    Getting Started
+
+
+    Start your journey
+
+
+    API Trials
+
+
+    Authentication
+
+
+    Error Handling
+
+
+    API References
+
+
+    Explore our knowledge base
+
+
+    API Guide
+
+
+    Rate Limiting
+
+
+    Getting Support
+
+
+    Useful Docs
+
+
+    Helpful resources
+
+
+    Pagination
+
+
+    Rules Engine
+
+
+    FAQs
+
+
+    Get in Touch
+
+
+    Connect with us
+
+
+    Contact Sales
+
+
+    Contact Support'
   contact:
     email: support@proptrack.com
     name: PropTrack Support

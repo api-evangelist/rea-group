@@ -1,0 +1,127 @@
+openapi: 3.2.0
+info:
+  title: Listing Upload API
+  description: An API to accept listing uploads and report on the progress of these listing uploads.
+  version: '1'
+servers:
+- url: https://api.realestate.com.au
+  description: Production API
+security:
+- PartnerPlatform:
+  - listing:listings:write
+tags:
+- name: Upload
+paths:
+  /listing/v1/upload:
+    post:
+      tags:
+      - Upload
+      summary: Accepts an REAXML document containing a single listing for processing
+      description: The Listing Upload API will return an uploadId after submission.
+      operationId: uploadXml
+      externalDocs:
+        description: Find REAXML schema here
+        url: https://partner.realestate.com.au/documentation/api/listings/elements/
+      requestBody:
+        description: REAXML document containing one single listing
+        content:
+          application/xml:
+            schema:
+              externalDocs:
+                url: https://partner.realestate.com.au/documentation//api/listings/elements/
+            example: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n <propertyList date=\"2018-06-15-11:29:16\">\n   <residential status=\"current\" modTime=\"2019-06-15-11:29:15\">\n     <agentID>XNWTRD</agentID>\n     <uniqueID>rea_111234324</uniqueID>\n     <listingAgent id=\"1\">\n       <name>Jayne Doherty</name>\n       <telephone type=\"mobile\">123</telephone>\n       <email>test@test.com.au</email>\n     </listingAgent>\n     <newConstruction>1</newConstruction>\n     <category name=\"Apartment\" />\n     <authority value=\"exclusive\" />\n     <underOffer value=\"no\" />\n     <isHomeLandPackage value=\"no\" />\n     <address streetview=\"no\" display=\"no\">\n       <street>test road</street>\n       <suburb display=\"yes\">Errinundra</suburb>\n       <state>VIC</state>\n       <postcode>3889</postcode>\n       <country>AU</country>\n       <streetNumber>8/333</streetNumber>\n     </address>\n     <municipality />\n     <headline>North facing apartment near Riversdale Village</headline>\n     <description />\n     <price display=\"yes\">450000.00</price>\n     <priceView>Private Sale $460,000</priceView>\n     <bond />\n     <idealFor />\n     <views />\n     <ecoFriendly>\n       <solarPanels>no</solarPanels>\n       <solarHotWater>no</solarHotWater>\n       <waterTank>no</waterTank>\n       <greyWaterSystem>no</greyWaterSystem>\n     </ecoFriendly>\n     <features>\n       <bedrooms>2</bedrooms>\n       <bathrooms>1</bathrooms>\n       <carports>1</carports>\n       <garages>0</garages>\n       <openSpaces>0</openSpaces>\n       <yearBuilt value=\"1976\" />\n       <yearLastRenovated value=\"1988\" />\n     </features>\n     <landDetails />\n     <buildingDetails />\n     <objects>\n       <img modTime=\"2018-06-15-11:29:16\" file=\"images.jpeg\" id=\"m\" format=\"jpeg\" />\n       <img id=\"a\" />\n     </objects>\n     <videoLink href=\"\" />\n     <externalLink href=\"\" />\n   </residential>\n </propertyList>\n"
+        required: true
+      responses:
+        '202':
+          description: The listing has been accepted for processing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadSuccessResponse'
+        '400':
+          description: Processing the upload request failed. Bad Request, the Xml is invalid..
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '400'
+                  title: Bad Request
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '403':
+          description: Forbidden
+        '404':
+          description: Processing the upload request failed. Verify that the URL is correct.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '404'
+                  title: Not found
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '405':
+          description: Method Not Allowed
+        '406':
+          description: Processing the upload request failed. Verify that `Accept.MediaType` is correct.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '406'
+                  title: Not acceptable
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+        '413':
+          description: Payload Too Large
+        '500':
+          description: Processing the upload request failed. The listing may not have been submitted for processing.
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/Error'
+                example:
+                  status: '500'
+                  title: Unexpected error has occurred
+                  meta:
+                    transactionId: 93ec3fc0-ea59-4b86-a2a0-b158dcfb8f0a
+      security:
+      - PartnerPlatform:
+        - listing:listings:write
+components:
+  schemas:
+    UploadSuccessResponse:
+      type: object
+      properties:
+        uploadId:
+          type: string
+          description: An identifier issued by the API for tracking processing of this listing upload.
+          example: 36d2b88b-aecd-4323-b40c-dad8fb514ea4
+    Error:
+      type: object
+      properties:
+        status:
+          type: string
+        title:
+          type: string
+        meta:
+          type: object
+          properties:
+            transactionId:
+              type: string
+  securitySchemes:
+    PartnerPlatform:
+      type: oauth2
+      description: OAuth 2 Client Credentials grant flow
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.realestate.com.au/oauth/token
+          scopes:
+            listing:listings:write: Upload listings
